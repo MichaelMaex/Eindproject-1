@@ -1,0 +1,48 @@
+\documentclass[a4paper]{memoir}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[backend = biber]{biblatex}
+\addbibresource{references.bib}
+
+\author{Lucas Levrouw \and Michaël Maex \and Thomas Reunbrouck}
+
+\title{Kaplansky's conjectures and sofic groups}
+
+\date{\today}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\DeclareMathOperator{\sym}{Sym}
+\begin{document}
+    \maketitle
+    \chapter{Sofic groups}
+    \begin{definition}
+        Let $\Gamma$ be a countable group. We say that $\Gamma$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : \Gamma \to \sym(d_i)$ such that $\forall\ g, h \in \Gamma:$
+        \begin{itemize}
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \big|\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}\big| = 1$
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \big|\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}\big| = \delta_{e,g}$
+        \end{itemize}
+    \end{definition}
+
+    \begin{definition}\cite{noauthor_folner_2019}
+        Let $G$ be a group. We say that $G$ satisfies the Følner criterion if there is a is a sequence of finite subsets (not subgroups) $F_1, F_2, \dots \subset G$ such that 
+        \begin{itemize}
+            \item for every $g \in G$ there exists and $n \in \N$ such that for all $n > N: x \in F_n$
+            \item for all $g \in G$ 
+            $$\lim_{n\to \infty} \frac{\left| g \cdot F \triangle F \right|}{\left| F \right|} = 0, $$
+            where $\triangle$ denotes the symmetric difference.
+        \end{itemize}
+    \end{definition}
+
+    \printbibliography
+
+\end{document}
