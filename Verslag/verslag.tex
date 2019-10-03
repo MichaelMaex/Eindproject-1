@@ -3,6 +3,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{geometry}
 \usepackage[backend = biber]{biblatex}
@@ -95,6 +96,29 @@
             \item $G$ can be embedded in a direct product of finite groups.
         \end{enumerate}
     \end{definition}
+
+    \begin{theorem}
+        Every countable residually finite group is sofic.
+    \end{theorem}
+    \begin{proof}
+        Let $G$ be a countable residually finite group. As $G$ is countable we can oder the elements non-identity elements $g_1, g_2, g_3, \dots$
+        By the first property of residually finite there exist finite groups $G_1, G_2, G_3, \dots$ and functions $f_1, f_2, f_3, \dots$ such that $f_i: G \to G_i$ is a homomorphism. Consider the direct products $H_n = \prod_{i = 1}^n G_i$ with the induced homomorphisms $h_i: G \to H_i: g \mapsto (f_1(g), f_2(g), \dots, f_i(g))$. Now we will look at the image of $G$ under these morphisms $\Gamma_i = h_i(G)$.
+
+
+        Notice that $\Gamma_i$ is always finite. We will implicitly identify $\sym(\Gamma_i)$ with $\sym(|\Gamma_i|)$.
+        We'll choose $\forall\ i \in \N: d_i = |\Gamma_i|$ and $\phi_i: G \to \sym(\Gamma_i): g \mapsto (a \mapsto ga)$. We claim that these maps satisfy the conditions for $G$ to be sofic.
+
+        For every $k \in \Gamma_i, g, h \in G$ we can see that $(\phi(g) \circ \phi(h))(k) = ghk = \phi(gh)$. So $\{k \in \Gamma_i| (\phi(g) \circ \phi(h))(k) = \phi(gh)\} = \Gamma_i$.
+        Then we can see that for all $g,h \in G$:
+        $$\lim_{i\to \infty} \frac{1}{d_i} \left|\left\{k \in \Gamma_i| (\phi(g) \circ \phi(h))(k) = \phi(gh)\right\}\right| = 1.$$
+
+        For every $g \in G, g\ne 1$ there is an $N \in \N$ such that for every $i > N$, $h_i(G) \ne e$. So it is clear that 
+        $$\lim_{i \to \infty} \frac{1}{d_i} \left| \left\{k \in \Gamma_i \mid \phi(g) = gk \ne k\right\}\right| = 1.$$
+        For $g = e$ we find that 
+        $$\lim_{i \to \infty} \frac{1}{d_i} \left| \left\{k \in \Gamma_i \mid \phi(g) = k \ne k\right\}\right| = 0,$$
+        which proves the second condition. 
+
+    \end{proof}
     \printbibliography
 
 \end{document}
