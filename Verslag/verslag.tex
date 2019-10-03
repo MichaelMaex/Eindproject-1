@@ -3,13 +3,14 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-
+\usepackage{cleveref}
+\usepackage{geometry}
 \usepackage[backend = biber]{biblatex}
 \addbibresource{references.bib}
 
 \author{Lucas Levrouw \and Michaël Maex \and Thomas Reunbrouck}
 
-\title{Kaplansky's conjectures and sofic groups}
+\title{Kaplansky's Conjectures and Sofic Groups}
 
 \date{\today}
 
@@ -21,28 +22,68 @@
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+
 \DeclareMathOperator{\sym}{Sym}
 \begin{document}
     \maketitle
     \chapter{Sofic groups}
     \begin{definition}
         Let $\Gamma$ be a countable group. We say that $\Gamma$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : \Gamma \to \sym(d_i)$ such that $\forall\ g, h \in \Gamma:$
-        \begin{itemize}
+        \begin{enumerate}
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \big|\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}\big| = 1$
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \big|\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}\big| = \delta_{e,g}$
-        \end{itemize}
+        \end{enumerate}
     \end{definition}
 
+    \section{Properties that imply soficity}
     \begin{definition}\cite{noauthor_folner_2019}
         Let $G$ be a group. We say that $G$ satisfies the Følner criterion if there is a is a sequence of finite subsets (not subgroups) $F_1, F_2, \dots \subset G$ such that 
-        \begin{itemize}
-            \item for every $g \in G$ there exists and $n \in \N$ such that for all $n > N: x \in F_n$
+        \begin{enumerate}
+            \item for every $g \in G$ there exists $n \in \N$ such that for all $n > N: x \in F_n$
             \item for all $g \in G$ 
-            $$\lim_{n\to \infty} \frac{\left| g \cdot F \triangle F \right|}{\left| F \right|} = 0, $$
+            $$\lim_{n\to \infty} \frac{\left| gF_i \triangle F_i \right|}{\left| F_i \right|} = 0, $$
             where $\triangle$ denotes the symmetric difference.
-        \end{itemize}
+        \end{enumerate}
     \end{definition}
 
+    \begin{theorem}
+        Every group $G$ that satisfies the Følner criterion is sofic.
+    \end{theorem}
+    \begin{proof}
+        Let $F_1, F_2, F_3, \dots $ be the sequence such that that the Følner criterion is satisfied. Notice that $G = \bigcup_{i \in \N} F_1$ by the first property. So $G$ is countable. 
+        Choose for every $i \in \N: d_i = |F_i|$. We will implicitly identify $\sym(F_i)$ with $\sym(d_i)$. Now choose maps $\phi_i: F_i \to \sym(F_i)$ such that $\phi(g)(h) = gh$ whenever $gh \in F_i$, which is possible due to \cref{lem:finite_bijections}. 
+
+        Fix $g, h \in G$. By the Følner criterion we know that
+        \begin{align*}
+            \lim_{n\to \infty} \frac{\left| gF_i \triangle F_i \right|}{\left| F_i \right|} &= 0\\
+            &= \lim_{n\to \infty} \frac{\left| gF_i \setminus F_i \right| + \left| F_i \setminus gF_i \right|}{d_i}\\
+            &= \lim_{n\to \infty} \frac{2\left| gF_i \setminus F_i \right|}{d_i}\\
+            &= \lim_{n\to \infty} \frac{2\left|\left\{ x \in F_i \mid gx \notin F_i \right\}\right|}{d_i}. 
+        \end{align*}
+        This implies that \begin{equation}\label{eq:proof_folner1}
+            lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx \in F_i \right\}\right|}{d_i} = 1.
+        \end{equation}
+        As $\phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that $$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid \phi(g)(x) = gx \right\}\right|}{d_i} = 1.$$
+        Which proves the second condition for soficity. 
+
+        To proof the first equation, notice that we will substitute $g$ by $h$ and $gh$ in \cref{eq:proof_folner1}.
+        $$ \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx \in F_i \right\}\right|}{d_i} =
+        \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid hx \in F_i \right\}\right|}{d_i} =
+        \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid ghx \in F_i \right\}\right|}{d_i}= 1$$
+        Which means that 
+        $$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx,hx,ghx \in F_i \right\}\right|}{d_i}= 1.$$
+        As $\phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that
+        $$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid (\phi(g) \circ\phi(h))(x) = \phi(gh)(x) \in F_i \right\}\right|}{d_i}= 1.$$
+        This proves the first condition for soficity and concludes the proof. 
+    \end{proof}
+
+    \begin{lemma}\label{lem:finite_bijections} 
+        Let $A$ and $B$ be finite sets such that $|A| = |B|$. Given $A' \subset A, B' \subset B$ and a bijection $f': A' \to B'$ there exists a bijection $f:A \to B$ such that $f|_{A'} = f'$. 
+    \end{lemma}
+    \begin{proof}
+        TBD
+    \end{proof}
     \printbibliography
 
 \end{document}
