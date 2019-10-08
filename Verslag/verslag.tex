@@ -26,9 +26,14 @@
 \newtheorem{lemma}{Lemma}
 
 \DeclareMathOperator{\sym}{Sym}
+
+
 \begin{document}
     \maketitle
     \chapter{Sofic groups}
+
+\section{Definition and examples}
+
     \begin{definition}
         Let $\Gamma$ be a countable group. We say that $\Gamma$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : \Gamma \to \sym(d_i)$ such that $\forall\ g, h \in \Gamma:$
         \begin{enumerate}
@@ -36,6 +41,12 @@
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \big|\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}\big| = \delta_{e,g}$
         \end{enumerate}
     \end{definition}
+
+    % Alternative definitions here (example 2.1.8)
+
+    % Example: Z
+
+    % Example: Direct product of sofic groups is sofic. 
 
     \section{Properties that imply soficity}
     \begin{definition}\cite{noauthor_folner_2019}
