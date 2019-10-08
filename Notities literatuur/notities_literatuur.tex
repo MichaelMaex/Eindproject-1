@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{float}
+\usepackage{grffile}
+
+\usepackage{biblatex} % [backend=biber]
+\addbibresource{project_statI_zit2_bibliografie.bib}
+
+\usepackage[round-mode=figures,round-precision=3]{siunitx} % locale=FR
+\sisetup{separate-uncertainty=true}
+
+\usepackage{csquotes}
+%\DeclareQuoteAlias[american]{english}{dutch}
+
+\usepackage[labelfont=bf, labelsep=space, format=hang]{caption} % lijkt niet te werken 
+\usepackage[labelfont=default]{subcaption}
+
+\usepackage[parfill]{parskip}
+\usepackage{listings}
+
+\usepackage{enumerate}
+
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\idperm}[1]{\mathrm{id}_{S_#1}}
+
+\title{Notities bij literatuur}
+\author{Lucas Levrouw}
+\date{Oktober 2019}
+
+\begin{document}
+
+\maketitle
+
+\section{Capraro-Lupini}
+
+\subsection{Sectie 2.1}
+
+
+\begin{itemize}
+
+\item (page 13) Typo. ``$\ell\left(x y x^{-1}\right)=\ell(x)$'' has to be ``$\ell\left(x y x^{-1}\right)=\ell(y)$''.
+
+\item (page 14) Typo. ``$\ell_{S_{n}}(\sigma)=\frac{1}{n} |\{i \in n: \sigma(i) \neq i\}$'' has to be ``$\ell_{S_{n}}(\sigma)=\frac{1}{n} |\{i \in n: \sigma(i) \neq i\}|$''.
+
+\item (page 14) It is unclear to me (Lucas) exactly what is meant by ``where $r(g)$ is a positive constant depending only on $g$''. Is it implicit that this function is chosen before choosing $\epsilon > 0$ and a finite subset $F \subset \Gamma$, or after?
+
+\item (page 17) Typo. ``$\ell_{H}\left(\Phi(g h) \Phi(h)^{-1} \Phi(g)\right)$'' has to be ``$\ell_{H}\left(\Phi(g h) \Phi(h)^{-1} \Phi(g)\right)$''.
+
+\item (page 17) Excercise 2.1.8
+\begin{proof}
+\underline{$\implies$}: Let $\epsilon > 0$ and $F$ be a finite subset of $\Gamma$. Now choose $r: F \to \mathbb R^+: g \mapsto \ell_{\text{triv}}(g) - \epsilon = 1- \delta_{ge} - \epsilon$.
+There exists a natural number $n$ and a $(F, \epsilon)$-approximate morphism $\Phi: \Gamma \to S_n$. This implies $\Phi(e) = \idperm{n}$ and
+\begin{align*}
+\forall g,h \in F \setminus \{e\} : &\quad d_{S_n}(\Phi(gh),\Phi(g)\Phi(h)) < \epsilon \\
+									&\quad \ell_{S_n}(\Phi(g)) > \ell_{\text{triv}}(g)-\epsilon = r(g).
+\end{align*}
+Thus $\Gamma$ is sofic.
+
+\textbf{Note}: Here I have chosen $r$ after choosing $\epsilon$ and $F$.
+
+\underline{$\impliedby$}: Let $\epsilon > 0$ and $F$ be a finite subset of $Gamma$. Then there exists a natural number $n$ and a map $\phi: \Gamma \to S_n$ such that 
+$\phi(e) = \idperm{n}$ and
+\begin{align*}
+\forall g,h \in F \setminus \{e\} : &d_{S_n}(\phi(gh),\phi(g)\phi(h)) < \epsilon \\
+									&\ell_{S_n}(\phi(g)) > r(g).
+\end{align*}
+Since $0 < r(g) < 1$ for all $g \in F \setminus \{e\}$, it is possible to find a $k \in \mathbb N$ such that $\forall g \in F: (1-r(g))^k < \epsilon$. Let $N = n^k$ and define $\Phi: F \to S_N$ by $\Phi(g) = \phi(g)^{\otimes k}$ (as explained on page 17). Then $1-\ell_{S_N}(\Phi(g)) = 1-\ell_{S_{n^k}}(\phi(g)^{\otimes k}) = (1-\ell_{S_n}(\phi(g)))^k$.
+
+Now we have the following, for every $g,h \in F$
+\begin{align*}
+d_{S_N}(\Phi(gh, \Phi(g) \Phi(h))) &= \ell_{S_N}(\Phi(gh)\Phi(g)^{-1}\Phi(h)^{-1})\\
+&= \ell_{S_{n^k}}(\phi(gh)^{\otimes k}(\phi(g)^{-1})^{\otimes k}(\phi(h)^{-1})^{\otimes k}) \\
+&< \ell_{S_n}(\phi(gh)\phi(g)^{-1}\phi(h)^{-1}) \\
+&< \epsilon.
+\end{align*}
+Furthermore, 
+\[
+\forall g \in \Gamma \setminus \{e\} : |\ell_{S_N}(\Phi(g))-\ell_{\text{triv}}(g)| = 1-\ell_{S_N}(\Phi(g)) = (1-\ell_{S_n}(\phi(g)))^k < (1-r(g))^k
+< \epsilon
+\]
+This concludes the proof that $\Phi$ is an $(F, \epsilon)$-approximate morphism.
+\end{proof}
+
+\end{itemize}
+
+
+
+\end{document}
