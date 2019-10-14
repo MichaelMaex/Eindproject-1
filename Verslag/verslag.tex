@@ -49,7 +49,7 @@
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g},$
         \end{enumerate}
-        where $\delta_{e,g}$ is 1 if $g = e$ and 0 otherwise.
+        where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
     \end{definition}
 
     % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
@@ -59,6 +59,8 @@
     % Example: Direct product of sofic groups is sofic. 
 
     \section{Properties that imply soficity}
+
+
     \begin{definition}\cite{noauthor_folner_2019}
         Let $G$ be a group. We say that $G$ satisfies the Følner criterion if there is a is a sequence of finite subsets (not subgroups) $F_1, F_2, \dots \subset G$ such that 
         \begin{enumerate}
@@ -69,6 +71,20 @@
         \end{enumerate}
     \end{definition}
 
+To prove that each group that satisfies the Følner criterion, is sofic, we first need the following set-theoretic lemma.
+
+    \begin{lemma}\label{lem:finite_bijections} 
+        Let $A$ and $B$ be finite sets such that $|A| = |B|$. Given $A' \subset A, B' \subset B$ and a bijection $f': A' \to B'$ there exists a bijection $f: A \to B$ such that $f|_{A'} = f'$. 
+    \end{lemma}
+    \begin{proof}
+        Since $\card A = \card B$ and $\card{A'} = \card{B'}$,
+        \[
+        \card{A \setminus A'} = \card A - \card{A'} = \card B - \card{B'} = \card{B \setminus B'}.
+        \]
+        Therefore there exists a bijection $g: A \setminus A' \to B \setminus B'$. Define $f: A  \to B$ by $f(x) = f'(x)$ for all $x \in A'$ and $f(x)=g(x)$ for all $x \in A \setminus A'$. Then $f$ is a bijection and $f|_{A'} = f'$.
+    \end{proof}
+
+
     \begin{theorem}
         Every group $G$ that satisfies the Følner criterion is sofic.
     \end{theorem}
@@ -76,16 +92,6 @@
         \input{proof_folner}
     \end{proof}
 
-    \begin{lemma}\label{lem:finite_bijections} 
-        Let $A$ and $B$ be finite sets such that $|A| = |B|$. Given $A' \subset A, B' \subset B$ and a bijection $f': A' \to B'$ there exists a bijection $f: A \to B$ such that $f|_{A'} = f'$. 
-    \end{lemma}
-    \begin{proof}
-        Since $\card A = \card B$ and $\card A' = \card B'$,
-        \[
-        \card{A \setminus A'} = \card A - \card A' = \card B - \card B' = \card{B \setminus B'}.
-        \]
-        Therefore there exists a bijection $g: A \setminus A' \to B \setminus B'$. Define $f: A  \to B$ by $f(x) = f'(x)$ for all $x \in A'$ and $f(x)=g(x)$ for all $x \in A \setminus A'$. Then $f$ is a bijection and $f|_{A'} = f'$.
-    \end{proof}
 
     \begin{definition}\cite{noauthor_residually_2018}
         We say that a group $G$ is residually finite if it adheres to the following equivalent properties.
@@ -97,6 +103,9 @@
             \item $G$ can be embedded in a direct product of finite groups.
         \end{enumerate}
     \end{definition}
+
+% Proof that these are equivalent?
+
 
     \begin{theorem}
         Every countable residually finite group is sofic.
