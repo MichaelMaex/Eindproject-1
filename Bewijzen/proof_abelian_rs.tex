@@ -1,0 +1,14 @@
+G is countable so we can write $G = \{e, g_1, g_2, g_3, \dots\}$.
+Consider the sequence of sets $F_n = \{\prod_{i = 1}^n g_i a^{i} \mid \card{a_i} \le n\}$. 
+It is clear that this set adheres to the first condition of the folner criterion. 
+
+Fix $g_j \in G$. Take any $n > j$.
+Let $H_n = \{\prod_{i = 1, i \ne j}^n g_i a^{i} \mid \card{a_i} \le n\}$.
+Notice that $\bigcup_{i = -m}^{m} g^{i}H_n = F_n$.
+Define the finite sequence of sets $(B_m)_m$ for $m = \{-n, \dots, n+1\}$ such that  
+$B_m = g^mH_n \setminus \bigcup_{i=-n}^{m-1}g^iH_n$.
+It should be clear that \[
+    \bigcup_{i = -n}^n B_n = F_n 
+.\] 
+and is is a disjoint union. It follows that $\sum_{n=-m}^{m} \ca
+Claim $b_m$ is decreasing, $b_n = \frac{1}{2} \card{gF_n \triangle F_n}$ 

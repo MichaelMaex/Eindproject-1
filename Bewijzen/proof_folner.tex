@@ -3,18 +3,23 @@ Choose for every $i \in \N: d_i = |F_i|$. We will implicitly identify $\sym(F_i)
 
 Fix $g, h \in G$. By the Følner criterion we know that
 \begin{align*}
-    \lim_{n\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} &= 0\\
-    &= \lim_{n\to \infty} \frac{\card{gF_i \setminus F_i} + \card{F_i \setminus gF_i}}{d_i}\\
-    &= \lim_{n\to \infty} \frac{2\card{ gF_i \setminus F_i }}{d_i}\\
-    &= \lim_{n\to \infty} \frac{2\card{\left\{ x \in F_i \mid gx \notin F_i \right\}}}{d_i}. 
+    \lim_{i\to \infty} \frac{\card{g^{-1}F_i \triangle F_i}}{\card{F_i}} &= 0\\
+    &= \lim_{i\to \infty} \frac{\card{g^{-1}F_i \setminus F_i} + \card{F_i \setminus g^{-1}F_i}}{d_i}\\
+    &= \lim_{i\to \infty} \frac{2\card{ F_i \setminus g^{-1}F_i }}{d_i}\\
+    &= \lim_{i\to \infty} \frac{2\card{\left\{ x \in F_i \mid gx \notin F_i \right\}}}{d_i}. 
 \end{align*}
-This implies that \begin{equation}\label{eq:proof_folner1}
-    \lim_{n\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \in F_i \right\}}}{d_i} = 1.
+This implies that \begin{equation}
+    \lim_{n\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \in F_i \right\}}}{d_i} = 1,
 \end{equation}
-As $\phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that $$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid \phi(g)(x) = gx \right\}\right|}{d_i} = 1.$$
+or equivalently 
+\begin{equation}\label{eq:proof_folner1}
+    \lim_{n\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \notin F_i \right\}}}{d_i} = 0
+\end{equation}
+As $\phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that 
+$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid \phi(g)(x)\ne gx \right\}\right|}{d_i} = 0.$$
 Which proves the second condition for soficity. 
 
-To prove the first equation, notice that we will substitute $g$ by $h$ and $gh$ in \cref{eq:proof_folner1}.
+To prove the first equation, notice that we can substitute $g$ by $h$ and $gh$ in \cref{eq:proof_folner1}.
 $$ \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx \in F_i \right\}\right|}{d_i} =
 \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid hx \in F_i \right\}\right|}{d_i} =
 \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid ghx \in F_i \right\}\right|}{d_i}= 1$$

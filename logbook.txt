@@ -1,5 +1,5 @@
 
-01/10/2019: Michaël: initial reading
+01/10/2019: Michaël: initial reading, Capraro, Lupini section 2.1, Residually finite, Følner sequence.
 02/10/2019: Michaël: found and wrote down proof Folner => Sofic
 03/10/2019: Michaël: found and wrote down proof Residually finite => Sofic
 13/10/2019: Michaël: added examples of sophic groups: 
