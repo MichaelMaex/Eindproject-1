@@ -15,7 +15,7 @@
 %or: \def\input@path{{/path/to/folder/}{/path/to/other/folder/}}
 \makeatother
 
-\author{Lucas Levrouw \and Michaël Maex \and Thomas Reunbrouck}
+\author{Lucas Levrouw \and Michaël Maex \and Tomas Reunbrouck}
 
 \title{Kaplansky's Conjectures and Sofic Groups}
 
@@ -49,7 +49,7 @@
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g}$,
         \end{enumerate}
-        where $\delta_{e,g}$ is 1 if $g = e$ and 0 otherwise.
+        where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
     \end{definition}
 
     % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
@@ -57,6 +57,7 @@
     % Example: Z
 
     % Example: Direct product of sofic groups is sofic. 
+
 
     \section{Properties that imply soficity}
 
@@ -72,34 +73,38 @@
     \end{proof}
 
     \begin{definition}\cite{noauthor_folner_2019} \label{def:folner}
-        Let $G$ be a group. We say that $G$ satisfies the Følner criterion if there is a is a sequence of finite subsets (not subgroups) $F_1, F_2, \dots \subset G$ such that 
+        Let $G$ be a group. We say that $G$ satisfies the Følner criterion if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that 
         \begin{enumerate}
-            \item for every $g \in G$ there exists $n \in \N$ such that for all $n > N: x \in F_n$
+            \item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
             \item for all $g \in G$ 
             $$\lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0, $$
             where $\triangle$ denotes the symmetric difference.
         \end{enumerate}
     \end{definition}
 
-    \begin{theorem}
+To prove that each group that satisfies the Følner criterion, is sofic, we first need the following set-theoretic lemma.
+
+
+ 	\begin{theorem}
         Every group $G$ that satisfies the Følner criterion is sofic.
     \end{theorem}
     \begin{proof}
         \input{proof_folner}
-    \end{proof}
+ 	\end{proof}
 
-
-
-    \begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
-        We say that a group $G$ is residually finite if it adheres to the following equivalent properties.
+\begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
+       We say that a group $G$ is residually finite if it adheres to one of the following equivalent properties.
         \begin{enumerate}
-            \item For every $g \in G, g\ne e$ there is an homophorphism $f:G \to H$ such that $f(g) \ne e$.
-            \item For every $g \in G, g \ne e$ there is a normal subgroup $H$ such that $g \notin H$.
+            \item For every $g \in G\backslash\{e\}$ there exists a finite group $H$ and a homophorphism $f:G \to H$ such that $f(g) \ne e$.
+            \item For every $g \in G\backslash\{e\}$ there exists a normal subgroup $H$ such that $g \notin H$.
             \item The intersection of all subgroups of finite index is $\{e\}$.
             \item The intersection of all normal subgroups is $\{e\}$.
             \item $G$ can be embedded in a direct product of finite groups.
         \end{enumerate}
     \end{definition}
+
+% Proof that these are equivalent?
+
 
     \begin{theorem}
         Every countable residually finite group is sofic.
@@ -120,7 +125,9 @@
         \item subgroups of sophic groups
         \item free product of sophic groups
         \item direct product/sum of infinite groups
-    \end{itemize}     
-    Does this update automatically
+    \end{itemize}
+
+    
     \printbibliography
+
 \end{document}
