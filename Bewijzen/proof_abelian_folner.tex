@@ -1,0 +1,29 @@
+G is countable so we can write $G = \{e, g_1, g_2, g_3, \dots\}$.
+Consider the sequence of sets $$F_n = \left\{\prod_{i = 1}^n g_i a^{i} \mid \card{a_i} \le n\right\}.$$ 
+It is clear that this set adheres to the first condition of the folner criterion. 
+Fix $g_j \in G$. Take any $n > j$.
+Let $$H = \left\{\prod_{i = 1, i \ne j}^n g_i a^{i} \mid \card{a_i} \le n\right\}.$$
+Notice that $\bigcup_{i = -m}^{m} g^{i}H = F_n$.
+Define the finite sequence of sets $(B_m)_m$ for $m \in \{-n, \dots, n+1\}$ such that  
+$B_m = g^mH \setminus \bigcup_{i=-n}^{m-1}g^iH$.
+It should be clear that the elements of $(B_n)$ are pairwise disjoint and that  \[
+    \bigcup_{i = -n}^n B_n = F_n 
+.\] 
+It follows that $\sum_{i=-m}^{m} \card{B_i} = \card{F_n}$. We know that 
+\begin{align*}
+    \card{gF_n \triangle F_n} &= 2 \card{gF_n \setminus F_n} \\
+    &= 2 \card{\bigcup_{i = -n}^n g^{i+1}H \setminus \bigcup_{i = -n}^n g^{i}H}\\
+    &=  2 \card{g^{n+1}H \setminus \bigcup_{i = -n}^n g^{i}H}\\
+    &= 2 \card{B_{n+1}}
+\end{align*}
+So to show that the $F_n$ adheres to the second condition of the folner criterion, it is sufficient to show that $\frac{\card{B_{n+1}}}{\card{F_n}} \to 0$ as $n \to \infty$.
+
+We claim that $(\card{B_m})$ is a non-increasing sequence. The following calculation shows this.
+\begin{align*}
+    \card{B_m} &= \card{g^{m}H \setminus \bigcup_{i=-n}^{m-1}g^iH}\\
+    &= \card{g^{m-1}H \setminus \bigcup_{i=-n}^{m-1}g^{i-1}H}\\
+    &= \card{g^{m-1}H \setminus \bigcup_{i=-n-1}^{m-2}g^{i}H}\\
+    &\le \card{g^{m-1}H \setminus \bigcup_{i=-n}^{m-2}g^{i-1}H} = \card{B_{m-1}}
+\end{align*}
+So $\card{F_n} = \sum_{i=-n}^{n} \card{B_i} \le (2n+1) \card{B_{m+1}}$, which means that $$\frac{\card{B_{m+1}}}{\card{F_n}} \le \frac{1}{2n+1}.$$
+So we find that $\frac{\card{B_{n+1}}}{\card{F_n}} \to 0$ which concludes the proof. 
