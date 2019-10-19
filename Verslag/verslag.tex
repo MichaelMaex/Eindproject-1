@@ -7,6 +7,8 @@
 \usepackage{cleveref}
 \usepackage{geometry}
 \usepackage{enumerate}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
 \usepackage[backend = biber]{biblatex}
 \addbibresource{references.bib}
 
@@ -28,6 +30,8 @@
 \newcommand{\C}{\mathbb{C}}
 
 \newcommand{\card}[1]{\left| #1 \right|}
+\newcommand{\inclusion}[1]{\xhookrightarrow[#1]}
+\newcommand{\surjection}[1]{\xtwoheadrightarrow[#1]}
 \DeclareMathOperator{\sym}{Sym}
 
 \newtheorem{theorem}{Theorem}
@@ -127,11 +131,25 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
         \item direct product/sum of infinite groups
     \end{itemize}
 
-    \begin{theorem}
+    \begin{theorem}\label{thm:countable_abelian_folner}
         Every countable abelian group satisfies the Folner criterion. 
     \end{theorem}
     \begin{proof}
-        \include{proof_abelian_folner}
+        \input{proof_abelian_folner}
+    \end{proof}
+
+    \begin{lemma}
+        \label{lem:ameanable_short_exact_sequence}
+        Let $A, B, C$ be groups with morphism $f:A\to B, g:B\to C$ such that
+        \[\begin{tikzcd}
+            A \arrow[r, "f", hook] & B \arrow[r, "g", two heads] & C
+        \end{tikzcd}\] is a short exact sequence. Then $A$ and $B$ are ameanable if and only if $C$ is ameanable.
+    \end{lemma}
+    \begin{theorem}
+        Every countable solvable group is ameanable. 
+    \end{theorem}
+    \begin{proof}
+        \input{proof_solvable_ameanable}
     \end{proof}
     
     \printbibliography
