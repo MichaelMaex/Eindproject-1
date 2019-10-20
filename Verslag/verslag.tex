@@ -28,6 +28,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
 
 \newcommand{\card}[1]{\left| #1 \right|}
 \newcommand{\inclusion}[1]{\xhookrightarrow[#1]}
@@ -37,7 +38,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
-
+\newtheorem{conjecture}{Conjecture}
 \newtheorem{example}{Example}
 
 
@@ -151,7 +152,28 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
     \begin{proof}
         \input{proof_solvable_ameanable}
     \end{proof}
-    
-    \printbibliography
+	\section{Outline of the proof of Kaplansky's direct finiteness condition for finite fields}
+	\begin{conjecture}[Gottschalk] \label{conj:gottschalk}
+		Let $G$ be a countable group and $A$ a finite set. 
+		Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
+		Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
+	\end{conjecture}
 
+	Let $\F$ a finite field. There exists a natural bijection \[
+		i:\F^{G}\to \F\left[ G \right]: \left( x_{g} \right)_{g\in G} \mapsto  \sum_{g\in G} x_g \cdot g .
+	\] 
+	Let $g$ be any left-invertible element of $\F[G]$ and let $g^{-1}$ be that left inverse. 
+	Consider the map $f:\F[G] \to \F[G] : x \mapsto  g \cdot x \cdot g^{-1}$. 
+	Because $ g$ is left-invertible the map $f$ is injective. 
+	Then $\phi = i^{-1}\circ f \circ i$ is an injective continous function from $A^{G} \to A^{G}$ such that $\phi$ commutes with $\gamma$.
+	(TODO: proof that $\phi$ is continous (hard) and commutes with $\gamma$ (easy))
+	By the Gottschalk conjecture (\cref{conj:gottschalk}) we know that $\phi$ is surjective. 
+	It follows that $f$ is surjective as well. Therefore there exists a $y \in \F^{G}$ such that $f(y) = g\cdot y \cdot g^{-1} = g^{-1}$. So \[
+	g \cdot y \cdot g^{-1} \cdot g = g^{-1} \cdot g
+	.\] 
+	Which implies \[
+	g\cdot y = e
+	,\] 
+	which concludes the proof.
+	\printbibliography
 \end{document}
