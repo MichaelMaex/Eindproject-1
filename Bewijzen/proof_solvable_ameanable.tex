@@ -1,8 +1,8 @@
 Let $G$ be a countable solvable group. Then there exists a finite sequence of subgroups such that 
 $$\{e\} = G_0 \triangleleft G_1 \triangleleft G_2 \triangleleft \dots \triangleleft G_n = G,$$ and for every $i, 0\le i<n$, the quotient $\frac{G_{i+1}}{G_i}$ is commutative. 
-It is clear that $G_0$ ameanable is. We will now use finite induction to show that $G$ is ameanable as well. 
+It is clear that $G_0$ is ameanable. We will now use finite induction to show that $G$ is ameanable as well. 
 Take any $i, 0\le i<n$ and assume that $G_i$ is ameanable. Then 
 \[\begin{tikzcd}
     G_i \arrow[r, "Id", hook] & G_{i+1} \arrow[r, "\pi", two heads] & \frac{G_{i+1}}{G_i}
     \end{tikzcd}\]
-is a short exact sequence. Because $\frac{G_{i+1}}{G_i}$ is commutative we know by \cref{thm:countable_abelian_folner} that is is ameanable. We assumed that $G_i$ is ameanable as well. By \cref{lem:ameanable_short_exact_sequence} we find that $G_{i+1}$ is ameanable as well. This finishes the induction so we can conclude that $G_n = G$ is ameanable.
+is a short exact sequence. Because $\frac{G_{i+1}}{G_i}$ is commutative we know by \cref{thm:countable_abelian_folner} that is is ameanable. We assumed that $G_i$ is ameanable as well. By \cref{lem:ameanable_short_exact_sequence} we find that $G_{i+1}$ is ameanable as well. This finishes the induction and thus we can conclude that $G_n = G$ is ameanable.
