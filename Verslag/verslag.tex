@@ -158,22 +158,31 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
 		Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
 		Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
 	\end{conjecture}
-
-	Let $\F$ a finite field. There exists a natural bijection \[
-		i:\F^{G}\to \F\left[ G \right]: \left( x_{g} \right)_{g\in G} \mapsto  \sum_{g\in G} x_g \cdot g .
-	\] 
-	Let $g$ be any left-invertible element of $\F[G]$ and let $g^{-1}$ be that left inverse. 
-	Consider the map $f:\F[G] \to \F[G] : x \mapsto  g \cdot x \cdot g^{-1}$. 
-	Because $ g$ is left-invertible the map $f$ is injective. 
-	Then $\phi = i^{-1}\circ f \circ i$ is an injective continous function from $A^{G} \to A^{G}$ such that $\phi$ commutes with $\gamma$.
-	(TODO: proof that $\phi$ is continous (hard) and commutes with $\gamma$ (easy))
-	By the Gottschalk conjecture (\cref{conj:gottschalk}) we know that $\phi$ is surjective. 
-	It follows that $f$ is surjective as well. Therefore there exists a $y \in \F^{G}$ such that $f(y) = g\cdot y \cdot g^{-1} = g^{-1}$. So \[
-	g \cdot y \cdot g^{-1} \cdot g = g^{-1} \cdot g
+	\begin{lemma}
+		For group $G$ and field $\mathbb K$ then $\mathbb{K}[[G]]$ is a left and right $\mathbb{K}[[G]]$-module
+	\end{lemma}
+	\begin{proof}
+		TODO
+	\end{proof}
+	\begin{lemma}
+		For finite field $\F$ and group $G$ there is a natural bijection from $\F[[G]]$ to $\F^{G}$ given by \begin{align*}
+			i: \F[[G]] &\longrightarrow \F^{G} \\
+			\sum_{g \in G}^{ } x_{g}g &\longmapsto (x_g)_g
+		.\end{align*}
+	\end{lemma}
+	\begin{proof}
+		TODO
+	\end{proof}
+	So we can consider $\F^G$ as a module over $\F[G]$. We will implicitely identify both sets.
+	Let $a\in \F[G]$ be left invertible with left inverse $a^{-1}$. Consider the function $\phi: \F[[G]] \to \F[[G]]: x \mapsto a\cdot x \cdot a^{-1}$. This function is injective, continous and commutes with $\gamma$ (\textbf{this still needs to be proven}).
+	By the Gootschalk conjecture \ref{conj:gottschalk}, we find that $\phi$ is surjective. Therefor there exists a $y \in \F[[G]]$ such that \[
+		\phi(y) = a \cdot y \cdot a ^{-1} = a^{-1}
 	.\] 
-	Which implies \[
-	g\cdot y = e
-	,\] 
-	which concludes the proof.
+	Which means that  \[
+	a^{-1} a y a^{-1} a = y =a^{-1} a^{-1} a
+	.\] 
+	This means that $y \in \F[G]$. Further we find that \[
+	a y a^{-1} a = a y  = a^{-1} a
+	.\] We conclude that $a$ is right invertible as well. 
 	\printbibliography
 \end{document}

@@ -4,4 +4,4 @@
 03/10/2019: Michaël: found and wrote down proof Residually finite => Sofic
 13/10/2019: Michaël: added examples of sophic groups:
 16/10/2019: everyone: found proof finete abelian groups are ameanable and that solvable groups are ameanable
-20/10/2019: Michael: worked out outline for the proof of Kalpanksy's conjecture for finite fieds. 
+20/10/2019: Michael: worked out outline for the proof of Kalpanksy's conjecture for finite fieds. (well there are a lot of errors in it).  
