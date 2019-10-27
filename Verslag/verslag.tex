@@ -184,15 +184,15 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
 		TODO
 	\end{proof}
 	So we can consider $\F^G$ as a module over $\F[G]$. We will implicitely identify both sets.
-	Let $a\in \F[G]$ be left invertible with left inverse $a^{-1}$. Consider the function $\phi: \F[[G]] \to \F[[G]]: x \mapsto a\cdot x \cdot a^{-1}$. This function is injective, continous and commutes with $\gamma$ (\textbf{this still needs to be proven}).
+	Let $a\in \F[G]$ be left invertible with left inverse $b$. Consider the function $\phi: \F[[G]] \to \F[[G]]: x \mapsto a\cdot x \cdot b$. This function is injective, continous and commutes with $\gamma$ (\textbf{this still needs to be proven}).
 	By the Gottschalk conjecture \ref{conj:gottschalk}, we find that $\phi$ is surjective. Therefore there exists a $y \in \F[[G]]$ such that \[
-		\phi(y) = a \cdot y \cdot a ^{-1} = a^{-1}
+		\phi(y) = a \cdot y \cdot b = b
 	.\] 
 	Which means that  \[
-	a^{-1} a y a^{-1} a = y =a^{-1} a^{-1} a
+	b a y b a = y =b b a
 	.\] 
 	This means that $y \in \F[G]$. Further we find that \[
-		a y a^{-1} a = a y  = a^{-1} a = 1
+		a y b a = a y  = b a = 1
 .\] We conclude that $a$ is right invertible as well. 
 	\printbibliography
 \end{document}
