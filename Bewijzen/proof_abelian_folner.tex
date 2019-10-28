@@ -1,9 +1,9 @@
 G is countable so we can write $G = \{e, g_1, g_2, g_3, \dots\}$.
-Consider the sequence of sets $$F_n = \left\{\prod_{i = 1}^n g_i a^{i} \mid \card{a_i} \le n\right\}.$$ 
+Consider the sequence of sets $$F_n = \left\{\prod_{i = 1}^n g_i^{a_i} \mid \card{a_i} \le n\right\}.$$ 
 It is clear that this set adheres to the first condition of the folner criterion. 
 Fix $g_j \in G$. Take any $n > j$.
-Let $$H = \left\{\prod_{i = 1, i \ne j}^n g_i a^{i} \mid \card{a_i} \le n\right\}.$$
-Notice that $\bigcup_{i = -m}^{m} g^{i}H = F_n$.
+Let $$H = \left\{\prod_{i = 1, i \ne j}^n g_i^{a_i} \mid \card{a_i} \le n\right\}.$$
+Notice that $\bigcup_{i = -n}^{n} g^{i}H = F_n$.
 Define the finite sequence of sets $(B_m)_m$ for $m \in \{-n, \dots, n+1\}$ such that  
 $B_m = g^mH \setminus \bigcup_{i=-n}^{m-1}g^iH$.
 It should be clear that the elements of $(B_n)$ are pairwise disjoint and that  \[
@@ -25,5 +25,5 @@ We claim that $(\card{B_m})$ is a non-increasing sequence. The following calcula
     &= \card{g^{m-1}H \setminus \bigcup_{i=-n-1}^{m-2}g^{i}H}\\
     &\le \card{g^{m-1}H \setminus \bigcup_{i=-n}^{m-2}g^{i-1}H} = \card{B_{m-1}}
 \end{align*}
-So $\card{F_n} = \sum_{i=-n}^{n} \card{B_i} \le (2n+1) \card{B_{m+1}}$, which means that $$\frac{\card{B_{m+1}}}{\card{F_n}} \le \frac{1}{2n+1}.$$
+So $\card{F_n} = \sum_{i=-n}^{n} \card{B_i} \le (2n+1) \card{B_{n+1}}$, which means that $$\frac{\card{B_{n+1}}}{\card{F_n}} \le \frac{1}{2n+1}.$$
 So we find that $\frac{\card{B_{n+1}}}{\card{F_n}} \to 0$ which concludes the proof. 
