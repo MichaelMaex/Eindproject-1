@@ -2,9 +2,11 @@
 01/10/2019: Michaël: initial reading, Capraro, Lupini section 2.1, Residually finite, Følner sequence.
 02/10/2019: Michaël: found and wrote down proof Folner => Sofic
 03/10/2019: Michaël: found and wrote down proof Residually finite => Sofic
-6/10/2019: Lucas: Looked at Capraro-Lupini, proved that the definiton given there is equivalent with our definition
-9/10/2019: Lucas: written down the proof of lemma about bijections needed for proof folner => sofic
+06/10/2019: Lucas: Looked at Capraro-Lupini, proved that the definiton given there is equivalent with our definition
+07/10/2019: Tomas: initial reading, trying to understand the different definitions of soficity
+09/10/2019: Lucas: written down the proof of lemma about bijections needed for proof folner => sofic
 13/10/2019: Michaël: added examples of sophic groups:
 16/10/2019: everyone: found proof finete abelian groups are amenable and that solvable groups are ameanable
 20/10/2019: Mihael: worked out outline for the proof of Kalpanksy's conjecture for finite fieds. (well there are a lot of errors in it).  
 27/10/2019: Lucas: read the Weiss paper; looked at the proofs of surjunctivity for the case of the integers and residually finite groups
+27/10/2019: Tomas: read Weiss's paper
