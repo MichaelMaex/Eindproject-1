@@ -43,12 +43,15 @@
 
 
 \begin{document}
+\pagenumbering{Alph}
     \maketitle
+\pagenumbering{arabic}
+
     \chapter{Sofic groups}
 
 \section{Definition and examples}
 
-    \begin{definition}\label{def:Sophic}
+    \begin{definition}\label{def:Sofic}
         Let $\Gamma$ be a countable group. We say that $\Gamma$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : \Gamma \to \sym(d_i)$ such that $\forall\ g, h \in \Gamma$:
         \begin{enumerate}[(i)]
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
@@ -118,17 +121,17 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
         \input{proof_residually_finite}
     \end{proof}
 
-    \subsection{Examples of Sophic Groups}
+    \subsection{Examples of Sofic Groups}
     \begin{description}
         \item[Finite groups] Every finite group, $G$ satisfies the Følner criterion, as the taking $(G)_n$ as sequence satisfies the properties in \cref{def:folner}.
         \item[Cyclic groups] All finite cyclic groups are taken care of by the previous example. We only need to check $\Z,+$. This group is residually finite as for every $n \in \Z, n \ne 0$ we can consider the natural morphism $\Z \to \Z /(|n|+1)\Z: x \mapsto x \mod |n|+1$. 
-        \item[The finite direct product of Sophic groups] Let $G, H$ be sophic groups with sequence $d_i, e_i$ and maps $\sigma_i, \phi_i$ such that the properties of \cref{def:Sophic} hold. It can be (easily) verified that the sequence $(d_i + e_i)_i$ and maps $\psi_i: G \times H \to \sym(d_i + e_i): x (x \le d_i) \mapsto \sigma_i(x), x (x > d_i) \mapsto \phi_i(x -d_i) + d_i$ satisfy \cref{def:Sophic}.
+        \item[The finite direct product of Sofic groups] Let $G, H$ be sofic groups with sequence $d_i, e_i$ and maps $\sigma_i, \phi_i$ such that the properties of \cref{def:Sofic} hold. It can be (easily) verified that the sequence $(d_i + e_i)_i$ and maps $\psi_i: G \times H \to \sym(d_i + e_i): x (x \le d_i) \mapsto \sigma_i(x), x (x > d_i) \mapsto \phi_i(x -d_i) + d_i$ satisfy \cref{def:Sofic}.
         \item[Finitely generated free groups] They are residually finite.
     \end{description}
     \paragraph{conjectures}
     \begin{itemize}
-        \item subgroups of sophic groups
-        \item free product of sophic groups
+        \item subgroups of sofic groups
+        \item free product of sofic groups
         \item direct product/sum of infinite groups
     \end{itemize}
 
@@ -152,21 +155,65 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
     \begin{proof}
         \input{proof_solvable_amenable}
     \end{proof}
-	\section{Outline of the proof of Kaplansky's direct finiteness condition for finite fields}
+
+    \section{Surjunctivity}
+
+    In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.
+
     \begin{definition}
-        Let $G$ be a countable group and $A$ a finite set. 
-        Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-        The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
+        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\sigma$ is defined by
+        \[
+        \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \sigma_g(\omega),
+        \]
+        where $\sigma_g$ is defined by $\sigma_g\left( (x_{h})_{h \in G} \right) = \left( x_{gh} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
+    \end{definition}
+
+    One can see that $\sigma$ is a $G$-action on $A^G$.
+    \begin{definition}
+        % Let $G$ be a countable group and $A$ a finite set. 
+        % Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
+        % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
+        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma_g$ for all $g \in G$ is also surjective.
     \end{definition}
 
     \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
-    Every countable group is surjunctive.
+        Every countable group is surjunctive.
     \end{conjecture}
-	% \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
-	% 	Let $G$ be a countable group and $A$ a finite set. 
-	% 	Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-	% 	Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
-	% \end{conjecture}
+    % \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
+    %   Let $G$ be a countable group and $A$ a finite set. 
+    %   Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
+    %   Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
+    % \end{conjecture}
+
+    It can be proven that every sofic group is surjunctive. However, the proof is not easy. That's why we'll prove it first for the special case of residually finite groups. We will need the following definition
+
+    \begin{definition}
+        Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of $H$-periodic points is the following subset of $A^G$.
+        \[
+        P_H = \{ \omega \in A^G  \mid \forall h \in H: \sigma_h\omega = \omega\}
+        \]
+    \end{definition}
+
+    Since $H$ is of finite index, this set is finite. % more explanation needed
+    A key lemma we will further need in our proof of theorem ... is the following
+
+    \begin{lemma} \label{lem:h-periodic_points}
+    The $H$-periodic points are dense in $A^G$.
+    \end{lemma}
+    \begin{proof}
+    ...
+    \end{proof}
+
+    \begin{theorem} \label{thm:res_fin_surjunctive}
+    Every residually finite group is surjunctive.
+    \end{theorem}
+    \begin{proof}
+    \input{proof_residually_finite_surjunctive}
+    \end{proof}
+
+    
+
+	\section{Outline of the proof of Kaplansky's direct finiteness condition for finite fields}
 
 	\begin{lemma}
 		For group $G$ and field $\mathbb K$ then $\mathbb{K}[[G]]$ is a left and right $\mathbb{K}[G]$-module
