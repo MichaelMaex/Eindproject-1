@@ -10,3 +10,4 @@
 20/10/2019: Mihael: worked out outline for the proof of Kalpanksy's conjecture for finite fieds. (well there are a lot of errors in it).  
 27/10/2019: Lucas: read the Weiss paper; looked at the proofs of surjunctivity for the case of the integers and residually finite groups
 27/10/2019: Tomas: read Weiss's paper
+3/11/2019: read a bit about entropy specifically in Ker-Li but also in a document from Damien Gaboriau i found online. Edited the document and added the proof residually finite => surjunctive.
