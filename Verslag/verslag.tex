@@ -158,22 +158,32 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
 
     \section{Surjunctivity}
 
+    First we define a basic concept in group theory.
+
+    \begin{definition} % van wikipedia gehaald
+        Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X$ is called an action if
+        \begin{enumerate}[(i)]
+            \item $\forall x \in X, \alpha_e(x) = x$
+            \item $\forall g,h \in G, x\in X, \alpha_{gh}(x) = \alpha_g(\alpha_h(x))$.
+        \end{enumerate}
+    \end{definition}
+
     In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.
 
     \begin{definition}
-        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\sigma$ is defined by
+        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\gamma$ of $G$ on $A$ is defined by
         \[
-        \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \sigma_g(\omega),
+        \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \gamma_g(\omega),
         \]
-        where $\sigma_g$ is defined by $\sigma_g\left( (x_{h})_{h \in G} \right) = \left( x_{gh} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
+        where $\sigma_g$ is defined by $\gamma_g\left( (x_{h})_{h \in G} \right) = \left( x_{gh} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
     \end{definition}
 
-    One can see that $\sigma$ is a $G$-action on $A^G$.
+    One can see that $\gamma$ is a $G$-action on $A^G$.
     \begin{definition}
         % Let $G$ be a countable group and $A$ a finite set. 
         % Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
         % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
-        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma_g$ for all $g \in G$ is also surjective.
+        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma_g$ for all $g \in G$ is also surjective.
     \end{definition}
 
     \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
@@ -190,7 +200,7 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
     \begin{definition}
         Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of $H$-periodic points is the following subset of $A^G$.
         \[
-        P_H = \{ \omega \in A^G  \mid \forall h \in H: \sigma_h\omega = \omega\}
+        P_H = \{ \omega \in A^G  \mid \forall h \in H: \gamma_h\omega = \omega\}
         \]
     \end{definition}
 
@@ -211,7 +221,6 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
     \input{proof_residually_finite_surjunctive}
     \end{proof}
 
-    
 
 	\section{Outline of the proof of Kaplansky's direct finiteness condition for finite fields}
 
