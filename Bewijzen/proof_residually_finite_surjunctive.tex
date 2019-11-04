@@ -1,0 +1,8 @@
+Let $G$ be a residually finite group and $A$ a finite set. Let $\phi: A^G \to A^G$ be a continuous map which commutes with the right shift $\sigma$. Assume further that $\phi$ is injective. We need to prove that $\phi$ is also injective. Since $\phi$ commutes with the shift, it follows readily that it maps $H$-periodic points to $H$-periodic points, for any subgroup $H$ of finite index.
+Because $P_H$ is finite (for $H$ of finite index), and $\phi$ is injective, the restriction of $\phi$ to $P_H$ is surjective, thus $P_H \subset \phi(A^G)$. Now since $A^G$ is compact, continuous maps from $A^G$ to itself map closed sets to closed sets. Therefore
+\[
+\phi(A^G) = \overline{\phi(A^G)} \supset
+\overline{\bigcup_{\substack{H < G \\ [G : H] < \infty}}\phi( P_H)}
+= \overline{\bigcup_{\substack{H < G \\ [G : H] < \infty}} P_H} = A^G,
+\]
+where we have used lemma \ref{lem:h-periodic_points}. Thus we conclude $\phi$ is surjective.
