@@ -10,3 +10,5 @@
 *.bcf
 *.out
 *.dvi
+*.json
+*.swp
