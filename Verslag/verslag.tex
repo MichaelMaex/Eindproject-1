@@ -34,6 +34,8 @@
 \newcommand{\inclusion}[1]{\xhookrightarrow[#1]}
 \newcommand{\surjection}[1]{\xtwoheadrightarrow[#1]}
 \DeclareMathOperator{\sym}{Sym}
+\DeclareMathOperator{\im}{Im}
+
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
@@ -198,12 +200,25 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
     A key lemma we will further need in our proof of theorem ... is the following
 
     \begin{lemma} \label{lem:h-periodic_points}
-    The $H$-periodic points are dense in $A^G$.
+    The $H$-periodic points are dense in $A^G$, where $A$ is finite set and $G$ is a residually finite countable group.
     \end{lemma}
     \begin{proof}
-    ...
-    \end{proof}
+        Let $f:G \to A \in A^G$. We'll prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can lists its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
+        Let $F_n = \{1, g_1, g_2, \dots, g_n\}$. 
+        As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{g\in  F_n^{-1} \cdot F_n,\ g\ne 0} \pi_g
+        .\]
+        Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a subgroup of finite index of $G$. 
+        For $g_i, g_j \in F, i \ne j$ is is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$. 
+        This means that there exists a function $\alpha: \im(\pi) \to A$ such that for all $g_i \in F_n: (\alpha \circ \pi)(g_i) = f(g_i)$. 
+        Notice that $\alpha \circ \pi \in A^G$. 
+        Let $h \in \ker\pi$ and consider the right $h$ shift, $\sigma_h$. 
+        Take any $g \in G$. 
+        Then 
+        \[\sigma_h(\alpha\circ\pi)(g) = (\alpha \circ \pi)(hg) = \alpha(\pi(h)\pi(g)) = \alpha(\pi(g)) = (\alpha\circ\pi)(g).\] Thus $\sigma_g(\alpha \circ \pi) = (\alpha\circ\pi)$.
+        So $\alpha\circ\pi$ is a $\ker\pi$ periodic point. 
 
+        For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\pi_n$ which is an $H$ periodic point and that agrees with $f$ on $F_n$. It is clear that $(\pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
+    \end{proof}
     \begin{theorem} \label{thm:res_fin_surjunctive}
     Every residually finite group is surjunctive.
     \end{theorem}
