@@ -14,7 +14,7 @@
 
 \makeatletter
 \def\input@path{{../Bewijzen/}}
-%or: \def\input@path{{/path/to/folder/}{/path/to/other/folder/}}
+
 \makeatother
 
 \author{Lucas Levrouw \and Michaël Maex \and Tomas Reunbrouck}
@@ -31,10 +31,11 @@
 \newcommand{\F}{\mathbb{F}}
 
 \newcommand{\card}[1]{\left| #1 \right|}
-\newcommand{\inclusion}[1]{\xhookrightarrow[#1]}
-\newcommand{\surjection}[1]{\xtwoheadrightarrow[#1]}
+\newcommand{\inclusion}[1]{\xhookrightarrow{#1}}
+\newcommand{\surjection}[1]{\xtwoheadrightarrow{#1}}
 \DeclareMathOperator{\sym}{Sym}
-\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\im}{im}
+
 
 
 \newtheorem{theorem}{Theorem}
@@ -50,11 +51,45 @@
     \maketitle
 \pagenumbering{arabic}
 
-\section{Sofic groups}
+\section{Introduction}\label{sec:intro}
+
+\section{Group rings}\label{sec:group_rings}
+
+The setting of Kaplanski's direct finiteness conjecture is about so-called group rings. These are defined as follows
+
+
+\begin{definition}\label{def:group_ring}
+    Let $K$ be a field and $G$ be a group. The group ring $K[G]$ is the set of formal linear combinations
+    \[
+        \sum_{g \in G} \lambda_g g,
+    \]
+    where only finitely many $\lambda_g \neq 0$ with operations $+$ and $\cdot$ defined by
+    \begin{align*}
+        \sum_{g \in G} \lambda_g g + \sum_{g \in G} \mu_g g
+        &= \sum_{g \in G} (\lambda_g+\mu_g) g \\
+        \left(\sum_{g \in G} \lambda_g g \right) \cdot \left(\sum_{g \in G} \mu_g g \right)
+        &= \sum_{g \in G} \left( \sum_{\substack{g_1, g_2 \in G \\ g_1 g_2 = g}} \lambda_{g_1} \mu_{g_2} \right) g.
+    \end{align*}
+\end{definition}
+
+
+\begin{theorem}
+    Let $K$ be a field and $G$ a group. Then $K[G]$ is a unital ring.
+\end{theorem}
+
+We can now state Kaplansky's conjecture.
+
+\begin{conjecture}[Kaplansky]
+    Let $K$ be a field and $G$ a group. Then $K[G]$ is directly finite i.e. for all $a, b \in K[G]$, the equation $ab=1$ implies $ba=1$.
+\end{conjecture}
+
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible.
+
+\section{Sofic groups}\label{sec:sofic_group}
 
 \subsection{Definition and examples}
 
-    A key notion of interest will be that of a sofic group. We caal a group sofic if it can be "well approximated by a permutation group". This is made precise in the following definition.
+    A key notion of interest will be that of a sofic group. We call a group sofic if it can be "well approximated by a permutation group". This is made precise in the following definition.
 
     \begin{definition}\label{def:Sofic}
         Let $G$ be a countable group. We say that $G$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
@@ -68,7 +103,7 @@
     We will call such a family of maps $\left(\sigma_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
     % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
 
-    \begin{example}
+    \begin{example}\label{ex:finite_group_sofic}
     Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \tau_g$, where $\tau_g$ is defined by $\tau_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\sigma_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\tau_g(h) = gh = h$ if and only if $g$ is the identity.
      Hence every finite group is sofic.
     \end{example}
@@ -77,10 +112,21 @@
 
     % Example: Direct product of sofic groups is sofic. 
 
+    \begin{example}\label{ex:direct_product_sofic}
+        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\sigma_i: G \to \sym(d_i))_{i \in \N}$ and $(\tau_i: G \to \sym(e_i))_{i \in \N}$ be sofic approximations for $G$ resp. $H$. Now consider $\rho_i : G \times H \to \sym(d_i+e_i): (g,h) \mapsto \rho_{i, gh}$ for every $i \in \N$, where $\rho_{i, gh} \in \sym(d_i+e_i)$ is defined by
+        \[
+            \rho_{i, gh}(k) = \begin{cases} \sigma_{i,g}(k) & \text{if } 1 \leq k \leq d_i \\
+            \tau_{i,h}(k)+d_i & \text{if } d_i + 1 \leq k \leq e_i
+            \end{cases}.
+        \]
+        It is not hard to show that $(\rho_i)_{i \in \N}$ is a sofic approximation for $G \times H$. % Write out proof
+        Hence finite direct products conserve the soficity property.
+    \end{example}
+
+
+    Often, it will be more convenient to check a property that implies soficity than checking it directly as we have done in the examples above. We will discuss two such properties: amenability and residually finiteness.
 
     \subsection{Amenability}
-
-    We will now discuss some properties that imply soficity.
 
 
 
@@ -95,19 +141,19 @@
     \end{definition}
 
 % example: finite group
-If a countable group statisfies the Følner condition, we also call the group \emph{amenable}.\footnote{One can define amenability also for uncountable groups. In that case however, the Følner criterion is not equivalent the amenability.}
+If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent the amenability in that case.}
 
-\begin{example}
+\begin{example}\label{ex:finite_group_folner}
     Every finite group trivially satisfies the Følner condition. Indeed, we can take $F_i = G$ for every $i \in \N$. Then the first condition is automatically statisfied and we also have $gG \triangle G = G \triangle G = \emptyset$. Hence $\card{gF_i\triangle F_i} = 0$, for all $i \in \N$.
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex:integers_folner}
     The group of integers $Z$ is also amenable. Let $F_i = \{-i, -i+1, \dots, i-1, i\}$ for every $i \in \N$. The first condition is satisfied. For the second condition, let $k$ be an arbitrary integer. Then
-    \begin{align*}
-        \frac{\card{k + F_i \triangle F_i}}{\card{F_i}}
-        &= \frac{\card{\{k-i, k-i+1, \dots, k+i-1, k+i\}\triangle \{-i, -i+1, \dots, i-1, i\}}}{2i+1}
-        &= \frac{2k}{2i},
-    \end{align*}
+    \[
+        \frac{\card{(k + F_i) \triangle F_i}}{\card{F_i}}
+        = \frac{\card{\{k-i, k-i+1, \dots, k+i-1, k+i\}\triangle \{-i, -i+1, \dots, i-1, i\}}}{2i+1}
+        \leq \frac{2k}{2i+1},
+    \]
     and this converges to zero as $i \to \infty$.
 \end{example}
 
@@ -128,7 +174,7 @@ To prove that each group that satisfies the Følner criterion is sofic, we first
 
 We now state the proof.
 
- 	\begin{theorem}
+ 	\begin{theorem}\label{thm:folner_sofic}
         Every group $G$ that satisfies the Følner criterion is sofic.
     \end{theorem}
     \begin{proof}
@@ -142,13 +188,23 @@ We now state the proof.
         \input{proof_abelian_folner}
     \end{proof}
 
+    % \begin{lemma}
+    %     \label{lem:amenable_short_exact_sequence}
+    %     Let $A, B, C$ be groups with morphisms $f:A\to B, g:B\to C$ such that
+    %     \[\begin{tikzcd}
+    %         A \arrow[r, "f", hook] & B \arrow[r, "g", two heads] & C
+    %     \end{tikzcd}\] is a short exact sequence. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
+    % \end{lemma}
+
     \begin{lemma}
         \label{lem:amenable_short_exact_sequence}
-        Let $A, B, C$ be groups with morphisms $f:A\to B, g:B\to C$ such that
+        Let $A, B, C$ be groups and let $f: A\to B$ be an injective morphism and $g:B\to C$ a surjective morphism such that 
         \[\begin{tikzcd}
             A \arrow[r, "f", hook] & B \arrow[r, "g", two heads] & C
-        \end{tikzcd}\] is a short exact sequence. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
+        \end{tikzcd}\]
+        is an exact sequence i.e. $\im f = \ker g$. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
     \end{lemma}
+
     \begin{theorem}
         Every countable solvable group is amenable. 
     \end{theorem}
@@ -158,7 +214,7 @@ We now state the proof.
 
 \subsection{Residually finiteness}
 
-Another property that implies soficity is the following
+Another property that implies soficity is the following.
 
 \begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
        We say that a group $G$ is residually finite if it adheres to one of the following equivalent properties.
@@ -171,7 +227,7 @@ Another property that implies soficity is the following
         \end{enumerate}
     \end{definition}
 
-% Proof that these are equivalent?
+% Proof that these are equivalent? Which ones do we actually use?
 
 % example: finite groups
 
@@ -179,7 +235,7 @@ Another property that implies soficity is the following
 
 % example: finitely generated groups
 
-    \begin{theorem}
+    \begin{theorem} \label{thm:res_fin_sofic}
         Every countable residually finite group is sofic.
     \end{theorem}
     \begin{proof}
