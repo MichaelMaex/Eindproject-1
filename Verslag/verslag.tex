@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}
+\documentclass[titlepage, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -41,6 +41,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
 \newtheorem{conjecture}{Conjecture}
+\theoremstyle{remark}
 \newtheorem{example}{Example}
 
 
@@ -49,12 +50,14 @@
     \maketitle
 \pagenumbering{arabic}
 
-    \chapter{Sofic groups}
+\section{Sofic groups}
 
-\section{Definition and examples}
+\subsection{Definition and examples}
+
+    A key notion of interest will be that of a sofic group. We caal a group sofic if it can be "well approximated by a permutation group". This is made precise in the following definition.
 
     \begin{definition}\label{def:Sofic}
-        Let $\Gamma$ be a countable group. We say that $\Gamma$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : \Gamma \to \sym(d_i)$ such that $\forall\ g, h \in \Gamma$:
+        Let $G$ be a countable group. We say that $G$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
         \begin{enumerate}[(i)]
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g}$,
@@ -62,16 +65,57 @@
         where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
     \end{definition}
 
+    We will call such a family of maps $\left(\sigma_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
     % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
+
+    \begin{example}
+    Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \tau_g$, where $\tau_g$ is defined by $\tau_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\sigma_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\tau_g(h) = gh = h$ if and only if $g$ is the identity.
+     Hence every finite group is sofic.
+    \end{example}
 
     % Example: Z
 
     % Example: Direct product of sofic groups is sofic. 
 
 
-    \section{Properties that imply soficity}
+    \subsection{Amenability}
 
-    \begin{lemma}\label{lem:finite_bijections} 
+    We will now discuss some properties that imply soficity.
+
+
+
+    \begin{definition}\cite{noauthor_folner_2019} \label{def:folner}
+        Let $G$ be a countable group. We say that $G$ satisfies the Følner criterion if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that 
+        \begin{enumerate}
+            \item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
+            \item for all $g \in G$ 
+            \[\lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0, \]
+            where $\triangle$ denotes the symmetric difference.
+        \end{enumerate}
+    \end{definition}
+
+% example: finite group
+If a countable group statisfies the Følner condition, we also call the group \emph{amenable}.\footnote{One can define amenability also for uncountable groups. In that case however, the Følner criterion is not equivalent the amenability.}
+
+\begin{example}
+    Every finite group trivially satisfies the Følner condition. Indeed, we can take $F_i = G$ for every $i \in \N$. Then the first condition is automatically statisfied and we also have $gG \triangle G = G \triangle G = \emptyset$. Hence $\card{gF_i\triangle F_i} = 0$, for all $i \in \N$.
+\end{example}
+
+\begin{example}
+    The group of integers $Z$ is also amenable. Let $F_i = \{-i, -i+1, \dots, i-1, i\}$ for every $i \in \N$. The first condition is satisfied. For the second condition, let $k$ be an arbitrary integer. Then
+    \begin{align*}
+        \frac{\card{k + F_i \triangle F_i}}{\card{F_i}}
+        &= \frac{\card{\{k-i, k-i+1, \dots, k+i-1, k+i\}\triangle \{-i, -i+1, \dots, i-1, i\}}}{2i+1}
+        &= \frac{2k}{2i},
+    \end{align*}
+    and this converges to zero as $i \to \infty$.
+\end{example}
+
+% example: finitely generated groups are not amenable
+
+To prove that each group that satisfies the Følner criterion is sofic, we first need the following set-theoretic lemma.
+
+\begin{lemma}\label{lem:finite_bijections} 
         Let $A$ and $B$ be finite sets such that $|A| = |B|$. Given $A' \subset A, B' \subset B$ and a bijection $f': A' \to B'$ there exists a bijection $f: A \to B$ such that $f|_{A'} = f'$. 
     \end{lemma}
     \begin{proof}
@@ -82,18 +126,7 @@
         Therefore there exists a bijection $g: A \setminus A' \to B \setminus B'$. Define $f: A  \to B$ by $f(x) = f'(x)$ for all $x \in A'$ and $f(x)=g(x)$ for all $x \in A \setminus A'$. Then $f$ is a bijection and $f|_{A'} = f'$.
     \end{proof}
 
-    \begin{definition}\cite{noauthor_folner_2019} \label{def:folner}
-        Let $G$ be a group. We say that $G$ satisfies the Følner criterion if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that 
-        \begin{enumerate}
-            \item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
-            \item for all $g \in G$ 
-            $$\lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0, $$
-            where $\triangle$ denotes the symmetric difference.
-        \end{enumerate}
-    \end{definition}
-
-To prove that each group that satisfies the Følner criterion, is sofic, we first need the following set-theoretic lemma.
-
+We now state the proof.
 
  	\begin{theorem}
         Every group $G$ that satisfies the Følner criterion is sofic.
@@ -101,6 +134,31 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
     \begin{proof}
         \input{proof_folner}
  	\end{proof}
+
+    \begin{theorem}\label{thm:countable_abelian_folner}
+        Every countable abelian group satisfies the Følner criterion. 
+    \end{theorem}
+    \begin{proof}
+        \input{proof_abelian_folner}
+    \end{proof}
+
+    \begin{lemma}
+        \label{lem:amenable_short_exact_sequence}
+        Let $A, B, C$ be groups with morphisms $f:A\to B, g:B\to C$ such that
+        \[\begin{tikzcd}
+            A \arrow[r, "f", hook] & B \arrow[r, "g", two heads] & C
+        \end{tikzcd}\] is a short exact sequence. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
+    \end{lemma}
+    \begin{theorem}
+        Every countable solvable group is amenable. 
+    \end{theorem}
+    \begin{proof}
+        \input{proof_solvable_amenable}
+    \end{proof}
+
+\subsection{Residually finiteness}
+
+Another property that implies soficity is the following
 
 \begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
        We say that a group $G$ is residually finite if it adheres to one of the following equivalent properties.
@@ -115,6 +173,11 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
 
 % Proof that these are equivalent?
 
+% example: finite groups
+
+% example: Z
+
+% example: finitely generated groups
 
     \begin{theorem}
         Every countable residually finite group is sofic.
@@ -137,26 +200,7 @@ To prove that each group that satisfies the Følner criterion, is sofic, we firs
         \item direct product/sum of infinite groups
     \end{itemize}
 
-    \begin{theorem}\label{thm:countable_abelian_folner}
-        Every countable abelian group satisfies the Følner criterion. 
-    \end{theorem}
-    \begin{proof}
-        \input{proof_abelian_folner}
-    \end{proof}
-
-    \begin{lemma}
-        \label{lem:amenable_short_exact_sequence}
-        Let $A, B, C$ be groups with morphisms $f:A\to B, g:B\to C$ such that
-        \[\begin{tikzcd}
-            A \arrow[r, "f", hook] & B \arrow[r, "g", two heads] & C
-        \end{tikzcd}\] is a short exact sequence. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
-    \end{lemma}
-    \begin{theorem}
-        Every countable solvable group is amenable. 
-    \end{theorem}
-    \begin{proof}
-        \input{proof_solvable_amenable}
-    \end{proof}
+ 
 
     \section{Surjunctivity}
 

@@ -13,3 +13,4 @@
 3/11/2019: read a bit about entropy specifically in Ker-Li but also in a document from Damien Gaboriau i found online. Edited the document and added the proof residually finite => surjunctive.
 02/11/2019: Tomas: tried to find and reconstruct proof for Sofic => Surjunctive
 03/11/2019: Tomas: tried to understand Weiss's proof for Sofic => Surjunctive
+15/11/2019: Lucas: added examples and restructured the document
