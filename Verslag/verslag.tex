@@ -342,21 +342,44 @@ Another property that implies soficity is the following.
 	\section{Outline of the proof of Kaplansky's direct finiteness condition for finite fields}
 
 	\begin{lemma}
-		For group $G$ and field $\mathbb K$ then $\mathbb{K}[[G]]$ is a left and right $\mathbb{K}[G]$-module
+		For a group $G$ and field $\mathbb K$ we can consider $\mathbb{K}^{G}$ as a left and right $\mathbb{K}[G]$-module, defined with by the following map 
+		\begin{align*}
+			\left(\sum_{g \in X}^{} a_g g\right)\cdot w \mapsto \sum_{g \in X}^{} a_g \sigma_g(w)\\
+			w \cdot \left( \sum_{g \in X}^{} a_g g \right) \mapsto \sum_{g \in X}^{} a_g \kappa_g(w) 
+		,\end{align*}
+		where $X$ is any finite subset of $G$, $w$ is in $\mathbb{K}^{G}$ and $\sigma_g$ and $\kappa_g$ denote the left, resp. right bernoulli shift and the sum is the point wise sum on $\mathbb{K}^{G}$.
 	\end{lemma}
 	\begin{proof}
-		TODO
+		We'll only prove that is a left-module as the other case is completely analogous. We check the module axioms one by one.
+		In the following test $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are in $\mathbb{K}[G]$ and $x, y$ are arbitrary elements of $\mathbb{K}^{G}$.
+		\begin{description}
+			\item[left distributivity] 
+				\begin{align*}
+					r\cdot (x+y) &= \sum_{g \in G}^{} r_i \sigma_g(x + y) \\
+						     &= \sum_{g \in G}^{} r_g \left( \sigma_g(x) + \sigma_g(y) \right)  \\
+						     &= r\cdot x + r\cdot y \\
+				.\end{align*}
+			\item[right distributivity]
+				\begin{align*}
+					(r + s)\cdot x &= \sum_{g \in G}^{} (r_g + s_g)\sigma_g(x) \\
+						       &= \sum_{g \in G}^{} r_g \sigma_g(x) + \sum_{g \in G}^{} s_g \sigma_g(x) \\ 
+						       &= r\cdot x + s \cdot y 
+				.\end{align*}
+		
+			\item[associativity]
+				 \begin{align*}
+					 (rs)\cdot x &= \sum_{g \in G} \sum_{h \in G} r_g s_h \sigma_{gh}(x)\\
+						     &= \sum_{g\in G} r_g \sigma_g \left(\sum_{h \in G} s_h \sigma_{h}x\right) \\
+						     &= \sum_{g \in G} r_g \sigma_g(s\cdot x) \\
+						     &= r(s\cdot x) 
+				.\end{align*}
+			\item[unity]
+				\begin{align*}
+					1\cdot x &= \sigma_\mathbb{I}(x) \\
+						 &= x\\
+				.\end{align*}
+		\end{description}
 	\end{proof}
-	\begin{lemma}
-		For finite field $\F$ and group $G$ there is a natural bijection from $\F[[G]]$ to $\F^{G}$ given by \begin{align*}
-			i: \F[[G]] &\longrightarrow \F^{G} \\
-			\sum_{g \in G}^{ } x_{g}g &\longmapsto (x_g)_g
-		.\end{align*}
-	\end{lemma}
-	\begin{proof}
-		TODO
-	\end{proof}
-	So we can consider $\F^G$ as a module over $\F[G]$. We will implicitely identify both sets.
 	Let $a\in \F[G]$ be left invertible with left inverse $b$. Consider the function $\phi: \F[[G]] \to \F[[G]]: x \mapsto a\cdot x \cdot b$. This function is injective, continous and commutes with $\gamma$ (\textbf{this still needs to be proven}).
 	By the Gottschalk conjecture \ref{conj:gottschalk}, we find that $\phi$ is surjective. Therefore there exists a $y \in \F[[G]]$ such that \[
 		\phi(y) = a \cdot y \cdot b = b
