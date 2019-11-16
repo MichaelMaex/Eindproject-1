@@ -1,5 +1,5 @@
 Let $F_1, F_2, F_3, \dots $ be a sequence such that that the Følner criterion is satisfied. Notice that $G = \bigcup_{i \in \N} F_i$ by the first property. So $G$ is countable. 
-Choose for every $i \in \N: d_i = |F_i|$. We will implicitly identify $\sym(F_i)$ with $\sym(d_i)$. Now choose maps $\phi_i: F_i \to \sym(F_i)$ such that $\phi(g)(h) = gh$ whenever $gh \in F_i$, which is possible due to \cref{lem:finite_bijections}. 
+Choose for every $i \in \N: d_i = |F_i|$. We will implicitly identify $\sym(F_i)$ with $\sym(d_i)$. Now choose maps $\Phi_i: F_i \to \sym(F_i)$ such that $\Phi(g)(h) = gh$ whenever $gh \in F_i$, which is possible due to \cref{lem:finite_bijections}. 
 
 Fix $g, h \in G$. By the Følner criterion we know that 
 \begin{align*}
@@ -15,8 +15,8 @@ or equivalently
 \begin{equation}\label{eq:proof_folner1}
     \lim_{n\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \notin F_i \right\}}}{d_i} = 0
 \end{equation}
-As $\phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that 
-$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid \phi(g)(x)\ne gx \right\}\right|}{d_i} = 0.$$
+As $\Phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that 
+$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid \Phi(g)(x)\ne gx \right\}\right|}{d_i} = 0.$$
 Which proves the second condition for soficity. 
 
 To prove the first equation, notice that we can substitute $g$ by $h$ and $gh$ in \cref{eq:proof_folner1}.
@@ -25,6 +25,6 @@ $$ \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx \in F_i \right\}\rig
 \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid ghx \in F_i \right\}\right|}{d_i}= 1$$
 Which means that 
 $$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx,hx,ghx \in F_i \right\}\right|}{d_i}= 1.$$
-As $\phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that
-$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid (\phi(g) \circ\phi(h))(x) = \phi(gh)(x) \in F_i \right\}\right|}{d_i}= 1.$$
+As $\Phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that
+$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid (\Phi(g) \circ\Phi(h))(x) = \Phi(gh)(x) \in F_i \right\}\right|}{d_i}= 1.$$
 This proves the first condition for soficity and concludes the proof. 
