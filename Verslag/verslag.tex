@@ -339,56 +339,115 @@ Another property that implies soficity is the following.
     \end{proof}
 
 
-	\section{Outline of the proof of Kaplansky's direct finiteness condition for finite fields}
+	\section{Kaplansky's direct finiteness condition for finite fields}
+	Let us recall the statement of Kaplansky's direct finiteness condition.
+	\begin{definition}
+		A group ring $R[G]$ is called directly finite if every  $a \in R[G]$, that is left invertible, is right invertible as well. 
+	\end{definition}
+	Kaplansky conjectured that all group rings are directly finite and Wiess showed that this is true for all sofic groups \cite{}. 
+	In the case where $R$ is a finite field, Weiss did this by first proving the the surjectivity of sofic groups.
+	He finished the argument by proving that the group rings of finite fields and surjective groups are directly finite.  
 
+	In this section we will give the details of a proof of that last step. 
+	I.e we'll prove the following theorem. 
+	\begin{theorem}\label{thm:gottschalk_kaplansky}
+		Let $\F$ be a finite field and $G$ be a surjunctive group. Then $\F[G]$ is directly finite. 
+	\end{theorem}
+	It looks like we will need to use the surjuctivity on $\F^{G}$. Hence we need some statement that relates $\F^{G}$ to $\F[G]$.
 	\begin{lemma}
-		For a group $G$ and field $\mathbb K$ we can consider $\mathbb{K}^{G}$ as a left and right $\mathbb{K}[G]$-module, defined with by the following map 
+		For a group $G$ and field $\mathbb K$ we can consider $\mathbb{K}^{G}$ as a left $\mathbb{K}[G]$-module, with pointwise addition and multiplication defined as
 		\begin{align*}
-			\left(\sum_{g \in X}^{} a_g g\right)\cdot w \mapsto \sum_{g \in X}^{} a_g \sigma_g(w)\\
-			w \cdot \left( \sum_{g \in X}^{} a_g g \right) \mapsto \sum_{g \in X}^{} a_g \kappa_g(w) 
-		,\end{align*}
-		where $X$ is any finite subset of $G$, $w$ is in $\mathbb{K}^{G}$ and $\sigma_g$ and $\kappa_g$ denote the left, resp. right bernoulli shift and the sum is the point wise sum on $\mathbb{K}^{G}$.
+			\cdot : (\mathbb{K}[G] , \mathbb{K}^{G}) &\longrightarrow \mathbb{K}^{G} \\
+		\left( \sum_{g \in G} a_g g,  (x_g)_{g \in G}\right)  &\longmapsto \left( \sum_{h \in G} a_h x_{h^{-1}g} \right)_{g \in G}
+	.\end{align*} 
 	\end{lemma}
 	\begin{proof}
-		We'll only prove that is a left-module as the other case is completely analogous. We check the module axioms one by one.
-		In the following test $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are in $\mathbb{K}[G]$ and $x, y$ are arbitrary elements of $\mathbb{K}^{G}$.
+		We check the module axioms one by one.
+		In the following calculations $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are arbitrary elements of $\mathbb{K}[G]$ and $x = (x_g)_{g \in G}, y = (y_g)_{g \in G}$ are arbitrary elements of $\mathbb{K}^{G}$.
 		\begin{description}
 			\item[left distributivity] 
 				\begin{align*}
-					r\cdot (x+y) &= \sum_{g \in G}^{} r_i \sigma_g(x + y) \\
-						     &= \sum_{g \in G}^{} r_g \left( \sigma_g(x) + \sigma_g(y) \right)  \\
-						     &= r\cdot x + r\cdot y \\
+					r\cdot (x+y) &= \left( \sum_{h \in G} a_h (x_{h^{-1} g} + y_{h^{-1} g}) \right)_{g \in G} \\
+						     &= \left( \sum_{h \in G} a_h x_{h^{-1} g} \right)  + \left( \sum_{h \in G} a_h y_{h^{-1}g} \right)_{g \in G}  \\
+						     &= r\cdot x + r\cdot y 
 				.\end{align*}
 			\item[right distributivity]
 				\begin{align*}
-					(r + s)\cdot x &= \sum_{g \in G}^{} (r_g + s_g)\sigma_g(x) \\
-						       &= \sum_{g \in G}^{} r_g \sigma_g(x) + \sum_{g \in G}^{} s_g \sigma_g(x) \\ 
+					(r + s)\cdot x &= \left( \sum_{h \in G} (r_h + s_h) x_{h^{-1} g} \right)_{g \in G}  \\
+						       &= \left( \sum_{h \in G} r_h x_{h^{-1}g} \right)_{g \in G} + \left( \sum_{h \in G} s_{h} x_{h^{-1}g}  \right)_{g \in G} \\ 
 						       &= r\cdot x + s \cdot y 
 				.\end{align*}
 		
 			\item[associativity]
 				 \begin{align*}
-					 (rs)\cdot x &= \sum_{g \in G} \sum_{h \in G} r_g s_h \sigma_{gh}(x)\\
-						     &= \sum_{g\in G} r_g \sigma_g \left(\sum_{h \in G} s_h \sigma_{h}x\right) \\
-						     &= \sum_{g \in G} r_g \sigma_g(s\cdot x) \\
+					 (rs)\cdot x &= \left( \sum_{g_1 \in G} \sum_{g_2 \in G} r_{g_1} s_{g_2} g_1 g_2 \right) \cdot (x_{g})_{g \in G} \\
+						     &= \left( \sum_{h \in G} \sum_{k \in G} r_{k}s_{k^{-1}h} h\right) \cdot  \left( x_{g} \right)_{g \in G} \\
+						     &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{h^{-1}g} \right)_{g \in G}  \\
+						     &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{(k h^{-1})^{-1}(k^{-1}g)} \right)_{g \in G}  \\
+						     &= \left(\sum_{h \in G} r_h h\right) \cdot  \left( \sum_{k \in G} s_{k} x_{k^{-1}g} \right)_{g \in G} \\
 						     &= r(s\cdot x) 
 				.\end{align*}
 			\item[unity]
 				\begin{align*}
-					1\cdot x &= \sigma_\mathbb{I}(x) \\
+					1\cdot x &= (x_{1^{-1} g})_{g \in G} \\
 						 &= x\\
 				.\end{align*}
 		\end{description}
 	\end{proof}
-	Let $a\in \F[G]$ be left invertible with left inverse $b$. Consider the function $\phi: \F[[G]] \to \F[[G]]: x \mapsto a\cdot x \cdot b$. This function is injective, continous and commutes with $\gamma$ (\textbf{this still needs to be proven}).
-	By the Gottschalk conjecture \ref{conj:gottschalk}, we find that $\phi$ is surjective. Therefore there exists a $y \in \F[[G]]$ such that \[
-		\phi(y) = a \cdot y \cdot b = b
+	We're now ready to give a proof of \cref{thm:gottschalk_kaplansky}.
+	\begin{proof}
+		Let $\F$ be a finite field and $G$ be a surjunctive group. 
+		Let $a = \sum_{g \in G} a_g g \in \F[G]$ be a left invertible element with left inverse $b$, i.e.  $b a = 1$. 
+		Consider the map $\phi: \F^{G} \to \F^{G}: x \mapsto a\cdot x$. Notice that this map 
+		\begin{itemize}
+			\item is injective. Suppose that $\phi(x) = \phi(y)$. Then $a\cdot x = a\cdot y$. So $ba\cdot x  = x$ and $ba \cdot y = 1\cdot y = y$. Hence $x = y$.
+			\item commutes with the bernoulli shift  $\sigma_k$. 
+				 \[
+					 \sigma_k \phi(x) 
+					 = \sigma_k\left( \sum_{h \in G} a_h x_{h^{-1}g} \right)_{g \in G} 
+					 = \left( \sum_{h \in G} a_h x_{h^{-1}gk} \right)_{g \in G} 
+					 = \left( \sum_{h \in G}a_h h \right) \cdot (x_{gk})_{g \in G} = \phi(\sigma_k(x)) 
+				\]
+			\item is continuous. 
+			One can easily check that the set $\left\{ U_{h, t} \right\}$, where \[
+			U_{h,t}:= \prod_{g \in G} \begin{cases}
+				\F & h \ne g\\
+				\{t\}& h = g
+			\end{cases}
+			.\] 
+			is a subbasis of $\F^{G}$. 
+			Hence, to proof that $\phi$ is continuous it is sufficient to check that $\phi^{-1}(U_{h, t})$ is open for every $h \in G, t\in \F$.
+			Notice that an  $(x_g)_{g \in G} \in \F^{G}$ is in $\phi^{U_{h,t}}$ if and only if $\sum_{k \in G} a_k x_{k^{-1}h} = t$. 
+			Remember that $a_k$ is nonzero only for a finite number subset $X$,  $k\in X \subset G$. 	
+			So $\phi^{-1}(U_{h, t})$ is closed under addition with an element of  \[
+			\prod_{g \in G} \begin{cases}
+				\F & k  \not\in X\\
+				\{0\} & kgh \in X 
+			\end{cases}
+			.\] 
+			Let  $(x_g) \in \phi^{-1}(U_{g,t}$. We see that  \[
+				(x_g) \in \prod_{g \in G} \begin{cases}
+					\F & kg \not\in X\\
+					\{x_g\} & kg \in X
+				\end{cases}
+				\subset \phi^{-1}(U_{h, t})
+			.\] 
+			Hence $\phi^{-1}(U_{h,t})$ is continuous. 
+
+				
+		\end{itemize}
+		By the surjunctivity of $G$ we find that $\phi$ is surjective as well. In particular this means that there exists a $y = (y_g)_{g \in G}$ such that $\phi(y) = (\delta_{g, 1})_{g \in G}$, where $\delta$ is the kronecker delta.
+		By multiplying with $b$ on the left we find that \[
+			 y = ba\cdot y = b\cdot (\delta_{g, 1}) = \left( \sum_{h \in G} b_{h} \delta_{h^{-1}g, 1} \right)_{g \in G} = \left( \sum_{h \in G} b_{h} \delta_{h, g} \right)
+		 = \left( b_{g} \right) _{g \in G}.\] 
+		This means that \[
+		a\cdot y = \left( \sum_{h \in G} a_h b_{h^{-1}g} \right)_{g \in G} = \left( \delta_{g, 1} \right) _{g \in G} 
 	.\] 
-	Which means that  \[
-	b a y b a = y =b b a
-	.\] 
-	This means that $y \in \F[G]$. Further we find that \[
-		a y b a = a y  = b a = 1
-.\] We conclude that $a$ is right invertible as well. 
+	In other words
+	\[
+	\sum_{h \in G} a_h b_{h^{-1}g} = \delta_{g, 1}
+	.\]
+	But this means exactly that $ab = 1$. So  $a$ is right invertible as well. 
+	\end{proof}	
 	\printbibliography
 \end{document}
