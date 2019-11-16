@@ -89,22 +89,24 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
 
 \subsection{Definition and examples}
 
-    A key notion of interest will be that of a sofic group. We call a group sofic if it can be "well approximated by a permutation group". This is made precise in the following definition.
+    A key notion of interest will be that of a sofic group. We call a group sofic if it can be "well approximated by a finite permutation group". This is made precise in the following definition.
 
     \begin{definition}\label{def:Sofic}
-        Let $G$ be a countable group. We say that $G$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\sigma_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
+        Let $G$ be a countable group. We say that $G$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
         \begin{enumerate}[(i)]
-            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
-            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g}$,
+            %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
+            %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g}$,
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid (\Phi_i(g) \circ \Phi_i(h))(k) = \Phi_i(gh) (k) \big\}} = 1$
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \Phi_i(g)(k) = k \big\}} = \delta_{e,g}$,
         \end{enumerate}
         where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
     \end{definition}
 
-    We will call such a family of maps $\left(\sigma_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
+    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
     % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
 
     \begin{example}\label{ex:finite_group_sofic}
-    Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \tau_g$, where $\tau_g$ is defined by $\tau_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\sigma_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\tau_g(h) = gh = h$ if and only if $g$ is the identity.
+    Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \sigma_g$, where $\sigma_g$ is defined by $\sigma_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\Phi_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\sigma_g(h) = gh = h$ if and only if $g$ is the identity.
      Hence every finite group is sofic.
     \end{example}
 
@@ -113,13 +115,13 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
     % Example: Direct product of sofic groups is sofic. 
 
     \begin{example}\label{ex:direct_product_sofic}
-        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\sigma_i: G \to \sym(d_i))_{i \in \N}$ and $(\tau_i: G \to \sym(e_i))_{i \in \N}$ be sofic approximations for $G$ resp. $H$. Now consider $\rho_i : G \times H \to \sym(d_i+e_i): (g,h) \mapsto \rho_{i, gh}$ for every $i \in \N$, where $\rho_{i, gh} \in \sym(d_i+e_i)$ is defined by
+        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(d_i))_{i \in \N}$ and $(\psi_i: G \to \sym(e_i))_{i \in \N}$ be sofic approximations for $G$ resp. $H$. Now consider $\Phi_i : G \times H \to \sym(d_i+e_i)$ for every $i \in \N$, where $\Phi_i(g, h) \in \sym(d_i+e_i)$ is defined by
         \[
-            \rho_{i, gh}(k) = \begin{cases} \sigma_{i,g}(k) & \text{if } 1 \leq k \leq d_i \\
-            \tau_{i,h}(k)+d_i & \text{if } d_i + 1 \leq k \leq e_i
+            \Phi_i(g,h)(k) = \begin{cases} \phi_i(g)(k) & \text{if } 1 \leq k \leq d_i \\
+            \psi_i(k)+d_i & \text{if } d_i + 1 \leq k \leq e_i
             \end{cases}.
         \]
-        It is not hard to show that $(\rho_i)_{i \in \N}$ is a sofic approximation for $G \times H$. % Write out proof
+        It is not hard to show that $(\Phi_i)_{i \in \N}$ is a sofic approximation for $G \times H$. % Write out proof
         Hence finite direct products conserve the soficity property.
     \end{example}
 
@@ -141,7 +143,7 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
     \end{definition}
 
 % example: finite group
-If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent the amenability in that case.}
+If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent the amenability.}
 
 \begin{example}\label{ex:finite_group_folner}
     Every finite group trivially satisfies the Følner condition. Indeed, we can take $F_i = G$ for every $i \in \N$. Then the first condition is automatically statisfied and we also have $gG \triangle G = G \triangle G = \emptyset$. Hence $\card{gF_i\triangle F_i} = 0$, for all $i \in \N$.
@@ -315,7 +317,7 @@ Another property that implies soficity is the following.
     \begin{proof}
         Let $f:G \to A \in A^G$. We'll prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can lists its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
         Let $F_n = \{1, g_1, g_2, \dots, g_n\}$. 
-        As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{g\in  F_n^{-1} \cdot F_n,\ g\ne 0} \pi_g
+        As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
         .\]
         Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a subgroup of finite index of $G$. 
         For $g_i, g_j \in F, i \ne j$ is is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$. 
