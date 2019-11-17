@@ -102,7 +102,7 @@ We can now state Kaplansky's conjecture.
     Let $K$ be a field and $G$ a group. Then $K[G]$ is directly finite i.e. for all $a, b \in K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
-To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible. If $K$ is a finite field and $G$ is a finite group, it can be quite easily proven that $K[G]$ is directly finite
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible. If $K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $K[G]$ is directly finite.
 
 \begin{theorem}
     Let $K$ be a field and $G$ be a finite group. Then $K[G]$ is directly finite.
@@ -116,16 +116,16 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
     But since $K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $b=a$.
 \end{proof}
 
-Note how the argument hinges on the fact that the map $\phi$ is guarantied to be surjective by the finiteness of $G$. In what follows we will define several ``finiteness'' properties and try to generalise the proof above under some weak assumptions.
+Note how the argument hinges on the fact that the map $\phi$ is guarantied to be surjective by the finiteness of $G$. In what follows we will define several ``finiteness'' properties and try to generalise the proof above under weaker assumptions.
 
 \section{Sofic groups}\label{sec:sofic_group}
 
 \subsection{Definition and examples}
 
-    A key notion of interest will be that of a sofic group. We call a group sofic if it can be "well approximated by a finite permutation group". This is made precise in the following definition.
+    A key notion of interest will be that of a sofic group. We call a group sofic if it can be ``well approximated by a finite permutation group". This is made precise in the following definition.
 
     \begin{definition}\label{def:Sofic}
-        Let $G$ be a countable group. We say that $G$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
+        Let $G$ be a countable group. We say that $G$ is sofic if there exists a sequence $(d_i)_{i \in \N} \in \N ^{\N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
         \begin{enumerate}[(i)]
             %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
             %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g}$,
