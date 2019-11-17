@@ -145,6 +145,16 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 
     % Example: Z
 
+	\begin{example}\label{ex:Z}
+	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to Sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,...,i\}$ : $ \Phi_{i}(g)(k) = (k+g)mod(i)$. The first condition of soficity is satisfied as for any $i \in N, g,h \in \Z, k \in \{1,..., i\}$ it can be said that 
+	\begin{align*}
+	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= \Phi_{i}(g)((k+h)mod(i))\\
+	&= (k+h+g)mod(i)\\
+	&= (k+g+h)mod(i)\\
+	&= \Phi_{i}(g+h)(k)
+\end{align*}		
+	Now for the second condition. It is clear that for any $i \in \N, k \in \{1,..., i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,...,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. Then, namely, we have that $|(k+g)-k| < i$ which means that is is not possible that $(k+g)mod(i) = (k)mod(i)$. Thus we have that $(k+g)mod(i) \neq k$ as $(k)mod(i) = k$ for $k<i$ and the inequality is obvious for $k \geq i$.
+	\end{example}
     % Example: Direct product of sofic groups is sofic. 
 
     \begin{example}\label{ex:direct_product_sofic}
