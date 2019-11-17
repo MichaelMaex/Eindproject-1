@@ -17,7 +17,7 @@
 
 \makeatother
 
-\author{Lucas Levrouw \and Michaël Maex \and Tomas Reunbrouck}
+\author{Lucas Levrouw \and Michaël Maex \and Tomas Reunbrouck \and Supervisor: Gabor Szabo}
 
 \title{Kaplansky's Conjectures and Sofic Groups}
 
@@ -47,13 +47,35 @@
 \newtheorem{example}{Example}
 
 
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{.5\columnwidth}
+    \import{../Figuren/}{#1.pdf_tex}
+}
+
 \begin{document}
 \pagenumbering{Alph}
     \maketitle
 \pagenumbering{arabic}
+\tableofcontents
+\pagebreak
 
 \section{Introduction}\label{sec:intro}
+This project revolves around one of Kaplansky's conjectures. 
+He conjectured that all group rings are directly finite, i.e. that left invertible elements are right invertible as well. 
+This conjecture is still open, but the case has been solved for a very large class of groups, the sofic groups, which are defined in section \cref{sec:sofic_group}. 
+In fact this class is so large that we do not know whether any non-sofic group exists (citatie naar Wiess toevoegen)\cite{}. 
 
+This project will mainly focus on group rings over finite fields. 
+In the case of finite fields directly finiteness follows from a property of groups, surjunctivity, that will be defined in \cref{sec:surjunctivity}.
+Gottschalk conjectured that all groups are surjunctive. 
+Though Gottschalk's conjucture is still open today, we do know that all sofic groups are surjunctive.
+
+We also proof that residually finite groups and ameanable groups are sofic. 
 \section{Group rings}\label{sec:group_rings}
 
 The setting of Kaplanski's direct finiteness conjecture is about so-called group rings. These are defined as follows
@@ -142,7 +164,12 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
             where $\triangle$ denotes the symmetric difference.
         \end{enumerate}
     \end{definition}
-
+\begin{figure}[ht]
+    \centering
+    \incfig{folner}
+    \caption{An illustration of the Folner criterion. The limit means that the gray part will be come very small compared to  $F_n$ itself}
+    \label{fig:riemmans-theorem}
+\end{figure}
 % example: finite group
 If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent the amenability.}
 
@@ -201,7 +228,7 @@ We now state the proof.
     %         A \arrow[r, "f", hook] & B \arrow[r, "g", two heads] & C
     %     \end{tikzcd}\] is a short exact sequence. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
     % \end{lemma}
-
+	The following lemma is a known fact about about ameanable groups, that we will use without proof.
     \begin{lemma}
         \label{lem:amenable_short_exact_sequence}
         Let $A, B, C$ be groups and let $f: A\to B$ be an injective morphism and $g:B\to C$ a surjective morphism such that 
@@ -264,7 +291,7 @@ Another property that implies soficity is the following.
 
  
 
-    \section{Surjunctivity}
+    \section{Surjunctivity}\label{sec:surjunctivity}
 
     First we define a basic concept in group theory.
 
