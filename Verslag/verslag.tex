@@ -323,19 +323,19 @@ Another property that implies soficity is the following.
     In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.
 
     \begin{definition}
-        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\gamma$ of $G$ on $A$ is defined by
+        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\sigma$ of $G$ on $A$ is defined by
         \[
-        \gamma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \gamma_g(\omega),
+        \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \sigma_g(\omega),
         \]
-        where $\gamma_g$ is defined by $\gamma_g\left( (x_{h})_{h \in G} \right) = \left( x_{gh} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
+        where $\sigma_g$ is defined by $\sigma_g\left( (x_{h})_{h \in G} \right) = \left( x_{hg} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
     \end{definition}
 
-    One can see that $\gamma$ is a $G$-action on $A^G$.
+    One can see that $\sigma$ is a $G$-action on $A^G$.
     \begin{definition}
         % Let $G$ be a countable group and $A$ a finite set. 
-        % Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-        % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
-        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma_g$ for all $g \in G$ is also surjective.
+        % Let $\sigma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
+        % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma$ is surjective.
+        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma_g$ for all $g \in G$ is also surjective.
     \end{definition}
 
     \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
@@ -343,8 +343,8 @@ Another property that implies soficity is the following.
     \end{conjecture}
     % \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
     %   Let $G$ be a countable group and $A$ a finite set. 
-    %   Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-    %   Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
+    %   Let $\sigma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
+    %   Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma$ is surjective.
     % \end{conjecture}
 
     It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
@@ -352,7 +352,7 @@ Another property that implies soficity is the following.
     \begin{definition}
         Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of $H$-periodic points is the following subset of $A^G$.
         \[
-        P_H = \{ \omega \in A^G  \mid \forall h \in H: \gamma_h\omega = \omega\}
+        P_H = \{ \omega \in A^G  \mid \forall h \in H: \sigma_h\omega = \omega\}
         \]
     \end{definition}
 
@@ -363,7 +363,7 @@ Another property that implies soficity is the following.
     The $H$-periodic points are dense in $A^G$, where $A$ is finite set and $G$ is a residually finite countable group.
     \end{lemma}
     \begin{proof}
-        Let $f:G \to A \in A^G$. We'll prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can lists its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
+        Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can lists its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
         Let $F_n = \{1, g_1, g_2, \dots, g_n\}$. 
         As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
         .\]
@@ -394,7 +394,7 @@ Another property that implies soficity is the following.
 	\section{Kaplansky's direct finiteness condition for finite fields}
 	Let us recall the statement of Kaplansky's direct finiteness condition.
 	\begin{definition}
-		A group ring $R[G]$ is called directly finite if every  $a \in R[G]$, that is left invertible, is right invertible as well. 
+		Let $K$ be a field and $G$ be a group. The group ring $K[G]$ is called directly finite if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
 	\end{definition}
 	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{weiss_2000}. 
 	In the case where $R$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
