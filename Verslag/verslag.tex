@@ -68,7 +68,7 @@
 This project revolves around one of Kaplansky's conjectures. 
 He conjectured that all group rings are directly finite, i.e. that left invertible elements are right invertible as well. 
 This conjecture is still open, but the case has been solved for a very large class of groups, the sofic groups, which are defined in section \cref{sec:sofic_group}. 
-In fact this class is so large that we do not know whether any non-sofic group exists (citatie naar Wiess toevoegen)\cite{}. 
+In fact this class is so large that we do not know whether any non-sofic group exists \cite{weiss_2000}. 
 
 This project will mainly focus on group rings over finite fields. 
 In the case of finite fields directly finiteness follows from a property of groups, surjunctivity, that will be defined in \cref{sec:surjunctivity}.
@@ -109,7 +109,21 @@ We can now state Kaplansky's conjecture.
     Let $K$ be a field and $G$ a group. Then $K[G]$ is directly finite i.e. for all $a, b \in K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
-To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible.
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible. If $K$ is a finite field and $G$ is a finite group, it can be quite easily proven that $K[G]$ is directly finite
+
+\begin{theorem}
+    Let $K$ be a field and $G$ be a finite group. Then $K[G]$ is directly finite.
+\end{theorem}
+\begin{proof}
+    Let $a, b \in K[G]$ and suppose $ab=1$. Now consider the map
+    \[
+        \phi: K[G] \to K[G]: x \mapsto x a
+    \]
+    This map is injective. To see this, let $x, y \in K[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
+    But since $K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $b=a$.
+\end{proof}
+
+Note how the argument hinges on the fact that the map $\phi$ is guarantied to be surjective by the finiteness of $G$. In what follows we will define several ``finiteness'' properties and try to generalise the proof above under some weak assumptions.
 
 \section{Sofic groups}\label{sec:sofic_group}
 
@@ -170,7 +184,7 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
 \begin{figure}[ht]
     \centering
     \incfig{folner}
-    \caption{An illustration of the Folner criterion. The limit means that the gray part will be come very small compared to  $F_n$ itself}
+    \caption{An illustration of the Folner criterion. The limit means that the gray part will be come very small compared to  $F_n$ itself as $n$ gets large.}
     \label{fig:riemmans-theorem}
 \end{figure}
 % example: finite group
@@ -333,7 +347,7 @@ Another property that implies soficity is the following.
     %   Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
     % \end{conjecture}
 
-    It can be proven that every sofic group is surjunctive. However, the proof is not easy. That's why we'll prove it first for the special case of residually finite groups. We will need the following definition
+    It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
 
     \begin{definition}
         Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of $H$-periodic points is the following subset of $A^G$.
@@ -366,7 +380,7 @@ Another property that implies soficity is the following.
         For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\pi_n$ which is an $H$ periodic point and that agrees with $f$ on $F_n$. It is clear that $(\pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
     \end{proof}
 
-    Now we can quite easily proof the following result. We follow the proof of Weiss \cite{} here.
+    Now we can quite easily prove the following result. We follow the proof of Weiss \cite{weiss_2000} here.
     \begin{theorem} \label{thm:res_fin_surjunctive}
     Every residually finite group is surjunctive.
     \end{theorem}
@@ -374,15 +388,17 @@ Another property that implies soficity is the following.
     \input{proof_residually_finite_surjunctive}
     \end{proof}
 
+    % Example: Apply this proof to Z
+
 
 	\section{Kaplansky's direct finiteness condition for finite fields}
 	Let us recall the statement of Kaplansky's direct finiteness condition.
 	\begin{definition}
 		A group ring $R[G]$ is called directly finite if every  $a \in R[G]$, that is left invertible, is right invertible as well. 
 	\end{definition}
-	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{}. 
-	In the case where $R$ is a finite field, Weiss did this by first proving the the surjectivity of sofic groups.
-	He finished the argument by proving that the group rings of finite fields and surjective groups are directly finite.  
+	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{weiss_2000}. 
+	In the case where $R$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
+	He finished the argument by proving that the group rings of finite fields and surjunctive groups are directly finite.  
 
 	In this section we will give the details of a proof of that last step. 
 	I.e we'll prove the following theorem. 
