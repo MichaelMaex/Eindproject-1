@@ -45,7 +45,7 @@
 \newtheorem{corollary}{Corollary}
 \theoremstyle{remark}
 \newtheorem{example}{Example}
-
+\newtheorem{remark}{Remark}
 
 \usepackage{import}
 \usepackage{xifthen}
@@ -100,6 +100,9 @@ The setting of Kaplanski's direct finiteness conjecture is about so-called group
     Let $K$ be a field and $G$ a group. Then $K[G]$ is a unital ring.
 \end{theorem}
 
+\begin{remark}
+	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $gG$ is a commutative group. So we will have to be carefull when dealing with these rings. 
+\end{remark}
 We can now state Kaplansky's conjecture.
 
 \begin{conjecture}[Kaplansky]
@@ -454,8 +457,8 @@ Another property that implies soficity is the following.
 			Remember that $a_k$ is nonzero only for a finite number subset $X$,  $k\in X \subset G$. 	
 			So $\phi^{-1}(U_{h, t})$ is closed under addition with an element of  \[
 			\prod_{g \in G} \begin{cases}
-				\F & k  \not\in X\\
-				\{0\} & kgh \in X 
+				\F & hg^{-1}  \not\in X\\
+				\{0\} & hg^{-1} \in X 
 			\end{cases}
 			.\] 
 			Let  $(x_g) \in \phi^{-1}(U_{g,t})$. We see that  \[
