@@ -42,6 +42,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
 \newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
 \theoremstyle{remark}
 \newtheorem{example}{Example}
 
@@ -189,7 +190,10 @@ We now state the proof.
     \begin{proof}
         \input{proof_abelian_folner}
     \end{proof}
-
+    An immediate corollary is:
+    \begin{corollary}
+    	Every countable abelian group is Sofic.	
+    \end{corollary}
     % \begin{lemma}
     %     \label{lem:amenable_short_exact_sequence}
     %     Let $A, B, C$ be groups with morphisms $f:A\to B, g:B\to C$ such that
@@ -385,7 +389,7 @@ Another property that implies soficity is the following.
 					 (rs)\cdot x &= \left( \sum_{g_1 \in G} \sum_{g_2 \in G} r_{g_1} s_{g_2} g_1 g_2 \right) \cdot (x_{g})_{g \in G} \\
 						     &= \left( \sum_{h \in G} \sum_{k \in G} r_{k}s_{k^{-1}h} h\right) \cdot  \left( x_{g} \right)_{g \in G} \\
 						     &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{h^{-1}g} \right)_{g \in G}  \\
-						     &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{(k h^{-1})^{-1}(k^{-1}g)} \right)_{g \in G}  \\
+						     &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{(k^{-1} h)^{-1}(k^{-1}g)} \right)_{g \in G}  \\
 						     &= \left(\sum_{h \in G} r_h h\right) \cdot  \left( \sum_{k \in G} s_{k} x_{k^{-1}g} \right)_{g \in G} \\
 						     &= r(s\cdot x) 
 				.\end{align*}
@@ -427,14 +431,14 @@ Another property that implies soficity is the following.
 				\{0\} & kgh \in X 
 			\end{cases}
 			.\] 
-			Let  $(x_g) \in \phi^{-1}(U_{g,t}$. We see that  \[
+			Let  $(x_g) \in \phi^{-1}(U_{g,t})$. We see that  \[
 				(x_g) \in \prod_{g \in G} \begin{cases}
-					\F & kg \not\in X\\
-					\{x_g\} & kg \in X
+					\F & hg^{-1} \not\in X\\
+					\{x_g\} & hg^{-1} \in X
 				\end{cases}
 				\subset \phi^{-1}(U_{h, t})
 			.\] 
-			Hence $\phi^{-1}(U_{h,t})$ is continuous. 
+			So $\phi^{-1}(U_{h,t})$ is open. Hence $\phi$ is continuous.
 
 				
 		\end{itemize}
