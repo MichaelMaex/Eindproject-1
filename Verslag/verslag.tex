@@ -222,7 +222,7 @@ We now state the proof.
     \end{proof}
     An immediate corollary is:
     \begin{corollary}
-    	Every countable abelian group is Sofic.	
+    	Every countable abelian group is sofic.	
     \end{corollary}
     % \begin{lemma}
     %     \label{lem:amenable_short_exact_sequence}
@@ -380,7 +380,7 @@ Another property that implies soficity is the following.
 	\begin{definition}
 		A group ring $R[G]$ is called directly finite if every  $a \in R[G]$, that is left invertible, is right invertible as well. 
 	\end{definition}
-	Kaplansky conjectured that all group rings are directly finite and Wiess showed that this is true for all sofic groups \cite{}. 
+	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{}. 
 	In the case where $R$ is a finite field, Weiss did this by first proving the the surjectivity of sofic groups.
 	He finished the argument by proving that the group rings of finite fields and surjective groups are directly finite.  
 
@@ -403,8 +403,8 @@ Another property that implies soficity is the following.
 		\begin{description}
 			\item[left distributivity] 
 				\begin{align*}
-					r\cdot (x+y) &= \left( \sum_{h \in G} a_h (x_{h^{-1} g} + y_{h^{-1} g}) \right)_{g \in G} \\
-						     &= \left( \sum_{h \in G} a_h x_{h^{-1} g} \right)  + \left( \sum_{h \in G} a_h y_{h^{-1}g} \right)_{g \in G}  \\
+					r\cdot (x+y) &= \left( \sum_{h \in G} r_h (x_{h^{-1} g} + y_{h^{-1} g}) \right)_{g \in G} \\
+						     &= \left( \sum_{h \in G} r_h x_{h^{-1} g} \right)_{g \in G}  + \left( \sum_{h \in G} r_h y_{h^{-1}g} \right)_{g \in G}  \\
 						     &= r\cdot x + r\cdot y 
 				.\end{align*}
 			\item[right distributivity]
@@ -452,8 +452,8 @@ Another property that implies soficity is the following.
 			\end{cases}
 			.\] 
 			is a subbasis of $\F^{G}$. 
-			Hence, to proof that $\phi$ is continuous it is sufficient to check that $\phi^{-1}(U_{h, t})$ is open for every $h \in G, t\in \F$.
-			Notice that an  $(x_g)_{g \in G} \in \F^{G}$ is in $\phi^{U_{h,t}}$ if and only if $\sum_{k \in G} a_k x_{k^{-1}h} = t$. 
+			Hence, to prove that $\phi$ is continuous it is sufficient to check that $\phi^{-1}(U_{h, t})$ is open for every $h \in G, t\in \F$.
+			Notice that an  $(x_g)_{g \in G} \in \F^{G}$ is in $\phi^{-1}(U_{h,t})$ if and only if $\sum_{k \in G} a_k x_{k^{-1}h} = t$. 
 			Remember that $a_k$ is nonzero only for a finite number subset $X$,  $k\in X \subset G$. 	
 			So $\phi^{-1}(U_{h, t})$ is closed under addition with an element of  \[
 			\prod_{g \in G} \begin{cases}
@@ -474,7 +474,7 @@ Another property that implies soficity is the following.
 		\end{itemize}
 		By the surjunctivity of $G$ we find that $\phi$ is surjective as well. In particular this means that there exists a $y = (y_g)_{g \in G}$ such that $\phi(y) = (\delta_{g, 1})_{g \in G}$, where $\delta$ is the kronecker delta.
 		By multiplying with $b$ on the left we find that \[
-			 y = ba\cdot y = b\cdot (\delta_{g, 1}) = \left( \sum_{h \in G} b_{h} \delta_{h^{-1}g, 1} \right)_{g \in G} = \left( \sum_{h \in G} b_{h} \delta_{h, g} \right)
+			 y = ba\cdot y = b\cdot (\delta_{g, 1})_{g \in G} = \left( \sum_{h \in G} b_{h} \delta_{h^{-1}g, 1} \right)_{g \in G} = \left( \sum_{h \in G} b_{h} \delta_{h, g} \right)_{g \in G}
 		 = \left( b_{g} \right) _{g \in G}.\] 
 		This means that \[
 		a\cdot y = \left( \sum_{h \in G} a_h b_{h^{-1}g} \right)_{g \in G} = \left( \delta_{g, 1} \right) _{g \in G} 
