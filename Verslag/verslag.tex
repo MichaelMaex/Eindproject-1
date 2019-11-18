@@ -65,10 +65,9 @@
 \pagebreak
 
 \section{Introduction}\label{sec:intro}
-This project revolves around one of Kaplansky's conjectures. 
-He conjectured that all group rings are directly finite, i.e. that left invertible elements are right invertible as well. 
-This conjecture is still open, but the case has been solved for a very large class of groups, the sofic groups, which are defined in section \cref{sec:sofic_group}. 
-In fact this class is so large that we do not know whether any non-sofic group exists (citatie naar Wiess toevoegen)\cite{}. 
+This thesis discusses the conjecture of Kaplansky which states that any group ring K[G] with K a field is directly finite. That is, the left-invertibility of elements implies their right-invertibility. For general groups and fields, this conjecture remains unanswered. It has been resolved however for specific cases, such as the case in which the group G is sofic (the definition of soficity follows in section 3). Some cases require the assumption of another conjecture. For example, when we talk about finite fields K we have a positive result for Kaplansky’s conjecture assuming that all countable groups are surjunctive (definition in section 5). This assumption is known as the conjecture of Gottschalk and will be discussed in detail.\\
+\\
+We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very broad concept. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this paper will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
 
 This project will mainly focus on group rings over finite fields. 
 In the case of finite fields directly finiteness follows from a property of groups, surjunctivity, that will be defined in \cref{sec:surjunctivity}.
@@ -87,7 +86,7 @@ We also proof that residually finite groups and ameanable groups are sofic.
 \end{figure}
 \section{Group rings}\label{sec:group_rings}
 
-The setting of Kaplanski's direct finiteness conjecture is about so-called group rings. These are defined as follows
+The setting of Kaplansky's direct finiteness conjecture is about so-called group rings. These are defined as follows
 
 
 \begin{definition}\label{def:group_ring}
@@ -100,7 +99,8 @@ The setting of Kaplanski's direct finiteness conjecture is about so-called group
         \sum_{g \in G} \lambda_g g + \sum_{g \in G} \mu_g g
         &= \sum_{g \in G} (\lambda_g+\mu_g) g \\
         \left(\sum_{g \in G} \lambda_g g \right) \cdot \left(\sum_{g \in G} \mu_g g \right)
-        &= \sum_{g \in G} \left( \sum_{\substack{g_1, g_2 \in G \\ g_1 g_2 = g}} \lambda_{g_1} \mu_{g_2} \right) g.
+        &= \sum_{g \in G} \left( \sum_{h \in G} \lambda_{h} \mu_{h^{-1}g} \right) g.
+        %\sum_{g \in G} \left( \sum_{\substack{g_1, g_2 \in G \\ g_1 g_2 = g}} \lambda_{g_1} \mu_{g_2} \right) g.
     \end{align*}
 \end{definition}
 
@@ -109,8 +109,64 @@ The setting of Kaplanski's direct finiteness conjecture is about so-called group
     Let $K$ be a field and $G$ a group. Then $K[G]$ is a unital ring.
 \end{theorem}
 
+
+\begin{proof}
+    We need to prove associativity of $+$, commutativity of $+$, existence of zero element, existence of additive inverses, associativity for $\cdot$, left distributivity, right distributivity and existence of a unit element.
+    % further proof needed
+    \begin{description}
+    \item[associativity of $+$]
+    \begin{align*}
+    \left(\sum_{g \in G} \lambda_g g + \sum_{g \in G} \mu_g g\right)+ \sum_{g \in G} \nu_g g
+    &= \sum_{g \in G} \left((\lambda_g g + \mu_g g)+\nu_g g\right) \\
+    &= \sum_{g \in G} \left(\lambda_g g + (\mu_g g+\nu_g g)\right) \\
+    &= \sum_{g \in G} \lambda_g g + \left(\sum_{g \in G} \mu_g g + \sum_{g \in G} \nu_g g \right)
+    \end{align*}
+
+    \item[commutativity of $+$]
+    \begin{align*}
+    \sum_{g \in G} \lambda_g g + \sum_{g \in G} \mu_g g
+    &= \sum_{g \in G} (\lambda_g g + \mu_g g) \\
+    &= \sum_{g \in G} (\mu_g g + \lambda_g g) \\
+    &= \sum_{g \in G} \mu_g g + \sum_{g \in G} \lambda_g g 
+    \end{align*}
+
+    \item[existence of $0$]
+    \begin{align*}
+    \sum_{g \in G} \lambda_g g + \sum_{g \in G} 0 g
+    &= \sum_{g \in G} (\lambda_g + 0)g \\
+    &= \sum_{g \in G} \lambda_g g
+    \end{align*}
+
+    \item[existence of additive inverse]
+    \begin{align*}
+    \sum_{g \in G} \lambda_g g + \sum_{g \in G} (-\lambda_g g)
+    &= \sum_{g \in G} (\lambda_g - \lambda_g) g \\
+    &= 0
+    \end{align*}
+
+    \item[associativity of $\cdot$]
+    \begin{align*}
+    \left[\left(\sum_{g \in G} \lambda_g g \right) \cdot \left(\sum_{g \in G} \mu_g g \right)\right ] \cdot \sum_{g \in G} \nu_g g
+    &= \left(\sum_{g \in G} \left( \sum_{h \in G} \lambda_{h} \mu_{h^{-1}g} \right) g \right) \cdot \sum_{g \in G} \nu_g g\\
+    &= \sum_{g \in G} \sum_{x \in G} \left( \sum_{h \in G} \lambda_{h} \mu_{h^{-1}x} \right) \nu_{x^{-1}g} \,g \\
+    &= \sum_{g \in G} \sum_{y \in G} \sum_{h \in G} \lambda_{h} \mu_{y} \nu_{y^{-1} h^{-1}g} \, g \\
+    &= \sum_{g \in G} \sum_{h \in G} \lambda_h \left(\sum_{y \in G}\mu_{y} \nu_{y^{-1} (h^{-1}g)}\right)g \\
+    &= \left(\sum_{g \in G} \lambda_g g \right) \cdot \left[ \left(\sum_{g \in G} \mu_g g \right) \cdot \sum_{g \in G} \nu_g g \right]
+    \end{align*}
+
+    \item[existence of 1]
+    \begin{align*}
+    \sum_{g \in G} \delta_{g,e} g \cdot \sum_{g \in G} \lambda_g g
+    &= \sum_{g \in G} \left(\sum_{h \in H} \delta_{h,e} \lambda_{h^{-1}g} \right) \\
+    &= \sum_{g \in G} \lambda_{e^{-1}g} g = \sum_{g \in G} \lambda_g.
+    \end{align*}
+    
+        
+    \end{description}
+\end{proof}
+
 \begin{remark}
-	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $gG$ is a commutative group. So we will have to be carefull when dealing with these rings. 
+	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $G$ is a commutative group. So we will have to be careful when dealing with these rings. 
 \end{remark}
 We can now state Kaplansky's conjecture.
 
@@ -118,16 +174,30 @@ We can now state Kaplansky's conjecture.
     Let $K$ be a field and $G$ a group. Then $K[G]$ is directly finite i.e. for all $a, b \in K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
-To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible.
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible. If $K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $K[G]$ is directly finite.
+
+\begin{theorem}
+    Let $K$ be a field and $G$ be a finite group. Then $K[G]$ is directly finite.
+\end{theorem}
+\begin{proof}
+    Let $a, b \in K[G]$ and suppose $ab=1$. Now consider the map
+    \[
+        \phi: K[G] \to K[G]: x \mapsto x a
+    \]
+    This map is injective. To see this, let $x, y \in K[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
+    But since $K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $b=a$.
+\end{proof}
+
+Note how the argument hinges on the fact that the map $\phi$ is guarantied to be surjective by the finiteness of $G$. In what follows we will define several ``finiteness'' properties and try to generalise the proof above under weaker assumptions.
 
 \section{Sofic groups}\label{sec:sofic_group}
 
 \subsection{Definition and examples}
 
-    A key notion of interest will be that of a sofic group. We call a group sofic if it can be "well approximated by a finite permutation group". This is made precise in the following definition.
+    A key notion of interest will be that of a sofic group. We call a group sofic if it can be ``well approximated by a finite permutation group". This is made precise in the following definition.
 
     \begin{definition}\label{def:Sofic}
-        Let $G$ be a countable group. We say that $G$ is sofic if for all $i\in \N$ there exist $d_i \in \N$ and maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
+        Let $G$ be a countable group. We say that $G$ is sofic if there exists a sequence $(d_i)_{i \in \N} \in \N ^{\N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
         \begin{enumerate}[(i)]
             %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
             %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g}$,
@@ -147,6 +217,16 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
 
     % Example: Z
 
+	\begin{example}\label{ex:Z}
+	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to Sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,...,i\}$ : $ \Phi_{i}(g)(k) = (k+g)mod(i)$. The first condition of soficity is satisfied as for any $i \in N, g,h \in \Z, k \in \{1,..., i\}$ it can be said that 
+	\begin{align*}
+	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= \Phi_{i}(g)((k+h)mod(i))\\
+	&= (k+h+g)mod(i)\\
+	&= (k+g+h)mod(i)\\
+	&= \Phi_{i}(g+h)(k)
+\end{align*}		
+	Now for the second condition. It is clear that for any $i \in \N, k \in \{1,..., i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,...,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. Then, namely, we have that $|(k+g)-k| < i$ which means that is is not possible that $(k+g)mod(i) = (k)mod(i)$. Thus we have that $(k+g)mod(i) \neq k$ as $(k)mod(i) = k$ for $k<i$ and the inequality is obvious for $k \geq i$.
+	\end{example}
     % Example: Direct product of sofic groups is sofic. 
 
     \begin{example}\label{ex:direct_product_sofic}
@@ -179,7 +259,7 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
 \begin{figure}[ht]
     \centering
     \incfig{folner}
-    \caption{An illustration of the Folner criterion. The limit means that the gray part will be come very small compared to  $F_n$ itself}
+    \caption{An illustration of the Folner criterion. The limit means that the gray part will be come very small compared to  $F_n$ itself as $n$ gets large.}
     \label{fig:riemmans-theorem}
 \end{figure}
 % example: finite group
@@ -190,7 +270,7 @@ If a countable group statisfies the Følner condition, we will also call the gro
 \end{example}
 
 \begin{example}\label{ex:integers_folner}
-    The group of integers $Z$ is also amenable. Let $F_i = \{-i, -i+1, \dots, i-1, i\}$ for every $i \in \N$. The first condition is satisfied. For the second condition, let $k$ be an arbitrary integer. Then
+    The group of integers $\Z$ is also amenable. Let $F_i = \{-i, -i+1, \dots, i-1, i\}$ for every $i \in \N$. The first condition is satisfied. For the second condition, let $k$ be an arbitrary integer. Then
     \[
         \frac{\card{(k + F_i) \triangle F_i}}{\card{F_i}}
         = \frac{\card{\{k-i, k-i+1, \dots, k+i-1, k+i\}\triangle \{-i, -i+1, \dots, i-1, i\}}}{2i+1}
@@ -318,19 +398,19 @@ Another property that implies soficity is the following.
     In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.
 
     \begin{definition}
-        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\gamma$ of $G$ on $A$ is defined by
+        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\sigma$ of $G$ on $A$ is defined by
         \[
-        \gamma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \gamma_g(\omega),
+        \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \sigma_g(\omega),
         \]
-        where $\gamma_g$ is defined by $\gamma_g\left( (x_{h})_{h \in G} \right) = \left( x_{gh} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
+        where $\sigma_g$ is defined by $\sigma_g\left( (x_{h})_{h \in G} \right) = \left( x_{hg} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
     \end{definition}
 
-    One can see that $\gamma$ is a $G$-action on $A^G$.
+    One can see that $\sigma$ is a $G$-action on $A^G$.
     \begin{definition}
         % Let $G$ be a countable group and $A$ a finite set. 
-        % Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-        % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
-        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma_g$ for all $g \in G$ is also surjective.
+        % Let $\sigma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
+        % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma$ is surjective.
+        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma_g$ for all $g \in G$ is also surjective.
     \end{definition}
 
     \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
@@ -338,16 +418,16 @@ Another property that implies soficity is the following.
     \end{conjecture}
     % \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
     %   Let $G$ be a countable group and $A$ a finite set. 
-    %   Let $\gamma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-    %   Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\gamma$ is surjective.
+    %   Let $\sigma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
+    %   Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma$ is surjective.
     % \end{conjecture}
 
-    It can be proven that every sofic group is surjunctive. However, the proof is not easy. That's why we'll prove it first for the special case of residually finite groups. We will need the following definition
+    It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
 
     \begin{definition}
         Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of $H$-periodic points is the following subset of $A^G$.
         \[
-        P_H = \{ \omega \in A^G  \mid \forall h \in H: \gamma_h\omega = \omega\}
+        P_H = \{ \omega \in A^G  \mid \forall h \in H: \sigma_h\omega = \omega\}
         \]
     \end{definition}
 
@@ -358,7 +438,7 @@ Another property that implies soficity is the following.
     The $H$-periodic points are dense in $A^G$, where $A$ is finite set and $G$ is a residually finite countable group.
     \end{lemma}
     \begin{proof}
-        Let $f:G \to A \in A^G$. We'll prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can lists its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
+        Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can lists its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
         Let $F_n = \{1, g_1, g_2, \dots, g_n\}$. 
         As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
         .\]
@@ -375,7 +455,7 @@ Another property that implies soficity is the following.
         For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\pi_n$ which is an $H$ periodic point and that agrees with $f$ on $F_n$. It is clear that $(\pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
     \end{proof}
 
-    Now we can quite easily proof the following result. We follow the proof of Weiss \cite{} here.
+    Now we can quite easily prove the following result. We follow the proof of Weiss \cite{weiss_2000} here.
     \begin{theorem} \label{thm:res_fin_surjunctive}
     Every residually finite group is surjunctive.
     \end{theorem}
@@ -383,15 +463,17 @@ Another property that implies soficity is the following.
     \input{proof_residually_finite_surjunctive}
     \end{proof}
 
+    % Example: Apply this proof to Z
+
 
 	\section{Kaplansky's direct finiteness condition for finite fields}
 	Let us recall the statement of Kaplansky's direct finiteness condition.
 	\begin{definition}
-		A group ring $R[G]$ is called directly finite if every  $a \in R[G]$, that is left invertible, is right invertible as well. 
+		Let $K$ be a field and $G$ be a group. The group ring $K[G]$ is called directly finite if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
 	\end{definition}
-	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{}. 
-	In the case where $R$ is a finite field, Weiss did this by first proving the the surjectivity of sofic groups.
-	He finished the argument by proving that the group rings of finite fields and surjective groups are directly finite.  
+	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{weiss_2000}. 
+	In the case where $R$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
+	He finished the argument by proving that the group rings of finite fields and surjunctive groups are directly finite.  
 
 	In this section we will give the details of a proof of that last step. 
 	I.e we'll prove the following theorem. 
