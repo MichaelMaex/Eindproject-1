@@ -9,22 +9,22 @@ Fix $g, h \in G$. By the Følner criterion we know that
     &= \lim_{i\to \infty} \frac{2\card{\left\{ x \in F_i \mid gx \notin F_i \right\}}}{d_i}. 
 \end{align*}
 This implies that \begin{equation}
-    \lim_{n\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \in F_i \right\}}}{d_i} = 1,
+    \lim_{i\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \in F_i \right\}}}{d_i} = 1,
 \end{equation}
 or equivalently 
 \begin{equation}\label{eq:proof_folner1}
-    \lim_{n\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \notin F_i \right\}}}{d_i} = 0
+    \lim_{i\to \infty} \frac{\card{\left\{ x \in F_i \mid gx \notin F_i \right\}}}{d_i} = 0
 \end{equation}
 As $\Phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that 
-$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid \Phi(g)(x)\ne gx \right\}\right|}{d_i} = 0.$$
+$$\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid \Phi(g)(x)\ne gx \right\}\right|}{d_i} = 0.$$
 Which proves the second condition for soficity. 
 
 To prove the first equation, notice that we can substitute $g$ by $h$ and $gh$ in \cref{eq:proof_folner1}.
-$$ \lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx \in F_i \right\}\right|}{d_i} =
-\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid hx \in F_i \right\}\right|}{d_i} =
-\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid ghx \in F_i \right\}\right|}{d_i}= 1$$
+$$ \lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid gx \in F_i \right\}\right|}{d_i} =
+\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid hx \in F_i \right\}\right|}{d_i} =
+\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid ghx \in F_i \right\}\right|}{d_i}= 1$$
 Which means that 
-$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid gx,hx,ghx \in F_i \right\}\right|}{d_i}= 1.$$
+$$\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid gx,hx,ghx \in F_i \right\}\right|}{d_i}= 1.$$
 As $\Phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that
-$$\lim_{n\to \infty} \frac{\left|\left\{ x \in F_i \mid (\Phi(g) \circ\Phi(h))(x) = \Phi(gh)(x) \in F_i \right\}\right|}{d_i}= 1.$$
+$$\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid (\Phi(g) \circ\Phi(h))(x) = \Phi(gh)(x) \in F_i \right\}\right|}{d_i}= 1.$$
 This proves the first condition for soficity and concludes the proof. 
