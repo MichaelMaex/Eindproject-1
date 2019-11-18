@@ -84,7 +84,8 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
         \sum_{g \in G} \lambda_g g + \sum_{g \in G} \mu_g g
         &= \sum_{g \in G} (\lambda_g+\mu_g) g \\
         \left(\sum_{g \in G} \lambda_g g \right) \cdot \left(\sum_{g \in G} \mu_g g \right)
-        &= \sum_{g \in G} \left( \sum_{\substack{g_1, g_2 \in G \\ g_1 g_2 = g}} \lambda_{g_1} \mu_{g_2} \right) g.
+        &= \sum_{g \in G} \left( \sum_{h \in G} \lambda_{h} \mu_{h^{-1}g} \right) g.
+        %\sum_{g \in G} \left( \sum_{\substack{g_1, g_2 \in G \\ g_1 g_2 = g}} \lambda_{g_1} \mu_{g_2} \right) g.
     \end{align*}
 \end{definition}
 
@@ -92,6 +93,8 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
 \begin{theorem}
     Let $K$ be a field and $G$ a group. Then $K[G]$ is a unital ring.
 \end{theorem}
+
+% proof needed!
 
 \begin{remark}
 	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $gG$ is a commutative group. So we will have to be careful when dealing with these rings. 
