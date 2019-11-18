@@ -308,11 +308,18 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
     \end{example}
 
 
+    \section{Properties that Imply Soficity}
+
+
     Often, it will be more convenient to check a property that implies soficity than checking it directly as we have done in the examples above. We will discuss two such properties: amenability and residually finiteness.
 
     \subsection{Amenability}
 
+    Amenable groups are a large class of groups. 
+    Many equivalent definitions exists. 
+    An extensive study of amenable groups goes beyond the scope of this project. Hence we will not give multiple definitions and prove equivalence nor will we provide proofs for every property of amenable groups.
 
+    For our purposes we will only define amenability for countable groups and take the Følner criterion as definition.
 
     \begin{definition}\cite{noauthor_folner_2019} \label{def:folner}
 	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that 
@@ -323,15 +330,16 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
             where $\triangle$ denotes the symmetric difference.
         \end{enumerate}
     \end{definition}
+    \Cref{fig:folner} gives a visual intuition for this notion. 
 \begin{figure}[ht]
     \centering
     \incfig{folner}
-    \caption{An illustration of the Folner criterion. The limit means that the gray part will be come very small compared to  $F_n$ itself as $n$ gets large.}
-    \label{fig:riemmans-theorem}
+    \caption{An illustration of the Folner criterion. The limit means that the gray part will become very small compared to  $F_n$ itself as $n$ gets large.}
+    \label{fig:folner}
 \end{figure}
 % example: finite group
 If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent the amenability.}
-
+\subsubsection{Examples}
 \begin{example}\label{ex:finite_group_folner}
     Every finite group trivially satisfies the Følner condition. Indeed, we can take $F_i = G$ for every $i \in \N$. Then the first condition is automatically statisfied and we also have $gG \triangle G = G \triangle G = \emptyset$. Hence $\card{gF_i\triangle F_i} = 0$, for all $i \in \N$.
 \end{example}
@@ -348,13 +356,15 @@ If a countable group statisfies the Følner condition, we will also call the gro
 
 % example: finitely generated groups are not amenable
 
+\subsubsection{Properties of Amenable Groups}
+
 To prove that each group that satisfies the Følner criterion is sofic, we first need the following set-theoretic lemma.
 
 \begin{lemma}\label{lem:finite_bijections} 
         Let $A$ and $B$ be finite sets such that $|A| = |B|$. Given $A' \subset A, B' \subset B$ and a bijection $f': A' \to B'$ there exists a bijection $f: A \to B$ such that $f|_{A'} = f'$. 
     \end{lemma}
     \begin{proof}
-        Since $\card A = \card B$ and $\card A' = \card B'$:wqa
+        Since $\card A = \card B$ and $\card A' = \card B'$
         \[
         \card{A \setminus A'} = \card A - \card A' = \card B - \card B' = \card{B \setminus B'}.
         \]
@@ -404,14 +414,20 @@ We now state the proof.
         \input{proof_solvable_amenable}
     \end{proof}
 
-\subsection{Residually finiteness}
+\subsection{Residually Finite Groups}
 
 Another property that implies soficity is the following.
 
 \begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
 	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\backslash\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
-       \end{definition}
+\end{definition}
 
+
+\subsubsection{Examples}
+
+\begin{example}
+	
+\end{example}
 % Proof that these are equivalent? Which ones do we actually use?
 
 % example: finite groups
@@ -419,7 +435,7 @@ Another property that implies soficity is the following.
 % example: Z
 
 % example: finitely generated groups
-
+\subsection{Properties of Residually Finite Groups}
     \begin{theorem} \label{thm:res_fin_sofic}
         Every countable residually finite group is sofic.
     \end{theorem}
