@@ -76,6 +76,15 @@ Gottschalk conjectured that all groups are surjunctive.
 Though Gottschalk's conjucture is still open today, we do know that all sofic groups are surjunctive.
 
 We also proof that residually finite groups and ameanable groups are sofic. 
+\begin{figure}[h]
+	\centering
+\begin{tikzcd}
+	\text{Residually Finite} \arrow[dr, Rightarrow] \\
+	& \text{Sofic} \arrow[r, Rightarrow] & \text{Surjunctive} \arrow[r, Rightarrow] & \text{Directly finite}\\
+\text{Amenable} \arrow[ur, Rightarrow]
+\end{tikzcd}
+\caption{A dependency graph of the relevant theorems/properties. }
+\end{figure}
 \section{Group rings}\label{sec:group_rings}
 
 The setting of Kaplanski's direct finiteness conjecture is about so-called group rings. These are defined as follows
@@ -198,7 +207,7 @@ To prove that each group that satisfies the Følner criterion is sofic, we first
         Let $A$ and $B$ be finite sets such that $|A| = |B|$. Given $A' \subset A, B' \subset B$ and a bijection $f': A' \to B'$ there exists a bijection $f: A \to B$ such that $f|_{A'} = f'$. 
     \end{lemma}
     \begin{proof}
-        Since $\card A = \card B$ and $\card A' = \card B'$,
+        Since $\card A = \card B$ and $\card A' = \card B'$:wqa
         \[
         \card{A \setminus A'} = \card A - \card A' = \card B - \card B' = \card{B \setminus B'}.
         \]
@@ -485,5 +494,9 @@ Another property that implies soficity is the following.
 	.\]
 	But this means exactly that $ab = 1$. So  $a$ is right invertible as well. 
 	\end{proof}	
+	\begin{remark}
+		The way $\F^{G}$ is defined as a $\F[G]$ is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
+		The definition of the multiplication between  $\F[G]$ and  $\F^{G}$ agrees with the obvious multiplication with $\F^{G}$ represented as above. 
+	\end{remark}
 	\printbibliography
 \end{document}
