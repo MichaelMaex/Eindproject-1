@@ -90,7 +90,7 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
 
 
 \begin{definition}\label{def:group_ring}
-    Let $K$ be a field and $G$ be a group. The group ring $K[G]$ is the set of formal linear combinations
+	Let $K$ be a field and $G$ be a group. The \textbf{group ring} $K[G]$ is the set of formal linear combinations
     \[
         \sum_{g \in G} \lambda_g g,
     \]
@@ -197,10 +197,8 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
     A key notion of interest will be that of a sofic group. We call a group sofic if it can be ``well approximated by a finite permutation group". This is made precise in the following definition.
 
     \begin{definition}\label{def:Sofic}
-        Let $G$ be a countable group. We say that $G$ is sofic if there exists a sequence $(d_i)_{i \in \N} \in \N ^{\N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
+	    Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence $(d_i)_{i \in \N} \in \N ^{\N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
         \begin{enumerate}[(i)]
-            %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g} \circ \sigma_{i,h}(k) = \sigma_{i, g*h} (k) \big\}} = 1$
-            %\item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \sigma_{i,g}(k) = k \big\}} = \delta_{e,g}$,
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid (\Phi_i(g) \circ \Phi_i(h))(k) = \Phi_i(gh) (k) \big\}} = 1$
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \Phi_i(g)(k) = k \big\}} = \delta_{e,g}$,
         \end{enumerate}
@@ -208,7 +206,11 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
     \end{definition}
 
     We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
+
+
     % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
+
+
 
     \begin{example}\label{ex:finite_group_sofic}
     Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \sigma_g$, where $\sigma_g$ is defined by $\sigma_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\Phi_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\sigma_g(h) = gh = h$ if and only if $g$ is the identity.
@@ -248,7 +250,7 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 
 
     \begin{definition}\cite{noauthor_folner_2019} \label{def:folner}
-        Let $G$ be a countable group. We say that $G$ satisfies the Følner criterion if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that 
+	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that 
         \begin{enumerate}
             \item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
             \item for all $g \in G$ 
@@ -342,15 +344,8 @@ We now state the proof.
 Another property that implies soficity is the following.
 
 \begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
-       We say that a group $G$ is residually finite if it adheres to one of the following equivalent properties.
-        \begin{enumerate}
-            \item For every $g \in G\backslash\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
-            \item For every $g \in G\backslash\{e\}$ there exists a normal subgroup $H$ such that $g \notin H$.
-            \item The intersection of all subgroups of finite index is $\{e\}$.
-            \item The intersection of all normal subgroups is $\{e\}$.
-            \item $G$ can be embedded in a direct product of finite groups.
-        \end{enumerate}
-    \end{definition}
+	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\backslash\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
+       \end{definition}
 
 % Proof that these are equivalent? Which ones do we actually use?
 
@@ -388,7 +383,7 @@ Another property that implies soficity is the following.
     First we define a basic concept in group theory.
 
     \begin{definition} % van wikipedia gehaald
-        Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an action of $G$ on $X$ if
+	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an textbf{action of $G$ on $X$} if
         \begin{enumerate}[(i)]
             \item $\forall x \in X: \alpha_e(x) = x$
             \item $\forall g,h \in G, x\in X: \alpha_{gh}(x) = \alpha_g(\alpha_h(x))$.
@@ -398,7 +393,7 @@ Another property that implies soficity is the following.
     In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.
 
     \begin{definition}
-        Let $G$ be a countable group and $A$ a finite set. Then the right shift $\sigma$ of $G$ on $A$ is defined by
+	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift $\sigma$ of $G$ on $A$} is defined by
         \[
         \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \sigma_g(\omega),
         \]
@@ -410,7 +405,7 @@ Another property that implies soficity is the following.
         % Let $G$ be a countable group and $A$ a finite set. 
         % Let $\sigma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
         % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma$ is surjective.
-        Let $G$ be a countable group and $A$ a finite set. The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma_g$ for all $g \in G$ is also surjective.
+	    Let $G$ be a countable group and $A$ a finite set. The group $G$ is called \textbf{surjunctive} if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma_g$ for all $g \in G$ is also surjective.
     \end{definition}
 
     \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
@@ -425,7 +420,7 @@ Another property that implies soficity is the following.
     It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
 
     \begin{definition}
-        Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of $H$-periodic points is the following subset of $A^G$.
+	    Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of \textbf{$H$-periodic points} is the following subset of $A^G$.
         \[
         P_H = \{ \omega \in A^G  \mid \forall h \in H: \sigma_h\omega = \omega\}
         \]
@@ -469,7 +464,8 @@ Another property that implies soficity is the following.
 	\section{Kaplansky's direct finiteness condition for finite fields}
 	Let us recall the statement of Kaplansky's direct finiteness condition.
 	\begin{definition}
-		Let $K$ be a field and $G$ be a group. The group ring $K[G]$ is called directly finite if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
+		Let $K$ be a field and $G$ be a group. The group ring $K[G]$ is called \textbf{directly finite} if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
+		
 	\end{definition}
 	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{weiss_2000}. 
 	In the case where $R$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
