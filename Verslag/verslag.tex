@@ -210,8 +210,73 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 
     % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
 
+	\subsubsection{Alternative definition}
+	There are multiple different definitions of soficity. 
+	We will give another definition that we found very enlightening (adapted from definition section 2.1 in \cite{capraro_lupini_2015}.)
+	Here soficity is defined based on the concept of a length function.
+	\begin{definition}
+		On a group $G$ a \textbf{length function} is a map $l: G \to [0,1]$ that maps that satifies for every  $x, y \in G$
+		\begin{description}
+			\item[triangle inequality] $l(xy) \le l(x) + l(y)$
+			\item[symmetry]  $l(x^{-1}) = l(x)$
+			\item[positive definite] $l(x) = 0 \iff x =1$
+		\end{description}
+		A length function is said to be \textbf{invariant} if it is unchanged by conjugation. Meaning that \[
+			l(y^{-1}xy) = l(x)
+		.\] 
+	\end{definition}
+	\begin{remark}
+		A length is invariant if and only if for every $x, y \in G$ \[
+			l(xy) = l(yx)
+		.\] 
+	\end{remark}
+	
+	With a invariant length we can define a metric on $G$
+	 \begin{definition}
+	 Given a group $G$ with a length function $l$ we define the metric \[d: G\times G \to [0,1]: (x,y) \mapsto d(x,y) = l(x,y). \]
+	\end{definition}
+	\begin{remark}
+		This metric is left and right translation invariant. Try to see why.
+	\end{remark}
+	\begin{remark}
+		Given a left and right translation invariant metric $d$ on a group  $G$, we can construct a lenght  $l$ as  \[
+			l(x) = d(x, 1)
+		.\] 
+		It turns out that this gives defines a bijective correspondence between invariant lengts and translation invarant metrics. 
+	\end{remark}
+	
+	Now we will define the length and corresponding metric that we need to define soficity.
+
+	\begin{definition}
+		Let $S_n$ be the permutation group on of $\left\{ 1,2,\ldots,n \right\} $. 
+		We define the \textbf{Hamming invariant length function} $l_{S_n}$ on $S_n$ to be \[
+			l_{S_n}(\sigma) = \frac{1}{n} \card{\left\{ i \in \left\{ 1, \ldots, n \right\} \mid \sigma(i)\ne i \right\} }
+		.\] 
+		The associated metric is denoted by $d_{S_n}$
+	\end{definition}
+	We are now able to state the definition of sofic groups.
+	\begin{definition}
+		A countable group $G$ is called sofic, if for every $\epsilon > 0$ and for every finite subset  $F \subset G\setminus\{1\}$ there is $n \in \N$ with and a function to the symmetric group $\Phi: G \to S_n$ such that $\Phi(1) = 1$ and for every  $g, h \in G\setminus \{1\} $:
+		\begin{itemize}
+			\item $d_{S_n}\left( \Phi(gh), \Phi(g)\Phi(h) \right) < \epsilon$
+			\item $l_{S_n} \left( \Phi(g) \right) > 1-\epsilon$
+		\end{itemize}
+	\end{definition}
+	This definition is particularly nice because it really makes clear in what sense a soficity means that a group can be approximated by a sequence of symmetric groups. 
+	Namely $\Phi$ is an almost morphism in the sense that is maps the product of two elements very close the product of the images. In fact, later in the same section of \cite{capraro_lupini_2015} Lupini goes on by defining the concept of an $(F, \epsilon)$-approximate morphism. 
+	\begin{definition}
+		Let $G, H$ be groups with invariant length functions. 
+		Let $F$ be a subset of $G$ and  $e > 0$.  
+		A function $\Phi:  G \to H$ is an $(F,\epsilon)$-approximate morphisms if $\Phi(1) = 1$ and for every $g, h \in F$ 
+		\begin{itemize}
+			\item $d_H(\Phi(gh),\Phi(g)\Phi(h)) < \epsilon$
+			\item $l_H(\Phi(p)) - l_G(g) < \epsilon$
+		\end{itemize}
+	\end{definition}
+	With this language we can say that a group $G$ is sofic if and only if for every $\epsilon >0$ and finite subset $F \subset G$ there exists a $(F,\epsilon)$-approximate morphism to $S_n$ for some  $n$.
 
 
+	\subsubsection{Examples}
     \begin{example}\label{ex:finite_group_sofic}
     Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \sigma_g$, where $\sigma_g$ is defined by $\sigma_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\Phi_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\sigma_g(h) = gh = h$ if and only if $g$ is the identity.
      Hence every finite group is sofic.
@@ -576,5 +641,7 @@ Another property that implies soficity is the following.
 		The way $\F^{G}$ is defined as a $\F[G]$ is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
 		The definition of the multiplication between  $\F[G]$ and  $\F^{G}$ agrees with the obvious multiplication with $\F^{G}$ represented as above. 
 	\end{remark}
+	
+	\pagebreak
 	\printbibliography
 \end{document}
