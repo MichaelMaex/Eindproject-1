@@ -94,10 +94,64 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
     Let $K$ be a field and $G$ a group. Then $K[G]$ is a unital ring.
 \end{theorem}
 
-% proof needed!
+
+\begin{proof}
+    We need to prove associativity of $+$, commutativity of $+$, existence of zero element, existence of additive inverses, associativity for $\cdot$, left distributivity, right distributivity and existence of a unit element.
+    % further proof needed
+    \begin{description}
+    \item[associativity of $+$]
+    \begin{align*}
+    \left(\sum_{g \in G} \lambda_g g + \sum_{g \in G} \mu_g g\right)+ \sum_{g \in G} \nu_g g
+    &= \sum_{g \in G} \left((\lambda_g g + \mu_g g)+\nu_g g\right) \\
+    &= \sum_{g \in G} \left(\lambda_g g + (\mu_g g+\nu_g g)\right) \\
+    &= \sum_{g \in G} \lambda_g g + \left(\sum_{g \in G} \mu_g g + \sum_{g \in G} \nu_g g \right)
+    \end{align*}
+
+    \item[commutativity of $+$]
+    \begin{align*}
+    \sum_{g \in G} \lambda_g g + \sum_{g \in G} \mu_g g
+    &= \sum_{g \in G} (\lambda_g g + \mu_g g) \\
+    &= \sum_{g \in G} (\mu_g g + \lambda_g g) \\
+    &= \sum_{g \in G} \mu_g g + \sum_{g \in G} \lambda_g g 
+    \end{align*}
+
+    \item[existence of $0$]
+    \begin{align*}
+    \sum_{g \in G} \lambda_g g + \sum_{g \in G} 0 g
+    &= \sum_{g \in G} (\lambda_g + 0)g \\
+    &= \sum_{g \in G} \lambda_g g
+    \end{align*}
+
+    \item[existence of additive inverse]
+    \begin{align*}
+    \sum_{g \in G} \lambda_g g + \sum_{g \in G} (-\lambda_g g)
+    &= \sum_{g \in G} (\lambda_g - \lambda_g) g \\
+    &= 0
+    \end{align*}
+
+    \item[associativity of $\cdot$]
+    \begin{align*}
+    \left[\left(\sum_{g \in G} \lambda_g g \right) \cdot \left(\sum_{g \in G} \mu_g g \right)\right ] \cdot \sum_{g \in G} \nu_g g
+    &= \left(\sum_{g \in G} \left( \sum_{h \in G} \lambda_{h} \mu_{h^{-1}g} \right) g \right) \cdot \sum_{g \in G} \nu_g g\\
+    &= \sum_{g \in G} \sum_{x \in G} \left( \sum_{h \in G} \lambda_{h} \mu_{h^{-1}x} \right) \nu_{x^{-1}g} \,g \\
+    &= \sum_{g \in G} \sum_{y \in G} \sum_{h \in G} \lambda_{h} \mu_{y} \nu_{y^{-1} h^{-1}g} \, g \\
+    &= \sum_{g \in G} \sum_{h \in G} \lambda_h \left(\sum_{y \in G}\mu_{y} \nu_{y^{-1} (h^{-1}g)}\right)g \\
+    &= \left(\sum_{g \in G} \lambda_g g \right) \cdot \left[ \left(\sum_{g \in G} \mu_g g \right) \cdot \sum_{g \in G} \nu_g g \right]
+    \end{align*}
+
+    \item[existence of 1]
+    \begin{align*}
+    \sum_{g \in G} \delta_{g,e} g \cdot \sum_{g \in G} \lambda_g g
+    &= \sum_{g \in G} \left(\sum_{h \in H} \delta_{h,e} \lambda_{h^{-1}g} \right) \\
+    &= \sum_{g \in G} \lambda_{e^{-1}g} g = \sum_{g \in G} \lambda_g.
+    \end{align*}
+    
+        
+    \end{description}
+\end{proof}
 
 \begin{remark}
-	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $gG$ is a commutative group. So we will have to be careful when dealing with these rings. 
+	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $G$ is a commutative group. So we will have to be careful when dealing with these rings. 
 \end{remark}
 We can now state Kaplansky's conjecture.
 
