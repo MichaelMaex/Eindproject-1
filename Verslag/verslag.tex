@@ -76,7 +76,7 @@ In the case of finite fields directly finiteness follows from a property of grou
 Gottschalk conjectured that all groups are surjunctive. 
 Though Gottschalk's conjucture is still open today, we do know that all sofic groups are surjunctive.
 
-We also proof that residually finite groups and ameanable groups are sofic. 
+We also prove that residually finite groups and ameanable groups are sofic. 
 \begin{figure}[h]
 	\centering
 \begin{tikzcd}
@@ -176,7 +176,7 @@ We can now state Kaplansky's conjecture.
     Let $K$ be a field and $G$ a group. Then $K[G]$ is directly finite i.e. for all $a, b \in K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
-To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right invertible. If $K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $K[G]$ is directly finite.
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $K[G]$ is directly finite.
 
 \begin{theorem}
     Let $K$ be a field and $G$ be a finite group. Then $K[G]$ is directly finite.
@@ -190,7 +190,7 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
     But since $K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $b=a$.
 \end{proof}
 
-Note how the argument hinges on the fact that the map $\phi$ is guarantied to be surjective by the finiteness of $G$. In what follows we will define several ``finiteness'' properties and try to generalise the proof above under weaker assumptions.
+Note how the argument hinges on the fact that the map $\phi$ is guarantied to be surjective by the finiteness of $K$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
 
 \section{Sofic groups}\label{sec:sofic_group}
 
@@ -256,14 +256,40 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 		.\] 
 		The associated metric is denoted by $d_{S_n}$
 	\end{definition}
-	We are now able to state the definition of sofic groups.
-	\begin{definition}
+	We are now able to state an alternative definition of sofic groups.
+	\begin{definition} % shouldn't we call this a theorem?
 		A countable group $G$ is called sofic, if for every $\epsilon > 0$ and for every finite subset  $F \subset G\setminus\{1\}$ there is $n \in \N$ with and a function to the symmetric group $\Phi: G \to S_n$ such that $\Phi(1) = 1$ and for every  $g, h \in G\setminus \{1\} $:
 		\begin{itemize}
-			\item $d_{S_n}\left( \Phi(gh), \Phi(g)\Phi(h) \right) < \epsilon$
+			\item $d_{S_n}\left( \Phi(gh), \Phi(g) \circ \Phi(h) \right) < \epsilon$
 			\item $l_{S_n} \left( \Phi(g) \right) > 1-\epsilon$
 		\end{itemize}
 	\end{definition}
+
+    \begin{proof}
+    We first prove that this criterion implies our original definition. Since $G$ is countable, we can write $G = \{g_1, g_2, \dots\}$. Now let $i \in \N$ be arbitrary and let $F_i = \{ g_1, g_2, \dots, g_i\}$. Then there exists an $n$ and a function $\Phi_i: G \to S_{n_i}$ such that
+    \[
+        \begin{cases}
+        \forall g, h \in F: d_{S_{n_i}}(\Phi_i(gh), \Phi(g) \circ \Phi(h)) < \frac 1 i \\
+        \forall g \in F: \left|\ell_{S_{n_i}}(\Phi_i(g)) - (1 - \delta_{ge}) \right|< \frac 1 i
+        \end{cases}
+   \]
+   Now we clearly have for all $g,h \in G$ that $\lim_{i \to \infty} d_{S_{n_i}}(\Phi_i(gh), \Phi(h)^{-1} \Phi(g)^{-1}) = 0$ and $\lim_{i \to \infty} \ell_{S_{n_i}}(\Phi(g)) = 1 - \delta_{ge}$,  and this is precisely the soficity condition in our first definition.
+
+   Conversely, let $\left(\Phi_i: G \to S_{n_i} \right)_{i \in I}$ be a sofic approximation for $G$. Assume without loss of generality that $\Phi_i(e) = id_{S_{n_i}}$. Now let $\epsilon > 0$ be arbitrary and let $F$ be a finite subset of $G$.
+   For all $g,h$ there exists an $i_{g,h} \in \N$ such that for all $i \geq i_{g,h},$
+   \[
+   d_{S_{n_i}}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) < \epsilon,
+   \]
+   and for every $g \in F$ there exists a $j_g$ such that for all $j \geq j_g$
+   \[
+        \left| \ell_{S_{n_j}} - (1-\delta_{e,g}) \right| < \epsilon
+   \]
+   Now let $i = \max_{g,h \in F}(i_{gh})$, $j = \max_{g \in F}(j_g)$ and $k = \max\{i,j\}$.
+   Then for all $g,h \in G$, we have
+   $ d_{S_{n_k}}(\Phi_i(g) \circ \Phi_k(h), \Phi_k(gh)) < \epsilon$ and $\left| \ell_{S_{n_k}} (\Phi_k(g) - (1- \delta_{eg})) \right| < \epsilon$.
+
+    \end{proof}
+
 	This definition is particularly nice because it really makes clear in what sense a soficity means that a group can be approximated by a sequence of symmetric groups. 
 	Namely $\Phi$ is an almost morphism in the sense that is maps the product of two elements very close the product of the images. In fact, later in the same section of \cite{capraro_lupini_2015} Lupini goes on by defining the concept of an $(F, \epsilon)$-approximate morphism. 
 	\begin{definition}
@@ -271,7 +297,7 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 		Let $F$ be a subset of $G$ and  $e > 0$.  
 		A function $\Phi:  G \to H$ is an $(F,\epsilon)$-approximate morphisms if $\Phi(1) = 1$ and for every $g, h \in F$ 
 		\begin{itemize}
-			\item $d_H(\Phi(gh),\Phi(g)\Phi(h)) < \epsilon$
+			\item $d_H(\Phi(gh),\Phi(g)\circ \Phi(h)) < \epsilon$
 			\item $l_H(\Phi(p)) - l_G(g) < \epsilon$
 		\end{itemize}
 	\end{definition}
@@ -287,11 +313,11 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
     % Example: Z
 
 	\begin{example}\label{ex:Z}
-	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to Sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,...,i\}$ : $ \Phi_{i}(g)(k) = (k+g)mod(i)$. The first condition of soficity is satisfied as for any $i \in N, g,h \in \Z, k \in \{1,..., i\}$ it can be said that 
+	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to \sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,...,i\}$ : $ \Phi_{i}(g)(k) = (k+g) \mod(i)$. The first condition of soficity is satisfied as for any $i \in N, g,h \in \Z, k \in \{1,..., i\}$ it can be said that 
 	\begin{align*}
-	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= \Phi_{i}(g)((k+h)mod(i))\\
-	&= (k+h+g)mod(i)\\
-	&= (k+g+h)mod(i)\\
+	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= \Phi_{i}(g)((k+h)\mod(i))\\
+	&= (k+h+g)\mod(i)\\
+	&= (k+g+h)\mod(i)\\
 	&= \Phi_{i}(g+h)(k)
 \end{align*}		
 	Now for the second condition. It is clear that for any $i \in \N, k \in \{1,..., i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,...,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. Then, namely, we have that $|(k+g)-k| < i$ which means that is is not possible that $(k+g)mod(i) = (k)mod(i)$. Thus we have that $(k+g)mod(i) \neq k$ as $(k)mod(i) = k$ for $k<i$ and the inequality is obvious for $k \geq i$.
@@ -461,7 +487,7 @@ We conclude that $F_k$ is residually finite.
 
 \begin{figure}[ht]
 	\centering
-	\input{../Figuren/free_residually_finite.tex}
+	%\input{../Figuren/free_residually_finite.tex}
 	\caption{Illustation of the action in the case of $F_2 = \left<a,b \right>$}
 	\label{fig:}
 \end{figure}
@@ -503,7 +529,7 @@ We conclude that $F_k$ is residually finite.
     First we define a basic concept in group theory.
 
     \begin{definition} % van wikipedia gehaald
-	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an textbf{action of $G$ on $X$} if
+	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an \textbf{action} of $G$ on $X$ if
         \begin{enumerate}[(i)]
             \item $\forall x \in X: \alpha_e(x) = x$
             \item $\forall g,h \in G, x\in X: \alpha_{gh}(x) = \alpha_g(\alpha_h(x))$.
@@ -513,7 +539,7 @@ We conclude that $F_k$ is residually finite.
     In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.
 
     \begin{definition}
-	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift $\sigma$ of $G$ on $A$} is defined by
+	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift} $\sigma$ of $G$ on $A$ is defined by
         \[
         \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \sigma_g(\omega),
         \]
@@ -637,6 +663,11 @@ We conclude that $F_k$ is residually finite.
 				.\end{align*}
 		\end{description}
 	\end{proof}
+        \begin{remark}
+        The way $\F^{G}$ is defined as a $\F[G]$-module is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
+        The definition of the multiplication between  $\F[G]$ and  $\F^{G}$ agrees with the obvious multiplication with $\F^{G}$ represented as above. 
+    \end{remark}
+    
 	We're now ready to give a proof of \cref{thm:gottschalk_kaplansky}.
 	\begin{proof}
 		Let $\F$ be a finite field and $G$ be a surjunctive group. 
@@ -690,10 +721,7 @@ We conclude that $F_k$ is residually finite.
 	.\]
 	But this means exactly that $ab = 1$. So  $a$ is right invertible as well. 
 	\end{proof}	
-	\begin{remark}
-		The way $\F^{G}$ is defined as a $\F[G]$ is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
-		The definition of the multiplication between  $\F[G]$ and  $\F^{G}$ agrees with the obvious multiplication with $\F^{G}$ represented as above. 
-	\end{remark}
+
 	
 	\pagebreak
 	\printbibliography
