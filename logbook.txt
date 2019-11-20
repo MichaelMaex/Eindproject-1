@@ -14,5 +14,8 @@
 02/11/2019: Tomas: tried to find and reconstruct proof for Sofic => Surjunctive
 03/11/2019: Tomas: tried to understand Weiss's proof for Sofic => Surjunctive
 15/11/2019: Lucas: added examples and restructured the document
+16/11/2019: Tomas: added examples
 16/11/2019: Lucas: fixed errors in the document/ made notation more consistent, added introductory section on group rings
 17/11/2019: Lucas: fixed more errors, added references, added a simple proof why finite groups over a finite field are directly finite
+18/11/2019: Tomas: looked at possible proof for sofic => surjunctive
+20/11/2019: everyone: reread the document checking for errors, i.p. checked proof for amenable => surjunctive
