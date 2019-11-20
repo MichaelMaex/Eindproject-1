@@ -388,6 +388,36 @@ If a countable group statisfies the Følner condition, we will also call the gro
     and this converges to zero as $i \to \infty$.
 \end{example}
 
+\begin{example}
+	Counter examples are at least as insightful as examples. 
+	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. 
+	To prove this we will have to show that there does not exist a Folner sequence.
+	We will prove that for every non-empty finite subset $H \subset F$ the is holds that \[
+		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
+	.\] 
+	We can prove this using induction on the size of $H$. 
+	\begin{description}
+		\item[$\card{H} = 1$:] Then $H = \{g\}$. 
+			Hence the left hand side set is $\{x_1g, x_1^{-1}, x_2g, x_2^{-1}g, \ldots, x_ng, x_n^{-1}g\} $, which has cardinality $2n$. 
+		\item[$\card{H} > 1$:] 
+			Let $ h \in H$ be the element that has the most letters in reduced form.
+			Consider the set $H' = H\setminus \{h\} $. 
+			By the induction hypothesis it holds that
+			\[	
+				\card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} \ge (2n-1) \card{H'}
+			.\] 
+			For atleast $2n-1$ elements of $\{x_1,x_1^{-1},x_2,x_2^{-1},\ldots, x_n, x_n^{-1}\} $ the words $x_ih$ or  $x_i^{-1}h$ have more letters in reduced form than $h$. Let $\Delta = \{ h_1, h_2, \ldots, h_n\} $ be that set.  
+			As multiplying by one generator changes the number of letters by $\pm 1$, we see that elements of $\Delta$ are not of the form $x_ih'$ of $x_i^{-1}h'$ for some generator $x_i$ and $h' \in H$. 
+			Hence \[
+				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H}  \ge \card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} + 2n-1
+ 			.\]
+			So \[
+				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1)\card{H'} + (2n-1) = (2n-1 ) \card{H}
+			.\]
+	\end{description}
+	This clearly contradicts \cref{lem:folner_finite_subset}. 
+	We conclude that the free group is not amenable. 
+\end{example}
 % example: finitely generated groups are not amenable
 
 \subsubsection{Properties of Amenable Groups}
@@ -902,7 +932,7 @@ We conclude that $\phi$ is surjective!
 	.\]
 	But this means exactly that $ab = 1$. So  $a$ is right invertible as well. 
 	\end{proof}	
-
+	
 	
 	\pagebreak
 	\printbibliography
