@@ -721,22 +721,37 @@ We will also denote a fixed element of $A$ with $0$.
 \end{lemma}
 \begin{proof}
 	Choose any $a \in A$. As $\phi$ is continuous we know that \[
-	\phi^{-1}\left( \prod_{g\in G} \begin{cases}
+	U_a = \phi^{-1}\left( \prod_{g\in G} \begin{cases}
 			\{a\} & g = 1\\
 			A & g \ne 1
 	\end{cases} \right)
 \]
-	is open. Hence is contains a basis open  \[
-	U_a=\prod_{g \in G}\begin{cases}
-		\{\ldots\} & g \in \Gamma_a\\
-		A & g \not\in \Gamma_a
+	is open. Hence it is the union of a basis opens  \[
+		U_a= \bigcup{i \in I} U_{i,a}
+	.\] 
+	Notice that $\bigcup_{a \in A} U_a = A^{G}$ is a disjoint union. 
+	Hence $\bigcup_{a \in A, i \in I} U_{i, a} = A^{G}$. 
+	As $A^{G}$ is compact, we see that there must be a finite subset of indices $K$ such that \[
+		A^{G} = \bigcup_{(i, a) \in K} U_{i, a}
+	.\] 
+	Every one of these basis opens is of the for \[
+	U_{i,a} = \prod_{g \in G} \begin{cases}
+		\{\ldots\} & g \in \Gamma_{i,a}\\
+		A & g \not\in \Gamma_{i,a}
 	\end{cases}
-	,\] 
-	for some finite set $\Gamma_a \in G$. 
+	,\]
+	for some finite subset $\Gamma_{i,a}$. 
 
-	We can create such  $\Gamma_a$ for every $a \in A$. 
-	Hence if  
-	If we take  $\Gamma = \bigcup_{a \in A} \Gamma_a$, we see that the value of $\phi((x_g)_g)(1)$ is only dependent on the values of  $x_h$ where $h \in \Gamma$. 
+	Now I claim that $\Gamma = \bigcup_{(i,a) \in K}$ is set we're looking for. 
+	Obivously $\Gamma$ is finite. 
+	Suppose that $(x_g)_g \in A^{G}$ and $(y_g)_g \in A^{G}$ agree on $\Gamma$,
+	meaning that for every $\gamma \in \Gamma$ it holds that  $x_\gamma = y_\gamma$.
+	We know that for some  $(i, a) \in K$ the point $(x_g)_g \in U_{i,a}$. 
+	In particular we see that $x_\gamma = y_\gamma$ for every $\gamma \in \Gamma_{i,a}$. 
+	So $(y_g)_g \in U_{i, a}$. 
+	Hence  $(x_g)_g , (y_g)_g$ are elements of $U_a$. 
+	So  $\phi((x_g)_g) = a = \phi((y_g)_g) $.
+	We conclude that $\Gamma$ is indeed the set we're looking for.
 \end{proof}
 From this point on we will also fix $\Gamma$. 
 \begin{corollary}
