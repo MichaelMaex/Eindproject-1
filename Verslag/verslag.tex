@@ -796,32 +796,32 @@ We are finally setup to proof that all amenable groups are surjunctive.
 \begin{proof}
 	Lets fix a finite subset $B \subset G$ and a map $f:B\to A$. 
 	Suppose that there does not exists a  $x \in A^{G}$ such that $\phi(x)|_B = f$.
-	Notice that this means that for no copy of $B$, take  $B\cdot S$, the image of $\phi$ does not contain a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $.
+	Notice that this means that for any copy of $B$, take  $B\cdot s$, the image of $\phi$ does not contains a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $.
 
 	Let $F_n$ be a right Folner sequence of $G$. By \cref{cor:product_folner_sequence} we know that $BF_n$ is a right Folner sequence as well. 
 
 	Fix  $n$ for a moment. By \cref{lem:injective_restriction} the function \[
-		\psi A^{BF_n} \to A^{BF_n\Gamma}: x \mapsto (g \mapsto \phi(x)(g))
+		\psi: A^{BF_n} \to A^{BF_n\Gamma^{-1}}: x \mapsto (g \mapsto \phi(x)(g))
 	.\] 
 	is injective.
 	\Cref{lem:copies_of_B} states that we can choose  $ \left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil $ disjoint copies of $B$ in $BF_n\Gamma$. 
 	We know that for every such copy of $B$ the number of possible values at the coordinates of this copy is  $\card{A}^{\card{B}} -1$ by our assumption at the start of this proof.
-	Hence there exists a set $\mathcal{A} \subset A^{BF_n\Gamma}$ of cardinality \[
-		\card{\mathcal{A}} = \card{A}^{\card{BF_n\Gamma}- \card{B}\left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil } \cdot (\card{A}^{B} -1)^{\left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil }
+	Hence there exists a set $\mathcal{A} \subset A^{BF_n\Gamma^{-1}}$ of cardinality \[
+		\card{\mathcal{A}} = \card{A}^{\card{BF_n\Gamma^{-1}}- \card{B}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil } \cdot (\card{A}^{B} -1)^{\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil }
 \]
 such that $\im\psi \subset \mathcal{A}$. 
 As $\psi$ is injective it follows that $\card{A^{BF_n}} \le \card{\mathcal{A}}$. Hence
 \[
 	\card{A}^{\card{BF_n}} \le 
-	\card{A}^{\card{BF_n\Gamma}- \card{B}\left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil } \cdot (\card{A}^{B} -1)^{\left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil }
+	\card{A}^{\card{BF_n\Gamma^{-1}}- \card{B}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil } \cdot (\card{A}^{B} -1)^{\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil }
 .\]
 By taking the logarithm of both sides we obtain
 \[
-	\card{BF_n}\ln(\card{A}) \le \card{BF_n\Gamma} \ln(\card{A}) - \left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil \left( \ln(\card{A}^{\card{B}}) - \ln(\card{A}^{\card{B}} -1) \right)   
+	\card{BF_n}\ln(\card{A}) \le \card{BF_n\Gamma^{-1}} \ln(\card{A}) - \left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \left( \ln(\card{A}^{\card{B}}) - \ln(\card{A}^{\card{B}} -1) \right)   
 .\]
 By dividing both sides by $\card{BF_n}$ we see 
 \[
-	\ln(\card{A}) \le \frac{\card{BF_n\Gamma}}{\card{BF_n}} \ln(\card{A}) - \frac{1}{\card{BF_n\Gamma}}\left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil \left( \ln(\card{A}^{\card{B}}) - \ln(\card{A}^{\card{B}} -1) \right)   
+	\ln(\card{A}) \le \frac{\card{BF_n\Gamma^{-1}}}{\card{BF_n}} \ln(\card{A}) - \frac{1}{\card{BF_n\Gamma^{-1}}}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \left( \ln(\card{A}^{\card{B}}) - \ln(\card{A}^{\card{B}} -1) \right)   
 .\]
 \Cref{lem:folner_finite_subset} shows that $\lim_{n \to \infty} \frac{\card{BF_n\Gamma}}{\card{BF_n}} = 1$. 
 So we know as well that $\lim_{n \to \infty} \frac{1}{\card{BF_n\Gamma}} \left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil \ge \frac{1}{\card{B}^3} $. 
