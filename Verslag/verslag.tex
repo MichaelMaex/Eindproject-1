@@ -11,7 +11,7 @@
 \usepackage{tikz-cd}
 \usepackage{tikz}
 \usetikzlibrary{fit,arrows,calc,positioning}
-\usepackage[backend = biber]{biblatex}
+\usepackage[backend = biber,style=alphabetic,citestyle=authoryear]{biblatex}
 \addbibresource{references.bib}
 
 \makeatletter
@@ -495,7 +495,22 @@ We now state the proof.
     \begin{proof}
         \input{proof_solvable_amenable}
     \end{proof}
-
+ %\begin{theorem}
+	 %The quotient of a countable amenable group is amenable.
+ %\end{theorem}
+ %\begin{proof}
+	 %Let $G$ be a countable amenable group and let $H = \frac{G}{N}$ be a quotient group of $G$. 
+	 %By the folner criterion $G$ has a folner sequence $F_n$. 
+	 %I claim that the sequence $\overline{F}_n$ is a folner sequence of $H$. 
+	 %The first property of the folner sequence obviously hold. 
+	 %
+	 %Take an $\overline{g} \in G$ and let's have a look at the limit
+	 %\[
+		 %\lim_{n \to \infty} \frac{\card{\overline{g}\overline{F}_n \triangle \overline{F}_n}}{\card{\overline{F}_n}} 
+		 %\le \lim_{n \to \infty} \frac{\card{\overline{gF_n \triangle F_n}}}{\card{\overline{F}_n}}
+	 %.\]
+ %
+ %\end{proof}
 \subsection{Residually Finite Groups}
 
 Another property that implies soficity is the following.
@@ -661,7 +676,7 @@ We conclude that $F_k$ is residually finite.
 	% Example: Apply this proof to Z
 	
 \section{Amenable groups are surjunctive}
-In this section we present a direct proof of the fact that Amenable groups are surjunctive without using entropy.
+In this section we present a direct proof of the fact that Amenable groups are surjunctive without using entropy. While this might not be ground breaking, it's still interesting to see that this can be done in a relatively short way without the theory of entropy, as all the proofs in the literature that we've found use entropy for the case of amenable groups \cite{weiss_2000} \cite{kerr_li_2010}.
 \subsection{About Folner Sequences}
 We will first need a couple of extra properties about the Folner criterion and Folner sequences.
 \begin{lemma}\label{lem:right_folner_sequence}
@@ -706,7 +721,14 @@ We find the following corollary.
 	.\] 
 \end{lemma}
 \begin{proof}
-	TODO
+	Suppose that $B = \{b_1, b_2, \ldots, b_r\} $. 
+	Have a look at the following calculation:
+	\begin{align*}
+		\lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} &= \lim_{n \to \infty} 2 \frac{\card{BF_n \setminus F_n}}{\card{F_n}} \\
+										 &= \lim_{n \to \infty} 2 \frac{\card{\bigcup_{i = 1}^{k} (b_i F_n \setminus F_n)}}{\card{F_n}} \\
+										 &\le \lim_{n \to \infty} 2\frac{\sum_{i-1}^{k} \card{b_i F_n \setminus F_n}}{\card{F_n}} \\
+										 &= \lim_{n \to \infty} \sum_{i = 1}^{k} \frac{\card{b_iF_n \triangle F_n}}{\card{F_n}} = 0  \\
+	.\end{align*}
 \end{proof}
 \begin{remark}
 	A similar result holds for a right Folner sequence.
