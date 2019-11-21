@@ -368,7 +368,7 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
     \subsection{Amenability}
 
     Amenable groups are a large class of groups. 
-    Many equivalent definitions exists. 
+    Many equivalent definitions exist. 
     An extensive study of amenable groups goes beyond the scope of this project. Hence we will not give multiple definitions and prove equivalence nor will we provide proofs for every property of amenable groups.
 
     For our purposes we will only define amenability for countable groups and take the Følner criterion as definition.
@@ -489,28 +489,22 @@ We now state the proof.
         is an exact sequence i.e. $\im f = \ker g$. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
     \end{lemma}
 
+    \begin{corollary}
+	    Every quotient group of a amenable group is amenable. Every normal subgroup of an amenable group is amenable. 
+    \end{corollary}
+    \begin{proof}
+	    Let $G$ be a amenable group and let $H$ be a quotient group such that $G = \frac{H}{N}$. 
+	    Then there is a short exact sequence \[
+	    0 \to N \to G \to H \to 0
+	    .\] 
+	    Applying the previous lemma shows that $N$ and $H$ are amenable.
+    \end{proof}
     \begin{theorem}
         Every countable solvable group is amenable. 
     \end{theorem}
     \begin{proof}
         \input{proof_solvable_amenable}
     \end{proof}
- %\begin{theorem}
-	 %The quotient of a countable amenable group is amenable.
- %\end{theorem}
- %\begin{proof}
-	 %Let $G$ be a countable amenable group and let $H = \frac{G}{N}$ be a quotient group of $G$. 
-	 %By the folner criterion $G$ has a folner sequence $F_n$. 
-	 %I claim that the sequence $\overline{F}_n$ is a folner sequence of $H$. 
-	 %The first property of the folner sequence obviously hold. 
-	 %
-	 %Take an $\overline{g} \in G$ and let's have a look at the limit
-	 %\[
-		 %\lim_{n \to \infty} \frac{\card{\overline{g}\overline{F}_n \triangle \overline{F}_n}}{\card{\overline{F}_n}} 
-		 %\le \lim_{n \to \infty} \frac{\card{\overline{gF_n \triangle F_n}}}{\card{\overline{F}_n}}
-	 %.\]
- %
- %\end{proof}
 \subsection{Residually Finite Groups}
 
 Another property that implies soficity is the following.
