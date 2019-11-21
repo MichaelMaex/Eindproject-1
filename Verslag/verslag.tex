@@ -505,6 +505,33 @@ We now state the proof.
     \begin{proof}
         \input{proof_solvable_amenable}
     \end{proof}
+
+    \begin{theorem}
+    	Let $G$ be a countable group, for which there exists a set of increasing amenable subgroups $G_1 \subset  G_2 \subset  G_3 \subset  \ldots$ such that $G = \bigcup_{i = 1}^{\infty} G_i$. Then $G$ is amenable.  
+    \end{theorem}
+    \begin{proof}
+    	Let $G = \{g_1, g_2, g_3, \ldots\} $. 
+	For every $G_i$ we choose a Folner sequence $(F_{i, n})_n$. We will use these Folner sequences to construct a Folner sequence for $G$, $\mathcal{F}_n$.
+	Let's fix an $n$, and consider the set $H = G_n \cap \{g_1, \ldots, g_n\}$. 
+	As $H$ is a finite subset of $G_n$ we can find a Folner set $F_{n, N}$ such that for all $h \in H:$ 
+	\begin{enumerate}
+		\item $h \in F_{n, N}$
+		\item $\frac{\card{hF_{n,N}\triangle F_{n,N}}}{\card{hF_{n,N}}} < \frac{1}{n} $
+	\end{enumerate}
+	We define $\mathcal{F}_m = F_{n,N}$.
+	As we can do this for every $n$ we can construct $\mathcal{F}_n$ in this way.
+
+	Now I claim that $\mathcal{F}_n$ is a Folner sequence of $G$. 
+	Take any  $g_i \in G$. To verify the first property of the folner criterion, we can choose an $N$ sufficiently high such that $N >i$ and $g_i \in G_N$. Then $g_i \in \mathcal{F}_{m}$ for all $m > N$.
+
+	To verify the second property we can again take $N$ such that $N > i$ and $g_i \in G_N$. For all $m >N$ we see that \[
+		\frac{\card{g_i \mathcal{F}_m \triangle \mathcal{F}_m }}{\card{\mathcal{F}_m}} \le \frac{1}{m}
+	.\] 
+	Hence we find that \[
+		\lim_{n \to \infty} \frac{\card{g_i \mathcal{F}_n \triangle \mathcal{F}_n }}{\card{\mathcal{F}_n}} = 0
+	.\] 
+	We conclude that $\mathcal{F}_n$ is a Folner sequence and that  $G$ is amenable. 
+    \end{proof}
 \subsection{Residually Finite Groups}
 
 Another property that implies soficity is the following.
