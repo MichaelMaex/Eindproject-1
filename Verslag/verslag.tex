@@ -209,7 +209,7 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 	\end{definition}
 	We are now able to state an alternative definition of sofic groups.
 	\begin{definition} % shouldn't we call this a theorem?
-		A countable group $G$ is called sofic, if for every $\epsilon > 0$ and for every finite subset  $F \subset G\setminus\{1\}$ there is $n \in \N$ with and a function to the symmetric group $\Phi: G \to S_n$ such that $\Phi(1) = 1$ and for every  $g, h \in G\setminus \{1\} $:
+		A countable group $G$ is called sofic, if for every $\epsilon > 0$ and for every finite subset  $F \subset G\setminus\{1\}$ there is $n \in \N$ with and a function to the symmetric group $\Phi: G \to S_n$ such that $\Phi(1) = 1$ and for every  $g, h \in F \setminus \{1\} $:
 		\begin{itemize}
 			\item $d_{S_n}\left( \Phi(gh), \Phi(g) \circ \Phi(h) \right) < \epsilon$
 			\item $l_{S_n} \left( \Phi(g) \right) > 1-\epsilon$
@@ -675,7 +675,7 @@ We find the following corollary.
 \begin{remark}
 	A similar result holds for a right Folner sequence.
 \end{remark}
-\subsection{About surjunctivity}
+\subsection{Amenable groups are surjunctive}
 In the following section $G$ will be a fixed amenable group, $A$ a fixed finite set and $\phi: A^{G} \to A^{G}$ a fixed continuous injective function that commutes with the right shift. 
 We will also denote a fixed element of $A$ with $0$.
 
@@ -815,6 +815,46 @@ So our initial assumption is false.
 This means that there exists a $x \in A^{G}$ such that $\phi(x)|_B = f$. As this is true for every  $B$ and $f:B\to A$ we see that the image of  $\phi$ must be dense in $A^{G}$. As a map on compact spaces maps closed sets on closed sets we see that the image of $\phi$ must be $A^{G}$. 
 We conclude that $\phi$ is surjective!
 
+\end{proof}
+
+\subsection{Sofic groups are surjunctive}
+
+To prove that sofic groups are always surjunctive we define sofic entropy by the example of \cite{capraro_lupini_2015}.
+
+\begin{definition}
+
+A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = e, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
+\\
+Suppose now that $G$ is sofic and $\Sigma := \{\Phi_i: G \to Sym(d_i)\}_{i \in \N}$ a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the function
+		
+		\[
+		H_n (\delta) := \{(a_i)_i \in A^n | 
+						\exists (x_i)_i \in X^n : 
+						\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(g^{-1}(x_i))_i) < \delta \}
+		\]
+		where by $X^n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$ (and we identify $x_i$ with $x_{g_i}$ for every $i \in \N$).\\
+		Now we define entropy as 
+		\[
+		h_\Sigma(X) := \inf_{\delta>0} \limsup_{n \to \infty} \frac{1}{n} \log |H_n(\delta)|
+		\]
+\end{definition}
+
+This gives the following intermediate result, which will, in this paper, remain without proof. We refer again to \cite{capraro_lupini_2015}.
+
+\begin{lemma}
+For $X \subset A^G$ a subshift we have that 
+		\[
+		h_\Sigma(X) = \log |A| \Leftrightarrow X = A^G
+		\]
+\end{lemma}
+
+Now we can prove the surjunctivity of sofic groups.
+
+\begin{theorem}
+Any sofic group G is surjunctive.
+\end{theorem}
+\begin{proof}
+\input{proof_sofic_surjunctive}
 \end{proof}
 
 	\section{Kaplansky's direct finiteness condition for finite fields}
@@ -1010,6 +1050,8 @@ We conclude that $\phi$ is surjective!
 		
 		\end{description}
 	\end{proof}
+
+
 	\pagebreak
 	\printbibliography
 
