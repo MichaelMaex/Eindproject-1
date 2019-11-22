@@ -168,21 +168,29 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 	We will give another definition that we found very enlightening (adapted from definition section 2.1 in \cite{capraro_lupini_2015}.)
 	Here soficity is defined based on the concept of a length function.
 	\begin{definition}
-		On a group $G$ a \textbf{length function} is a map $l: G \to [0,1]$ that maps that satifies for every  $x, y \in G$
+		On a group $G$ a \textbf{length function} is a map $\ell: G \to [0,1]$ that maps that satifies for every  $x, y \in G$
 		\begin{description}
-			\item[triangle inequality] $l(xy) \le l(x) + l(y)$
-			\item[symmetry]  $l(x^{-1}) = l(x)$
-			\item[positive definite] $l(x) = 0 \iff x =1$
+			\item[triangle inequality] $\ell(xy) \le \ell(x) + \ell(y)$
+			\item[symmetry]  $\ell(x^{-1}) = \ell(x)$
+			\item[positive definite] $\ell(x) = 0 \iff x = e$
 		\end{description}
 		A length function is said to be \textbf{invariant} if it is unchanged by conjugation. Meaning that \[
-			l(y^{-1}xy) = l(x)
+			\ell(y^{-1}xy) = l(x)
 		.\] 
 	\end{definition}
 	\begin{remark}
-		A length is invariant if and only if for every $x, y \in G$ \[
-			l(xy) = l(yx)
+		A length $\ell$ is invariant if and only if for every $x, y \in G$ \[
+			\ell(xy) = \ell(yx)
 		.\] 
 	\end{remark}
+    \begin{example}
+    On every group $G$ we can define the \emph{trivial length function} $\ell_{triv}$ defined by
+    \[
+    \ell_{triv}(g) = 1 - \delta_{e,g}= \begin{cases}  0 & g= e \\
+                                                    1 & \text{otherwise}
+                                        \end{cases}.
+    \]
+    \end{example}
 	
 	With a invariant length we can define a metric on $G$
 	 \begin{definition}
@@ -192,8 +200,8 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 		This metric is left and right translation invariant. Try to see why.
 	\end{remark}
 	\begin{remark}
-		Given a left and right translation invariant metric $d$ on a group  $G$, we can construct a lenght  $l$ as  \[
-			l(x) = d(x, 1)
+		Given a left and right translation invariant metric $d$ on a group  $G$, we can construct a lenght  $\ell$ as  \[
+			\ell(x) = d(x, 1)
 		.\] 
 		It turns out that this gives defines a bijective correspondence between invariant lengts and translation invarant metrics. 
 	\end{remark}
@@ -202,8 +210,8 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 
 	\begin{definition}
 		Let $S_n$ be the permutation group on of $\left\{ 1,2,\ldots,n \right\} $. 
-		We define the \textbf{Hamming invariant length function} $l_{S_n}$ on $S_n$ to be \[
-			l_{S_n}(\sigma) = \frac{1}{n} \card{\left\{ i \in \left\{ 1, \ldots, n \right\} \mid \sigma(i)\ne i \right\} }
+		We define the \textbf{Hamming invariant length function} $\ell_{S_n}$ on $S_n$ to be \[
+			\ell_{S_n}(\sigma) = \frac{1}{n} \card{\left\{ i \in \left\{ 1, \ldots, n \right\} \mid \sigma(i)\ne i \right\} }
 		.\] 
 		The associated metric is denoted by $d_{S_n}$
 	\end{definition}
@@ -212,7 +220,7 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 		A countable group $G$ is called sofic, if for every $\epsilon > 0$ and for every finite subset  $F \subset G\setminus\{1\}$ there is $n \in \N$ with and a function to the symmetric group $\Phi: G \to S_n$ such that $\Phi(1) = 1$ and for every  $g, h \in F \setminus \{1\} $:
 		\begin{itemize}
 			\item $d_{S_n}\left( \Phi(gh), \Phi(g) \circ \Phi(h) \right) < \epsilon$
-			\item $l_{S_n} \left( \Phi(g) \right) > 1-\epsilon$
+			\item $\ell_{S_n} \left( \Phi(g) \right) > 1-\epsilon$
 		\end{itemize}
 	\end{definition}
 
@@ -249,10 +257,10 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 		A function $\Phi:  G \to H$ is an $(F,\epsilon)$-approximate morphisms if $\Phi(1) = 1$ and for every $g, h \in F$ 
 		\begin{itemize}
 			\item $d_H(\Phi(gh),\Phi(g)\circ \Phi(h)) < \epsilon$
-			\item $\card{l_H(\Phi(p)) - l_G(g)} < \epsilon$
+			\item $\card{\ell_H(\Phi(p)) - \ell_G(g)} < \epsilon$
 		\end{itemize}
 	\end{definition}
-	With this language we can say that a group $G$ is sofic if and only if for every $\epsilon >0$ and finite subset $F \subset G$ there exists a $(F,\epsilon)$-approximate morphism to $S_n$ for some  $n$.
+	With this language we can say that a group $G$ is sofic if and only if for every $\epsilon >0$ and finite subset $F \subset G$ there exists a $(F,\epsilon)$-approximate morphism to $S_n$ for some  $n$, where we have equipped $G$ with the trivial length function and $S_n$ with the Hamming length function.
 
 
 	\subsubsection{Examples}
@@ -840,7 +848,7 @@ To prove that sofic groups are always surjunctive we define sofic entropy by the
 
 A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = e, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
 \\
-Suppose now that $G$ is sofic and $\Sigma := \{\Phi_i: G \to Sym(d_i)\}_{i \in \N}$ a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the function
+Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the function
 		
 		\[
 		H_n (\delta) := \{(a_i)_i \in A^n | 
@@ -896,37 +904,7 @@ Any sofic group G is surjunctive.
 	.\end{align*} 
 	\end{lemma}
 	\begin{proof}
-		We check the module axioms one by one.
-		In the following calculations $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are arbitrary elements of $\mathbb{K}[G]$ and $x = (x_g)_{g \in G}, y = (y_g)_{g \in G}$ are arbitrary elements of $\mathbb{K}^{G}$.
-		\begin{description}
-			\item[left distributivity] 
-				\begin{align*}
-					r\cdot (x+y) &= \left( \sum_{h \in G} r_h (x_{h^{-1} g} + y_{h^{-1} g}) \right)_{g \in G} \\
-						     &= \left( \sum_{h \in G} r_h x_{h^{-1} g} \right)_{g \in G}  + \left( \sum_{h \in G} r_h y_{h^{-1}g} \right)_{g \in G}  \\
-						     &= r\cdot x + r\cdot y 
-				.\end{align*}
-			\item[right distributivity]
-				\begin{align*}
-					(r + s)\cdot x &= \left( \sum_{h \in G} (r_h + s_h) x_{h^{-1} g} \right)_{g \in G}  \\
-						       &= \left( \sum_{h \in G} r_h x_{h^{-1}g} \right)_{g \in G} + \left( \sum_{h \in G} s_{h} x_{h^{-1}g}  \right)_{g \in G} \\ 
-						       &= r\cdot x + s \cdot y 
-				.\end{align*}
-		
-			\item[associativity]
-				 \begin{align*}
-					 (rs)\cdot x &= \left( \sum_{g_1 \in G} \sum_{g_2 \in G} r_{g_1} s_{g_2} g_1 g_2 \right) \cdot (x_{g})_{g \in G} \\
-						     &= \left( \sum_{h \in G} \sum_{k \in G} r_{k}s_{k^{-1}h} h\right) \cdot  \left( x_{g} \right)_{g \in G} \\
-						     &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{h^{-1}g} \right)_{g \in G}  \\
-						     &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{(k^{-1} h)^{-1}(k^{-1}g)} \right)_{g \in G}  \\
-						     &= \left(\sum_{h \in G} r_h h\right) \cdot  \left( \sum_{k \in G} s_{k} x_{k^{-1}g} \right)_{g \in G} \\
-						     &= r(s\cdot x) 
-				.\end{align*}
-			\item[unity]
-				\begin{align*}
-					1\cdot x &= (x_{1^{-1} g})_{g \in G} \\
-						 &= x\\
-				.\end{align*}
-		\end{description}
+		The proof is given in the appendix.
 	\end{proof}
         \begin{remark}
         The way $\F^{G}$ is defined as a $\F[G]$-module is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
@@ -1064,7 +1042,40 @@ Any sofic group G is surjunctive.
 		\end{align*}
 		
 		\end{description}
-	\end{proof}
+        \end{proof}
+
+\subsection{$\mathbb K^G$ is a $\mathbb K[G]$-module}
+	We check the module axioms one by one.
+        In the following calculations $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are arbitrary elements of $\mathbb{K}[G]$ and $x = (x_g)_{g \in G}, y = (y_g)_{g \in G}$ are arbitrary elements of $\mathbb{K}^{G}$.
+        \begin{description}
+            \item[left distributivity] 
+                \begin{align*}
+                    r\cdot (x+y) &= \left( \sum_{h \in G} r_h (x_{h^{-1} g} + y_{h^{-1} g}) \right)_{g \in G} \\
+                             &= \left( \sum_{h \in G} r_h x_{h^{-1} g} \right)_{g \in G}  + \left( \sum_{h \in G} r_h y_{h^{-1}g} \right)_{g \in G}  \\
+                             &= r\cdot x + r\cdot y 
+                .\end{align*}
+            \item[right distributivity]
+                \begin{align*}
+                    (r + s)\cdot x &= \left( \sum_{h \in G} (r_h + s_h) x_{h^{-1} g} \right)_{g \in G}  \\
+                               &= \left( \sum_{h \in G} r_h x_{h^{-1}g} \right)_{g \in G} + \left( \sum_{h \in G} s_{h} x_{h^{-1}g}  \right)_{g \in G} \\ 
+                               &= r\cdot x + s \cdot y 
+                .\end{align*}
+        
+            \item[associativity]
+                 \begin{align*}
+                     (rs)\cdot x &= \left( \sum_{g_1 \in G} \sum_{g_2 \in G} r_{g_1} s_{g_2} g_1 g_2 \right) \cdot (x_{g})_{g \in G} \\
+                             &= \left( \sum_{h \in G} \sum_{k \in G} r_{k}s_{k^{-1}h} h\right) \cdot  \left( x_{g} \right)_{g \in G} \\
+                             &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{h^{-1}g} \right)_{g \in G}  \\
+                             &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{(k^{-1} h)^{-1}(k^{-1}g)} \right)_{g \in G}  \\
+                             &= \left(\sum_{h \in G} r_h h\right) \cdot  \left( \sum_{k \in G} s_{k} x_{k^{-1}g} \right)_{g \in G} \\
+                             &= r(s\cdot x) 
+                .\end{align*}
+            \item[unity]
+                \begin{align*}
+                    1\cdot x &= (x_{1^{-1} g})_{g \in G} \\
+                         &= x\\
+                .\end{align*}
+        \end{description}
 
 
 	\pagebreak
