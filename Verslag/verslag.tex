@@ -1,4 +1,4 @@
-\documentclass[titlepage, a4paper]{article}
+\ll\documentclass[titlepage, a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -416,7 +416,7 @@ We now state the proof.
         is an exact sequence i.e. $\im f = \ker g$. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
     \end{lemma}
 
-    \begin{corollary}
+    \begin{corollary}\label{cor:quotient_amenable}
 	    Every quotient group of a amenable group is amenable. Every normal subgroup of an amenable group is amenable. 
     \end{corollary}
     \begin{proof}
@@ -433,7 +433,7 @@ We now state the proof.
         \input{proof_solvable_amenable}
     \end{proof}
 
-    \begin{theorem}
+    \begin{theorem}\label{thm:rising_amenable}
     	Let $G$ be a countable group, for which there exists a set of increasing amenable subgroups $G_1 \subset  G_2 \subset  G_3 \subset  \ldots$ such that $G = \bigcup_{i = 1}^{\infty} G_i$. Then $G$ is amenable.  
     \end{theorem}
     \begin{proof}
@@ -459,6 +459,21 @@ We now state the proof.
 	.\] 
 	We conclude that $\mathcal{F}_n$ is a Folner sequence and that  $G$ is amenable. 
     \end{proof}
+
+    \begin{lemma}\label{lem:fg_ab_amenable}
+	    Every finitely generated abelian group is amenable.
+    \end{lemma}
+     \begin{proof}
+	     Let $G = \left<a_1, a_2,\ldots, a_k \right>$ be a finitely generated group. Then \[
+		     \phi: \Z^{k} \to G : (n_1, \ldots, n_k) \mapsto a_1^{n_1} a_2^{n_2} \ldots a_k^{n_k} 
+	     \]
+	     is a surjective groups morphism. Hence $G = \frac{Z^{k}}{\ker{\phi}}$. 
+	     By \cref{cor:quotient_amenable} we see that $G$ is amenable.
+	
+    \end{proof}
+    \begin{remark}
+	    \Cref{lem:fg_ab_amenable} and \cref{thm:rising_amenable} give an alternative proof of the fact that every countable group is amenable as every countable group $G = \{g_1, g_2, g_3, \ldots\} $ can be written as the union of $G_n = \left<g_1, g_2, g_3, \ldots, g_n \right>$.
+    \end{remark}
 \subsection{Residually Finite Groups}
 
 Another property that implies soficity is the following.
