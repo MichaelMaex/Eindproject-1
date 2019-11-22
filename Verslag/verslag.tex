@@ -170,13 +170,13 @@ $(\Phi_i \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ bette
 \]
 where $e$ denotes the identity element of $G$ and $\id$ is the identity permutation.\footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\tilde \Phi_i : G \to \sym{\tilde d_i}$ such that $d_{\sym \tilde d_i}(\id, \tilde \Phi_i(g))$ converges to $1$ for every $g$.}
 
-We can now state the definiton of a sofic group.
+We can now state the definiton of a sofic group by the example of \cite{capraro_lupini_2015}.
 
     \begin{definition}\label{def:Sofic}
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
-            \item $\lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
-            \item $\lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g_i)) = \begin{cases}  0 & \text{if } g = e \\
+            \item $ \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
+            \item $ \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g_i)) = \begin{cases}  0 & \text{if } g = e \\
                                                                                     1 & \text{otherwise,}
                                                                                     \end{cases}$
         \end{enumerate}
@@ -195,7 +195,7 @@ We can now state the definiton of a sofic group.
         where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
     \end{lemma}
 
-    %\input{sofic_groups_old_section}
+
 
 
     \begin{example}\label{ex:finite_group_sofic}
