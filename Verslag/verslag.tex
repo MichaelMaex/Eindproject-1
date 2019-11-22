@@ -255,7 +255,7 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
 \begin{figure}[ht]
     \centering
     \incfig{folner}
-    \caption{An illustration of the Folner criterion. The limit means that the gray part will become very small compared to  $F_n$ itself as $n$ gets large.}
+    \caption{An illustration of the Følner criterion. The limit means that the gray part will become very small compared to  $F_n$ itself as $n$ gets large.}
     \label{fig:folner}
 \end{figure}
 % example: finite group
@@ -278,7 +278,7 @@ If a countable group statisfies the Følner condition, we will also call the gro
 \begin{example}
 	Counter examples are at least as insightful as examples. 
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. 
-	To prove this we will have to show that there does not exist a Folner sequence.
+	To prove this we will have to show that there does not exist a Følner sequence.
 	We will prove that for every non-empty finite subset $H \subset F$ the is holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
 	.\] 
@@ -380,9 +380,9 @@ We now state the proof.
     \end{theorem}
     \begin{proof}
     	Let $G = \{g_1, g_2, g_3, \ldots\} $. 
-	For every $G_i$ we choose a Folner sequence $(F_{i, n})_n$. We will use these Folner sequences to construct a Folner sequence for $G$, $\mathcal{F}_n$.
+	For every $G_i$ we choose a Følner sequence $(F_{i, n})_n$. We will use these Følner sequences to construct a Følner sequence for $G$, $\mathcal{F}_n$.
 	Let's fix an $n$, and consider the set $H = G_n \cap \{g_1, \ldots, g_n\}$. 
-	As $H$ is a finite subset of $G_n$ we can find a Folner set $F_{n, N}$ such that for all $h \in H:$ 
+	As $H$ is a finite subset of $G_n$ we can find a Følner set $F_{n, N}$ such that for all $h \in H:$ 
 	\begin{enumerate}
 		\item $h \in F_{n, N}$
 		\item $\frac{\card{hF_{n,N}\triangle F_{n,N}}}{\card{hF_{n,N}}} < \frac{1}{n} $
@@ -390,8 +390,8 @@ We now state the proof.
 	We define $\mathcal{F}_m = F_{n,N}$.
 	As we can do this for every $n$ we can construct $\mathcal{F}_n$ in this way.
 
-	Now I claim that $\mathcal{F}_n$ is a Folner sequence of $G$. 
-	Take any  $g_i \in G$. To verify the first property of the folner criterion, we can choose an $N$ sufficiently high such that $N >i$ and $g_i \in G_N$. Then $g_i \in \mathcal{F}_{m}$ for all $m > N$.
+	Now I claim that $\mathcal{F}_n$ is a Følner sequence of $G$. 
+	Take any  $g_i \in G$. To verify the first property of the Følner criterion, we can choose an $N$ sufficiently high such that $N >i$ and $g_i \in G_N$. Then $g_i \in \mathcal{F}_{m}$ for all $m > N$.
 
 	To verify the second property we can again take $N$ such that $N > i$ and $g_i \in G_N$. For all $m >N$ we see that \[
 		\frac{\card{g_i \mathcal{F}_m \triangle \mathcal{F}_m }}{\card{\mathcal{F}_m}} \le \frac{1}{m}
@@ -399,7 +399,7 @@ We now state the proof.
 	Hence we find that \[
 		\lim_{n \to \infty} \frac{\card{g_i \mathcal{F}_n \triangle \mathcal{F}_n }}{\card{\mathcal{F}_n}} = 0
 	.\] 
-	We conclude that $\mathcal{F}_n$ is a Folner sequence and that  $G$ is amenable. 
+	We conclude that $\mathcal{F}_n$ is a Følner sequence and that  $G$ is amenable. 
     \end{proof}
 
     \begin{lemma}\label{lem:fg_ab_amenable}
@@ -576,10 +576,10 @@ We conclude that $F_k$ is residually finite.
 	
 \section{Amenable groups are surjunctive}
 In this section we present a direct proof of the fact that Amenable groups are surjunctive without using entropy. While this might not be ground breaking, it's still interesting to see that this can be done in a relatively short way without the theory of entropy, as all the proofs in the literature that we've found use entropy for the case of amenable groups \cite{weiss_2000} \cite{kerr_li_2010}.
-\subsection{About Folner Sequences}
-We will first need a couple of extra properties about the Folner criterion and Folner sequences.
+\subsection{About Følner Sequences}
+We will first need a couple of extra properties about the Følner criterion and Følner sequences.
 \begin{lemma}\label{lem:right_folner_sequence}
-	If a group $G$ satisfies the folner criterion, then there also exists a folner sequence for the right action of $G$ on itself. 
+	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself. 
 	I.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
 		\begin{enumerate}
 		\item for every $g \in G$ there exists an  $N$ such that for all $n >N$ it holds that $g \in F_n$ 
@@ -589,15 +589,15 @@ We will first need a couple of extra properties about the Folner criterion and F
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	Let $F_n$ be a folner sequence for the left action. 
-	It's easy to check that $F_n^{-1}$ will be a Folner sequence for the right action. 
+	Let $F_n$ be a Følner sequence for the left action. 
+	It's easy to check that $F_n^{-1}$ will be a Følner sequence for the right action. 
 \end{proof}
 
 \begin{lemma}
-	Let $F_n$, $E_n$ be two (right) folner sequences for $G$. Then $F_n \cup E_n$ is a (right) Folner sequence for $G$.
+	Let $F_n$, $E_n$ be two (right) Følner sequences for $G$. Then $F_n \cup E_n$ is a (right) Følner sequence for $G$.
 \end{lemma}
 \begin{proof}
-	We'll prove it for odinary (left) Folner sequences as the proof is completely analogous for right Folner sequences.
+	We'll prove it for odinary (left) Følner sequences as the proof is completely analogous for right Følner sequences.
 	The first property is obivously satisfied. 
 	Let's have a look at the limit.
 	\begin{align*}
@@ -611,11 +611,11 @@ We will first need a couple of extra properties about the Folner criterion and F
 \end{proof}
 We find the following corollary. 
 \begin{corollary}\label{cor:product_folner_sequence}
-	Let $B \subset G$ be a finite subset and $F_n$ be a (left or right) Folner sequence of $G$. Then are $BF_n$ and $F_nB$ again Folner sequences.
+	Let $B \subset G$ be a finite subset and $F_n$ be a (left or right) Følner sequence of $G$. Then are $BF_n$ and $F_nB$ again Følner sequences.
 \end{corollary}
 
 \begin{lemma}\label{lem:folner_finite_subset}
-	Let $F_n$ be a Folner sequence. Then for every finite subgroup $B \subset G$ it holds that  \[
+	Let $F_n$ be a Følner sequence. Then for every finite subgroup $B \subset G$ it holds that  \[
 	\lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} = 0	
 	.\] 
 \end{lemma}
@@ -630,7 +630,7 @@ We find the following corollary.
 	.\end{align*}
 \end{proof}
 \begin{remark}
-	A similar result holds for a right Folner sequence.
+	A similar result holds for a right Følner sequence.
 \end{remark}
 \subsection{Amenable groups are surjunctive}
 In the following section $G$ will be a fixed amenable group, $A$ a fixed finite set and $\phi: A^{G} \to A^{G}$ a fixed continuous injective function that commutes with the right shift. 
@@ -734,7 +734,7 @@ We are finally setup to proof that all amenable groups are surjunctive.
 	Suppose that there does not exists a  $x \in A^{G}$ such that $\phi(x)|_B = f$.
 	Notice that this means that for any copy of $B$, take  $B\cdot s$, the image of $\phi$ does not contains a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $.
 
-	Let $F_n$ be a right Folner sequence of $G$. By \cref{cor:product_folner_sequence} we know that $BF_n$ is a right Folner sequence as well. 
+	Let $F_n$ be a right Følner sequence of $G$. By \cref{cor:product_folner_sequence} we know that $BF_n$ is a right Følner sequence as well. 
 
 	Fix  $n$ for a moment. By \cref{lem:injective_restriction} the function \[
 		\psi: A^{BF_n} \to A^{BF_n\Gamma^{-1}}: x \mapsto (g \mapsto \phi(x)(g))
