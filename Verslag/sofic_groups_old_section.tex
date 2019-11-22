@@ -1,0 +1,117 @@
+
+\subsection{Definition and examples}
+
+    A key notion of interest will be that of a sofic group. We call a group sofic if it can be ``well approximated by a finite permutation group". This is made precise in the following definition.
+
+    \begin{definition}\label{def:Sofic}
+	    Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence $(d_i)_{i \in \N} \in \N ^{\N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that $\forall\ g, h \in G$:
+        \begin{enumerate}[(i)]
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid (\Phi_i(g) \circ \Phi_i(h))(k) = \Phi_i(gh) (k) \big\}} = 1$
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \Phi_i(g)(k) = k \big\}} = \delta_{e,g}$,
+        \end{enumerate}
+        where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
+    \end{definition}
+
+    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
+
+
+    % Alternative definitions here (Capraro-Lupini definition, example 2.1.8)
+
+	\subsubsection{Alternative definition}
+	There are multiple different definitions of soficity. 
+	We will give another definition that we found very enlightening (adapted from definition section 2.1 in \cite{capraro_lupini_2015}.)
+	Here soficity is defined based on the concept of a length function.
+	\begin{definition}
+		On a group $G$ a \textbf{length function} is a map $\ell: G \to [0,1]$ that maps that satifies for every  $x, y \in G$
+		\begin{description}
+			\item[triangle inequality] $\ell(xy) \le \ell(x) + \ell(y)$
+			\item[symmetry]  $\ell(x^{-1}) = \ell(x)$
+			\item[positive definite] $\ell(x) = 0 \iff x = e$
+		\end{description}
+		A length function is said to be \textbf{invariant} if it is unchanged by conjugation. Meaning that \[
+			\ell(y^{-1}xy) = l(x)
+		.\] 
+	\end{definition}
+	\begin{remark}
+		A length $\ell$ is invariant if and only if for every $x, y \in G$ \[
+			\ell(xy) = \ell(yx)
+		.\] 
+	\end{remark}
+    \begin{example}
+    On every group $G$ we can define the \emph{trivial length function} $\ell_{triv}$ defined by
+    \[
+    \ell_{triv}(g) = 1 - \delta_{e,g}= \begin{cases}  0 & g= e \\
+                                                    1 & \text{otherwise}
+                                        \end{cases}.
+    \]
+    \end{example}
+	
+	With a invariant length we can define a metric on $G$
+	 \begin{definition}
+	 Given a group $G$ with a length function $l$ we define the metric \[d: G\times G \to [0,1]: (x,y) \mapsto d(x,y) = l(x,y). \]
+	\end{definition}
+	\begin{remark}
+		This metric is left and right translation invariant. Try to see why.
+	\end{remark}
+	\begin{remark}
+		Given a left and right translation invariant metric $d$ on a group  $G$, we can construct a lenght  $\ell$ as  \[
+			\ell(x) = d(x, 1)
+		.\] 
+		It turns out that this gives defines a bijective correspondence between invariant lengts and translation invarant metrics. 
+	\end{remark}
+	
+	Now we will define the length and corresponding metric that we need to define soficity.
+
+	\begin{definition}
+		Let $S_n$ be the permutation group on of $\left\{ 1,2,\ldots,n \right\} $. 
+		We define the \textbf{Hamming invariant length function} $\ell_{S_n}$ on $S_n$ to be \[
+			\ell_{S_n}(\sigma) = \frac{1}{n} \card{\left\{ i \in \left\{ 1, \ldots, n \right\} \mid \sigma(i)\ne i \right\} }
+		.\] 
+		The associated metric is denoted by $d_{S_n}$
+	\end{definition}
+	We are now able to state an alternative definition of sofic groups.
+	\begin{definition} % shouldn't we call this a theorem?
+		A countable group $G$ is called sofic, if for every $\epsilon > 0$ and for every finite subset  $F \subset G\setminus\{1\}$ there is $n \in \N$ with and a function to the symmetric group $\Phi: G \to S_n$ such that $\Phi(1) = 1$ and for every  $g, h \in F \setminus \{1\} $:
+		\begin{itemize}
+			\item $d_{S_n}\left( \Phi(gh), \Phi(g) \circ \Phi(h) \right) < \epsilon$
+			\item $\ell_{S_n} \left( \Phi(g) \right) > 1-\epsilon$
+		\end{itemize}
+	\end{definition}
+
+    \begin{proof}
+    We first prove that this criterion implies our original definition. Since $G$ is countable, we can write $G = \{g_1, g_2, \dots\}$. Now let $i \in \N$ be arbitrary and let $F_i = \{ g_1, g_2, \dots, g_i\}$. Then there exists an $n$ and a function $\Phi_i: G \to S_{n_i}$ such that
+    \[
+        \begin{cases}
+        \forall g, h \in F: d_{S_{n_i}}(\Phi_i(gh), \Phi(g) \circ \Phi(h)) < \frac 1 i \\
+        \forall g \in F: \left|\ell_{S_{n_i}}(\Phi_i(g)) - (1 - \delta_{ge}) \right|< \frac 1 i
+        \end{cases}
+   \]
+   Now we clearly have for all $g,h \in G$ that $\lim_{i \to \infty} d_{S_{n_i}}(\Phi_i(gh), \Phi(h)^{-1} \Phi(g)^{-1}) = 0$ and $\lim_{i \to \infty} \ell_{S_{n_i}}(\Phi(g)) = 1 - \delta_{ge}$,  and this is precisely the soficity condition in our first definition.
+
+   Conversely, let $\left(\Phi_i: G \to S_{n_i} \right)_{i \in I}$ be a sofic approximation for $G$. Assume without loss of generality that $\Phi_i(e) = id_{S_{n_i}}$. Now let $\epsilon > 0$ be arbitrary and let $F$ be a finite subset of $G$.
+   For all $g,h$ there exists an $i_{g,h} \in \N$ such that for all $i \geq i_{g,h},$
+   \[
+   d_{S_{n_i}}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) < \epsilon,
+   \]
+   and for every $g \in F$ there exists a $j_g$ such that for all $j \geq j_g$
+   \[
+        \left| \ell_{S_{n_j}} - (1-\delta_{e,g}) \right| < \epsilon
+   \]
+   Now let $i = \max_{g,h \in F}(i_{gh})$, $j = \max_{g \in F}(j_g)$ and $k = \max\{i,j\}$.
+   Then for all $g,h \in G$, we have
+   $ d_{S_{n_k}}(\Phi_i(g) \circ \Phi_k(h), \Phi_k(gh)) < \epsilon$ and $\left| \ell_{S_{n_k}} (\Phi_k(g) - (1- \delta_{eg})) \right| < \epsilon$.
+
+    \end{proof}
+
+	This definition is particularly nice because it really makes clear in what sense a soficity means that a group can be approximated by a sequence of symmetric groups. 
+	Namely $\Phi$ is an almost morphism in the sense that is maps the product of two elements very close the product of the images. In fact, later in the same section of \cite{capraro_lupini_2015} Lupini goes on by defining the concept of an $(F, \epsilon)$-approximate morphism. 
+	\begin{definition}
+		Let $G, H$ be groups with invariant length functions. 
+		Let $F$ be a subset of $G$ and  $e > 0$.  
+		A function $\Phi:  G \to H$ is an $(F,\epsilon)$-approximate morphisms if $\Phi(1) = 1$ and for every $g, h \in F$ 
+		\begin{itemize}
+			\item $d_H(\Phi(gh),\Phi(g)\circ \Phi(h)) < \epsilon$
+			\item $\card{\ell_H(\Phi(p)) - \ell_G(g)} < \epsilon$
+		\end{itemize}
+	\end{definition}
+	With this language we can say that a group $G$ is sofic if and only if for every $\epsilon >0$ and finite subset $F \subset G$ there exists a $(F,\epsilon)$-approximate morphism to $S_n$ for some  $n$, where we have equipped $G$ with the trivial length function and $S_n$ with the Hamming length function.
