@@ -1,11 +1,11 @@
-Suppose that we have a map $\phi: A^G \to A^G$ is continuous, injective and commutes with the shifts $\sigma_g$. Now consider $X := \phi(A^G) \subset A^G$. We claim that this is a subshift. Indeed, because $\phi$ is continuous $X$ is closed and, furthermore, $X$ is invariant under any shift $\sigma_g$: 
+Suppose that we have a map $\phi: A^G \to A^G$ which is continuous, injective and which commutes with the shifts $\sigma_g$. Now consider $X := \phi(A^G) \subset A^G$. We claim that this is a subshift. Indeed, because $\phi$ is continuous and $A^G$ is compact, $X$ is closed. Furthermore, $X$ is invariant under any shift $\sigma_g$: 
 		\begin{align*}
 		\sigma_g(X)
-		&= \sigma_g \circ \phi(A^G) \\
-		&= \phi \circ \sigma_g(A^G) \\
-		&= \phi(A^G)
+		&= (\sigma_g \circ \phi) (A^G) \\
+		&= (\phi \circ \sigma_g)(A^G) \\
+		&= \phi(A^G).
 		\end{align*}
 		
-The inverse $\phi^{-1}: X \to A^G$ is well defined, continuous and commutes with the shifts. Therefore,  $\phi^{-1}$ is determined by a finite restriction $\phi^{-1}_0: A^{\Gamma} \to A^G$ with $\Gamma$ a finite subset of $G$. \\
+The inverse $\phi^{-1}: X \to A^G$ is well defined, continuous (since $A^G$ and therefore also $X$ is Hausdorff) and commutes with the shifts. Therefore,  $\phi^{-1}$ is determined by a finite restriction $\phi^{-1}_0: A^{\Gamma} \to A^G$ with $\Gamma$ a finite subset of $G$. \\
 \\
 Now fix any $\delta > 0$. Consider $H_n(\delta)$ for any $n \in \N$. Look at any sequence $(a_i)_i \in A^n$. Take then $(x_i)_i = \phi((a_i)_i) \in X$. As $\Gamma$ is only finite it is possible to take $n$ large enough such that the sofic approximation $\Phi_n$ is good enough for every $g \in \Gamma$. In other words, we can make sure that $d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(g^{-1}(x_i))_i) = 0$ for any  $(a_i)_i \in A^n$ by taking $n$ large enough which is equivalent to saying that $(a_i)_i \in H_n(\delta)$ for every $(a_i)_i \in A^n$ as soon as $n$ becomes large enough. Therefore, $|H_n(\delta)| = |A|^{n}$ for any $\delta$ and $h_\Sigma(X) = \log |A|$, which, by the previous lemma, means that $X = A^G$. Thus, $\phi$ is surjective.
