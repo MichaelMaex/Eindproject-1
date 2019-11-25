@@ -22,3 +22,4 @@
 20/11/2019: everyone: reread the document checking for errors, i.p. checked proof for amenable => surjunctive
 22/11/2019: Lucas: fixed errors/typos in the document, rewrote the section about sofic groups
 23/11/2019: Lucas: did the tutorial about finding sources and scientific integrity and took the test
+25/11/2019: Lucas: looked at the feedback Szabo gave us, and fixed some of it. Moved a section forward
