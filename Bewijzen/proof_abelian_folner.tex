@@ -1,6 +1,6 @@
 The group $G$ is countable so we can write $G = \{e, g_1, g_2, g_3, \dots\}$.
 Consider the sequence of sets $$F_n = \left\{\prod_{i = 1}^n g_i^{a_i} \mid \card{a_i} \le n\right\}.$$ 
-It is clear that this set adheres to the first condition of the folner criterion. 
+It is clear that this set adheres to the first condition of the Følner criterion. 
 Fix $g_j \in G$. Take any $n > j$.
 Let $$H = \left\{\prod_{i = 1, i \ne j}^n g_i^{a_i} \mid \card{a_i} \le n\right\}.$$
 Notice that $\bigcup_{i = -n}^{n} g^{i}H = F_n$.
@@ -16,7 +16,7 @@ It follows that $\sum_{i=-m}^{m} \card{B_i} = \card{F_n}$. We know that
     &=  2 \card{g^{n+1}H \setminus \bigcup_{i = -n}^n g^{i}H}\\
     &= 2 \card{B_{n+1}}
 \end{align*}
-So to show that the $F_n$ adheres to the second condition of the folner criterion, it is sufficient to show that $\frac{\card{B_{n+1}}}{\card{F_n}} \to 0$ as $n \to \infty$.
+So to show that the $F_n$ adheres to the second condition of the Følner criterion, it is sufficient to show that $\frac{\card{B_{n+1}}}{\card{F_n}} \to 0$ as $n \to \infty$.
 
 We claim that $(\card{B_m})$ is a non-increasing sequence. The following calculation shows this.
 \begin{align*}

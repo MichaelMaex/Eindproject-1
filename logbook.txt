@@ -18,4 +18,7 @@
 16/11/2019: Lucas: fixed errors in the document/ made notation more consistent, added introductory section on group rings
 17/11/2019: Lucas: fixed more errors, added references, added a simple proof why finite groups over a finite field are directly finite
 18/11/2019: Tomas: looked at possible proof for sofic => surjunctive
+18/11/2019: Lucas: added a proof that the group ring satisfies the ring axioms
 20/11/2019: everyone: reread the document checking for errors, i.p. checked proof for amenable => surjunctive
+22/11/2019: Lucas: fixed errors/typos in the document, rewrote the section about sofic groups
+23/11/2019: Lucas: did the tutorial about finding sources and scientific integrity and took the test

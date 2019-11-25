@@ -152,7 +152,7 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 
 In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic with a permutation group.
 
-To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between as the fraction of elements on which they differ.
+To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ.
 
 \begin{definition}
     The \textbf{Hamming distance} on $\sym(n)$ is defined by
@@ -164,21 +164,22 @@ To define this, we will need a way to measure a distance between permutations. I
 
 It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
-$(\Phi_i \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ exept the identity element to converge out of the kernel of these maps. We add the following condition
+$(\Phi_i \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
+ For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition\footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$.}
 \[
 \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = e \\
                                         1 & \text{otherwise,}
                                         \end{cases}
 \]
-where $e$ denotes the identity element of $G$ and $\id$ is the identity permutation.\footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\tilde \Phi_i : G \to \sym{\tilde d_i}$ such that $d_{\sym \tilde d_i}(\id, \tilde \Phi_i(g))$ converges to $1$ for every $g$.}
+where $e$ denotes the identity element of $G$ and $\id$ is the identity permutation.
 
-We can now state the definiton of a sofic group.
+We can now state the definiton of a sofic group by the example of \cite{capraro_lupini_2015}.
 
     \begin{definition}\label{def:Sofic}
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
-            \item $\lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
-            \item $\lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g_i)) = \begin{cases}  0 & \text{if } g = e \\
+            \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
+            \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g_i)) = \begin{cases}  0 & \text{if } g = e \\
                                                                                     1 & \text{otherwise,}
                                                                                     \end{cases}$
         \end{enumerate}
@@ -197,7 +198,7 @@ We can now state the definiton of a sofic group.
         where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
     \end{lemma}
 
-    %\input{sofic_groups_old_section}
+
 
 
     \begin{example}\label{ex:finite_group_sofic}
@@ -208,14 +209,14 @@ We can now state the definiton of a sofic group.
     % Example: Z
 
 	\begin{example}\label{ex:Z}
-	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to \sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,...,i\}$ : $ \Phi_{i}(g)(k) = (k+g) \mod(i)$. The first condition of soficity is satisfied as for any $i \in N, g,h \in \Z, k \in \{1,..., i\}$ it can be said that 
+	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to \sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,\dots,i\}$ : $ \Phi_{i}(g)(k) = (k+g) \mod i$. The first condition of soficity is satisfied as for any $i \in \N, g,h \in \Z, k \in \{1,\dots, i\}$ it can be said that 
 	\begin{align*}
-	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= \Phi_{i}(g)((k+h)\mod(i))\\
-	&= (k+h+g)\mod(i)\\
-	&= (k+g+h)\mod(i)\\
+	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= \Phi_{i}(g)((k+h)\mod i )\\
+	&= (k+h+g)\mod i \\
+	&= (k+g+h)\mod i \\
 	&= \Phi_{i}(g+h)(k)
 \end{align*}		
-	Now for the second condition. It is clear that for any $i \in \N, k \in \{1,..., i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,...,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. Then, namely, we have that $|(k+g)-k| < i$ which means that is is not possible that $(k+g)mod(i) = (k)mod(i)$. Thus we have that $(k+g)mod(i) \neq k$ as $(k)mod(i) = k$ for $k<i$ and the inequality is obvious for $k \geq i$.
+	Now for the second condition. It is clear that for any $i \in \N, k \in \{1,..., i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,...,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. Then, namely, we have that $|(k+g)-k| < i$ which means that it is not possible that $(k+g)\mod i = k \mod i$. Thus we have that $(k+g)\mod i \neq k$ as $k = k\mod i$ for $k<i$ and the inequality is obvious for $k \geq i$.
 	\end{example}
     % Example: Direct product of sofic groups is sofic. 
 
@@ -254,14 +255,32 @@ We can now state the definiton of a sofic group.
         \end{enumerate}
     \end{definition}
     \Cref{fig:folner} gives a visual intuition for this notion. 
+If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent the amenability.}
+
 \begin{figure}[ht]
     \centering
     \incfig{folner}
-    \caption{An illustration of the Folner criterion. The limit means that the gray part will become very small compared to  $F_n$ itself as $n$ gets large.}
+    \caption{An illustration of the Følner criterion. The limit means that the gray part will become very small compared to  $F_n$ itself as $n$ gets large.}
     \label{fig:folner}
 \end{figure}
-% example: finite group
-If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent the amenability.}
+
+By the following lemma, we can not only exploit this for individual elements, but also for finite subsets.
+\begin{lemma}\label{lem:folner_finite_subset}
+    Let $F_n$ be a Følner sequence. Then for every finite subset $B \subset G$ it holds that  \[
+    \lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} = 0    
+    .\] 
+\end{lemma}
+\begin{proof}
+    Suppose that $B = \{b_1, b_2, \ldots, b_r\} $. 
+    Have a look at the following calculation:
+    \begin{align*}
+        \lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} &= \lim_{n \to \infty} 2 \frac{\card{BF_n \setminus F_n}}{\card{F_n}} \\
+                                         &= \lim_{n \to \infty} 2 \frac{\card{\bigcup_{i = 1}^{k} (b_i F_n \setminus F_n)}}{\card{F_n}} \\
+                                         &\le \lim_{n \to \infty} 2\frac{\sum_{i-1}^{k} \card{b_i F_n \setminus F_n}}{\card{F_n}} \\
+                                         &= \lim_{n \to \infty} \sum_{i = 1}^{k} \frac{\card{b_iF_n \triangle F_n}}{\card{F_n}} = 0.  \\
+    .\end{align*}
+\end{proof}
+
 \subsubsection{Examples}
 \begin{example}\label{ex:finite_group_folner}
     Every finite group trivially satisfies the Følner condition. Indeed, we can take $F_i = G$ for every $i \in \N$. Then the first condition is automatically statisfied and we also have $gG \triangle G = G \triangle G = \emptyset$. Hence $\card{gF_i\triangle F_i} = 0$, for all $i \in \N$.
@@ -278,10 +297,10 @@ If a countable group statisfies the Følner condition, we will also call the gro
 \end{example}
 
 \begin{example}
-	Counter examples are at least as insightful as examples. 
+	Counterexamples are at least as insightful as examples. 
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. 
-	To prove this we will have to show that there does not exist a Folner sequence.
-	We will prove that for every non-empty finite subset $H \subset F$ the is holds that \[
+	To prove this we will have to show that there does not exist a Følner sequence.
+	We will prove that for every non-empty finite subset $H \subset F$ it holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
 	.\] 
 	We can prove this using induction on the size of $H$. 
@@ -289,13 +308,13 @@ If a countable group statisfies the Følner condition, we will also call the gro
 		\item[$\card{H} = 1$:] Then $H = \{g\}$. 
 			Hence the left hand side set is $\{x_1g, x_1^{-1}, x_2g, x_2^{-1}g, \ldots, x_ng, x_n^{-1}g\} $, which has cardinality $2n$. 
 		\item[$\card{H} > 1$:] 
-			Let $ h \in H$ be the element that has the most letters in reduced form.
+			Let $ h \in H$ be an element that has maximum number of letters in reduced form.
 			Consider the set $H' = H\setminus \{h\} $. 
 			By the induction hypothesis it holds that
 			\[	
 				\card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} \ge (2n-1) \card{H'}
 			.\] 
-			For atleast $2n-1$ elements of $\{x_1,x_1^{-1},x_2,x_2^{-1},\ldots, x_n, x_n^{-1}\} $ the words $x_ih$ or  $x_i^{-1}h$ have more letters in reduced form than $h$. Let $\Delta = \{ h_1, h_2, \ldots, h_n\} $ be that set.  
+			For at least $2n-1$ elements of $\{x_1,x_1^{-1},x_2,x_2^{-1},\ldots, x_n, x_n^{-1}\} $ the words $x_ih$ or  $x_i^{-1}h$ have more letters in reduced form than $h$. Let $\Delta = \{ h_1, h_2, \ldots, h_n\} $ be that set.  
 			As multiplying by one generator changes the number of letters by $\pm 1$, we see that elements of $\Delta$ are not of the form $x_ih'$ of $x_i^{-1}h'$ for some generator $x_i$ and $h' \in H$. 
 			Hence \[
 				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H}  \ge \card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} + 2n-1
@@ -361,13 +380,18 @@ We now state the proof.
     \end{lemma}
 
     \begin{corollary}\label{cor:quotient_amenable}
-	    Every quotient group of a amenable group is amenable. Every normal subgroup of an amenable group is amenable. 
+	    Every quotient group of an amenable group is amenable. Every normal subgroup of an amenable group is amenable. 
     \end{corollary}
     \begin{proof}
 	    Let $G$ be a amenable group and let $H$ be a quotient group such that $G = \frac{H}{N}$. 
-	    Then there is a short exact sequence \[
-	    0 \to N \to G \to H \to 0
-	    .\] 
+	    % Then there is a short exact sequence \[
+	    % 0 \to N \to G \to H \to 0
+	    % .\] 
+        Consider the following sequence.
+        \[\begin{tikzcd}
+            N \arrow[r, "\iota", hook] & G \arrow[r, "\pi", two heads] & H
+        \end{tikzcd}\]
+        It is clear that this sequence is exact.
 	    Applying the previous lemma shows that $N$ and $H$ are amenable.
     \end{proof}
     \begin{theorem}
@@ -382,9 +406,9 @@ We now state the proof.
     \end{theorem}
     \begin{proof}
     	Let $G = \{g_1, g_2, g_3, \ldots\} $. 
-	For every $G_i$ we choose a Folner sequence $(F_{i, n})_n$. We will use these Folner sequences to construct a Folner sequence for $G$, $\mathcal{F}_n$.
+	For every $G_i$ we choose a Følner sequence $(F_{i, n})_n$. We will use these Følner sequences to construct a Følner sequence for $G$, $\mathcal{F}_n$.
 	Let's fix an $n$, and consider the set $H = G_n \cap \{g_1, \ldots, g_n\}$. 
-	As $H$ is a finite subset of $G_n$ we can find a Folner set $F_{n, N}$ such that for all $h \in H:$ 
+	As $H$ is a finite subset of $G_n$ we can find a Følner set $F_{n, N}$ such that for all $h \in H:$ 
 	\begin{enumerate}
 		\item $h \in F_{n, N}$
 		\item $\frac{\card{hF_{n,N}\triangle F_{n,N}}}{\card{hF_{n,N}}} < \frac{1}{n} $
@@ -392,8 +416,8 @@ We now state the proof.
 	We define $\mathcal{F}_m = F_{n,N}$.
 	As we can do this for every $n$ we can construct $\mathcal{F}_n$ in this way.
 
-	Now I claim that $\mathcal{F}_n$ is a Folner sequence of $G$. 
-	Take any  $g_i \in G$. To verify the first property of the folner criterion, we can choose an $N$ sufficiently high such that $N >i$ and $g_i \in G_N$. Then $g_i \in \mathcal{F}_{m}$ for all $m > N$.
+	Now I claim that $\mathcal{F}_n$ is a Følner sequence of $G$. 
+	Take any  $g_i \in G$. To verify the first property of the Følner criterion, we can choose an $N$ sufficiently high such that $N >i$ and $g_i \in G_N$. Then $g_i \in \mathcal{F}_{m}$ for all $m > N$.
 
 	To verify the second property we can again take $N$ such that $N > i$ and $g_i \in G_N$. For all $m >N$ we see that \[
 		\frac{\card{g_i \mathcal{F}_m \triangle \mathcal{F}_m }}{\card{\mathcal{F}_m}} \le \frac{1}{m}
@@ -401,7 +425,7 @@ We now state the proof.
 	Hence we find that \[
 		\lim_{n \to \infty} \frac{\card{g_i \mathcal{F}_n \triangle \mathcal{F}_n }}{\card{\mathcal{F}_n}} = 0
 	.\] 
-	We conclude that $\mathcal{F}_n$ is a Folner sequence and that  $G$ is amenable. 
+	We conclude that $\mathcal{F}_n$ is a Følner sequence and that  $G$ is amenable. 
     \end{proof}
 
     \begin{lemma}\label{lem:fg_ab_amenable}
@@ -548,12 +572,12 @@ We conclude that $F_k$ is residually finite.
     The $H$-periodic points are dense in $A^G$, where $A$ is finite set and $G$ is a residually finite countable group.
     \end{lemma}
     \begin{proof}
-        Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can lists its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
+        Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can list its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
         Let $F_n = \{1, g_1, g_2, \dots, g_n\}$. 
         As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
         .\]
         Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a subgroup of finite index of $G$. 
-        For $g_i, g_j \in F, i \ne j$ is is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$. 
+        For $g_i, g_j \in F, i \ne j$ it is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$. 
         This means that there exists a function $\alpha: \im(\pi) \to A$ such that for all $g_i \in F_n: (\alpha \circ \pi)(g_i) = f(g_i)$. 
         Notice that $\alpha \circ \pi \in A^G$. 
         Let $h \in \ker\pi$ and consider the right $h$ shift, $\sigma_h$. 
@@ -577,10 +601,10 @@ We conclude that $F_k$ is residually finite.
 	
 \section{Amenable groups are surjunctive}
 In this section we present a direct proof of the fact that Amenable groups are surjunctive without using entropy. While this might not be ground breaking, it's still interesting to see that this can be done in a relatively short way without the theory of entropy, as all the proofs in the literature that we've found use entropy for the case of amenable groups \cite{weiss_2000} \cite{kerr_li_2010}.
-\subsection{About Folner Sequences}
-We will first need a couple of extra properties about the Folner criterion and Folner sequences.
+\subsection{About Følner Sequences}
+We will first need a couple of extra properties about the Følner criterion and Følner sequences.
 \begin{lemma}\label{lem:right_folner_sequence}
-	If a group $G$ satisfies the folner criterion, then there also exists a folner sequence for the right action of $G$ on itself. 
+	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself. 
 	I.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
 		\begin{enumerate}
 		\item for every $g \in G$ there exists an  $N$ such that for all $n >N$ it holds that $g \in F_n$ 
@@ -590,15 +614,18 @@ We will first need a couple of extra properties about the Folner criterion and F
 	\end{enumerate}
 \end{lemma}
 \begin{proof}
-	Let $F_n$ be a folner sequence for the left action. 
-	It's easy to check that $F_n^{-1}$ will be a Folner sequence for the right action. 
+	Let $F_n$ be a Følner sequence for the left action. 
+	It's easy to check that $F_n^{-1}$ will be a Følner sequence for the right action. 
 \end{proof}
+\begin{remark}
+    A result analogous to lemma \ref{lem:folner_finite_subset} holds for a right Følner sequence.
+\end{remark}
 
 \begin{lemma}
-	Let $F_n$, $E_n$ be two (right) folner sequences for $G$. Then $F_n \cup E_n$ is a (right) Folner sequence for $G$.
+	Let $F_n$, $E_n$ be two (right) Følner sequences for $G$. Then $F_n \cup E_n$ is a (right) Følner sequence for $G$.
 \end{lemma}
 \begin{proof}
-	We'll prove it for odinary (left) Folner sequences as the proof is completely analogous for right Folner sequences.
+	We will prove it for odinary (left) Følner sequences as the proof is completely analogous for right Følner sequences.
 	The first property is obivously satisfied. 
 	Let's have a look at the limit.
 	\begin{align*}
@@ -612,27 +639,11 @@ We will first need a couple of extra properties about the Folner criterion and F
 \end{proof}
 We find the following corollary. 
 \begin{corollary}\label{cor:product_folner_sequence}
-	Let $B \subset G$ be a finite subset and $F_n$ be a (left or right) Folner sequence of $G$. Then are $BF_n$ and $F_nB$ again Folner sequences.
+	Let $B \subset G$ be a finite subset and $F_n$ be a (left or right) Følner sequence of $G$. Then are $BF_n$ and $F_nB$ again Følner sequences.
 \end{corollary}
 
-\begin{lemma}\label{lem:folner_finite_subset}
-	Let $F_n$ be a Folner sequence. Then for every finite subgroup $B \subset G$ it holds that  \[
-	\lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} = 0	
-	.\] 
-\end{lemma}
-\begin{proof}
-	Suppose that $B = \{b_1, b_2, \ldots, b_r\} $. 
-	Have a look at the following calculation:
-	\begin{align*}
-		\lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} &= \lim_{n \to \infty} 2 \frac{\card{BF_n \setminus F_n}}{\card{F_n}} \\
-										 &= \lim_{n \to \infty} 2 \frac{\card{\bigcup_{i = 1}^{k} (b_i F_n \setminus F_n)}}{\card{F_n}} \\
-										 &\le \lim_{n \to \infty} 2\frac{\sum_{i-1}^{k} \card{b_i F_n \setminus F_n}}{\card{F_n}} \\
-										 &= \lim_{n \to \infty} \sum_{i = 1}^{k} \frac{\card{b_iF_n \triangle F_n}}{\card{F_n}} = 0  \\
-	.\end{align*}
-\end{proof}
-\begin{remark}
-	A similar result holds for a right Folner sequence.
-\end{remark}
+
+
 \subsection{Amenable groups are surjunctive}
 In the following section $G$ will be a fixed amenable group, $A$ a fixed finite set and $\phi: A^{G} \to A^{G}$ a fixed continuous injective function that commutes with the right shift. 
 We will also denote a fixed element of $A$ with $0$.
@@ -735,7 +746,7 @@ We are finally setup to proof that all amenable groups are surjunctive.
 	Suppose that there does not exists a  $x \in A^{G}$ such that $\phi(x)|_B = f$.
 	Notice that this means that for any copy of $B$, take  $B\cdot s$, the image of $\phi$ does not contains a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $.
 
-	Let $F_n$ be a right Folner sequence of $G$. By \cref{cor:product_folner_sequence} we know that $BF_n$ is a right Folner sequence as well. 
+	Let $F_n$ be a right Følner sequence of $G$. By \cref{cor:product_folner_sequence} we know that $BF_n$ is a right Følner sequence as well. 
 
 	Fix  $n$ for a moment. By \cref{lem:injective_restriction} the function \[
 		\psi: A^{BF_n} \to A^{BF_n\Gamma^{-1}}: x \mapsto (g \mapsto \phi(x)(g))
