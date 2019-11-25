@@ -10,6 +10,7 @@
 \usepackage{mathtools}
 \usepackage{tikz-cd}
 \usepackage{tikz}
+\usepackage{todonotes}
 \usetikzlibrary{fit,arrows,calc,positioning}
 \usepackage[backend = biber,style=alphabetic]{biblatex}
 \addbibresource{references.bib}
@@ -147,6 +148,7 @@ Note how the argument hinges on the fact that the map $\phi$ is guarantied to be
 \section{Sofic groups}\label{sec:sofic_group}
 
 \subsection{Definition and examples}
+\todo{More references to capraro-lupini}
 
 In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic with a permutation group.
 
@@ -303,7 +305,7 @@ If a countable group statisfies the Følner condition, we will also call the gro
 			.\]
 	\end{description}
 	This clearly contradicts \cref{lem:folner_finite_subset}. 
-	We conclude that the free group is not amenable. 
+	We conclude that the free group is not amenable. \todo{define and reference definition of the free group} 
 \end{example}
 % example: finitely generated groups are not amenable
 
@@ -504,8 +506,7 @@ We conclude that $F_k$ is residually finite.
         \end{enumerate}
     \end{definition}
 
-    In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.
-
+    In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.  
     \begin{definition}
 	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift} $\sigma$ of $G$ on $A$ is defined by
         \[
@@ -647,23 +648,23 @@ We will also denote a fixed element of $A$ with $0$.
 			A & g \ne 1
 	\end{cases} \right)
 \]
-	is open. Hence it is the union of a basis opens  \[
-		U_a= \bigcup{i \in I} U_{i,a}
+	is open. Hence we can choose some basis opens $U_{i, a}$ for some index $i \in I$ such that  \[
+		U_a= \bigcup_{i \in I} U_{i,a}
 	.\] 
 	Notice that $\bigcup_{a \in A} U_a = A^{G}$ is a disjoint union. 
 	Hence $\bigcup_{a \in A, i \in I} U_{i, a} = A^{G}$. 
 	As $A^{G}$ is compact, we see that there must be a finite subset of indices $K$ such that \[
 		A^{G} = \bigcup_{(i, a) \in K} U_{i, a}
 	.\] 
-	Every one of these basis opens is of the for \[
+	Every one of these basis opens is of the form \[
 	U_{i,a} = \prod_{g \in G} \begin{cases}
-		\{\ldots\} & g \in \Gamma_{i,a}\\
+		V_g \subset A & g \in \Gamma_{i,a}\\
 		A & g \not\in \Gamma_{i,a}
 	\end{cases}
 	,\]
 	for some finite subset $\Gamma_{i,a}$. 
 
-	Now I claim that $\Gamma = \bigcup_{(i,a) \in K}$ is set we're looking for. 
+	Now I claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we're looking for. 
 	Obivously $\Gamma$ is finite. 
 	Suppose that $(x_g)_g \in A^{G}$ and $(y_g)_g \in A^{G}$ agree on $\Gamma$,
 	meaning that for every $\gamma \in \Gamma$ it holds that  $x_\gamma = y_\gamma$.
@@ -702,7 +703,7 @@ Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implici
 	This function is an injection. 
 \end{lemma}
 \begin{proof}
-	Suppose that $x= (x_g)_g, y = (y_g)_g \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$ their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under/ $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
+	Suppose that $x= (x_g)_g, y = (y_g)_g \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$ their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
 \end{proof}
 
 At this point we're almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
@@ -720,7 +721,7 @@ In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ di
 We will construct $F'$ in a very adhoc manner. 
 Start of with $F' = \emptyset$ and $H = F$. Choose any  $f \in H$. Add $f$ to $F'$. Consider $\{g \in F | B\cdot g \cap B\cdot f \ne \emptyset\} $. This set has atmost $\card{B}^2$ elements. 
 We can scrap these elements form $H \leftarrow H \setminus \{g \in F | B\cdot g \cap B\cdot f \ne \emptyset\}$. Now we take a new  $f \in H$ and repeat the process.
-We can repeat this atleast $\frac{\card{F}}{\card{B^2}}$ therefore $F'$ contains atleast as many elements. 
+We can repeat this atleast $\frac{\card{F}}{\card{B^2}}$ times, therefore $F'$ contains atleast as many elements. 
 By the construction we see as well that for any $s, t \in F', s\ne t$ the the copies  $B\cdot s, B\cdot t$  are disjoint.
 \end{proof}
 
