@@ -678,14 +678,14 @@ In the following section $G$ will be a fixed amenable group, $A$ a fixed finite 
 We will also denote a fixed element of $A$ with $0$.
 
 \begin{lemma}
-	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_g)(1)$ is only dependent on the values of $x_h$ where  $h \in \Gamma$. 
-	I.e. if for some  $(x_g)_g, (y_g)_g \in A^{G}$ it holds that $x_g = y_g$ for all $g \in \Gamma$, then $\phi((x_g)_g)(1) = \phi((y_g)_g)(1)$.
+	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_{g \in G})(1_G)$ is only dependent on the values of $x_h$ where  $h \in \Gamma$. 
+	I.e. if for some  $(x_g)_{g \in G}, (y_g)_{g \in G} \in A^{G}$ it holds that $x_h = y_h$ for all $h \in \Gamma$, then $\phi((x_g)_{g \in G})(1_G) = \phi((y_g)_g)(1_G)$.
 \end{lemma}
 \begin{proof}
 	Choose any $a \in A$. As $\phi$ is continuous we know that \[
 	U_a = \phi^{-1}\left( \prod_{g\in G} \begin{cases}
-			\{a\} & g = 1\\
-			A & g \ne 1
+			\{a\} & g = 1_G\\
+			A & g \ne 1_G
 	\end{cases} \right)
 \]
 	is open. Hence we can choose some basis opens $U_{i, a}$ for some index $i \in I$ such that  \[
@@ -698,41 +698,41 @@ We will also denote a fixed element of $A$ with $0$.
 	.\] 
 	Every one of these basis opens is of the form \[
 	U_{i,a} = \prod_{g \in G} \begin{cases}
-		V_g \subset A & g \in \Gamma_{i,a}\\
+		V_{i,a,g} & g \in \Gamma_{i,a}\\
 		A & g \not\in \Gamma_{i,a}
 	\end{cases}
 	,\]
-	for some finite subset $\Gamma_{i,a}$. 
+	for some open sets $V_{i,a,g} \subset A$ and finite subsets $\Gamma_{i,a} \subset G$. 
 
-	Now I claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we're looking for. 
-	Obivously $\Gamma$ is finite. 
-	Suppose that $(x_g)_g \in A^{G}$ and $(y_g)_g \in A^{G}$ agree on $\Gamma$,
+	We now claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we are looking for. 
+	Obviously $\Gamma$ is finite. 
+	Further, suppose that $(x_g)_{g\in G} \in A^{G}$ and $(y_g)_{g \in G} \in A^{G}$ agree on $\Gamma$,
 	meaning that for every $\gamma \in \Gamma$ it holds that  $x_\gamma = y_\gamma$.
 	We know that for some  $(i, a) \in K$ the point $(x_g)_g \in U_{i,a}$. 
 	In particular we see that $x_\gamma = y_\gamma$ for every $\gamma \in \Gamma_{i,a}$. 
-	So $(y_g)_g \in U_{i, a}$. 
-	Hence  $(x_g)_g , (y_g)_g$ are elements of $U_a$. 
-	So  $\phi((x_g)_g) = a = \phi((y_g)_g) $.
+	So $(y_g)_{g \in G} \in U_{i, a}$. 
+	Hence  $(x_g)_{g \in G} , (y_g)_{g \in G}$ are elements of $U_a$. 
+	So  $\phi((x_g)_{g \in G})(1_G) = a = \phi((y_g)_{g \in G})(1_G) $.
 	We conclude that $\Gamma$ is indeed the set we're looking for.
 \end{proof}
 From this point on we will also fix $\Gamma$. 
 \begin{corollary}
-	For any $k \in G$ the value of $\phi((x_g)_g)(k)$ is only dependent on the values of $x_{kh}$ where $h \in \Gamma$.
+	For any $k \in G$ the value of $\phi((x_g)_{g \in G})(k)$ is only dependent on the values of $x_{kh}$ where $h \in \Gamma$.
 \end{corollary}	
 \begin{proof}
 	As $\phi$ commutes with the right shift  $\sigma_k$ we know that $\sigma_k\phi = \phi\sigma_k$. Applying the previous lemma immediately gives the result.
 \end{proof}
 
 \begin{corollary}\label{cor:differ_in_image}
-	If $(x_g)_g, (y_g)_g \in A^{G}$ only differ on a set $H \subset G$, ie $\forall g \not\in H:x_g = y_g$,
-	then  $\phi((x_g))$ and $\phi((y_g))$ will only differ on $H\Gamma^{-1}$.
+	If $(x_g)_{g \in G}, (y_g)_{g\in G} \in A^{G}$ only differ on a set $H \subset G$, ie $\forall g \not\in H:x_g = y_g$,
+	then  $\phi((x_g)_{g \in G})$ and $\phi((y_g)_{g \in G})$ will only differ on $H\Gamma^{-1}$.
 \end{corollary}
 \begin{proof}
-	Take $g \not\in H\Gamma^{-1}$. Then $\phi((x_h)_h)(g)$ and $\phi((x_h)_h)(g)$ will only depend on  $\{x_{g\gamma}\mid \gamma \in \Gamma\}$ and $\{y_{g\gamma}\mid \gamma \in \Gamma\} $. But  $g\Gamma \cap H = \emptyset$. Hence $x_{g\gamma} = y_{g\gamma}$ for all $\gamma \in \Gamma$. By the previous corollary we see that $\phi((x_g)) = \phi((y_g))$.
+	Take $g \not\in H\Gamma^{-1}$. Then $\phi((x_h)_{h \in G})(g)$ and $\phi((x_h)_{h\in G})(g)$ will only depend on  $\{x_{g\gamma}\mid \gamma \in \Gamma\}$ and $\{y_{g\gamma}\mid \gamma \in \Gamma\} $. But  $g\Gamma \cap H = \emptyset$. Hence $x_{g\gamma} = y_{g\gamma}$ for all $\gamma \in \Gamma$. By the previous corollary we see that $\phi((x_h)_{h \in G})(g) = \phi((y_h)_{h \in G})(g)$.
 \end{proof}
 
 \begin{definition}
-	We say that $(x_g)_g$ has support $H$ if $x_g = 0$ for all $g \not\in H$.
+	We say that $(x_g)_{g \in G} \in A^{G}$ has support $H$ if $x_g = 0$ for all $g \not\in H$.
 \end{definition}
 Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implicitly identify $A_H$ with $A^{H}$.
 
@@ -743,27 +743,50 @@ Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implici
 	This function is an injection. 
 \end{lemma}
 \begin{proof}
-	Suppose that $x= (x_g)_g, y = (y_g)_g \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$ their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
+	Suppose that $x= (x_g)_{g \in G}, y = (y_g)_{g \in G} \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$ their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
 \end{proof}
 
-At this point we're almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
+At this point we are almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
 In order to show this will show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find a $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
 
 \bigskip
 
 For now, lets fix the set $B$ and the map $f:B \to A$. 
+We will first introduce the notion of a copy of $B$. \footnote{This is not standard notation. It is just a term we made up to aid in this specific proof.}
+ \begin{definition}
+	A set  $A \subset  G$ is a copy of $B$ if and only if there exists an $s \in G$ such that $A = B\cdot s$.
+\end{definition}
+
 
 \begin{lemma}\label{lem:copies_of_B}
 	Let $F$ be any finite subset of $G$. There exists a subset $F' \subset F$ such that for any two  $s,t \in F', s\ne t$ it holds that $B\cdot s$ and  $B\cdot t$ are disjoint and $\card{F'} \ge \frac{\card{F}}{\card{B}^2} $
 \end{lemma}
-In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ disjoint `copies' of $B$. Here copy of $B$ means $B\cdot x$ for some $x \in G$.
+In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ disjoint copies of $B$.
+
 \begin{proof}
-We will construct $F'$ in a very adhoc manner. 
-Start of with $F' = \emptyset$ and $H = F$. Choose any  $f \in H$. Add $f$ to $F'$. Consider $\{g \in F | B\cdot g \cap B\cdot f \ne \emptyset\} $. This set has atmost $\card{B}^2$ elements. 
-We can scrap these elements form $H \leftarrow H \setminus \{g \in F | B\cdot g \cap B\cdot f \ne \emptyset\}$. Now we take a new  $f \in H$ and repeat the process.
-We can repeat this atleast $\frac{\card{F}}{\card{B^2}}$ times, therefore $F'$ contains atleast as many elements. 
-By the construction we see as well that for any $s, t \in F', s\ne t$ the the copies  $B\cdot s, B\cdot t$  are disjoint.
+	 We will prove this using strong induction. The case where $F = \emptyset$ is trivial. 
+	\begin{description}
+		\item{Case $1 \le \card F \le \card{B}^2$:} 
+		Let  $f \in F$ be an arbitrary element of $F$. 
+		The set $\{f\} $ has 1 element which is atleast $\frac{\card F}{\card B^2} \le 1$.
+	\item{Case $\card F > \card{B}^2$ :}
+		Take any  $f \in F$. Suppose that for some  $s \in G$,  $Bf$ and  $Bs$ are not disjoint. 
+		Hence there exists $a,b \in B$ such that $af = bs$. 
+		Thus $s = b^{-1}af$. So $s \in fB^{-1}B$. Notice that $\card{fB^{-1}B}\le \card{B}^2$.
+		This means that for any $f' \in F \setminus fB^{-1}B$, $Bf$ and $Bf'$ will be disjoint. 
+		Notice that $\card F > \card{F \setminus f B^{-1}B} \ge \card F - \card{B}^2 $.
+
+		Applying the induction hypothesis shows that there exists a $F'\subset  \left( F\setminus fB^{-1}B \right) $ such that  for all  $s, t \in F'$, $Bs$ and $Bf$ are disjoint, 
+		and that \[\card {F'}  \ge \frac{\card{F \setminus fB^{-1}B }}{\card{B}^2}.\]
+		On top of that for every $f' \in F\setminus fB^{-1}B$, $Bf$ and  $Bf'$ will be disjoint. 
+		So for every  $ s, t \in \{ f\} \cup F'\} $,  $Bs$ and $Bt$ will be disjoint.
+		Further \[
+			\card{\{f\} \cup F'}  = 1 + \card{F' } \ge 1 + \frac{\card{F \setminus fB^{-1}B}}{\card B^2} \ge \frac{\card{F}}{\card{B}^2}
+		.\] 
+		We conclude that $\{f\} \cup  F'$ is the set we are looking for. 
+	\end{description}
 \end{proof}
+
 
 We are finally setup to proof that all amenable groups are surjunctive.
 \begin{theorem}
@@ -773,7 +796,7 @@ We are finally setup to proof that all amenable groups are surjunctive.
 \begin{proof}
 	Lets fix a finite subset $B \subset G$ and a map $f:B\to A$. 
 	Suppose that there does not exists a  $x \in A^{G}$ such that $\phi(x)|_B = f$.
-	Notice that this means that for any copy of $B$, take  $B\cdot s$, the image of $\phi$ does not contains a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $.
+	Notice that this means that for any copy of $B$, take  $B\cdot s$, the image of $\phi$ does not contains a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $, as applying the right shift $\sigma_{s^{-1}}$ then gives $\phi(\sigma_{s^{-1}} x) |_{B} = f$.
 
 	Let $F_n$ be a right Følner sequence of $G$. By \cref{cor:product_folner_sequence} we know that $BF_n$ is a right Følner sequence as well. 
 
@@ -782,7 +805,7 @@ We are finally setup to proof that all amenable groups are surjunctive.
 	.\] 
 	is injective.
 	\Cref{lem:copies_of_B} states that we can choose  $ \left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil $ disjoint copies of $B$ in $BF_n\Gamma$. 
-	We know that for every such copy of $B$ the number of possible values at the coordinates of this copy is  $\card{A}^{\card{B}} -1$ by our assumption at the start of this proof.
+	We know that for every such copy of $B$ the number of possible values at the coordinates of this copy is atmost  $\card{A}^{\card{B}} -1$ by our assumption at the start of this proof.
 	Hence there exists a set $\mathcal{A} \subset A^{BF_n\Gamma^{-1}}$ of cardinality \[
 		\card{\mathcal{A}} = \card{A}^{\card{BF_n\Gamma^{-1}}- \card{B}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil } \cdot (\card{A}^{B} -1)^{\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil }
 \]
@@ -800,17 +823,17 @@ By dividing both sides by $\card{BF_n}$ we see
 \[
 	\ln(\card{A}) \le \frac{\card{BF_n\Gamma^{-1}}}{\card{BF_n}} \ln(\card{A}) - \frac{1}{\card{BF_n\Gamma^{-1}}}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \left( \ln(\card{A}^{\card{B}}) - \ln(\card{A}^{\card{B}} -1) \right)   
 .\]
-\Cref{lem:folner_finite_subset} shows that $\lim_{n \to \infty} \frac{\card{BF_n\Gamma}}{\card{BF_n}} = 1$. 
-So we know as well that $\lim_{n \to \infty} \frac{1}{\card{BF_n\Gamma}} \left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil \ge \frac{1}{\card{B}^3} $. 
+\Cref{lem:folner_finite_subset} shows that $\lim_{n \to \infty} \frac{\card{BF_n\Gamma^{-1}}}{\card{BF_n}} = 1$. 
+So we know as well that $\lim_{n \to \infty} \frac{1}{\card{BF_n\Gamma^{-1}}} \left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \ge \frac{1}{\card{B}^3} $. 
 Therefore \[
 	\ln(\card{A}) \le \ln(\card{A}) - \frac{1}{\card{B}^3} \left(\ln(\card{A}^{\card{B}}) - \ln(\card{A}^{B} - 1) \right)
 ,\]
-which is clearly nonsense. 
+which yields a contradiction. 
 So our initial assumption is false. 
 
 \bigskip
 
-This means that there exists a $x \in A^{G}$ such that $\phi(x)|_B = f$. As this is true for every  $B$ and $f:B\to A$ we see that the image of  $\phi$ must be dense in $A^{G}$. As a map on compact spaces maps closed sets on closed sets we see that the image of $\phi$ must be $A^{G}$. 
+This means that there exists a $x \in A^{G}$ such that $\phi(x)|_B = f$. As this is true for every  $B$ and $f:B\to A$ we see that the image of  $\phi$ must be dense in $A^{G}$. As a map on compact spaces maps closed sets to closed sets we see that the image of $\phi$ must be $A^{G}$. 
 We conclude that $\phi$ is surjective!
 
 \end{proof}
