@@ -264,7 +264,7 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
-If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.} % is dit wel juist? kerr-li ergodic theory lijkt te suggereren dat dit wel klopt!
+If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.} 
 
 \begin{figure}[ht]
     \centering
@@ -300,9 +300,9 @@ By the following lemma, we can not only exploit this for individual elements, bu
     \[
         \frac{\card{(k + F_i) \triangle F_i}}{\card{F_i}}
         = \frac{\card{\{k-i, k-i+1, \dots, k+i-1, k+i\}\triangle \{-i, -i+1, \dots, i-1, i\}}}{2i+1}
-        \leq \frac{2k}{2i+1},
+        \leq \frac{2|k|}{2i+1},
     \]
-    and this converges to zero as $i \to \infty$. % Szabo: remember that k can be negative
+    and this converges to zero as $i \to \infty$.
 \end{example}
 
 \begin{example}
@@ -356,14 +356,14 @@ We now state the proof.
 % Szabo: Is this your theorem? If you present something like this which is well-known, either provide a reference or at least point out that it is known.
 
  	\begin{theorem}\label{thm:folner_sofic}
-        Every countable group $G$ that satisfies the Følner criterion is sofic.
+        Every amenable countable group $G$ is sofic.
     \end{theorem}
     \begin{proof}
         \input{proof_folner}
  	\end{proof}
 
     \begin{theorem}\label{thm:countable_abelian_folner}
-        Every countable abelian group satisfies the Følner criterion. 
+        Every countable abelian group is amenable. 
     \end{theorem}
     \begin{proof}
         \input{proof_abelian_folner}
@@ -373,13 +373,7 @@ We now state the proof.
     \begin{corollary}
     	Every countable abelian group is sofic.	
     \end{corollary}
-    % \begin{lemma}
-    %     \label{lem:amenable_short_exact_sequence}
-    %     Let $A, B, C$ be groups with morphisms $f:A\to B, g:B\to C$ such that
-    %     \[\begin{tikzcd}
-    %         A \arrow[r, "f", hook] & B \arrow[r, "g", two heads] & C
-    %     \end{tikzcd}\] is a short exact sequence. Then $A$ and $B$ are amenable if and only if $C$ is amenable.
-    % \end{lemma}
+ 
 	The following lemma is a known fact about about amenable groups, that we will use without proof.
     \begin{lemma} % reference?
         \label{lem:amenable_short_exact_sequence}
@@ -395,9 +389,6 @@ We now state the proof.
     \end{corollary}
     \begin{proof}
 	    Let $G$ be a amenable group and let $H$ be a quotient group such that $G = \frac{H}{N}$. 
-	    % Then there is a short exact sequence \[
-	    % 0 \to N \to G \to H \to 0
-	    % .\] 
         Consider the following sequence.
         \[\begin{tikzcd}
             N \arrow[r, "\iota", hook] & G \arrow[r, "\pi", two heads] & H
@@ -455,7 +446,7 @@ We now state the proof.
 
 \subsubsection{About Følner Sequences} % deze sectie moet misschien gemerged worden met de vorige
 
-In this section we list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:}
+In this section we list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
 \begin{lemma}\label{lem:right_folner_sequence}
 	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself. 
 	I.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
@@ -502,10 +493,20 @@ Another property that implies soficity is the following.
 
 \begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
 % betere reference?
-	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\backslash\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
+	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\setminus\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
 \end{definition}
 
 \subsubsection{Examples}
+
+\begin{example}
+	Finite groups $G$ are residually finite. Let $g \in G \setminus \{e\}$ and consider $\id: G \to G: g \mapsto g$. Obviously $\id(g) \neq e$.
+\end{example}
+
+% example: Z
+
+\begin{example}
+	The group of integers $\mathbb Z$ is residually finite. Let $k \in \mathbb =z$. Consider the map $f_k: \mathbb Z \to \mathbb Z/(k+1)\mathbb Z: m \mapsto [m]_{k+1}$. Clearly, $f_k$ is a homomorphism and $f_k(k) = [k]_{k+1} \neq 0$.
+\end{example}
 
 \begin{example}
 	The free group generated by $n$ elements is residually finite. 
@@ -547,13 +548,10 @@ We conclude that $F_k$ is residually finite.
 \end{figure}
 
 \end{example}
-% Proof that these are equivalent? Which ones do we actually use?
-
-% example: finite groups
-
-% example: Z
 
 % example: finitely generated groups
+
+
 \subsubsection{Properties of Residually Finite Groups}
 
 It is a well-known result that residually finite groups are sofic. % reference?
@@ -592,20 +590,17 @@ It is a well-known result that residually finite groups are sofic. % reference?
 
     In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.  
     \begin{definition}
-	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift} $\sigma$ of $G$ on $A$ is defined by
+	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift} $\sigma$ of $G$ on $A^G$ is defined by
         \[
         \sigma: G \times A^G \to A^G: \left(g, (x_{h})_{h \in G} \right) \mapsto \sigma_g(\omega),
         \]
         where $\sigma_g$ is defined by $\sigma_g\left( (x_{h})_{h \in G} \right) = \left( x_{hg} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
     \end{definition}
 
-    One can see that $\sigma$ is a $G$-action on $A^G$.
+    One can see that the right shift $\sigma$ is a $G$-action on $A^G$. We say that a map $\phi: A^G \to A^G$ \emph{commutes with the right shift} if $\sigma_g \circ \phi = \phi \circ \sigma_g$ for every $g \in G$.
     
     \begin{definition}
-        % Let $G$ be a countable group and $A$ a finite set. 
-        % Let $\sigma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-        % The group $G$ is called surjunctive if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma$ is surjective.
-	    Let $G$ be a countable group and $A$ a finite set. The group $G$ is called \textbf{surjunctive} if every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma_g$ for all $g \in G$ is also surjective.
+	    Let $G$ be a countable group. The group $G$ is called \textbf{surjunctive} if for any finite set $A$ and every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with the right shift $\sigma$ of $G$ on $A^G$ is also surjective.
     \end{definition} % Szabo: be precise
 
     % Szabo: reference
@@ -613,11 +608,6 @@ It is a well-known result that residually finite groups are sofic. % reference?
     \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
         Every countable group is surjunctive.
     \end{conjecture}
-    % \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
-    %   Let $G$ be a countable group and $A$ a finite set. 
-    %   Let $\sigma: G\to \hom{A^{G}}:g \mapsto \left( (x_{h})_{h \in G} \mapsto \left( x_{gh} \right)_{h \in G}  \right)$.
-    %   Then every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with $\sigma$ is surjective.
-    % \end{conjecture}
 
     It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
 
@@ -632,8 +622,14 @@ It is a well-known result that residually finite groups are sofic. % reference?
     A key lemma we will further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following
 
     \begin{lemma} \label{lem:h-periodic_points}
-    The $H$-periodic points are dense in $A^G$, where $A$ is finite set and $G$ is a residually finite countable group.
+    % The $H$-periodic points are dense in $A^G$, where $A$ is a finite set and $G$ is a residually finite countable group.
     % Szabo: Be more precise. In light of your previous remark you obviously don't mean what you write. You claim denseness for the set of all points which are periodic w.r.t. some H, or, the union of the H-periodic points over ALL H.
+    
+    Let $G$ be a countable group and $A$ a finite set. Then the set of all periodic points (with respect to all subgroups of finite index)
+    \[
+    \bigcup_{\substack{\text{subgroup } H \\ [G : H] < \infty}} P_H
+    \]
+     is dense in $A^G$.
     \end{lemma}
     \begin{proof}
         Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can list its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
