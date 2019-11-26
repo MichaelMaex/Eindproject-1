@@ -817,8 +817,13 @@ We conclude that $\phi$ is surjective!
 
 \subsection{Sofic groups are surjunctive}
 
+<<<<<<< HEAD
 To prove that sofic groups are always surjunctive we define sofic entropy. The definition we present is a particular case of the more general definition formulated in paragraph 2.13.6 in \cite{capraro_lupini_2015} and is equivalent to the one given in definition 4.2 of \cite{kerr_li_2010}. 
 
+=======
+To prove that sofic groups are always surjunctive we define sofic entropy by the example of \cite{capraro_lupini_2015}.
+\todo{Szabo: If you go down the entropy route you need more precise references}
+>>>>>>> 36b8c18fbebb7b4e38974035081dec0c47c4224e
 \begin{definition}
 
 A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = e, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
@@ -827,17 +832,29 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		
 		\[
 		H_n (\delta) := \{(a_i)_i \in A^n | 
+<<<<<<< HEAD
 						\exists (x_i)_i \in X_n : 
 						\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta \}
 		\]
 		where by $X_n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$.\\
+=======
+						\exists (x_i)_i \in X^n : 
+						\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(g^{-1}(x_i))_i) < \delta \}
+		\]\todo{Distance between elements of different sets?}
+		\todo{What is $g^{-1}(x_i)$?}
+		where by $X^n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$ (and we identify $x_i$ with $x_{g_i}$ for every $i \in \N$).\\
+>>>>>>> 36b8c18fbebb7b4e38974035081dec0c47c4224e
 		Now we define entropy as 
 		\[
 		h_\Sigma(X) := \inf_{\delta>0} \limsup_{n \to \infty} \frac{1}{n} \log |H_n(\delta)|
 		\]
 \end{definition}
 
+<<<<<<< HEAD
 We shall use the following intermediate result, for which a simplified proof is provided. For the complete proof, we refer again to either \cite{capraro_lupini_2015} (paragraph 2.13.7) or \cite{kerr_li_2010} (Theorem 4.12).
+=======
+This gives the following intermediate result, which will, in this report, remain without proof. We refer again to \cite{capraro_lupini_2015}. \todo{Better reference}
+>>>>>>> 36b8c18fbebb7b4e38974035081dec0c47c4224e
 
 \begin{lemma}
 For $X \subset A^G$ a subshift we have that 
