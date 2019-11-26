@@ -95,7 +95,6 @@ We shall mainly focus on the following two concepts: soficity and surjunctivity.
 \text{$G$ is Amenable} \arrow[ur, Rightarrow]
 \end{tikzcd}
 \caption{A dependency graph of the relevant theorems/properties. }
-\todo{Why do we single out these fields?}
 \end{figure}
 \section{Group rings}\label{sec:group_rings}
 
@@ -173,7 +172,7 @@ It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
 $(\Phi_i \to \sym(d_i))_{i \in \N}$ \todo{What does this notation mean?} %Szabo:  what does this notation mean?
 which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
-For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition\footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$. \todo{Reference}}
+For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \todo{reference in the footnote} \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$}
  % Szabo: justification/reference?
 \[
 \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = e \\
@@ -311,6 +310,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 \begin{example}
 	Counterexamples are at least as insightful as examples. 
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
+	\todo{Define free group}
 	To prove this we will have to show that there does not exist a Følner sequence.
 	We will prove that for every non-empty finite subset $H \subset \bar{n}$ it holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
@@ -323,6 +323,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 			Let $ h \in H$ be an element that has maximum number of letters in reduced form.
 			Consider the set $H' = H\setminus \{h\} $. 
 			By the induction hypothesis it holds that % Szabo: you should briefly define somewhere what this all means
+			\todo{Szabo: you should briefly define somewhere what this all means}
 			\[	
 				\card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} \ge (2n-1) \card{H'}
 			.\] 
@@ -338,7 +339,6 @@ By the following lemma, we can not only exploit this for individual elements, bu
 	This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
 	We conclude that the free group is not amenable. \todo{define and reference definition of the free group} 
 \end{example}
-% example: finitely generated groups are not amenable
 
 \subsubsection{Properties of Amenable Groups}
 
@@ -356,8 +356,7 @@ To prove that each group that satisfies the Følner criterion is sofic, we first
     \end{proof}
 
 We now state the proof.
-% Szabo: Is this your theorem? If you present something like this which is well-known, either provide a reference or at least point out that it is known.
-
+\todo{Szabo: Is this your theorem? If you present something like this which is well-known, either provide a reference or at least point out that it is known.}
  	\begin{theorem}\label{thm:folner_sofic}
         Every amenable countable group $G$ is sofic.
     \end{theorem}
@@ -370,6 +369,7 @@ We now state the proof.
     \end{theorem}
     \begin{proof}
         \input{proof_abelian_folner}
+	\todo{check Szabo's remarks!}
         % check Szabo's remarks!
     \end{proof}
     As an immediate corollary we get the following well-known result.
@@ -378,7 +378,7 @@ We now state the proof.
     \end{corollary}
  
 	The following lemma is a known fact about about amenable groups, that we will use without proof.
-    \begin{lemma} % reference?
+	\begin{lemma} \todo{ reference?} % reference?
         \label{lem:amenable_short_exact_sequence}
         Let $A, B, C$ be groups and let $f: A\to B$ be an injective morphism and $g:B\to C$ a surjective morphism such that 
         \[\begin{tikzcd}
@@ -447,7 +447,7 @@ We now state the proof.
     \end{remark}
 
 
-\subsubsection{About Følner Sequences} % deze sectie moet misschien gemerged worden met de vorige
+    \subsubsection{About Følner Sequences} \todo{merge this section with the previous one} % deze sectie moet misschien gemerged worden met de vorige
 
 In this section we list some more properties about the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
 \begin{lemma}\label{lem:right_folner_sequence}
@@ -496,6 +496,7 @@ Another property that implies soficity is the following.
 
 \begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
 % betere reference?
+	\todo{Non-wikipedia reference}
 	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\setminus\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
 \end{definition}
 
@@ -513,14 +514,14 @@ Another property that implies soficity is the following.
 
 \begin{example}
 	The free group generated by $n$ elements is residually finite. 
-	Consider $F_k = \left<x_1, x_2, x_3, \ldots, x_k \right>$. % Szabo: reference?
+	Consider $F_k = \left<x_1, x_2, x_3, \ldots, x_k \right>$. \todo{Reference} % Szabo: reference?
 Let \[
 a = x_{i_r}^{\epsilon_r n_r}x_{i_{r-1}}^{\epsilon_{r-1}n_{r-1}}x_{i_{r-2}}^{\epsilon_{r-2}n_{r-2}}x_{i_{r-3}}^{\epsilon_{r-3}n_{r-3}} \ldots x_{i_1}^{\epsilon_1n_1}
 ,\]
 where for every $i$ it holds that $n_i \in \Z_{>0}$ and $\epsilon_i \in \left\{ -1,1 \right\} $, be any non-trivial word in reduced form. 
 Our goal is to find a morphism to a finite group that doesn't map $a$ to 1. 
 Define the sequence $(N_i)_i$ as $N_i = \sum_{j = 1}^{i} n_j$. 
-We will construct a map from $F_k$ to $S_{N_r + 1}$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $. % waarom hier andere notatie?
+We will construct a map from $F_k$ to $S_{N_r + 1}$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  \todo{Szabo heeft hier problemen met de notatie, ik heb geen flauw idee waarom} % waarom hier andere notatie?
 By the universal property of free groups it to define a map it is sufficient to choose for every $m$ the image of $x_m$.
 We will define it as follows
 \[
@@ -557,7 +558,7 @@ We conclude that $F_k$ is residually finite.
 
 \subsubsection{Properties of Residually Finite Groups}
 
-It is a well-known result that residually finite groups are sofic. % reference?
+It is a well-known result that residually finite groups are sofic. \todo{reference}% reference?
 
     \begin{theorem} \label{thm:res_fin_sofic}
         Every countable residually finite group is sofic.
@@ -568,7 +569,7 @@ It is a well-known result that residually finite groups are sofic. % reference?
 
     \subsection{Examples of Sofic Groups}
 
-    % Deze sectie moet herwerkt worden naar een overview van groepen die sofisch zijn, met referenties naar de voorbeelden/stellingen waar ze werden aangehaald
+    \todo{Deze sectie moet herwerkt worden naar een overview van groepen die sofisch zijn, met referenties naar de voorbeelden/stellingen waar ze werden aangehaald}
 
     \begin{description}
         \item[Finite groups] Every finite group, $G$ satisfies the Følner criterion, as the taking $(G)_n$ as sequence satisfies the properties in \cref{def:folner}.
@@ -604,7 +605,7 @@ It is a well-known result that residually finite groups are sofic. % reference?
     
     \begin{definition}
 	    Let $G$ be a countable group. The group $G$ is called \textbf{surjunctive} if for any finite set $A$ and every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with the right shift $\sigma$ of $G$ on $A^G$ is also surjective.
-    \end{definition} % Szabo: be precise
+    \end{definition}\todo{reference} 
 
     % Szabo: reference
 
@@ -621,12 +622,12 @@ It is a well-known result that residually finite groups are sofic. % reference?
         \]
     \end{definition}
 
-    Since $H$ is of finite index, this set is finite. % Szabo: Justify! This is by no means true for an arbitrary action on a space.
-    A key lemma we will further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following
+    Since $H$ is of finite index, this set is finite. \todo{Szabo: Justify! This is by no means true for an arbitrary action on a space.}
+    A key lemma we will further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following:
 
     \begin{lemma} \label{lem:h-periodic_points}
     % The $H$-periodic points are dense in $A^G$, where $A$ is a finite set and $G$ is a residually finite countable group.
-    % Szabo: Be more precise. In light of your previous remark you obviously don't mean what you write. You claim denseness for the set of all points which are periodic w.r.t. some H, or, the union of the H-periodic points over ALL H.
+	    \todo{Szabo: Be more precise. In light of your previous remark you obviously don't mean what you write. You claim denseness for the set of all points which are periodic w.r.t. some H, or, the union of the H-periodic points over ALL H.}
     
     Let $G$ be a countable group and $A$ a finite set. Then the set of all periodic points (with respect to all subgroups of finite index)
     \[
@@ -642,7 +643,7 @@ It is a well-known result that residually finite groups are sofic. % reference?
         Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a subgroup of finite index of $G$. 
         For $g_i, g_j \in F, i \ne j$ it is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$. 
         This means that there exists a function $\alpha: \im(\pi) \to A$ such that for all $g_i \in F_n: (\alpha \circ \pi)(g_i) = f(g_i)$.
-        % Szabo: "This means" needs more justification
+	\todo{Szabo: "This means" needs more justification}
         Notice that $\alpha \circ \pi \in A^G$. 
         Let $h \in \ker\pi$ and consider the right $h$ shift, $\sigma_h$. 
         Take any $g \in G$. 
@@ -650,7 +651,7 @@ It is a well-known result that residually finite groups are sofic. % reference?
         \[\sigma_h(\alpha\circ\pi)(g) = (\alpha \circ \pi)(hg) = \alpha(\pi(h)\pi(g)) = \alpha(\pi(g)) = (\alpha\circ\pi)(g).\] Thus $\sigma_g(\alpha \circ \pi) = (\alpha\circ\pi)$.
         So $\alpha\circ\pi$ is a $\ker\pi$ periodic point. 
 
-        For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\pi_n$ which is an $H$ periodic point % Szabo: H=?
+	For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\pi_n$ which is an $H$ periodic point \todo{Szabo: H=?}
         and that agrees with $f$ on $F_n$. It is clear that $(\pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
     \end{proof}
 
@@ -667,7 +668,7 @@ It is a well-known result that residually finite groups are sofic. % reference?
 \section{Surjunctivity of amenable and sofic groups}
 In this section we present a direct proof of the fact that amenable groups are surjunctive without using entropy. While this might not be ground breaking, it's still interesting to see that this can be done in a relatively short way without the theory of entropy, as all the proofs in the literature that we've found use entropy for the case of amenable groups \cite{weiss_2000} \cite{kerr_li_2010}.
 
-%The phrasing here suggests that what you are about to do has something novel to it. Is that really the case? If so, point out explicitly what it is.
+\todo{Szabo:The phrasing here suggests that what you are about to do has something novel to it. Is that really the case? If so, point out explicitly what it is.}
 
 
 
@@ -840,18 +841,19 @@ We conclude that $\phi$ is surjective!
 \subsection{Sofic groups are surjunctive}
 
 To prove that sofic groups are always surjunctive we define sofic entropy by the example of \cite{capraro_lupini_2015}.
-
+\todo{Szabo: If you go down the entropy route you need more precise references}
 \begin{definition}
 
 A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = e, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
 \\
-Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the function
+Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the function \todo{Where does this definition come from?}
 		
 		\[
 		H_n (\delta) := \{(a_i)_i \in A^n | 
 						\exists (x_i)_i \in X^n : 
 						\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(g^{-1}(x_i))_i) < \delta \}
-		\]
+		\]\todo{Distance between elements of different sets?}
+		\todo{What is $g^{-1}(x_i)$?}
 		where by $X^n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$ (and we identify $x_i$ with $x_{g_i}$ for every $i \in \N$).\\
 		Now we define entropy as 
 		\[
@@ -859,7 +861,7 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		\]
 \end{definition}
 
-This gives the following intermediate result, which will, in this report, remain without proof. We refer again to \cite{capraro_lupini_2015}.
+This gives the following intermediate result, which will, in this report, remain without proof. We refer again to \cite{capraro_lupini_2015}. \todo{Better reference}
 
 \begin{lemma}
 For $X \subset A^G$ a subshift we have that 
@@ -1076,9 +1078,5 @@ Any sofic group G is surjunctive.
 
 	\pagebreak
 	\printbibliography
-
-
-
-
 
 \end{document}
