@@ -74,10 +74,11 @@
 
 This report discusses the conjecture of Kaplansky which states that any group ring $K[G]$ with $K$ a field is directly finite. That is, the left-invertibility of elements implies their right-invertibility. For general groups and fields, this conjecture remains unanswered. It has been resolved, however, for specific cases, such as the case in which the group $G$ is sofic (the definition of soficity follows in section 3). Some cases require the assumption of another conjecture. For example, when we talk about finite fields $K$ we have a positive result for Kaplansky’s conjecture assuming that the group is surjunctive (definition in section \ref{sec:surjunctivity}).
 The assumption that all groups are surjunctive is known as the conjecture of Gottschalk and will be discussed in detail.
+\todo{Maybe clarify that this implication works one group at a time. That is one only needs to assume surjuncitivity of a group to get direct finiteness for its group rings, and not necessarily that surjunctivity holds for every group.}
 
 \subsection*{Historical context}
 
-We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a group $G$. Now $A^G$ is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
+We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a group $G$. Now $A^G$ \todo{what is $A^{G}$?} is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
 \\
 These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden as it were). The Garden of Eden Theorem states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups.
 Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet implies surjectivity of that automaton are called ‘surjunctive’. We will use the notion of surjunctivity extensively. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
@@ -94,6 +95,7 @@ We shall mainly focus on the following two concepts: soficity and surjunctivity.
 \text{$G$ is Amenable} \arrow[ur, Rightarrow]
 \end{tikzcd}
 \caption{A dependency graph of the relevant theorems/properties. }
+\todo{Why do we single out these fields?}
 \end{figure}
 \section{Group rings}\label{sec:group_rings}
 
@@ -130,7 +132,7 @@ We can now state Kaplansky's conjecture.
 
 \begin{conjecture}[Kaplansky]
     Let $\mathbb K$ be a field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
-\end{conjecture}
+\end{conjecture}\todo{reference?}
 
 To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
 
@@ -153,12 +155,13 @@ Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be
 \subsection{Definition and examples}
 \todo{More references to capraro-lupini}
 
-In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic with a permutation group.
+In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic to the subgroup of a permutation group.
 % Szabo: definitely no. What do you mean by finite permutation groups?
 
 To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ.
 
-\begin{definition} % Szabo: reference
+\begin{definition} % Szabo: reference 
+	\todo{reference}
     The \textbf{Hamming distance} on $\sym(n)$ is defined by
     \[
         d_{\sym(n)}(\sigma, \tau) = \frac 1 n \card{\{k \in \{1, 2, \dots,n\} \mid \sigma(k) \neq \tau(k)\}}, 
@@ -168,9 +171,9 @@ To define this, we will need a way to measure a distance between permutations. I
 
 It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
-$(\Phi_i \to \sym(d_i))_{i \in \N}$ %Szabo:  what does this notation mean?
+$(\Phi_i \to \sym(d_i))_{i \in \N}$ \todo{What does this notation mean?} %Szabo:  what does this notation mean?
 which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
- For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition\footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$.}
+For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition\footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$. \todo{Reference}}
  % Szabo: justification/reference?
 \[
 \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = e \\
@@ -181,7 +184,7 @@ where $e$ denotes the identity element of $G$ and $\id$ is the identity permutat
 
 We can now state the definiton of a sofic group by the example of \cite{capraro_lupini_2015}.
 
-    \begin{definition}\label{def:Sofic} % Szabo: more precise reference
+\begin{definition}\label{def:Sofic} \todo{Reference} % Szabo: more precise reference
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
@@ -192,7 +195,7 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
         where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
     \end{definition}
 
-    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ % Szabo: ?
+    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ \todo{make this more clear}% Szabo: ?
     a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
 
     We can also reformulate the two conditions in a form more suitable for calculations.
@@ -223,7 +226,7 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
 	&= (k+g+h)\mod i \\
 	&= \Phi_{i}(g+h)(k)
 \end{align*}		
-	Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dots, i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,\dots,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. In that case, we have that $|(k+g)-k| < i$, from which it follows that $(k+g)\mod i \neq k \mod i$. Thus we have that $(k+g)\mod i \neq k$ (as $k = k\mod i$ for $k<i$) and the inequality is obvious for $k \geq i$. % misschien nog niet duidelijk genoeg
+Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dots, i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,\dots,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. In that case, we have that $|(k+g)-k| < i$, from which it follows that $(k+g)\mod i \neq k \mod i$. Thus we have that $(k+g)\mod i \neq k$ (as $k = k\mod i$ for $k<i$) and the inequality is obvious for $k \geq i$. \todo{make this more clear} % misschien nog niet duidelijk genoeg
 	% Szabo: and why is the second condition now verified?
 	\end{example}
     % Example: Direct product of sofic groups is sofic. 
@@ -236,7 +239,7 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
             \end{cases}.
         \]
         It is not hard to show that $(\Phi_i)_{i \in \N}$ is a sofic approximation for $G \times H$. % Write out proof
-        Hence finite direct products conserve the soficity property.
+	Hence finite direct products conserve the soficity property. \todo{Write out proof}
     \end{example}
 
 
@@ -252,10 +255,10 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
     An extensive study of amenable groups goes beyond the scope of this project. Hence we will not give multiple definitions and prove equivalence nor will we provide proofs for every property of amenable groups.
 
     For our purposes we will only define amenability for countable groups and take the Følner criterion as definition.
-
+	\todo{Better reference}
     % Szabo: a literature reference would be a bit better
     % Lucas: Ik heb geprobeerd alle sporen van `conditie 1' uit te wissen maar misschien moeten jullie ook nog eens kijken of ik niks vergeten ben
-    \begin{definition}\cite{noauthor_folner_2019} \label{def:folner} 
+    \begin{definition}\cite{noauthor_folner_2019} \label{def:folner} \todo{Check is the "first condition" isn't used anymore}
 	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
