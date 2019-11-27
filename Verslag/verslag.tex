@@ -129,7 +129,8 @@ The proof of this theorem is no more than checking the group axioms one by one. 
 \begin{remark}
 	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $G$ is a commutative group. So we will have to be careful when dealing with these rings. 
 \end{remark}
-We can now state Kaplansky's conjecture.
+
+We can now state Kaplansky's conjecture by the example of the introduction in \cite{elek_szabo_2003}.
 
 \begin{conjecture}[Kaplansky]
     Let $\mathbb K$ be a field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
@@ -618,40 +619,34 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
     It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
 
     \begin{definition}
-	    Let $G$ be a countable group and $A$ a finite set. Let $H$ be a normal subgroup of finite index. Then the set of \textbf{$H$-periodic points} is the following subset of $A^G$.
+	    Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of \textbf{$H$-periodic points} is the following subset of $A^G$.
         \[
         P_H = \{ \omega \in A^G  \mid \forall h \in H: \sigma_h\omega = \omega\}
         \]
     \end{definition}
 
-    Notice that this means that any $\omega \in P_H$ can be factored into the natural quotient map $i: G \to \frac{G}{H}$ and a function  $f: \frac{G}{H} \to A$ such that $\omega = f \circ i$.
-    As we require $H$ to be normal and of finite index, we get that $\frac{G}{H}$ is a finite set. 
-    So $f$ is a function from and to finite sets.
-    There are only a finite number of such functions. 
-    Hence $P_H$ is a finite set.
+    Since $H$ is of finite index, this set is finite. \todo{Szabo: Justify! This is by no means true for an arbitrary action on a space.}
     A key lemma we will further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following:
 
     \begin{lemma} \label{lem:h-periodic_points}
     % The $H$-periodic points are dense in $A^G$, where $A$ is a finite set and $G$ is a residually finite countable group.
-	    %\todo{Szabo: Be more precise. In light of your previous remark you obviously don't mean what you write. You claim denseness for the set of all points which are periodic w.r.t. some H, or, the union of the H-periodic points over ALL H.}
+	    \todo{Szabo: Be more precise. In light of your previous remark you obviously don't mean what you write. You claim denseness for the set of all points which are periodic w.r.t. some H, or, the union of the H-periodic points over ALL H.}
     
-    Let $G$ be a countable group and $A$ a finite set. Then the set of all periodic points (with respect to all normal subgroups of finite index)
+    Let $G$ be a countable group and $A$ a finite set. Then the set of all periodic points (with respect to all subgroups of finite index)
     \[
-    \bigcup_{\substack{ H \triangleleft G \\ [G : H] < \infty}} P_H
+    \bigcup_{\substack{\text{subgroup } H \\ [G : H] < \infty}} P_H
     \]
      is dense in $A^G$.
     \end{lemma}
     \begin{proof}
         Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can list its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
-	Let $F_n = \{1, g_1, g_2, \dots, g_n\}$ and fix $n$. 
+        Let $F_n = \{1, g_1, g_2, \dots, g_n\}$. 
         As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
         .\]
-        Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a normal subgroup of finite index of $G$. 
-        For $g_i, g_j \in F_n, i \ne j$ it is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$.
-	This means that $\pi|_{F_n}: F_n \to \pi(F_n)$ is a bijection. 
-	Define $\beta: \pi(F_n) \to A: h \mapsto \left(f \circ \left( \pi|_F \right)^{-1}\right)(h) $.
-	Notice that for all $g_i \in F_n: (\beta \circ \pi)(g_i) = f(g_i)$.
-	Take any extension  $\alpha: \im(\pi) \to A$ of  $\beta$.
+        Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a subgroup of finite index of $G$. 
+        For $g_i, g_j \in F, i \ne j$ it is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$. 
+        This means that there exists a function $\alpha: \im(\pi) \to A$ such that for all $g_i \in F_n: (\alpha \circ \pi)(g_i) = f(g_i)$.
+	\todo{Szabo: "This means" needs more justification}
         Notice that $\alpha \circ \pi \in A^G$. 
         Let $h \in \ker\pi$ and consider the right $h$ shift, $\sigma_h$. 
         Take any $g \in G$. 
@@ -659,9 +654,8 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
         \[\sigma_h(\alpha\circ\pi)(g) = (\alpha \circ \pi)(hg) = \alpha(\pi(h)\pi(g)) = \alpha(\pi(g)) = (\alpha\circ\pi)(g).\] Thus $\sigma_g(\alpha \circ \pi) = (\alpha\circ\pi)$.
         So $\alpha\circ\pi$ is a $\ker\pi$ periodic point. 
 
-	For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\alpha_n \circ \pi_n$ which is an $\ker \pi_n$ periodic point and that agrees with $f$ on $F_n$. 
-	It is clear that $(\alpha_n \circ \pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. 
-	This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
+	For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\pi_n$ which is an $H$ periodic point \todo{Szabo: H=?}
+        and that agrees with $f$ on $F_n$. It is clear that $(\pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
     \end{proof}
 
     Now we can quite easily prove the following result. We follow the proof of Weiss \cite{weiss_2000} here.
