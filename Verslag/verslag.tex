@@ -14,6 +14,7 @@
 \usetikzlibrary{fit,arrows,calc,positioning}
 \usepackage[backend = biber,style=alphabetic]{biblatex}
 \addbibresource{references.bib}
+\usepackage[parfill]{parskip}
 
 \makeatletter
 \def\input@path{{../Bewijzen/}}
@@ -182,7 +183,9 @@ where $e$ denotes the identity element of $G$ and $\id$ is the identity permutat
 \\
 We can now state the definiton of a sofic group by the example of \cite{capraro_lupini_2015}, definition 2.2.2.
 
-\begin{definition}\label{def:Sofic}
+We can now state the definiton of a sofic group based on \cite[section 1]{kerr_li_2010}.
+
+\begin{definition}{}\label{def:Sofic} \todo{Reference} % Szabo: more precise reference
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
@@ -193,7 +196,8 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
         %where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise. (this is unnecessary as we don't use delta in the definition; that is why szabo wrote '?', not because of the 'sofic approximation'. Yours sincerely, Tomas
     \end{definition}
 
-    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation seguence} for $G$. It is unkown if every group is sofic.
+    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ \todo{make this more clear}% Szabo: ?
+    a \emph{sofic approximation sequence} for $G$. It is unkown if every group is sofic.
 
     We can also reformulate the two conditions in a form more suitable for calculations.
      \begin{lemma}\label{def:Sofic}
@@ -229,13 +233,13 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     % Example: Direct product of sofic groups is sofic. 
 
     \begin{example}\label{ex:direct_product_sofic}
-        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(d_i))_{i \in \N}$ and $(\psi_i: G \to \sym(e_i))_{i \in \N}$ be sofic approximations for $G$ resp. $H$. Now consider $\Phi_i : G \times H \to \sym(d_i+e_i)$ for every $i \in \N$, where $\Phi_i(g, h) \in \sym(d_i+e_i)$ is defined by
+        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(d_i))_{i \in \N}$ and $(\psi_i: G \to \sym(e_i))_{i \in \N}$ be sofic approximation sequences for $G$ resp. $H$. Now consider $\Phi_i : G \times H \to \sym(d_i+e_i)$ for every $i \in \N$, where $\Phi_i(g, h) \in \sym(d_i+e_i)$ is defined by
         \[
             \Phi_i(g,h)(k) = \begin{cases} \phi_i(g)(k) & \text{if } 1 \leq k \leq d_i \\
             \psi_i(h)(k)+d_i & \text{if } d_i + 1 \leq k \leq e_i
             \end{cases}.
         \]
-        It is not hard to show that $(\Phi_i)_{i \in \N}$ is a sofic approximation for $G \times H$. % Write out proof
+        It is not hard to show that $(\Phi_i)_{i \in \N}$ is a sofic approximation sequence for $G \times H$. % Write out proof
 	Hence finite direct products conserve the soficity property. \todo{Write out proof}
     \end{example}
 
@@ -251,11 +255,11 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     Many equivalent definitions exist. 
     An extensive study of amenable groups goes beyond the scope of this project. Hence we will not give multiple definitions and prove equivalence nor will we provide proofs for every property of amenable groups.
 
-    For our purposes we will only define amenability for countable groups and take the Følner criterion as definition.
+    For our purposes we will only define amenability for countable groups and take the Følner criterion as definition. In \cite[subsection 4.1]{kerr_li_ergodic_theory} an alternative definition is given, and it is proven that this is equivalent to the Følner criterion, as formulated below.
 	\todo{Better reference}
     % Szabo: a literature reference would be a bit better
     % Lucas: Ik heb geprobeerd alle sporen van `conditie 1' uit te wissen maar misschien moeten jullie ook nog eens kijken of ik niks vergeten ben
-    \begin{definition}\cite{noauthor_folner_2019} \label{def:folner} \todo{Check is the "first condition" isn't used anymore}
+    \begin{definition}\label{def:folner} \todo{Check is the "first condition" isn't used anymore}
 	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
@@ -265,7 +269,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
-If a countable group statisfies the Følner condition, we will also call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.} 
+If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.} 
 
 \begin{figure}[ht]
     \centering
@@ -664,12 +668,11 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
 
 	% Example: Apply this proof to Z
 	
-\section{Surjunctivity of amenable and sofic groups}
-In this section we present a direct proof of the fact that amenable groups are surjunctive without using entropy. While this might not be ground breaking, it's still interesting to see that this can be done in a relatively short way without the theory of entropy, as all the proofs in the literature that we've found use entropy for the case of amenable groups \cite{weiss_2000} \cite{kerr_li_2010}.
+
 
 \todo{Szabo:The phrasing here suggests that what you are about to do has something novel to it. Is that really the case? If so, point out explicitly what it is.}
 
-
+In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). We will however, follow an alternative approach and prove this well-known result directly from our definitions. Alas, these techniques will not suffice to show sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we sketch how one can obtain the surjunctivity result for sofic groups using the concept of entropy.
 
 
 \subsection{Amenable groups are surjunctive} \label{ssec:amenable_surjunctive}
@@ -814,7 +817,7 @@ We conclude that $\phi$ is surjective!
 
 \end{proof}
 
-\subsection{Sofic groups are surjunctive}
+
 
 
 To prove that sofic groups are always surjunctive we define sofic entropy. The definition we present is a particular case of the more general definition formulated in paragraph 2.13.6 in \cite{capraro_lupini_2015} and is equivalent to the one given in definition 4.2 of \cite{kerr_li_2010}. 
@@ -1036,7 +1039,7 @@ The details can be found in many algebra text books such as \cite[section 7.9]{a
 
 The construction of a free group starts with the notion of an \emph{alphabet}, which is a set of \emph{letters}/symbols. We usually denote the alphabet with $S$. In the case where the alphabet only contains two letters we usually denote these with  $a,b$. In other cases we usually index the letters $x_i$ for some index $i \in I$, such that  $S = \{x_i  \mid i \in I\} $.
 
-Using the letters of the alphabet  $S = \{x_i | i \in I\} $ we can make \emph{words}. Words are finite sequences of letters and inverses of letters. We denote $W(S)$ for the words made with letters in $S$. For example if $S = \{a,b\} $ the following are words $a$, $b$, $a^{-1}$, $ab^{-1}$, $aa^{-1}b$, $aabba^{-1}$, $1$. Notice that there is also the empty word containing no letters. 
+Using the letters of the alphabet  $S = \{x_i \mid i \in I\} $ we can make \emph{words}. Words are finite sequences of letters and inverses of letters. We denote $W(S)$ for the words made with letters in $S$. For example if $S = \{a,b\} $ the following are words $a$, $b$, $a^{-1}$, $ab^{-1}$, $aa^{-1}b$, $aabba^{-1}$, $1$. Notice that there is also the empty word containing no letters (denoted by $1$). 
 We define the \emph{reduction of a word}, $\red w$,  as the operation that repeatedly scraps any letter that is adjacent to its inverse, until there are no more pairs $x_ix_i^{-1}$ or  $x_i^{-1}x_i$ remaining. 
 For example $\red({a^{-1}ab}) = b$, $\red(a a^{-1}) =1$ $\red(aba^{-1}b^{-1}) = aba^{-1}b^{-1}$, $\red(a^{-1}bb^{-1}a^{-1}) = 1$, $\red(x_1x_2x_3) = x_1x_2x_3$.
 
