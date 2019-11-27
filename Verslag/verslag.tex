@@ -80,7 +80,7 @@ The assumption that all countable groups are surjunctive is known as the conject
 
 \subsection*{Historical context}
 
-We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) \todo{what is $A^{G}$?} is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
+We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
 \\
 These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups.
 Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet implies surjectivity of that automaton are the afore mentioned surjunctive groups. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are known to be surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
@@ -139,7 +139,7 @@ We can now state Kaplansky's conjecture by the example of the introduction in \c
 To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
 
 \begin{theorem}
-    Let $\mathbb K$ be a field and $G$ be a finite group. Then $\mathbb K[G]$ is directly finite. % hier \mathbb F gebruiken omdat het veld eindig is?
+    Let $\mathbb K$ be a field and $G$ be a finite group. Then $\mathbb K[G]$ is directly finite. 
 \end{theorem}
 \begin{proof}
     Let $a, b \in \mathbb K[G]$ and suppose $ab=1$. Now consider the map
@@ -158,7 +158,6 @@ Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be
 \todo{More references to capraro-lupini}
 
 In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic to the subgroup of a permutation group.
-% Szabo: definitely no. What do you mean by finite permutation groups?
 
 To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ (\cite{capraro_lupini_2015}, subsection 2.1).
 
@@ -262,6 +261,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
         \]
         where $\triangle$ denotes the symmetric difference.
+	We say that such a sequence $(F_n)_n$ is a Følner sequence.
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
