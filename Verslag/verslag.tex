@@ -162,8 +162,7 @@ In this section we will introduce the concept of a \emph{sofic group}. A sofic g
 
 To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ (\cite{capraro_lupini_2015}, subsection 2.1).
 
-\begin{definition} % Szabo: reference 
-	\todo{reference}
+\begin{definition}
     The \textbf{Hamming distance} on $\sym(n)$ is defined by
     \[
         d_{\sym(n)}(\sigma, \tau) = \frac 1 n \card{\{k \in \{1, 2, \dots,n\} \mid \sigma(k) \neq \tau(k)\}}, 
@@ -174,18 +173,17 @@ To define this, we will need a way to measure a distance between permutations. I
 It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
 $(\Phi_i: G \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
-For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \todo{reference in the footnote} \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$ (\cite{capraro_lupini_2015}, definition 2.2.2) }
- % Szabo: justification/reference?
+For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$ (\cite{capraro_lupini_2015}, definition 2.2.2) }
 \[
 \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = e \\
                                         1 & \text{otherwise,}
                                         \end{cases}
 \]
 where $e$ denotes the identity element of $G$ and $\id$ is the identity permutation.
+\\
+We can now state the definiton of a sofic group by the example of \cite{capraro_lupini_2015}, definition 2.2.2.
 
-We can now state the definiton of a sofic group by the example of \cite{capraro_lupini_2015}.
-
-\begin{definition}\label{def:Sofic} \todo{Reference} % Szabo: more precise reference
+\begin{definition}\label{def:Sofic}
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
@@ -193,20 +191,21 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
                                                                                     1 & \text{otherwise,}
                                                                                     \end{cases}$
         \end{enumerate}
-        where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
+        %where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise. (this is unnecessary as we don't use delta in the definition; that is why szabo wrote '?', not because of the 'sofic approximation'. Yours sincerely, Tomas
     \end{definition}
 
-    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ \todo{make this more clear}% Szabo: ?
-    a \emph{sofic approximation} for $G$. It is unkown if every group is sofic.
+    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ a \emph{sofic approximation seguence} for $G$. It is unkown if every group is sofic.
 
     We can also reformulate the two conditions in a form more suitable for calculations.
      \begin{lemma}\label{def:Sofic}
         Let $G$ be a countable group. Then $G$ is sofic if and only if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid (\Phi_i(g) \circ \Phi_i(h))(k) = \Phi_i(gh) (k) \big\}} = 1$
-            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \Phi_i(g)(k) = k \big\}} = \delta_{e,g}$,
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \Phi_i(g)(k) = k \big\}} = \begin{cases}  0 & \text{if } g = e \\
+                                                                                    1 & \text{otherwise,}
+                                                                                    \end{cases}$
         \end{enumerate}
-        where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise.
+
     \end{lemma}
 
 
