@@ -100,6 +100,7 @@ Finally, we will discuss Kaplansky's conjecture in the context of finite fields.
 \text{$G$ is Amenable} \arrow[ur, Rightarrow]
 \end{tikzcd}
 \caption{A dependency graph of the relevant theorems/properties. }
+\label{fig:dependency_graph}
 \end{figure}
 \section{Group rings}\label{sec:group_rings}
 
@@ -137,7 +138,7 @@ We can now state Kaplansky's conjecture by the example of the introduction in \c
 
 \begin{conjecture}[Kaplansky]
     Let $\mathbb K$ be a field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
-\end{conjecture}\todo{reference?}
+\end{conjecture}
 
 To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
 
@@ -273,7 +274,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 	\todo{Better reference}
     % Szabo: a literature reference would be a bit better
     % Lucas: Ik heb geprobeerd alle sporen van `conditie 1' uit te wissen maar misschien moeten jullie ook nog eens kijken of ik niks vergeten ben
-    \begin{definition}\label{def:folner} \todo{Check is the "first condition" isn't used anymore}
+    \begin{definition}\label{def:folner} 
 	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
@@ -282,7 +283,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
-If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.} 
+    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.}\todo{reference for the footnote} 
 
 \begin{figure}[ht]
     \centering
@@ -338,8 +339,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 		\item[$\card{H} > 1$:] 
 			Let $ h \in H$ be an element that has maximum number of letters in reduced form.
 			Consider the set $H' = H\setminus \{h\} $. 
-			By the induction hypothesis it holds that % Szabo: you should briefly define somewhere what this all means
-			\todo{Szabo: you should briefly define somewhere what this all means}
+			By the induction hypothesis it holds that 
 			\[	
 				\card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} \ge (2n-1) \card{H'}
 			.\] 
@@ -353,7 +353,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 			.\]
 	\end{description}
 	This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
-	We conclude that the free group is not amenable. \todo{define and reference definition of the free group} 
+	We conclude that the free group is not amenable.
 \end{example}
 
 \subsubsection{Properties of Amenable Groups}
