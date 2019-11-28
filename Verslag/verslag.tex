@@ -88,7 +88,7 @@ Now, groups $G$ for which it is the case that injectivity of an automaton using 
 
 \subsection*{Goal of this report}
 
-We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very broad concept. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
+We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very broad concept. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well. Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely we will give the details of a proof that the group ring a surjunctive group and finite field is directly finite. \Cref{fig:dependency_graph} shows how how the different concepts in this report relate to each other. 
 
 \begin{figure}[h]
 	\centering
@@ -98,6 +98,7 @@ We shall mainly focus on the following two concepts: soficity and surjunctivity.
 \text{$G$ is Amenable} \arrow[ur, Rightarrow]
 \end{tikzcd}
 \caption{A dependency graph of the relevant theorems/properties. }
+\label{fig:dependency_graph}
 \end{figure}
 \section{Group rings}\label{sec:group_rings}
 
@@ -265,7 +266,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
         \]
         where $\triangle$ denotes the symmetric difference.
-	We say that such a sequence $(F_n)_n$ is a Følner sequence.
+	We say that such a sequence $(F_n)_n$ is a Følner sequence. 
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
