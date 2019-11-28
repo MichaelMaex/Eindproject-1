@@ -45,7 +45,7 @@
 
 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}{Proposition}
+\newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -250,7 +250,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 	Hence finite direct products conserve the soficity property. \todo{Write out proof}
     \end{example}
 
-    In the next sections we will introduce two classes of groups that are sofic, \emph{amenable groups} and \emph{residually finite groups}, which will allow us to give even more examples. 
+    In the next sections we will introduce two classes of groups that are sofic, \emph{amenable groups} and \emph{residually finite groups}. Since it is often easier to check these properties than to work with the definition of soficity, this will allow us to give some more examples. 
     Some notable examples are 
     \begin{itemize}
 	    \item countable abelian groups (\cref{thm:countable_abelian_folner})
@@ -259,10 +259,9 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \end{itemize}
     
 
-    Often, it will be more convenient to check a property that implies soficity than checking it directly as we have done in the examples above. In the following sections we will discuss two such properties: amenability and residually finiteness.
-
     \section{Amenability} \label{sec:amenable}
 
+	\subsection{Definition and Examples}
 
     Amenable groups are a large class of groups. 
     Many equivalent definitions exist. 
@@ -290,6 +289,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 \end{figure}
 
 By the following lemma, we can not only exploit this for individual elements, but also for finite subsets.
+\todo[color=green]{Moet dit lemma naar achter?}
 \begin{lemma}\label{lem:folner_finite_subset}
     Let $F_n$ be a Følner sequence. Then for every finite subset $B \subset G$ it holds that  \[
     \lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} = 0    
@@ -306,7 +306,6 @@ By the following lemma, we can not only exploit this for individual elements, bu
     .\end{align*}
 \end{proof}
 
-\subsubsection{Examples}
 \begin{example}\label{ex:finite_group_folner}
     Every finite group trivially satisfies the Følner condition. Indeed, we can take $F_i = G$ for every $i \in \N$. Note that $gG \triangle G = G \triangle G = \emptyset$. Hence $\card{gF_i\triangle F_i} = 0$ for all $i \in \N$.
 \end{example}
@@ -324,7 +323,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 \begin{example}
 	Counterexamples are at least as insightful as examples. 
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
-	For those not familiar with the free group, we give a brief introduction to is in \cref{sec:intro_free_group}.
+	For those not familiar with the free group, a brief introduction is given in \cref{sec:intro_free_group}.
 	To prove this we will have to show that there does not exist a Følner sequence.
 	We will prove that for every non-empty finite subset $H \subset \bar{n}$ it holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
@@ -377,9 +376,9 @@ We now state the proof.
         \input{proof_folner}
  	\end{proof}
 
-    \begin{theorem}\label{thm:countable_abelian_folner}
+    \begin{proposition}\label{thm:countable_abelian_folner}
         Every countable abelian group is amenable. 
-    \end{theorem}
+    \end{proposition}
     \begin{proof}
         \input{proof_abelian_folner}
 	\todo{check Szabo's remarks!}
@@ -412,9 +411,9 @@ We now state the proof.
         It is clear that this sequence is exact.
 	    Applying the previous lemma shows that $N$ and $H$ are amenable.
     \end{proof}
-    \begin{theorem}\label{thm:countable_solvable_amenable}
+    \begin{proposition}\label{thm:countable_solvable_amenable}
 	    Every countable solvable group is amenable. 
-    \end{theorem}
+    \end{proposition}
     \begin{proof}
         \input{proof_solvable_amenable}
     \end{proof}
@@ -460,7 +459,7 @@ We now state the proof.
     \end{remark}
 
 
-    \subsection{About Følner Sequences} \todo{merge this section with the previous one} 
+    \subsection{About Følner Sequences} \todo[color=green]{merge this section with the previous one} 
 
 In this section we list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
 \begin{lemma}\label{lem:right_folner_sequence}
@@ -475,7 +474,7 @@ In this section we list some more properties obout the Følner criterion and Fø
 \end{lemma}
 \begin{proof}
 	Let $F_n$ be a Følner sequence for the left action. 
-	It's easy to check that $F_n^{-1}$ will be a Følner sequence for the right action. 
+	It is easy to check that $F_n^{-1}$ will be a Følner sequence for the right action. 
 \end{proof}
 \begin{remark}
     A result analogous to lemma \ref{lem:folner_finite_subset} holds for a right Følner sequence.
@@ -487,7 +486,7 @@ In this section we list some more properties obout the Følner criterion and Fø
 \begin{proof}
 	We will prove it for ordinary (left) Følner sequences as the proof is completely analogous for right Følner sequences.
 	The first property is obivously satisfied. 
-	Let's have a look at the limit.
+	Let us have a look at the limit.
 	\begin{align*}
 		\lim_{n \to \infty} \frac{\card{g(F_n \cup E_n) \triangle (F_n \cup E_n)}}{\card{F_n \cup G_n}} &= 2 \lim_{n \to \infty} \frac{\card{(gF_n \cup gE_n)\setminus (F_n \cup E_n)}}{\card{F_n \cup E_n}} \\
 														&= 2 \lim_{n \to \infty} \frac{\card{F_n \setminus (gF_n \cup g E_n) \cup E_n\setminus (gE_n \cup gF_n) }}{\card{F_n \cup E_n}} \\
@@ -505,13 +504,13 @@ We find the following corollary.
 
 \section{Residually Finite Groups}
 
+\subsection{Definition and examples}
+
 Another property that implies soficity is the following.
 
 \begin{definition}[{\cite[ch. 1 p. 16]{hall_groups}}] \label{def:res_fin}
 	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\setminus\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
 \end{definition}
-
-\subsection{Examples}
 
 \begin{example}
 	Finite groups $G$ are residually finite. Let $g \in G \setminus \{e\}$ and consider $\id: G \to G: g \mapsto g$. Obviously $\id(g) \neq e$.
@@ -530,7 +529,7 @@ Let \[
 a = x_{i_r}^{\epsilon_r n_r}x_{i_{r-1}}^{\epsilon_{r-1}n_{r-1}}x_{i_{r-2}}^{\epsilon_{r-2}n_{r-2}}x_{i_{r-3}}^{\epsilon_{r-3}n_{r-3}} \ldots x_{i_1}^{\epsilon_1n_1}
 ,\]
 where for every $i$ it holds that $n_i \in \Z_{>0}$ and $\epsilon_i \in \left\{ -1,1 \right\} $, be any non-trivial word in reduced form. 
-Our goal is to find a morphism to a finite group that doesn't map $a$ to 1. 
+Our goal is to find a morphism to a finite group that does not map $a$ to 1. 
 Define the sequence $(N_i)_i$ as $N_i = \sum_{j = 1}^{i} n_j$. 
 We will construct a map from $F_k$ to $S_{N_r + 1}$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  \todo{Szabo heeft hier problemen met de notatie, ik heb geen flauw idee waarom} % waarom hier andere notatie?
 By the universal property of free groups it to define a map it is sufficient to choose for every $m$ the image of $x_m$.
@@ -714,7 +713,7 @@ We will also denote a fixed element of $A$ with $0$.
 	,\]
 	for some finite subset $\Gamma_{i,a}$. 
 
-	Now I claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we're looking for. 
+	Now I claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we are looking for. 
 	Obivously $\Gamma$ is finite. 
 	Suppose that $(x_g)_g \in A^{G}$ and $(y_g)_g \in A^{G}$ agree on $\Gamma$,
 	meaning that for every $\gamma \in \Gamma$ it holds that  $x_\gamma = y_\gamma$.
@@ -723,7 +722,7 @@ We will also denote a fixed element of $A$ with $0$.
 	So $(y_g)_g \in U_{i, a}$. 
 	Hence  $(x_g)_g , (y_g)_g$ are elements of $U_a$. 
 	So  $\phi((x_g)_g) = a = \phi((y_g)_g) $.
-	We conclude that $\Gamma$ is indeed the set we're looking for.
+	We conclude that $\Gamma$ is indeed the set we are looking for.
 \end{proof}
 From this point on we will also fix $\Gamma$. 
 \begin{corollary}
@@ -756,7 +755,7 @@ Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implici
 	Suppose that $x= (x_g)_g, y = (y_g)_g \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$ their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
 \end{proof}
 
-At this point we're almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
+At this point we are almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
 In order to show this will show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find a $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
 
 \bigskip
@@ -887,7 +886,7 @@ Any sofic group G is surjunctive.
 	He finished the argument by proving that the group rings of finite fields and surjunctive groups are directly finite.  
 
 	In this section we will give the details of a proof of that last step. 
-	I.e we'll prove the following theorem. 
+	i.e we will prove the following theorem. 
 	\begin{theorem}\label{thm:gottschalk_kaplansky}
 		Let $\F$ be a finite field and $G$ be a surjunctive group. Then $\F[G]$ is directly finite. 
 	\end{theorem}
@@ -907,7 +906,7 @@ Any sofic group G is surjunctive.
         The definition of the multiplication between  $\F[G]$ and  $\F^{G}$ agrees with the obvious multiplication with $\F^{G}$ represented as above. 
     \end{remark}
     
-	We're now ready to give a proof of \cref{thm:gottschalk_kaplansky}.
+	We are now ready to give a proof of \cref{thm:gottschalk_kaplansky}.
 	\begin{proof}
 		Let $\F$ be a finite field and $G$ be a surjunctive group. 
 		Let $a = \sum_{g \in G} a_g g \in \F[G]$ be a left invertible element with left inverse $b$, i.e.  $b a = 1$. 
@@ -961,6 +960,10 @@ Any sofic group G is surjunctive.
 	But this means exactly that $ab = 1$. So  $a$ is right invertible as well. 
 	\end{proof}	
 	
+	\section{Conclusion}
+
+	\todo[color=green]{To be written}
+
 	\pagebreak
 
 	\section{Appendices}
@@ -1042,7 +1045,7 @@ Any sofic group G is surjunctive.
 
 	\subsection{A Brief Introduction to Free Groups} \label{sec:intro_free_group}
 This section is a brief introduction to the free groups, as many of our readers may not be familiar with this family of groups. 
-This is in no way meant to be a rigorous construction of the group and its properties, rather it is an informal overview of its construction and it's most important property.
+This is in no way meant to be a rigorous construction of the group and its properties, rather it is an informal overview of its construction and its most important property.
 The details can be found in many algebra text books such as \cite[section 7.9]{artin_algebra_1991} or \cite[section 5.5]{rotman_advanced_2015}.
 
 The construction of a free group starts with the notion of an \emph{alphabet}, which is a set of \emph{letters}/symbols. We usually denote the alphabet with $S$. In the case where the alphabet only contains two letters we usually denote these with  $a,b$. In other cases we usually index the letters $x_i$ for some index $i \in I$, such that  $S = \{x_i  \mid i \in I\} $.
