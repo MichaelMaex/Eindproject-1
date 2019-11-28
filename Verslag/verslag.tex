@@ -87,7 +87,7 @@ Now, groups $G$ for which it is the case that injectivity of an automaton using 
 
 \subsection*{Goal of this report}
 
-We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very broad concept. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well. Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely we will give the details of a proof that the group ring a surjunctive group and finite field is directly finite. \Cref{fig:dependency_graph} shows how how the different concepts in this report relate to each other. 
+We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very broad concept. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
 
 \begin{figure}[h]
 	\centering
@@ -97,7 +97,6 @@ We shall mainly focus on the following two concepts: soficity and surjunctivity.
 \text{$G$ is Amenable} \arrow[ur, Rightarrow]
 \end{tikzcd}
 \caption{A dependency graph of the relevant theorems/properties. }
-\label{fig:dependency_graph}
 \end{figure}
 \section{Group rings}\label{sec:group_rings}
 
@@ -140,7 +139,7 @@ We can now state Kaplansky's conjecture by the example of the introduction in \c
 To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
 
 \begin{theorem}
-    Let $\mathbb K$ be a field and $G$ be a finite group. Then $\mathbb K[G]$ is directly finite. 
+    Let $\mathbb K$ be a field and $G$ be a finite group. Then $\mathbb K[G]$ is directly finite. % hier \mathbb F gebruiken omdat het veld eindig is?
 \end{theorem}
 \begin{proof}
     Let $a, b \in \mathbb K[G]$ and suppose $ab=1$. Now consider the map
@@ -159,8 +158,9 @@ Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be
 \todo{More references to capraro-lupini}
 
 In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic to the subgroup of a permutation group.
+% Szabo: definitely no. What do you mean by finite permutation groups?
 
-To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ (\cite{capraro_lupini_2015}, subsection 2.1).
+To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ (\cite{capraro_lupini_2015, subsection 2.1}).
 
 \begin{definition}
     The \textbf{Hamming distance} on $\sym(n)$ is defined by
@@ -185,7 +185,7 @@ We can now state the definiton of a sofic group by the example of \cite{capraro_
 
 We can now state the definiton of a sofic group based on \cite[section 1]{kerr_li_2010}.
 
-\begin{definition}{}\label{def:Sofic} \todo{Reference} % Szabo: more precise reference
+\begin{definition}{}\label{def:Sofic} 
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
@@ -204,8 +204,8 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
         Let $G$ be a countable group. Then $G$ is sofic if and only if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid (\Phi_i(g) \circ \Phi_i(h))(k) = \Phi_i(gh) (k) \big\}} = 1$
-            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \Phi_i(g)(k) = k \big\}} = \begin{cases}  0 & \text{if } g = e \\
-                                                                                    1 & \text{otherwise,}
+            \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i}  \card{\big\{k \in \{1, \dots, d_i\} \mid \Phi_i(g)(k) = k \big\}} = \begin{cases}  1 & \text{if } g = e \\
+                                                                                    0 & \text{otherwise,}
                                                                                     \end{cases}$
         \end{enumerate}
 
@@ -265,7 +265,6 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
         \]
         where $\triangle$ denotes the symmetric difference.
-	We say that such a sequence $(F_n)_n$ is a Følner sequence. 
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
