@@ -45,6 +45,7 @@
 
 
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -122,9 +123,9 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
 \end{definition}
 
 
-\begin{theorem}
+\begin{proposition}
     Let $\mathbb K$ be a field and $G$ a group. Then $\mathbb K[G]$ is a unital ring.
-\end{theorem}
+\end{proposition}
 The proof of this theorem is no more than checking the group axioms one by one. For completeness you can find it in \cref{sec:proof_groupring}.
 
 \begin{remark}
@@ -181,11 +182,10 @@ For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \P
 \]
 where $e$ denotes the identity element of $G$ and $\id$ is the identity permutation.
 \\
-We can now state the definiton of a sofic group by the example of \cite{capraro_lupini_2015}, definition 2.2.2.
 
 We can now state the definiton of a sofic group based on \cite[section 1]{kerr_li_2010}.
 
-\begin{definition}{}\label{def:Sofic} \todo{Reference} % Szabo: more precise reference
+\begin{definition}{}\label{def:Sofic}
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
@@ -668,7 +668,7 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
 
 	% Example: Apply this proof to Z
 	
-
+\section{Surjunctivity of amenable and sofic groups}
 
 \todo{Szabo:The phrasing here suggests that what you are about to do has something novel to it. Is that really the case? If so, point out explicitly what it is.}
 
@@ -818,7 +818,7 @@ We conclude that $\phi$ is surjective!
 \end{proof}
 
 
-
+\section{Sofic are surjunctive}
 
 To prove that sofic groups are always surjunctive we define sofic entropy. The definition we present is a particular case of the more general definition formulated in paragraph 2.13.6 in \cite{capraro_lupini_2015} and is equivalent to the one given in definition 4.2 of \cite{kerr_li_2010}. 
 
