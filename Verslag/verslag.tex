@@ -89,6 +89,8 @@ Now, groups $G$ for which it is the case that injectivity of an automaton using 
 \subsection*{Goal of this report}
 
 We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very broad concept. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
+Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely we will give the details of a proof that the group ring a surjunctive group and finite field is directly finite. \Cref{fig:dependency_graph} shows how how the different concepts in this report relate to each other.
+
 
 \begin{figure}[h]
 	\centering
@@ -98,6 +100,7 @@ We shall mainly focus on the following two concepts: soficity and surjunctivity.
 \text{$G$ is Amenable} \arrow[ur, Rightarrow]
 \end{tikzcd}
 \caption{A dependency graph of the relevant theorems/properties. }
+\label{fig:dependency_graph}
 \end{figure}
 \section{Group rings}\label{sec:group_rings}
 
@@ -135,7 +138,7 @@ We can now state Kaplansky's conjecture by the example of the introduction in \c
 
 \begin{conjecture}[Kaplansky]
     Let $\mathbb K$ be a field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
-\end{conjecture}\todo{reference?}
+\end{conjecture}
 
 To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
 
@@ -155,13 +158,13 @@ Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be
 
 \section{Sofic groups}\label{sec:sofic_group}
 
-\subsection{Definition and examples}
+\subsection{Definition and Motivation}
 \todo{More references to capraro-lupini}
 
 In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic to the subgroup of a permutation group.
 % Szabo: definitely no. What do you mean by finite permutation groups?
 
-To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ (\cite{capraro_lupini_2015, subsection 2.1}).
+To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ \cite[subsection 2.1]{capraro_lupini_2015}.
 
 \begin{definition}
     The \textbf{Hamming distance} on $\sym(n)$ is defined by
@@ -196,7 +199,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
         %where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise. (this is unnecessary as we don't use delta in the definition; that is why szabo wrote '?', not because of the 'sofic approximation'. Yours sincerely, Tomas
     \end{definition}
 
-    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ \todo{make this more clear}% Szabo: ?
+    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ 
     a \emph{sofic approximation sequence} for $G$. It is unkown if every group is sofic.
 
     We can also reformulate the two conditions in a form more suitable for calculations.
@@ -212,8 +215,12 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
     \end{lemma}
 
 
-
-
+    \subsection{Examples of Sofic Groups}
+    The Sofic groups are a very large class of groups. 
+    In fact there are no known examples of non-sofic groups \todo{reference for no known non-sofic}. 
+    Here we will list some groups that we know are sofic.
+    
+    
     \begin{example}\label{ex:finite_group_sofic}
     Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \sigma_g$, where $\sigma_g$ is defined by $\sigma_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\Phi_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\sigma_g(h) = gh = h$ if and only if $g$ is the identity.
      Hence every finite group is sofic.
@@ -243,6 +250,14 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 	Hence finite direct products conserve the soficity property. \todo{Write out proof}
     \end{example}
 
+    In the next sections we will introduce two classes of groups that are sofic, \emph{amenable groups} and \emph{residually finite groups}, which will allow us to give even more examples. 
+    Some notable examples are 
+    \begin{itemize}
+	    \item countable abelian groups (\cref{thm:countable_abelian_folner})
+	    \item countable solvable groups (\cref{thm:countable_solvable_amenable})
+	    \item finitely generated free groups (\cref{ex:free_group_residually_finite})
+    \end{itemize}
+    
 
     Often, it will be more convenient to check a property that implies soficity than checking it directly as we have done in the examples above. In the following sections we will discuss two such properties: amenability and residually finiteness.
 
@@ -254,10 +269,9 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     An extensive study of amenable groups goes beyond the scope of this project. Hence we will not give multiple definitions and prove equivalence nor will we provide proofs for every property of amenable groups.
 
     For our purposes we will only define amenability for countable groups and take the Følner criterion as definition. In \cite[subsection 4.1]{kerr_li_ergodic_theory} an alternative definition is given, and it is proven that this is equivalent to the Følner criterion, as formulated below.
-	\todo{Better reference}
-    % Szabo: a literature reference would be a bit better
+	
     % Lucas: Ik heb geprobeerd alle sporen van `conditie 1' uit te wissen maar misschien moeten jullie ook nog eens kijken of ik niks vergeten ben
-    \begin{definition}\label{def:folner} \todo{Check is the "first condition" isn't used anymore}
+    \begin{definition}\label{def:folner} 
 	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
@@ -266,7 +280,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
-If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.} 
+    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.}\todo{reference for the footnote} 
 
 \begin{figure}[ht]
     \centering
@@ -322,8 +336,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 		\item[$\card{H} > 1$:] 
 			Let $ h \in H$ be an element that has maximum number of letters in reduced form.
 			Consider the set $H' = H\setminus \{h\} $. 
-			By the induction hypothesis it holds that % Szabo: you should briefly define somewhere what this all means
-			\todo{Szabo: you should briefly define somewhere what this all means}
+			By the induction hypothesis it holds that 
 			\[	
 				\card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} \ge (2n-1) \card{H'}
 			.\] 
@@ -337,7 +350,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 			.\]
 	\end{description}
 	This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
-	We conclude that the free group is not amenable. \todo{define and reference definition of the free group} 
+	We conclude that the free group is not amenable.
 \end{example}
 
 \subsection{Properties of Amenable Groups}
@@ -399,8 +412,8 @@ We now state the proof.
         It is clear that this sequence is exact.
 	    Applying the previous lemma shows that $N$ and $H$ are amenable.
     \end{proof}
-    \begin{theorem}
-        Every countable solvable group is amenable. 
+    \begin{theorem}\label{thm:countable_solvable_amenable}
+	    Every countable solvable group is amenable. 
     \end{theorem}
     \begin{proof}
         \input{proof_solvable_amenable}
@@ -494,9 +507,7 @@ We find the following corollary.
 
 Another property that implies soficity is the following.
 
-\begin{definition}\cite{noauthor_residually_2018} \label{def:res_fin}
-% betere reference?
-	\todo{Non-wikipedia reference}
+\begin{definition}[{\cite[ch. 1 p. 16]{hall_groups}}] \label{def:res_fin}
 	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\setminus\{e\}$ there exists a finite group $H$ and a homomorphisms $f:G \to H$ such that $f(g) \ne e$.
 \end{definition}
 
@@ -512,7 +523,7 @@ Another property that implies soficity is the following.
 	The group of integers $\mathbb Z$ is residually finite. Let $k \in \mathbb =z$. Consider the map $f_k: \mathbb Z \to \mathbb Z/(k+1)\mathbb Z: m \mapsto [m]_{k+1}$. Clearly, $f_k$ is a homomorphism and $f_k(k) = [k]_{k+1} \neq 0$.
 \end{example}
 
-\begin{example}
+\begin{example}\label{ex:free_group_residually_finite}
 	The free group generated by $n$ elements is residually finite. 
 	Consider $F_k = \left<x_1, x_2, x_3, \ldots, x_k \right>$. \todo{Reference} % Szabo: reference?
 Let \[
