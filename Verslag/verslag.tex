@@ -243,6 +243,17 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 	Hence finite direct products conserve the soficity property. \todo{Write out proof}
     \end{example}
 
+    
+    \subsection{Examples of Sofic Groups}
+
+    \todo{Deze sectie moet herwerkt worden naar een overview van groepen die sofisch zijn, met referenties naar de voorbeelden/stellingen waar ze werden aangehaald}
+
+    \begin{description}
+        \item[Finite groups] Every finite group, $G$ satisfies the Følner criterion, as the taking $(G)_n$ as sequence satisfies the properties in \cref{def:folner}.
+        \item[Cyclic groups] All finite cyclic groups are taken care of by the previous example. We only need to check $\Z,+$. This group is residually finite as for every $n \in \Z, n \ne 0$ we can consider the natural morphism $\Z \to \Z /(|n|+1)\Z: x \mapsto x \mod |n|+1$. 
+        \item[The finite direct product of Sofic groups] Let $G, H$ be sofic groups with sequence $d_i, e_i$ and maps $\sigma_i, \phi_i$ such that the properties of \cref{def:Sofic} hold. It can be (easily) verified that the sequence $(d_i + e_i)_i$ and maps $\psi_i: G \times H \to \sym(d_i + e_i): x (x \le d_i) \mapsto \sigma_i(x), x (x > d_i) \mapsto \phi_i(x -d_i) + d_i$ satisfy \cref{def:Sofic}.
+        \item[Finitely generated free groups] They are residually finite.
+    \end{description}
 
     \section{Properties that Imply Soficity}
 
@@ -569,16 +580,6 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
         \input{proof_residually_finite}
     \end{proof}
 
-    \subsection{Examples of Sofic Groups}
-
-    \todo{Deze sectie moet herwerkt worden naar een overview van groepen die sofisch zijn, met referenties naar de voorbeelden/stellingen waar ze werden aangehaald}
-
-    \begin{description}
-        \item[Finite groups] Every finite group, $G$ satisfies the Følner criterion, as the taking $(G)_n$ as sequence satisfies the properties in \cref{def:folner}.
-        \item[Cyclic groups] All finite cyclic groups are taken care of by the previous example. We only need to check $\Z,+$. This group is residually finite as for every $n \in \Z, n \ne 0$ we can consider the natural morphism $\Z \to \Z /(|n|+1)\Z: x \mapsto x \mod |n|+1$. 
-        \item[The finite direct product of Sofic groups] Let $G, H$ be sofic groups with sequence $d_i, e_i$ and maps $\sigma_i, \phi_i$ such that the properties of \cref{def:Sofic} hold. It can be (easily) verified that the sequence $(d_i + e_i)_i$ and maps $\psi_i: G \times H \to \sym(d_i + e_i): x (x \le d_i) \mapsto \sigma_i(x), x (x > d_i) \mapsto \phi_i(x -d_i) + d_i$ satisfy \cref{def:Sofic}.
-        \item[Finitely generated free groups] They are residually finite.
-    \end{description}
 
  
 
