@@ -15,6 +15,7 @@
 \usepackage[backend = biber,style=alphabetic]{biblatex}
 \addbibresource{references.bib}
 \usepackage[parfill]{parskip}
+\usepackage{appendix}
 
 \makeatletter
 \def\input@path{{../Bewijzen/}}
@@ -203,7 +204,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
     a \emph{sofic approximation sequence} for $G$. It is unkown if every group is sofic.
 
     We can also reformulate the two conditions in a form more suitable for calculations.
-     \begin{lemma}\label{def:Sofic}
+     \begin{lemma}
         Let $G$ be a countable group. Then $G$ is sofic if and only if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $\displaystyle \lim_{i\to \infty} \frac{1}{d_i} \card{\big\{k \in \{1, \dots, d_i\} \mid (\Phi_i(g) \circ \Phi_i(h))(k) = \Phi_i(gh) (k) \big\}} = 1$
@@ -603,6 +604,7 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
     \end{definition}
 
     In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology.  
+
     \begin{definition}
 	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift} $\sigma$ of $G$ on $A^G$ is defined by
         \[
@@ -611,10 +613,11 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
         where $\sigma_g$ is defined by $\sigma_g\left( (x_{h})_{h \in G} \right) = \left( x_{hg} \right)_{h \in G}$. % Misschien is de ``rij-notatie'' hier niet aangewezen
     \end{definition}
 
-    One can see that the right shift $\sigma$ is a $G$-action on $A^G$. We say that a map $\phi: A^G \to A^G$ \emph{commutes with the right shift} if $\sigma_g \circ \phi = \phi \circ \sigma_g$ for every $g \in G$.
+    One can see that the right shift $\sigma$ is an action of $G$ on $A^G$. We say that a map $\phi: A^G \to A^G$ \emph{commutes with the right shift} if $\sigma_g \circ \phi = \phi \circ \sigma_g$ for every $g \in G$.
     
     \begin{definition}
 	    Let $G$ be a countable group. The group $G$ is called \textbf{surjunctive} if for any finite set $A$ and every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with the right shift $\sigma$ of $G$ on $A^G$ is also surjective.
+	    \footnote{There is an alternative way to define this in terms of the \emph{left shift} $\tau$ defined by $\tau_g(h)= g^{-1}h$. This approach is completely equivalent and is followed by \cite{capraro_lupini_2015}.}
     \end{definition}\todo{reference} 
 
     % Szabo: reference
@@ -833,14 +836,19 @@ To prove that sofic groups are always surjunctive we define sofic entropy. The d
 
 A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = e, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
 \\
-Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the function \todo{Where does this definition come from?}
+Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the set \todo{Where does this definition come from?}
 		
 		\[
-		H_n (\delta) := \{(a_i)_i \in A^n | 
-						\exists (x_i)_i \in X_n : 
-						\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta \}
+		H_n (\delta) := \{(a_i)_{0 \leq i \leq n-1} \in A^n | 
+						\exists (x_i)_{0 \leq i \leq n-1} \in X_n : 
+						\forall g \in F: d_{\sym(n)}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta \}
 		\]
-		where by $X_n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$.\\
+		% \[
+		% H_n (\delta) := \{(a_0, a_1, \dots, a_{n-1}) \in A^n \mid
+		% 				\exists (x_0, x_1, \dots, x_{n-1}) \in X_n : 
+		% 				\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta \}
+		% \]
+		where by $X_n \subset A^n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$.\\
 
 		Now we define entropy as 
 		\[
@@ -848,7 +856,7 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		\]
 \end{definition}
 
-We shall use the following intermediate result, for which a simplified proof is provided. For the complete proof, we refer again to either \cite{capraro_lupini_2015} (paragraph 2.13.7) or \cite{kerr_li_2010} (Theorem 4.12).
+We shall use the following intermediate result, for which a sketch of proof is provided. For the complete proof, we refer again to either \cite[paragraph 2.13.7]{capraro_lupini_2015} or \cite[theorem 4.12]{kerr_li_2010}.
 
 \begin{lemma}
 For $X \subset A^G$ a subshift we have that 
@@ -861,7 +869,7 @@ For the implication $X = A^G \Rightarrow h_\Sigma(X) = \log |A|$: assume that $X
 \\
 For the implication $h_\Sigma(X) = \log |A| \Rightarrow X = A^G$: assume that $X \varsubsetneq A^G$. It is possible that a certain element of $A$ is never a component in one of the elements of $X$. However, then it is immediately clear that $h_\Sigma(X) \leq \log (|A|-1) $ and thus $h_\Sigma(X) < \log |A|$. Assume, therefore, that every element of $A$ is a component in at least one of the elements of $X$. Now there must exist some finite $F \subset G$ such that $Y_F \varsubsetneq A^G$. It can then be shown that, using this $F$, we have that
 		\[
-		h_\Sigma(X) \leq \log |A| - \frac{1}{|F|^2} \log (\frac{|A|^{|F|}}{|A|^{|F|} - 1}) < \log |A|
+		h_\Sigma(X) \leq \log |A| - \frac{1}{|F|^2} \log \left(\frac{|A|^{|F|}}{|A|^{|F|} - 1}\right) < \log |A|
 		\]
 which proves the implication by contrapositive. 
 \end{proof}
@@ -878,11 +886,11 @@ Any sofic group G is surjunctive.
 	\section{Kaplansky's direct finiteness condition for finite fields}
 	Let us recall the statement of Kaplansky's direct finiteness condition.
 	\begin{definition}
-		Let $K$ be a field and $G$ be a group. The group ring $K[G]$ is called \textbf{directly finite} if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
+		Let $\mathbb K$ be a field and $G$ be a group. The group ring $\mathbb K[G]$ is called \textbf{directly finite} if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
 		
 	\end{definition}
 	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{weiss_2000}. 
-	In the case where $R$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
+	In the case where $\mathbb K$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
 	He finished the argument by proving that the group rings of finite fields and surjunctive groups are directly finite.  
 
 	In this section we will give the details of a proof of that last step. 
@@ -890,7 +898,10 @@ Any sofic group G is surjunctive.
 	\begin{theorem}\label{thm:gottschalk_kaplansky}
 		Let $\F$ be a finite field and $G$ be a surjunctive group. Then $\F[G]$ is directly finite. 
 	\end{theorem}
-	It looks like we will need to use the surjuctivity on $\F^{G}$. Hence we need some statement that relates $\F^{G}$ to $\F[G]$.
+	%It looks like we will need to use the surjuctivity on $\F^{G}$. Hence we need some statement that relates $\F^{G}$ to $\F[G]$.
+	To exploit the surjunctivity property of $G$, we will need to relate $\mathbb F^G$ to the group ring $\mathbb F[G]$. There is in fact a very nice connection that can be made for any field $\mathbb K$.
+	For finite groups, one can very naturally identify $\mathbb K^G$ with the group ring $\mathbb K[G]$. Indeed, with every element $(x_g)_{g \in G}$ in $\mathbb K^G$, there corresponds an element $\sum_{g \in G} x_g g$ in $\mathbb K[G]$, where $G$ being finite guarantees that this is a finite linear combination. For infinite groups, we cannot identify these two sets, but we can consider $K[G]$ as a subset of $\mathbb K^G$. In this case, $\mathbb K^G$ is not a ring but we can make it into a module over $\mathbb K[G]$. We can do this in very natural way, extending the multiplication as defined in \cref{def:group_ring}. Here, one can think of the elements of $\mathbb K^G$ as (possibly infinite) formal sums $\sum_{g \in G} x_g g$ in $\mathbb K[G]$.
+
 	\begin{lemma}
 		For a group $G$ and field $\mathbb K$ we can consider $\mathbb{K}^{G}$ as a left $\mathbb{K}[G]$-module, with pointwise addition and multiplication defined as
 		\begin{align*}
@@ -901,10 +912,10 @@ Any sofic group G is surjunctive.
 	\begin{proof}
 		The proof is given in the appendix.
 	\end{proof}
-        \begin{remark}
-        The way $\F^{G}$ is defined as a $\F[G]$-module is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
-        The definition of the multiplication between  $\F[G]$ and  $\F^{G}$ agrees with the obvious multiplication with $\F^{G}$ represented as above. 
-    \end{remark}
+    %     \begin{remark}
+    %     The way $\F^{G}$ is defined as a $\F[G]$-module is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
+    %     The definition of the multiplication between $\F[G]$ and  $\F^{G}$ agrees with the obvious multiplication with $\F^{G}$ represented as above. 
+    % \end{remark}
     
 	We are now ready to give a proof of \cref{thm:gottschalk_kaplansky}.
 	\begin{proof}
@@ -964,11 +975,12 @@ Any sofic group G is surjunctive.
 
 	\todo[color=green]{To be written}
 
-	\pagebreak
-
-	\section{Appendices}
+	\newpage
+	\appendix
+	\appendixpage
+	%\addappheadtotoc
 	
-	\subsection{Group rings are rings}\label{sec:proof_groupring}
+	\section{Group rings are rings}\label{sec:proof_groupring}
 	
 	\begin{proof}
 		We need to prove associativity of $+$, commutativity of $+$, existence of zero element, existence of additive inverses, associativity for $\cdot$, left distributivity, right distributivity and existence of a unit element.
@@ -1043,7 +1055,7 @@ Any sofic group G is surjunctive.
 		\end{description}
         \end{proof}
 
-	\subsection{A Brief Introduction to Free Groups} \label{sec:intro_free_group}
+	\section{A Brief Introduction to Free Groups} \label{sec:intro_free_group}
 This section is a brief introduction to the free groups, as many of our readers may not be familiar with this family of groups. 
 This is in no way meant to be a rigorous construction of the group and its properties, rather it is an informal overview of its construction and its most important property.
 The details can be found in many algebra text books such as \cite[section 7.9]{artin_algebra_1991} or \cite[section 5.5]{rotman_advanced_2015}.
@@ -1063,7 +1075,7 @@ We also write $F_S = \left<S \right>$, or in the case $S = \{x_1, x_2, \ldots, x
 
 In some sense the free group, $F_S$ is the largest group that can be generated by the elements of $S$. This is formalized in the following \emph{universal property of the free group}, that characterizes the free group. 
 \begin{property}[{\cite[ch. 5, p. 298]{rotman_advanced_2015}}]
-	If  $S$ is a subset of a group  $F$, then $F$ is the free group generated by $S$ if and only if for every $G$ and function $f:S \to G$ there exists a unique morphism $\phi:F \to G$ such that $\phi(s) = f(s)$ for all $s \in S$.
+	If  $S$ is a subset of a group  $F$, then $F$ is the free group generated by $S$ if and only if for every group $G$ and function $f:S \to G$ there exists a unique morphism $\phi:F \to G$ such that $\phi(s) = f(s)$ for all $s \in S$.
 	I.e. such that $\phi$ makes the following diagram commute:
 	\[	
 	\begin{tikzcd}
@@ -1075,7 +1087,7 @@ In some sense the free group, $F_S$ is the largest group that can be generated b
 \end{property}
 
 
-\subsection{$\mathbb K^G$ is a $\mathbb K[G]$-module}
+\section{$\mathbb K^G$ is a $\mathbb K[G]$-module}
 	We check the module axioms one by one.
         In the following calculations $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are arbitrary elements of $\mathbb{K}[G]$ and $x = (x_g)_{g \in G}, y = (y_g)_{g \in G}$ are arbitrary elements of $\mathbb{K}^{G}$.
         \begin{description}
