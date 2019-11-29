@@ -158,7 +158,6 @@ Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be
 \section{Sofic Groups}\label{sec:sofic_group}
 
 \subsection{Definition and Motivation}
-\todo{More references to capraro-lupini}
 
 In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic to the subgroup of a permutation group.
 % Szabo: definitely no. What do you mean by finite permutation groups?
@@ -388,8 +387,9 @@ We now state the proof.
     	Every countable abelian group is sofic.	
     \end{corollary}
  
-	The following lemma is a known fact about about amenable groups, that we will use without proof.
-	\begin{lemma} \todo{ reference?} % reference?
+	The following lemma is a known fact about about amenable groups, that we will use without proof. 
+	The statement is a slight reformulation of {\cite[prop. 4.2.(ii)-(iii)]{kerr_li_ergodic_theory}}, where a proof can be found as well. 
+	\begin{lemma}
         \label{lem:amenable_short_exact_sequence}
         Let $A, B, C$ be groups and let $f: A\to B$ be an injective morphism and $g:B\to C$ a surjective morphism such that 
         \[\begin{tikzcd}
@@ -678,7 +678,9 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
 
 \todo{Szabo:The phrasing here suggests that what you are about to do has something novel to it. Is that really the case? If so, point out explicitly what it is.}
 
-In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). We will however, follow an alternative approach and prove this well-known result directly from our definitions. Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we sketch how one can obtain the surjunctivity result for sofic groups using the concept of entropy.
+In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). We will however, follow an alternative approach and prove this well-known result directly from our definitions. We were unable to find a proof in the literature that follows the same approach, but it's important to point out that our proof and the aforementioned proofs have many conceptual similarities. 
+
+Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we sketch how one can obtain the surjunctivity result for sofic groups using the concept of entropy.
 
 
 \subsection{Amenable Groups are Surjunctive} \label{ssec:amenable_surjunctive}
@@ -747,12 +749,12 @@ Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implici
 
 \begin{lemma}\label{lem:injective_restriction}
 	Let $H$ be any finite subset of $G$. Consider the function  \[
-		\psi:A_H \to A ^{H\Gamma^{-1}}: (x_g) \mapsto \left(h \mapsto \phi((x_g)_g)(h)\right)
+		\psi:A_H \to A ^{H\Gamma^{-1}}: (x_g)_{g \in G} \mapsto \left(h \mapsto \phi((x_g)_{g \in G})(h)\right)
 	.\]  
 	This function is an injection. 
 \end{lemma}
 \begin{proof}
-	Suppose that $x= (x_g)_{g \in G}, y = (y_g)_{g \in G} \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$ their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
+	Suppose that $x= (x_g)_{g \in G}$ and $ y = (y_g)_{g \in G} \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$, their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
 \end{proof}
 
 At this point we are almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
