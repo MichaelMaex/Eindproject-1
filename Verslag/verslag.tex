@@ -872,14 +872,18 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		\[
 		H_n (\delta) := \{(a_i)_{0 \leq i \leq n-1} \in A^n | 
 						\exists (x_i)_{0 \leq i \leq n-1} \in X_n : 
-						\forall g \in F: d_{\sym(n)}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta \}
+						\forall g \in F: d((a_{\Phi^{-1}_n(g)(i)})_i,(x_{ g_i g})_i) < \delta \}
 		\]
 		% \[
 		% H_n (\delta) := \{(a_0, a_1, \dots, a_{n-1}) \in A^n \mid
 		% 				\exists (x_0, x_1, \dots, x_{n-1}) \in X_n : 
 		% 				\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta \}
 		% \]
-		where by $X_n \subset A^n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$.\\
+		where by $X_n \subset A^n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$ (and we identify $x_{g_i}$ with $x_i$ for all $0 \leq i \leq n-1$). By the distance $d((x_i)_i, (y_i)_i)$ between two sequences $(x_i)_{0 \leq i \leq n-1}$ and $(y_i)_{0 \leq i \leq n-1}$ is meant the number of different components relative to their length:
+		\[
+		d((x_i)_i, (y_i)_i) = \frac{1}{n} |\{i \in \{0, ..., n-1\}|x_i \neq y_i\}|
+		\]
+				
 
 		Now we define entropy as 
 		\[
@@ -887,7 +891,9 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		\]
 \end{definition}
 
-We shall use the following intermediate result, for which a sketch of proof is provided. For the complete proof, we refer again to either \cite[paragraph 2.13.7]{capraro_lupini_2015} or \cite[theorem 4.12]{kerr_li_2010}.
+It should be noted that in the definition of $H_n(\delta)$ provided above the right shift $\sigma_g$ is used on the sequence $(x_i)_i$, whereas the definition in \cite[paragraph 2.13.6]{capraro_lupini_2015}.\\
+
+We shall use the following intermediate result, for which a sketch of the proof is provided. For the complete proof, we refer to either \cite[paragraph 2.13.7]{capraro_lupini_2015} or \cite[theorem 4.12]{kerr_li_2010}.
 
 \begin{lemma}
 For $X \subset A^G$ a subshift we have that 
@@ -896,7 +902,7 @@ For $X \subset A^G$ a subshift we have that
 		\]
 \end{lemma}
 \begin{proof}
-For the implication $X = A^G \Rightarrow h_\Sigma(X) = \log |A|$: assume that $X = A^G$. Now it is quite clear that for any $n \in \N$ and $\delta > 0$: $|H_n(\delta)| = |A|^n$. Indeed, for any $(a_i)_i \in A^n$ we can find a sequence $(x_i)_i \in X^n$ such that $\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta$. Namely  $(a_i)_i$ itself. Therefore $h_\Sigma(X) = \log |A|$.\\
+For the implication $X = A^G \Rightarrow h_\Sigma(X) = \log |A|$: assume that $X = A^G$. Now it is quite clear that for any $n \in \N$ and $\delta > 0$: $|H_n(\delta)| = |A|^n$. Indeed, for any $(a_i)_i \in A^n$ we can find a sequence $(x_i)_i \in X^n$ such that $\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g_i g})_i) < \delta$. Namely  $(a_i)_i$ itself. Therefore $h_\Sigma(X) = \log |A|$.\\
 \\
 For the implication $h_\Sigma(X) = \log |A| \Rightarrow X = A^G$: assume that $X \varsubsetneq A^G$. It is possible that a certain element of $A$ is never a component in one of the elements of $X$. However, then it is immediately clear that $h_\Sigma(X) \leq \log (|A|-1) $ and thus $h_\Sigma(X) < \log |A|$. Assume, therefore, that every element of $A$ is a component in at least one of the elements of $X$. Now there must exist some finite $F \subset G$ such that $Y_F \varsubsetneq A^G$. It can then be shown that, using this $F$, we have that
 		\[
