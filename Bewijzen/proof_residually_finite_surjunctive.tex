@@ -2,7 +2,7 @@ Let $G$ be a residually finite group and $A$ a finite set. Let $\phi: A^G \to A^
 Because $P_H$ is finite (for $H$ of finite index), and $\phi$ is injective, the restriction of $\phi$ to $P_H$ is surjective, thus $P_H \subset \phi(A^G)$. Now since $A^G$ is compact, continuous maps from $A^G$ to itself map closed sets to closed sets. Therefore
 \[
 \phi(A^G) = \overline{\phi(A^G)} \supset
-\overline{\bigcup_{\substack{\text{subgroup } H \\ [G : H] < \infty}}\phi( P_H)}
-= \overline{\bigcup_{\substack{\text{subgroup } H \\ [G : H] < \infty}} P_H} = A^G,
+\overline{\bigcup_{\substack{H \triangleleft G \\ [G : H] < \infty}}\phi( P_H)}
+= \overline{\bigcup_{\substack{H \triangleleft G \\ [G : H] < \infty}} P_H} = A^G,
 \]
 where we have used lemma \ref{lem:h-periodic_points}. Thus we conclude $\phi$ is surjective.
