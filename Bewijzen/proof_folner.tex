@@ -20,10 +20,9 @@ As $\Phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that
 $$\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid \Phi(g)(x)\ne gx \right\}\right|}{d_i} = 0.$$
 Which proves the second condition for soficity. 
 
-To prove the first equation, notice that we can substitute $g$ by $h$ and $gh$ in \cref{eq:proof_folner1}.
-$$ \lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid gx \in F_i \right\}\right|}{d_i} =
-\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid hx \in F_i \right\}\right|}{d_i} =
-\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid ghx \in F_i \right\}\right|}{d_i}= 1$$
+To prove the first condition, we can apply \cref{lem:folner_finite_subset}, which gives that \[
+	\lim_{i \to \infty} \frac{\card{\{g,h, gh\} F_i \triangle F_i}}{d_i} = 0
+.\]
 Which means that 
 $$\lim_{i\to \infty} \frac{\left|\left\{ x \in F_i \mid gx,hx,ghx \in F_i \right\}\right|}{d_i}= 1.$$
 As $\Phi(g)(x) = gx$ whenever $gx \in F_i$, we can see as well that

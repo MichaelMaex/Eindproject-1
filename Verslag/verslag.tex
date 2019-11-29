@@ -75,21 +75,22 @@
 
 \section{Introduction}\label{sec:intro}
 
-\subsection*{The lay of the land}
+\subsection*{The Lay of the Land}
 
-This report discusses the conjecture of Kaplansky which states that any group ring $K[G]$ with $K$ a field is directly finite. That is, the left-invertibility of elements implies their right-invertibility. For general groups and fields, this conjecture remains unanswered. It has been resolved, however, for specific cases, such as the case in which the group $G$ is sofic (the definition of soficity follows in section 3). Some cases require the assumption of another conjecture. For example, when we talk about finite fields $K$ we have a positive result for Kaplansky’s conjecture for surjunctive groups (definition in section \ref{sec:surjunctivity}). The class of surjunctive groups is very large and possibly contains all countable groups. Therefore, if we were to have that all countable groups are surjunctive, this positively resolves Kaplansky's conjecture for finite fields and countable groups.
+This report discusses a conjecture of Kaplansky which states that any group ring $\mathbb{K}[G]$ with $\mathbb{K}$ a field is directly finite. That is, the left-invertibility of elements implies their right-invertibility. For general groups and fields, this conjecture sofar has remaing open. It has been resolved, however, for specific cases, in particular the case in which the group $G$ is sofic, which means that in some sense $G$ can be approximated well with finite groups. Some cases require the assumption of another conjecture. For example, when we talk about finite fields $\mathbb{K}$ we have a positive result for Kaplansky’s conjecture for surjunctive groups (definition in section \ref{sec:surjunctivity}). The class of surjunctive groups is very large and possibly contains all countable groups. Therefore, if we were to have that all countable groups are surjunctive, this positively resolves Kaplansky's conjecture for finite fields and countable groups.
 The assumption that all countable groups are surjunctive is known as the conjecture of Gottschalk and will be discussed in detail.
 
-\subsection*{Historical context}
+\subsection*{Historical Context}
 
 We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
 \\
 These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups.
 Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet implies surjectivity of that automaton are the afore mentioned surjunctive groups. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are known to be surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
+\todo{Hoe werkt de garden of eden theorem $\implies$ surjunctive?}
 
-\subsection*{Goal of this report}
+\subsection*{Goal of this Report}
 
-We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very broad concept. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
+We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
 Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely we will give the details of a proof that the group ring a surjunctive group and finite field is directly finite. \Cref{fig:dependency_graph} shows how how the different concepts in this report relate to each other.
 
 
@@ -97,14 +98,13 @@ Finally, we will discuss Kaplansky's conjecture in the context of finite fields.
 	\centering
 \begin{tikzcd}
 	\text{$G$ is Residually Finite} \arrow[dr, Rightarrow] \\
-	& \text{$G$ is Sofic} \arrow[r, Rightarrow] & \text{$G$ is Surjunctive} \arrow[r, Rightarrow] & \text{$\F_{p^{k}}[G]$ is Directly finite}\\
+	& \text{$G$ is Sofic} \arrow[r, Rightarrow] & \text{$G$ is Surjunctive} \arrow[r, Rightarrow] & \text{$\F_{p^{k}}[G]$ is Directly Finite}\\
 \text{$G$ is Amenable} \arrow[ur, Rightarrow]
 \end{tikzcd}
 \caption{A dependency graph of the relevant theorems/properties. }
 \label{fig:dependency_graph}
 \end{figure}
-\section{Group rings}\label{sec:group_rings}
-
+\section{Group Rings}\label{sec:group_rings} 
 % Szabo's comment: Is there a reason you single out these fields here?
 
 The setting of Kaplansky's direct finiteness conjecture is about so-called group rings. These are defined as follows
@@ -132,13 +132,13 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
 The proof of this theorem is no more than checking the group axioms one by one. For completeness you can find it in \cref{sec:proof_groupring}.
 
 \begin{remark}
-	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $G$ is a commutative group. So we will have to be careful when dealing with these rings. 
+	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $G$ is a abelian group. So we will have to be careful when dealing with these rings. 
 \end{remark}
 
 We can now state Kaplansky's conjecture by the example of the introduction in \cite{elek_szabo_2003}.
 
 \begin{conjecture}[Kaplansky]
-    Let $\mathbb K$ be a field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
+	Let $\mathbb K$ be a finite field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
 To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
@@ -152,15 +152,14 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
         \phi: \mathbb K[G] \to \mathbb K[G]: x \mapsto x a
     \]
     This map is injective. To see this, let $x, y \in \mathbb K[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
-    But since $\mathbb K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in \mathbb K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $b=a$.
+    But since $\mathbb K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in \mathbb K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
 \end{proof}
 
 Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb K$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
 
-\section{Sofic groups}\label{sec:sofic_group}
+\section{Sofic Groups}\label{sec:sofic_group}
 
 \subsection{Definition and Motivation}
-\todo{More references to capraro-lupini}
 
 In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic to the subgroup of a permutation group.
 % Szabo: definitely no. What do you mean by finite permutation groups?
@@ -178,13 +177,13 @@ To define this, we will need a way to measure a distance between permutations. I
 It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
 $(\Phi_i: G \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
-For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$ (\cite{capraro_lupini_2015}, definition 2.2.2) }
+For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might wonder why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$ (\cite{capraro_lupini_2015}, definition 2.2.2) }
 \[
-\lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = e \\
+\lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = 1_G \\
                                         1 & \text{otherwise,}
                                         \end{cases}
 \]
-where $e$ denotes the identity element of $G$ and $\id$ is the identity permutation.
+where $1_G$ denotes the identity element of $G$ and $\id$ is the identity permutation.
 \\
 
 We can now state the definiton of a sofic group based on \cite[section 1]{kerr_li_2010}.
@@ -193,7 +192,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
         Let $G$ be a countable group. We say that $G$ is \textbf{sofic} if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
             \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh)) = 0$
-            \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g_i)) = \begin{cases}  0 & \text{if } g = e \\
+            \item $ \displaystyle \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g_i)) = \begin{cases}  0 & \text{if } g = 1_G \\
                                                                                     1 & \text{otherwise,}
                                                                                     \end{cases}$
         \end{enumerate}
@@ -218,7 +217,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
 
     \subsection{Examples of Sofic Groups}
     The Sofic groups are a very large class of groups. 
-    In fact there are no known examples of non-sofic groups \todo{reference for no known non-sofic}. 
+    In fact there are no known examples of non-sofic groups \cite[Introduction]{weiss_2000}. 
     Here we will list some groups that we know are sofic.
     
     
@@ -292,8 +291,8 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 By the following lemma, we can not only exploit this for individual elements, but also for finite subsets.
 \todo[color=green]{Moet dit lemma naar achter?}
 \begin{lemma}\label{lem:folner_finite_subset}
-    Let $F_n$ be a Følner sequence. Then for every finite subset $B \subset G$ it holds that  \[
-    \lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} = 0    
+    Let $F_i$ be a Følner sequence. Then for every finite subset $B \subset G$ it holds that  \[
+    \lim_{i \to \infty} \frac{\card{BF_i \triangle F_i}}{\card{F_i}} = 0    
     .\] 
 \end{lemma}
 \begin{proof}
@@ -341,7 +340,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 				\card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} \ge (2n-1) \card{H'}
 			.\] 
 			For at least $2n-1$ elements of $\{x_1,x_1^{-1},x_2,x_2^{-1},\ldots, x_n, x_n^{-1}\} $ the words $x_ih$ or  $x_i^{-1}h$ have more letters in reduced form than $h$. Let $\Delta = \{ h_1, h_2, \ldots, h_n\} $ be that set.  
-			As multiplying by one generator changes the number of letters by $\pm 1$, we see that elements of $\Delta$ are not of the form $x_ih'$ of $x_i^{-1}h'$ for some generator $x_i$ and $h' \in H$. 
+			As multiplying by one generator changes the number of letters by $\pm 1$, we see that elements of $\Delta$ are not of the form $x_ih'$ or $x_i^{-1}h'$ for some generator $x_i$ and $h' \in H$. 
 			Hence \[
 				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H}  \ge \card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} + 2n-1
  			.\]
@@ -390,8 +389,9 @@ We now state the proof.
     	Every countable abelian group is sofic.	
     \end{corollary}
  
-	The following lemma is a known fact about about amenable groups, that we will use without proof.
-	\begin{lemma} \todo{ reference?} % reference?
+	The following lemma is a known fact about about amenable groups, that we will use without proof. 
+	The statement is a slight reformulation of {\cite[prop. 4.2.(ii)-(iii)]{kerr_li_ergodic_theory}}, where a proof can be found as well. 
+	\begin{lemma}
         \label{lem:amenable_short_exact_sequence}
         Let $A, B, C$ be groups and let $f: A\to B$ be an injective morphism and $g:B\to C$ a surjective morphism such that 
         \[\begin{tikzcd}
@@ -404,7 +404,7 @@ We now state the proof.
 	    Every quotient group of an amenable group is amenable. Every normal subgroup of an amenable group is amenable. 
     \end{corollary}
     \begin{proof}
-	    Let $G$ be a amenable group and let $H$ be a quotient group such that $G = \frac{H}{N}$. 
+	    Let $G$ be a amenable group and let $H$ be a quotient group such that $H = \frac{G}{N}$. 
         Consider the following sequence.
         \[\begin{tikzcd}
             N \arrow[r, "\iota", hook] & G \arrow[r, "\pi", two heads] & H
@@ -466,12 +466,9 @@ In this section we list some more properties obout the Følner criterion and Fø
 \begin{lemma}\label{lem:right_folner_sequence}
 	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself. 
 	I.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
-		\begin{enumerate}
-		\item for every $g \in G$ there exists an  $N$ such that for all $n >N$ it holds that $g \in F_n$ 
-		\item For every $g \in G$ the folowing is true: \[
+		for every $g \in G$ the folowing is true: \[
 				\lim_{n \to \infty} \frac{\card{F_ng \triangle F_n}}{\card{F_n}} = 0
 		.\] 
-	\end{enumerate}
 \end{lemma}
 \begin{proof}
 	Let $F_n$ be a Følner sequence for the left action. 
@@ -533,7 +530,7 @@ where for every $i$ it holds that $n_i \in \Z_{>0}$ and $\epsilon_i \in \left\{ 
 Our goal is to find a morphism to a finite group that does not map $a$ to 1. 
 Define the sequence $(N_i)_i$ as $N_i = \sum_{j = 1}^{i} n_j$. 
 We will construct a map from $F_k$ to $S_{N_r + 1}$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  \todo{Szabo heeft hier problemen met de notatie, ik heb geen flauw idee waarom} % waarom hier andere notatie?
-By the universal property of free groups it to define a map it is sufficient to choose for every $m$ the image of $x_m$.
+By the universal property of free groups, if we want to define a map from $F_k$ to $S_{N_r +1}$ it is sufficient to choose for every $m$ the image of $x_m$.
 We will define it as follows
 \[
 x_m \mapsto \prod_{\substack{j \in \{1,\ldots, r\} \\ m = i_j} } (N_{j-1} N_{j-1}+1 \ldots N_{j})^{\epsilon_i} % In this instance, this notation is really confusing. Better write it out.
@@ -627,36 +624,41 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
     \end{conjecture}
 
     It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
-
-    \begin{definition}
-	    Let $G$ be a countable group and $A$ a finite set. Let $H$ be a subgroup of finite index. Then the set of \textbf{$H$-periodic points} is the following subset of $A^G$.
+\begin{definition}
+    Let $G$ be a countable group and $A$ a finite set. Let $H$ be a normal subgroup of finite index. Then the set of \textbf{$H$-periodic points} is the following subset of $A^G$.
         \[
         P_H = \{ \omega \in A^G  \mid \forall h \in H: \sigma_h\omega = \omega\}
         \]
-    \end{definition}
+\end{definition}
 
-    Since $H$ is of finite index, this set is finite. \todo{Szabo: Justify! This is by no means true for an arbitrary action on a space.}
-    A key lemma we will further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following:
+Notice that this means that any $\omega \in P_H$ can be factored into the natural quotient map $i: G \to \frac{G}{H}$ and a function  $f: \frac{G}{H} \to A$ such that $\omega = f \circ i$.
+As we require $H$ to be normal and of finite index, we get that $\frac{G}{H}$ is a finite set. 
+So $f$ is a function from and to finite sets.
+There are only a finite number of such functions. 
+Hence $P_H$ is a finite set.
+A key lemma we will further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following:
 
-    \begin{lemma} \label{lem:h-periodic_points}
+\begin{lemma} \label{lem:h-periodic_points}
     % The $H$-periodic points are dense in $A^G$, where $A$ is a finite set and $G$ is a residually finite countable group.
-	    \todo{Szabo: Be more precise. In light of your previous remark you obviously don't mean what you write. You claim denseness for the set of all points which are periodic w.r.t. some H, or, the union of the H-periodic points over ALL H.}
+	    %\todo{Szabo: Be more precise. In light of your previous remark you obviously don't mean what you write. You claim denseness for the set of all points which are periodic w.r.t. some H, or, the union of the H-periodic points over ALL H.}
     
-    Let $G$ be a countable group and $A$ a finite set. Then the set of all periodic points (with respect to all subgroups of finite index)
+Let $G$ be a countable group and $A$ a finite set. Then the set of all periodic points (with respect to all normal subgroups of finite index)
     \[
-    \bigcup_{\substack{\text{subgroup } H \\ [G : H] < \infty}} P_H
+    \bigcup_{\substack{ H \triangleleft G \\ [G : H] < \infty}} P_H
     \]
-     is dense in $A^G$.
-    \end{lemma}
-    \begin{proof}
-        Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can list its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
-        Let $F_n = \{1, g_1, g_2, \dots, g_n\}$. 
-        As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
-        .\]
-        Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a subgroup of finite index of $G$. 
-        For $g_i, g_j \in F, i \ne j$ it is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$. 
-        This means that there exists a function $\alpha: \im(\pi) \to A$ such that for all $g_i \in F_n: (\alpha \circ \pi)(g_i) = f(g_i)$.
-	\todo{Szabo: "This means" needs more justification}
+is dense in $A^G$.
+\end{lemma}
+\begin{proof}
+	Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can list its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
+	Let $F_n = \{1, g_1, g_2, \dots, g_n\}$ and fix $n$. 
+	As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
+ .\]
+	Observe that $\im(\pi)$ is finite, thus $\ker\pi$ is a normal subgroup of finite index of $G$. 
+	For $g_i, g_j \in F_n, i \ne j$ it is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$.
+	This means that $\pi|_{F_n}: F_n \to \pi(F_n)$ is a bijection. 
+	Define $\beta: \pi(F_n) \to A: h \mapsto \left(f \circ \left( \pi|_F \right)^{-1}\right)(h) $.
+	Notice that for all $g_i \in F_n: (\beta \circ \pi)(g_i) = f(g_i)$.
+	Take any extension  $\alpha: \im(\pi) \to A$ of  $\beta$.
         Notice that $\alpha \circ \pi \in A^G$. 
         Let $h \in \ker\pi$ and consider the right $h$ shift, $\sigma_h$. 
         Take any $g \in G$. 
@@ -664,40 +666,43 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
         \[\sigma_h(\alpha\circ\pi)(g) = (\alpha \circ \pi)(hg) = \alpha(\pi(h)\pi(g)) = \alpha(\pi(g)) = (\alpha\circ\pi)(g).\] Thus $\sigma_g(\alpha \circ \pi) = (\alpha\circ\pi)$.
         So $\alpha\circ\pi$ is a $\ker\pi$ periodic point. 
 
-	For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\pi_n$ which is an $H$ periodic point \todo{Szabo: H=?}
-        and that agrees with $f$ on $F_n$. It is clear that $(\pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
-    \end{proof}
+	For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\alpha_n \circ \pi_n$ which is an $\ker \pi_n$ periodic point and that agrees with $f$ on $F_n$. 
+	It is clear that $(\alpha_n \circ \pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. 
+	This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
+\end{proof}
 
-    Now we can quite easily prove the following result. We follow the proof of Weiss \cite{weiss_2000} here.
-    \begin{theorem} \label{thm:res_fin_surjunctive}
+Now we can quite easily prove the following result. We follow the proof of Weiss \cite{weiss_2000} here.
+\begin{theorem} \label{thm:res_fin_surjunctive}
     Every residually finite group is surjunctive.
-    \end{theorem}
-    \begin{proof}
+\end{theorem}
+\begin{proof}
     \input{proof_residually_finite_surjunctive}
-    \end{proof}
+\end{proof}
 
 	% Example: Apply this proof to Z
 	
-\section{Surjunctivity of amenable and sofic groups}
+\section{Surjunctivity of Amenable and Sofic Groups}
 
 \todo{Szabo:The phrasing here suggests that what you are about to do has something novel to it. Is that really the case? If so, point out explicitly what it is.}
 
-In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). We will however, follow an alternative approach and prove this well-known result directly from our definitions. Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we sketch how one can obtain the surjunctivity result for sofic groups using the concept of entropy.
+In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). We will however, follow an alternative approach and prove this well-known result directly from our definitions. We were unable to find a proof in the literature that follows the same approach, but it is important to point out that our proof and the aforementioned proofs have many conceptual similarities. 
+
+Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we sketch how one can obtain the surjunctivity result for sofic groups using the concept of entropy.
 
 
-\subsection{Amenable groups are surjunctive} \label{ssec:amenable_surjunctive}
+\subsection{Amenable Groups are Surjunctive} \label{ssec:amenable_surjunctive}
 In the following section $G$ will be a fixed amenable group, $A$ a fixed finite set and $\phi: A^{G} \to A^{G}$ a fixed continuous injective function that commutes with the right shift. 
 We will also denote a fixed element of $A$ with $0$.
 
 \begin{lemma}
-	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_g)(1)$ is only dependent on the values of $x_h$ where  $h \in \Gamma$. 
-	I.e. if for some  $(x_g)_g, (y_g)_g \in A^{G}$ it holds that $x_g = y_g$ for all $g \in \Gamma$, then $\phi((x_g)_g)(1) = \phi((y_g)_g)(1)$.
+	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_{g \in G})(1_G)$ is only dependent on the values of $x_h$ where  $h \in \Gamma$. 
+	I.e. if for some  $(x_g)_{g \in G}, (y_g)_{g \in G} \in A^{G}$ it holds that $x_h = y_h$ for all $h \in \Gamma$, then $\phi((x_g)_{g \in G})(1_G) = \phi((y_g)_g)(1_G)$.
 \end{lemma}
 \begin{proof}
 	Choose any $a \in A$. As $\phi$ is continuous we know that \[
 	U_a = \phi^{-1}\left( \prod_{g\in G} \begin{cases}
-			\{a\} & g = 1\\
-			A & g \ne 1
+			\{a\} & g = 1_G\\
+			A & g \ne 1_G
 	\end{cases} \right)
 \]
 	is open. Hence we can choose some basis opens $U_{i, a}$ for some index $i \in I$ such that  \[
@@ -710,72 +715,97 @@ We will also denote a fixed element of $A$ with $0$.
 	.\] 
 	Every one of these basis opens is of the form \[
 	U_{i,a} = \prod_{g \in G} \begin{cases}
-		V_g \subset A & g \in \Gamma_{i,a}\\
+		V_{i,a,g} & g \in \Gamma_{i,a}\\
 		A & g \not\in \Gamma_{i,a}
 	\end{cases}
 	,\]
-	for some finite subset $\Gamma_{i,a}$. 
+	for some open sets $V_{i,a,g} \subset A$ and finite subsets $\Gamma_{i,a} \subset G$. 
 
-	Now I claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we are looking for. 
-	Obivously $\Gamma$ is finite. 
-	Suppose that $(x_g)_g \in A^{G}$ and $(y_g)_g \in A^{G}$ agree on $\Gamma$,
+	We now claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we are looking for. 
+	Obviously $\Gamma$ is finite. 
+	Further, suppose that $(x_g)_{g\in G} \in A^{G}$ and $(y_g)_{g \in G} \in A^{G}$ agree on $\Gamma$,
 	meaning that for every $\gamma \in \Gamma$ it holds that  $x_\gamma = y_\gamma$.
 	We know that for some  $(i, a) \in K$ the point $(x_g)_g \in U_{i,a}$. 
 	In particular we see that $x_\gamma = y_\gamma$ for every $\gamma \in \Gamma_{i,a}$. 
-	So $(y_g)_g \in U_{i, a}$. 
-	Hence  $(x_g)_g , (y_g)_g$ are elements of $U_a$. 
-	So  $\phi((x_g)_g) = a = \phi((y_g)_g) $.
-	We conclude that $\Gamma$ is indeed the set we are looking for.
+	So $(y_g)_{g \in G} \in U_{i, a}$. 
+	Hence  $(x_g)_{g \in G} , (y_g)_{g \in G}$ are elements of $U_a$. 
+	So  $\phi((x_g)_{g \in G})(1_G) = a = \phi((y_g)_{g \in G})(1_G) $.
+	We conclude that $\Gamma$ is indeed the set we're looking for.
 \end{proof}
 From this point on we will also fix $\Gamma$. 
+
 \begin{corollary}
-	For any $k \in G$ the value of $\phi((x_g)_g)(k)$ is only dependent on the values of $x_{kh}$ where $h \in \Gamma$.
+	For any $k \in G$ the value of $\phi((x_g)_{g \in G})(k)$ is only dependent on the values of $x_{kh}$ where $h \in \Gamma$.
 \end{corollary}	
 \begin{proof}
 	As $\phi$ commutes with the right shift  $\sigma_k$ we know that $\sigma_k\phi = \phi\sigma_k$. Applying the previous lemma immediately gives the result.
 \end{proof}
 
 \begin{corollary}\label{cor:differ_in_image}
-	If $(x_g)_g, (y_g)_g \in A^{G}$ only differ on a set $H \subset G$, ie $\forall g \not\in H:x_g = y_g$,
-	then  $\phi((x_g))$ and $\phi((y_g))$ will only differ on $H\Gamma^{-1}$.
+	If $(x_g)_{g \in G}, (y_g)_{g\in G} \in A^{G}$ only differ on a set $H \subset G$, ie $\forall g \not\in H:x_g = y_g$,
+	then  $\phi((x_g)_{g \in G})$ and $\phi((y_g)_{g \in G})$ will only differ on $H\Gamma^{-1}$.
 \end{corollary}
 \begin{proof}
-	Take $g \not\in H\Gamma^{-1}$. Then $\phi((x_h)_h)(g)$ and $\phi((x_h)_h)(g)$ will only depend on  $\{x_{g\gamma}\mid \gamma \in \Gamma\}$ and $\{y_{g\gamma}\mid \gamma \in \Gamma\} $. But  $g\Gamma \cap H = \emptyset$. Hence $x_{g\gamma} = y_{g\gamma}$ for all $\gamma \in \Gamma$. By the previous corollary we see that $\phi((x_g)) = \phi((y_g))$.
+	Take $g \not\in H\Gamma^{-1}$. Then $\phi((x_h)_{h \in G})(g)$ and $\phi((x_h)_{h\in G})(g)$ will only depend on  $\{x_{g\gamma}\mid \gamma \in \Gamma\}$ and $\{y_{g\gamma}\mid \gamma \in \Gamma\} $. But  $g\Gamma \cap H = \emptyset$. Hence $x_{g\gamma} = y_{g\gamma}$ for all $\gamma \in \Gamma$. By the previous corollary we see that $\phi((x_h)_{h \in G})(g) = \phi((y_h)_{h \in G})(g)$.
 \end{proof}
 
 \begin{definition}
-	We say that $(x_g)_g$ has support $H$ if $x_g = 0$ for all $g \not\in H$.
+	We say that $(x_g)_{g \in G} \in A^{G}$ has support $H$ if $x_g = 0$ for all $g \not\in H$.
 \end{definition}
 Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implicitly identify $A_H$ with $A^{H}$.
 
 \begin{lemma}\label{lem:injective_restriction}
 	Let $H$ be any finite subset of $G$. Consider the function  \[
-		\psi:A_H \to A ^{H\Gamma^{-1}}: (x_g) \mapsto \left(h \mapsto \phi((x_g)_g)(h)\right)
+		\psi:A_H \to A ^{H\Gamma^{-1}}: (x_g)_{g \in G} \mapsto \left(h \mapsto \phi((x_g)_{g \in G})(h)\right)
 	.\]  
 	This function is an injection. 
 \end{lemma}
 \begin{proof}
-	Suppose that $x= (x_g)_g, y = (y_g)_g \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$ their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
+	Suppose that $x= (x_g)_{g \in G}$ and $ y = (y_g)_{g \in G} \in A^{H}$ have the same image under $\psi$. As $x, y$ can only differ on $ H$, their images under $\phi$ cannot differ in $G\setminus H\Gamma^{-1}$ (see \cref{cor:differ_in_image}). Because they also have the same image under $\psi$, we know that $\phi(x)$ and $\phi(y)$ must also agree on $H\Gamma^{-1}$. Hence $\phi(x) = \phi(y)$. By the injectivity of $\phi$ we find that $x = y$.
 \end{proof}
 
 At this point we are almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
 In order to show this will show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find a $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
 
+
 \bigskip
 
 For now, lets fix the set $B$ and the map $f:B \to A$. 
+We will first introduce the notion of a copy of $B$. \footnote{This is not standard notation. It is just a term we made up to aid in this specific proof.}
+ \begin{definition}
+	A set  $A \subset  G$ is a copy of $B$ if and only if there exists an $s \in G$ such that $A = B\cdot s$.
+\end{definition}
+
 
 \begin{lemma}\label{lem:copies_of_B}
 	Let $F$ be any finite subset of $G$. There exists a subset $F' \subset F$ such that for any two  $s,t \in F', s\ne t$ it holds that $B\cdot s$ and  $B\cdot t$ are disjoint and $\card{F'} \ge \frac{\card{F}}{\card{B}^2} $
 \end{lemma}
-In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ disjoint `copies' of $B$. Here copy of $B$ means $B\cdot x$ for some $x \in G$.
+In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ disjoint copies of $B$.
+
 \begin{proof}
-We will construct $F'$ in a very adhoc manner. 
-Start of with $F' = \emptyset$ and $H = F$. Choose any  $f \in H$. Add $f$ to $F'$. Consider $\{g \in F | B\cdot g \cap B\cdot f \ne \emptyset\} $. This set has atmost $\card{B}^2$ elements. 
-We can scrap these elements form $H \leftarrow H \setminus \{g \in F | B\cdot g \cap B\cdot f \ne \emptyset\}$. Now we take a new  $f \in H$ and repeat the process.
-We can repeat this atleast $\frac{\card{F}}{\card{B^2}}$ times, therefore $F'$ contains atleast as many elements. 
-By the construction we see as well that for any $s, t \in F', s\ne t$ the the copies  $B\cdot s, B\cdot t$  are disjoint.
+	 We will prove this using strong induction. The case where $F = \emptyset$ is trivial. 
+	\begin{description}
+		\item{Case $1 \le \card F \le \card{B}^2$:} 
+		Let  $f \in F$ be an arbitrary element of $F$. 
+		The set $\{f\} $ has 1 element which is atleast $\frac{\card F}{\card B^2} \le 1$.
+	\item{Case $\card F > \card{B}^2$ :}
+		Take any  $f \in F$. Suppose that for some  $s \in G$,  $Bf$ and  $Bs$ are not disjoint. 
+		Hence there exists $a,b \in B$ such that $af = bs$. 
+		Thus $s = b^{-1}af$. So $s \in fB^{-1}B$. Notice that $\card{fB^{-1}B}\le \card{B}^2$.
+		This means that for any $f' \in F \setminus fB^{-1}B$, $Bf$ and $Bf'$ will be disjoint. 
+		Notice that $\card F > \card{F \setminus f B^{-1}B} \ge \card F - \card{B}^2 $.
+
+		Applying the induction hypothesis shows that there exists a $F'\subset  \left( F\setminus fB^{-1}B \right) $ such that  for all  $s, t \in F'$, $Bs$ and $Bf$ are disjoint, 
+		and that \[\card {F'}  \ge \frac{\card{F \setminus fB^{-1}B }}{\card{B}^2}.\]
+		On top of that for every $f' \in F\setminus fB^{-1}B$, $Bf$ and  $Bf'$ will be disjoint. 
+		So for every  $ s, t \in \{ f\} \cup F'\} $,  $Bs$ and $Bt$ will be disjoint.
+		Further \[
+			\card{\{f\} \cup F'}  = 1 + \card{F' } \ge 1 + \frac{\card{F \setminus fB^{-1}B}}{\card B^2} \ge \frac{\card{F}}{\card{B}^2}
+		.\] 
+		We conclude that $\{f\} \cup  F'$ is the set we are looking for. 
+	\end{description}
 \end{proof}
+
 
 We are finally setup to proof that all amenable groups are surjunctive.
 \begin{theorem}
@@ -785,7 +815,7 @@ We are finally setup to proof that all amenable groups are surjunctive.
 \begin{proof}
 	Lets fix a finite subset $B \subset G$ and a map $f:B\to A$. 
 	Suppose that there does not exists a  $x \in A^{G}$ such that $\phi(x)|_B = f$.
-	Notice that this means that for any copy of $B$, take  $B\cdot s$, the image of $\phi$ does not contains a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $.
+	Notice that this means that for any copy of $B$, take  $B\cdot s$, the image of $\phi$ does not contains a function  $\phi(x)$ such that when restrited to  $B\cdot s$ it is $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $, as applying the right shift $\sigma_{s^{-1}}$ then gives $\phi(\sigma_{s^{-1}} x) |_{B} = f$.
 
 	Let $F_n$ be a right Følner sequence of $G$. By \cref{cor:product_folner_sequence} we know that $BF_n$ is a right Følner sequence as well. 
 
@@ -794,7 +824,7 @@ We are finally setup to proof that all amenable groups are surjunctive.
 	.\] 
 	is injective.
 	\Cref{lem:copies_of_B} states that we can choose  $ \left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil $ disjoint copies of $B$ in $BF_n\Gamma$. 
-	We know that for every such copy of $B$ the number of possible values at the coordinates of this copy is  $\card{A}^{\card{B}} -1$ by our assumption at the start of this proof.
+	We know that for every such copy of $B$ the number of possible values at the coordinates of this copy is atmost  $\card{A}^{\card{B}} -1$ by our assumption at the start of this proof.
 	Hence there exists a set $\mathcal{A} \subset A^{BF_n\Gamma^{-1}}$ of cardinality \[
 		\card{\mathcal{A}} = \card{A}^{\card{BF_n\Gamma^{-1}}- \card{B}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil } \cdot (\card{A}^{B} -1)^{\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil }
 \]
@@ -812,18 +842,19 @@ By dividing both sides by $\card{BF_n}$ we see
 \[
 	\ln(\card{A}) \le \frac{\card{BF_n\Gamma^{-1}}}{\card{BF_n}} \ln(\card{A}) - \frac{1}{\card{BF_n\Gamma^{-1}}}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \left( \ln(\card{A}^{\card{B}}) - \ln(\card{A}^{\card{B}} -1) \right)   
 .\]
-\Cref{lem:folner_finite_subset} shows that $\lim_{n \to \infty} \frac{\card{BF_n\Gamma}}{\card{BF_n}} = 1$. 
-So we know as well that $\lim_{n \to \infty} \frac{1}{\card{BF_n\Gamma}} \left\lceil \frac{\card{F_n\Gamma}}{\card{B}^2} \right\rceil \ge \frac{1}{\card{B}^3} $. 
+\Cref{lem:folner_finite_subset} shows that $\lim_{n \to \infty} \frac{\card{BF_n\Gamma^{-1}}}{\card{BF_n}} = 1$. 
+So we know as well that $\lim_{n \to \infty} \frac{1}{\card{BF_n\Gamma^{-1}}} \left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \ge \frac{1}{\card{B}^3} $. 
 Therefore \[
 	\ln(\card{A}) \le \ln(\card{A}) - \frac{1}{\card{B}^3} \left(\ln(\card{A}^{\card{B}}) - \ln(\card{A}^{B} - 1) \right)
 ,\]
-which is clearly nonsense. 
+which yields a contradiction. 
 So our initial assumption is false. 
 
 \bigskip
 
-This means that there exists a $x \in A^{G}$ such that $\phi(x)|_B = f$. As this is true for every  $B$ and $f:B\to A$ we see that the image of  $\phi$ must be dense in $A^{G}$. As a map on compact spaces maps closed sets on closed sets we see that the image of $\phi$ must be $A^{G}$. 
+This means that there exists a $x \in A^{G}$ such that $\phi(x)|_B = f$. As this is true for every  $B$ and $f:B\to A$ we see that the image of  $\phi$ must be dense in $A^{G}$. As a map on compact spaces maps closed sets to closed sets we see that the image of $\phi$ must be $A^{G}$. 
 We conclude that $\phi$ is surjective!
+
 
 \end{proof}
 
@@ -883,7 +914,7 @@ Any sofic group G is surjunctive.
 \input{proof_sofic_surjunctive}
 \end{proof}
 
-	\section{Kaplansky's direct finiteness condition for finite fields}
+	\section{Kaplansky's Direct Finiteness Condition for Finite Fields}
 	Let us recall the statement of Kaplansky's direct finiteness condition.
 	\begin{definition}
 		Let $\mathbb K$ be a field and $G$ be a group. The group ring $\mathbb K[G]$ is called \textbf{directly finite} if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
@@ -980,7 +1011,7 @@ Any sofic group G is surjunctive.
 	\appendixpage
 	%\addappheadtotoc
 	
-	\section{Group rings are rings}\label{sec:proof_groupring}
+	\subsection{Group Rings are Rings}\label{sec:proof_groupring}
 	
 	\begin{proof}
 		We need to prove associativity of $+$, commutativity of $+$, existence of zero element, existence of additive inverses, associativity for $\cdot$, left distributivity, right distributivity and existence of a unit element.
@@ -1062,8 +1093,8 @@ The details can be found in many algebra text books such as \cite[section 7.9]{a
 
 The construction of a free group starts with the notion of an \emph{alphabet}, which is a set of \emph{letters}/symbols. We usually denote the alphabet with $S$. In the case where the alphabet only contains two letters we usually denote these with  $a,b$. In other cases we usually index the letters $x_i$ for some index $i \in I$, such that  $S = \{x_i  \mid i \in I\} $.
 
-Using the letters of the alphabet  $S = \{x_i \mid i \in I\} $ we can make \emph{words}. Words are finite sequences of letters and inverses of letters. We denote $W(S)$ for the words made with letters in $S$. For example if $S = \{a,b\} $ the following are words $a$, $b$, $a^{-1}$, $ab^{-1}$, $aa^{-1}b$, $aabba^{-1}$, $1$. Notice that there is also the empty word containing no letters (denoted by $1$). 
-We define the \emph{reduction of a word}, $\red w$,  as the operation that repeatedly scraps any pairs $x_ix_i^{-1}$ and $x_i^{-1}x_i$, until there are no more such pairs. 
+Using the letters of the alphabet  $S = \{x_i \mid i \in I\} $ we can make \emph{words}. Words are finite sequences of letters and inverses of letters. At this point inverses of letters are just more symbols. We denote $W(S)$ for the words made with letters in $S$. For example if $S = \{a,b\} $ the following are words $a$, $b$, $a^{-1}$, $ab^{-1}$, $aa^{-1}b$, $aabba^{-1}$, $1$. Notice that there is also the empty word containing no letters (denoted by $1$). 
+We define the \emph{reduction of a word}, $\red w$,  as the operation that repeatedly scraps any pairs of letters adjacent to its inverse, $x_ix_i^{-1}$ and $x_i^{-1}x_i$, until there are no more such pairs. 
 For example $\red({a^{-1}ab}) = b$, $\red(a a^{-1}) =1$ $\red(aba^{-1}b^{-1}) = aba^{-1}b^{-1}$, $\red(a^{-1}bb^{-1}a^{-1}) = 1$, $\red(x_1x_2x_3) = x_1x_2x_3$.
 
 We can define a \emph{multiplication} on words by concatenating the sequences and reducing the result. For example $(ab)\cdot (ba) = abba$, $(ab)\cdot(b^{-1}a) = \red(abb^{-1}a) = aa$.
@@ -1073,7 +1104,7 @@ Using this multiplication it turns out that we can define the \emph{free group g
 We also write $F_S = \left<S \right>$, or in the case $S = \{x_1, x_2, \ldots, x_n\} $, we write $F_S = \left<x_1, x_2, \ldots, x_n \right>$. If  $S$ is finite with  $n = \card{S}$, we also write  $F_n$ as for two alphabets of the same cardinality  $S, S'$ the groups $F_S$ and $F_{S'}$ are isomorphic.
 
 
-In some sense the free group, $F_S$ is the largest group that can be generated by the elements of $S$. This is formalized in the following \emph{universal property of the free group}, that characterizes the free group. 
+In some sense, the free group, $F_S$ is the largest group that can be generated by the elements of $S$. This is formalized in the following \emph{universal property of the free group}, that characterizes the free group. 
 \begin{property}[{\cite[ch. 5, p. 298]{rotman_advanced_2015}}]
 	If  $S$ is a subset of a group  $F$, then $F$ is the free group generated by $S$ if and only if for every group $G$ and function $f:S \to G$ there exists a unique morphism $\phi:F \to G$ such that $\phi(s) = f(s)$ for all $s \in S$.
 	I.e. such that $\phi$ makes the following diagram commute:
