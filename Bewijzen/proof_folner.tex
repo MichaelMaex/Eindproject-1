@@ -2,6 +2,7 @@ Let $F_1, F_2, F_3, \dots $ be a Følner sequence of $G$.
 %Notice that $G = \bigcup_{i \in \N} F_i$ by the first property. So $G$ is countable. 
 Choose for every $i \in \N: d_i = |F_i|$. We will implicitly identify $\sym(F_i)$ with $\sym(d_i)$. Now choose maps $\Phi_i: F_i \to \sym(F_i)$ such that $\Phi_i(g)(h) = gh$ whenever $gh \in F_i$, which is possible due to \cref{lem:finite_bijections}. 
 
+We first prove the second condition.
 Fix $g, h \in G$. By the Følner criterion we know that 
 \begin{align*}
     \lim_{i\to \infty} \frac{\card{g^{-1}F_i \triangle F_i}}{\card{F_i}} &= 0\\
