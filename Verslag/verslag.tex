@@ -90,7 +90,7 @@ Now, groups $G$ for which it is the case that injectivity of an automaton using 
 
 \subsection*{Goal of this Report}
 
-We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
+We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite[introduction]{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
 Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely we will give the details of a proof that the group ring a surjunctive group and finite field is directly finite. \Cref{fig:dependency_graph} shows how how the different concepts in this report relate to each other.
 
 
@@ -671,7 +671,7 @@ is dense in $A^G$.
 	This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
 \end{proof}
 
-Now we can quite easily prove the following result. We follow the proof of Weiss \cite{weiss_2000} here.
+Now we can quite easily prove the following result. We follow the proof of Weiss \cite[Theorem 1.3]{weiss_2000} here.
 \begin{theorem} \label{thm:res_fin_surjunctive}
     Every residually finite group is surjunctive.
 \end{theorem}
@@ -925,7 +925,7 @@ Any sofic group G is surjunctive.
 		Let $\mathbb K$ be a field and $G$ be a group. The group ring $\mathbb K[G]$ is called \textbf{directly finite} if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
 		
 	\end{definition}
-	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite{weiss_2000}. 
+	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite[section 3, section 4]{weiss_2000}. 
 	In the case where $\mathbb K$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
 	He finished the argument by proving that the group rings of finite fields and surjunctive groups are directly finite.  
 
@@ -1008,6 +1008,15 @@ Any sofic group G is surjunctive.
 	\end{proof}	
 	
 	\section{Conclusion}
+
+We shall now briefly discuss the contents and results of this report and how they contribute to our attempt to thoroughly examine Kaplansky’s direct finiteness conjecture and understand how it relates to the notion sofic groups.\\
+\\
+Firstly, we extensively explored the definition and properties of sofic  groups as well as closely related concepts. In particular, we investigated the amenability and residual finiteness of groups and their meaning in the context of this subject. In both cases, we ended our analysis with a proof of their implying soficity. \\
+\\
+Secondly, we drew the connection between sofic groups and Kaplansky’s conjecture via the notion of surjunctivity. Specifically, we have provided proof of both the implication “amenable => surjunctive” as well as “sofic => surjunctive” using independent, respective approaches. More importantly, however, the core of the report closes with proof that surjunctive groups adhere to Kaplansky’s conjecture in the case of finite fields. \\
+\\
+Finally, we can now conclude this report with the issue of open problems which remain in this area of mathematical research. In discussing this subject, we have quite naturally come across Gottschalk’s conjecture, as it tightly links the question of general surjunctivity with Kaplansky’s conjecture. Namely, if every countable group could be shown to be surjunctive, this would immediately resolve Kaplansky’s conjecture for finite fields. Even more striking, however, is the idea that every group might be sofic as well, as there exist no known counterexamples – though Weiss does not seem particularly enthusiastic about this possibility \cite[introduction]{weiss_2000} -  . Soficity for all countable groups would settle the question of direct finiteness of their grouprings over any field, without further ado, rendering everything discussed in this report mostly superfluous.
+
 
 	\todo[color=green]{To be written}
 
