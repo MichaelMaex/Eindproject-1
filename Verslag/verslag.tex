@@ -145,21 +145,21 @@ We can now state Kaplansky's conjecture by the example of the introduction in \c
 	Let $\mathbb K$ be a finite field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
-To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If we work over a finite field $\F$ and $G$ is a finite group, it can quite easily be proven that $\F[G]$ is directly finite.
 
 \begin{theorem}
-    Let $\mathbb K$ be a field and $G$ be a finite group. Then $\mathbb K[G]$ is directly finite. % hier \mathbb F gebruiken omdat het veld eindig is?
+    Let $\F$ be a finite field and $G$ be a finite group. Then $\F[G]$ is directly finite. 
 \end{theorem}
 \begin{proof}
-    Let $a, b \in \mathbb K[G]$ and suppose $ab=1$. Now consider the map
+    Let $a, b \in \mathbb F[G]$ and suppose $ab=1$. Now consider the map
     \[
-        \phi: \mathbb K[G] \to \mathbb K[G]: x \mapsto x a
+        \phi: \mathbb F[G] \to \mathbb F[G]: x \mapsto x a
     \]
-    This map is injective. To see this, let $x, y \in \mathbb K[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
-    But since $\mathbb K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in \mathbb K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
+    This map is injective. To see this, let $x, y \in \mathbb F[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
+    But since $\mathbb F[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in \mathbb F[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
 \end{proof}
 
-Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb K$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
+Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb F$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
 
 \section{Sofic Groups}\label{sec:sofic_group}
 
