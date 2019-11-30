@@ -68,6 +68,27 @@
   { }% space after theorem head; " " = normal interword space
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
+\newtheoremstyle{definitiondd}% name of the style to be used
+  {7pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {7pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\rmfamily}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+  \newtheoremstyle{remarkdd}% name of the style to be used
+  {7pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {7pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\rmfamily}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\itshape}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+
 \theoremstyle{theoremdd}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -75,9 +96,9 @@
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{property}[theorem]{Property}
-\theoremstyle{definition}
+\theoremstyle{definitiondd}
 \newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
+\theoremstyle{remarkdd}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -132,7 +153,7 @@ Now, groups $G$ for which it is the case that injectivity of an automaton using 
 
 \subsection*{Goal of this Report}
 
-We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite[introduction]{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties, namely amenability and residually finiteness. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
+We will mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite[introduction]{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we will discuss its connections to other important concepts and group properties, namely amenability and residually finiteness. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
 Finally, we shall discuss Kaplansky's conjecture in the context of finite fields. More precisely, we shall give the details of a proof that the group ring of a surjunctive group and a finite field is directly finite. \Cref{fig:dependency_graph} shows how the different concepts in this report relate to each other.
 
 
@@ -336,11 +357,8 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
         \]
-        where $\triangle$ denotes the symmetric difference. We say that $G$ satisfies the \textbf{Følner criterion} if $G$ has a Følner sequence.
+        where $\triangle$ denotes the symmetric difference. We say that $G$ satisfies the \textbf{Følner criterion} if $G$ has a Følner sequence. We also call such a group \textbf{amenable}.
     \end{definition}
-    %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
-    \Cref{fig:folner} gives a visual intuition for this notion. 
-    If a countable group statisfies the Følner condition, we shall call the group \emph{amenable}.
 
 \begin{figure}[ht]
     \centering
@@ -350,6 +368,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \label{fig:folner}
 \end{figure}
 
+\Cref{fig:folner} gives a visual intuition for this notion. 
 By the following lemma, we can not only exploit this for all the elements $g \in G$ individually, but also for finite subsets $B \subset G$.
 
 \begin{lemma}\label{lem:folner_finite_subset}
@@ -481,6 +500,8 @@ We now state the proof.
         \input{proof_solvable_amenable}
     \end{proof}
 
+Yet another way to construct amenable groups is given in the follwoing theorem.
+
     \begin{theorem}\label{thm:rising_amenable}
     	Let $G$ be a countable group, for which there exists a set of increasing amenable subgroups $G_1 \subset  G_2 \subset  G_3 \subset  \ldots$ such that $G = \bigcup_{i = 1}^{\infty} G_i$. Then $G$ is amenable.  
     \end{theorem}
@@ -605,7 +626,7 @@ We shall prove this claim by induction.
 If  $m=0$ we essentially act with the trivial element. So $0$ is at position $0$.
  Suppose that $m \ne 0$ to zero and that the action of $x_{i_{m}}^{\epsilon_{m}n_{m}}x_{i_{m}}^{\epsilon_{m}n_{m}} \ldots x_{i_1}^{\epsilon_1n_1}$ maps $0$ to $N_m$. 
  We can act with  $x_{i_{m+1}}^{\epsilon_{m+1}n_{m+1}}$. 
- If we look at the cycles of $x_{i_{m+1}}$ we can see that $N_m$ (the position of  $0$ ) is in the cycle $(N_m \ldots N_{m+1})^{\epsilon_{m+1}}$. As zero is in this cycle can solely focus on what happens within this cycle when dealing with powers of $x_{i_{m+1}}$. 
+ If we look at the cycles of $x_{i_{m+1}}$ we can see that $N_m$ (the position of  $0$ ) is in the cycle $(N_m \ldots N_{m+1})^{\epsilon_{m+1}}$. As zero is in this cycle, we can solely focus on what happens within this cycle when dealing with powers of $x_{i_{m+1}}$. 
  Taking the $\epsilon _{m+1} n_{m+1}$-th power means that this becomes the cycle $(N_m \ldots N_{m} + n_{m+1})^{n_{m+1}} = (N_{m+1} N_{m+1}-1 \ldots N_m + 1 N_m)$. 
 So we see that $0$ now gets mapped to $N_m$, which proves our claim.
 
@@ -663,10 +684,10 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
 
     \section{Surjunctivity}\label{sec:surjunctivity}
 
-    First we define a basic concept in group theory.
+    First we recall a well-known concept in group theory.
 
     \begin{definition} % van wikipedia gehaald
-	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an \textbf{right (group)action} of $G$ on $X$ if
+	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called a \textbf{right (group)action} of $G$ on $X$ if
         \begin{enumerate}[(i)]
 		\item $\forall x \in X: \alpha_{1_G}(x) = x$
             \item $\forall g,h \in G, x\in X: \alpha_{hg}(x) = \alpha_g(\alpha_h(x))$.
@@ -746,7 +767,7 @@ Now we can quite easily prove the following result. We follow the proof of Weiss
 	
 \section{Surjunctivity of Amenable and Sofic Groups}
 
-In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). However, we came up with an alternative approach, independent of the literature, and will prove this well-known result directly from our definitions. We were unable to find a proof in the literature that follows the same approach, but it is important to point out that our proof and the aforementioned proofs have many conceptual similarities. 
+In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is common to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). However, we came up with an alternative approach, independent of the literature, and will prove this well-known result directly from our definitions. We were unable to find a proof in the literature that follows the same approach, but it is important to point out that our proof and the aforementioned proofs have many conceptual similarities. 
 
 Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we show how one can obtain the surjunctivity result for sofic groups using the concept of entropy loosely following \cite[paragraph 2.13.6 - 2.13.7]{capraro_lupini_2015}.
 
@@ -793,7 +814,7 @@ To keep the final proof clean, we first present several intermediate results of 
 	Therefore  $\phi((x_g)_{g \in G})(1_G) = a = \phi((y_g)_{g \in G})(1_G) $.
 	We conclude that $\Gamma$ is indeed the desired set.
 \end{proof}
-From this point on we shall also fix $\Gamma$. 
+From this point on, we will also fix $\Gamma$. 
 
 \begin{corollary}
 	For any $k \in G$ the value of $\phi((x_g)_{g \in G})(k)$ is only dependent on the values of $x_{k\gamma}$ where $\gamma \in \Gamma$.
@@ -826,7 +847,7 @@ Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implici
 \end{proof}
 
 At this point we are almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
-In order to show this, we shall show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find an $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
+In order to show this, we shall show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find an $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that the image of $\phi$ is dense and using compactness.
 
 
 \bigskip
@@ -894,7 +915,7 @@ As $\psi$ is injective it follows that $\card{A^{BF_n}} \le \card{\mathcal{A}}$.
 	\card{A}^{\card{BF_n}} \le 
 	\card{A}^{\card{BF_n\Gamma^{-1}}- \card{B}\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil } \cdot (\card{A}^{B} -1)^{\left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil }
 .\]
-By taking the logarithm of both sides we obtain
+By taking the natural logarithm of both sides we obtain
 \[
 	\card{BF_n}\ln(\card{A}) \le \card{BF_n\Gamma^{-1}} \ln(\card{A}) - \left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \left( \ln(\card{A}^{\card{B}}) - \ln(\card{A}^{\card{B}} -1) \right)   
 .\]
@@ -904,7 +925,7 @@ By dividing both sides by $\card{BF_n}$ we see
 .\]
 \Cref{lem:folner_finite_subset} shows that $\lim_{n \to \infty} \frac{\card{BF_n\Gamma^{-1}}}{\card{BF_n}} = 1$. 
 So we know as well that $\lim_{n \to \infty} \frac{1}{\card{BF_n\Gamma^{-1}}} \left\lceil \frac{\card{F_n\Gamma^{-1}}}{\card{B}^2} \right\rceil \ge \frac{1}{\card{B}^3} $. 
-Therefore \[
+Therefore, \[
 	\ln(\card{A}) \le \ln(\card{A}) - \frac{1}{\card{B}^3} \left(\ln(\card{A}^{\card{B}}) - \ln(\card{A}^{B} - 1) \right)
 ,\]
 which yields a contradiction. 
@@ -941,7 +962,7 @@ A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = 1_G, g_1, g_2
 \\
 Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the set 
 		\[
-		H_n (\delta) := \{(a_i)_{0 \leq i \leq n-1} \in A^n | 
+		H_n (\delta) := \{(a_i)_{0 \leq i \leq n-1} \in A^n \mid 
 						\exists (x_i)_{0 \leq i \leq n-1} \in X_n : 
 						\forall g \in F: d((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i })_i) < \delta \}
 		\]
@@ -975,11 +996,11 @@ For $X \subset A^G$ a subshift we have that
 \begin{proof}
 For the implication $X = A^G \Rightarrow h_\Sigma(X) = \log |A|$: assume that $X = A^G$. Now it is quite clear that for any $n \in \N$ and $\delta > 0$: $|H_n(\delta)| = |A|^n$. Indeed, for any $(a_i)_i \in A^n$ we can find a sequence $(x_i)_i \in X^n$ such that $\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i })_i) < \delta$. Namely  $(a_i)_i$ itself. Therefore $h_\Sigma(X) = \log |A|$.\\
 \\
-For the implication $h_\Sigma(X) = \log |A| \Rightarrow X = A^G$: assume that $X \varsubsetneq A^G$. It is possible that a certain element of $A$ is never a component in one of the elements of $X$. However, then it is immediately clear that $h_\Sigma(X) \leq \log (|A|-1) $ and thus $h_\Sigma(X) < \log |A|$. Assume, therefore, that every element of $A$ is a component in at least one of the elements of $X$. Now there must exist some finite $F \subset G$ such that $X_F \varsubsetneq A^G$. It can then be shown that, using this $F$, we have that
+For the implication $h_\Sigma(X) = \log |A| \Rightarrow X = A^G$: assume that $X \varsubsetneq A^G$. It is possible that a certain element of $A$ is never a component in one of the elements of $X$. However, in that case we have that $h_\Sigma(X) \leq \log (|A|-1) $ and thus $h_\Sigma(X) < \log |A|$. Assume, therefore, that every element of $A$ is a component in at least one of the elements of $X$. Now there must exist some finite $F \subset G$ such that $X_F \varsubsetneq A^G$. It can then be shown that, using this $F$, we have that
 		\[
 		h_\Sigma(X) \leq \log |A| - \frac{1}{|F|^2} \log \left(\frac{|A|^{|F|}}{|A|^{|F|} - 1}\right) < \log |A|
 		\]
-which proves the implication by contrapositive. 
+which proves the implication by contraposition. 
 \end{proof}
 
 Now we can prove the surjunctivity of sofic groups.
@@ -992,13 +1013,13 @@ Any sofic group G is surjunctive.
 \end{proof}
 
 	\section{Kaplansky's Direct Finiteness Condition for Finite Fields}
-	Let us recall the statement of Kaplansky's direct finiteness condition.
+	Let us restate the statement of Kaplansky's direct finiteness condition.
 	\begin{definition}
 		Let $\mathbb K$ be a field and $G$ be a group. The group ring $\mathbb K[G]$ is called \textbf{directly finite} if every  $a \in K[G]$, that is left invertible, is right invertible as well. 
 		
 	\end{definition}
 	Kaplansky conjectured that all group rings are directly finite and Weiss showed that this is true for all sofic groups \cite[section 3, section 4]{weiss_2000}. 
-	In the case where $\mathbb K$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
+	In the case where $\mathbb K$ is a finite field, Weiss did this by first proving the surjunctivity of sofic groups.
 	He finished the argument by proving that the group rings of finite fields and surjunctive groups are directly finite.  
 
 	In this section we shall give the details of a proof of that last step. 
@@ -1008,7 +1029,7 @@ Any sofic group G is surjunctive.
 	\end{theorem}
 	%It looks like we will need to use the surjuctivity on $\F^{G}$. Hence we need some statement that relates $\F^{G}$ to $\F[G]$.
 	To exploit the surjunctivity property of $G$, we shall need to relate $\mathbb F^G$ to the group ring $\mathbb F[G]$. There is in fact a very nice connection that can be made for any field $\mathbb K$.
-	For finite groups, one can very naturally identify $\mathbb K^G$ with the group ring $\mathbb K[G]$. Indeed, with every element $(x_g)_{g \in G}$ in $\mathbb K^G$, there corresponds an element $\sum_{g \in G} x_g g$ in $\mathbb K[G]$, where $G$ being finite guarantees that this is a finite linear combination. For infinite groups, we cannot identify these two sets, but we can consider $\mathbb{K}[G]$ as a subset of $\mathbb K^G$. In this case, $\mathbb K^G$ is not a ring but we can make it into a module over $\mathbb K[G]$. We can do this in very natural way, extending the multiplication as defined in \cref{def:group_ring}. Here, one can think of the elements of $\mathbb K^G$ as (possibly infinite) formal sums $\sum_{g \in G} x_g g$ in $\mathbb K[G]$.
+	For finite groups, one can very naturally identify $\mathbb K^G$ with the group ring $\mathbb K[G]$. Indeed, with every element $(x_g)_{g \in G}$ in $\mathbb K^G$, there corresponds an element $\sum_{g \in G} x_g g$ in $\mathbb K[G]$, where $G$ being finite guarantees that this is a finite linear combination. For infinite groups, we cannot identify these two sets, but we can consider $\mathbb{K}[G]$ as a subset of $\mathbb K^G$. In this case, $\mathbb K^G$ is not a ring but we can make it into a module over $\mathbb K[G]$. We can do this in a very natural way, extending the multiplication as defined in \cref{def:group_ring}. Here, one can think of the elements of $\mathbb K^G$ as (possibly infinite) formal sums $\sum_{g \in G} x_g g$ in $\mathbb K[G]$.
 
 	\begin{lemma}
 		For a group $G$ and field $\mathbb K$ we can consider $\mathbb{K}^{G}$ as a left $\mathbb{K}[G]$-module, with pointwise addition and multiplication defined as
@@ -1048,8 +1069,8 @@ Any sofic group G is surjunctive.
 			.\] 
 			is a subbasis of $\F^{G}$. 
 			Hence, to prove that $\phi$ is continuous it is sufficient to check that $\phi^{-1}(U_{h, t})$ is open for every $h \in G, t\in \F$.
-			Notice that an  $(x_g)_{g \in G} \in \F^{G}$ is in $\phi^{-1}(U_{h,t})$ if and only if $\sum_{k \in G} a_k x_{k^{-1}h} = t$. 
-			Remember that $a_k$ is nonzero only for a finite number subset $X$,  $k\in X \subset G$. 	
+			Notice that an element $(x_g)_{g \in G} \in \F^{G}$ is in $\phi^{-1}(U_{h,t})$ if and only if $\sum_{k \in G} a_k x_{k^{-1}h} = t$. 
+			Remember that $a_k$ is nonzero only for $k \in X$, where $X$ is some finite subset of $G$. 	
 			So $\phi^{-1}(U_{h, t})$ is closed under addition with an element of  \[
 			\prod_{g \in G} \begin{cases}
 				\F & hg^{-1}  \not\in X\\
@@ -1065,7 +1086,7 @@ Any sofic group G is surjunctive.
 			.\] 
 			So $\phi^{-1}(U_{h,t})$ is open. Hence $\phi$ is continuous.			
 		\end{itemize}
-		By the surjunctivity of $G$ we find that $\phi$ is surjective as well. In particular this means that there exists a $y = (y_g)_{g \in G}$ such that $\phi(y) = (\delta_{g, 1})_{g \in G}$, where $\delta$ is the kronecker delta.
+		By the surjunctivity of $G$, we find that $\phi$ is surjective as well. In particular, this means that there exists a $y = (y_g)_{g \in G}$ such that $\phi(y) = (\delta_{g, 1})_{g \in G}$, where $\delta$ is the kronecker delta.
 		By multiplying with $b$ on the left we find that \[
 			 y = ba\cdot y = b\cdot (\delta_{g, 1})_{g \in G} = \left( \sum_{h \in G} b_{h} \delta_{h^{-1}g, 1} \right)_{g \in G} = \left( \sum_{h \in G} b_{h} \delta_{h, g} \right)_{g \in G}
 		 = \left( b_{g} \right) _{g \in G}.\] 
@@ -1081,13 +1102,16 @@ Any sofic group G is surjunctive.
 	
 	\section{Conclusion}
 
-We shall now briefly discuss the content and results of this report and how they contribute to our attempt to thoroughly examine Kaplansky’s direct finiteness conjecture and gain insight in how it relates to the notion sofic groups.\\
-\\
-Firstly, we extensively explored the definition and properties of sofic groups as well as closely related concepts. In particular, we investigated the amenability and residual finiteness of groups and their meaning in the context of this subject. In both cases, we ended our analysis with a proof of their implying soficity. \\
-\\
-Secondly, we have drawn the connection between sofic groups and Kaplansky’s conjecture via the notion of surjunctivity. Specifically, we have provided proof of both the implication $amenable \Rightarrow surjunctive$ as well as $sofic \Rightarrow surjunctive$ for any countable group using independent approaches respectively. More importantly, however, the core of the report closes with proof that surjunctive groups adhere to Kaplansky’s conjecture in the case of finite fields. \\
-\\
-Finally, we can now conclude this report with the issue of open problems which remain in this area of mathematical research. In discussing this subject, we have quite naturally come across Gottschalk’s conjecture, as it tightly links the question of general surjunctivity with Kaplansky’s conjecture. Namely, if every countable group could be shown to be surjunctive, this would immediately resolve Kaplansky’s conjecture for finite fields. Even more striking, however, is the idea that every group might be sofic as well, as there exist no known counterexamples – though Weiss does not seem particularly enthusiastic about this possibility \cite[introduction]{weiss_2000}. Soficity for all countable groups would settle the question of direct finiteness of their grouprings over any field, without any further ado.
+We shall now briefly discuss the content and results of this report and how they contribute to our attempt to thoroughly examine Kaplansky’s direct finiteness conjecture and gain insight in how it relates to the notion of sofic groups.
+
+
+Firstly, we extensively explored the definition and properties of sofic groups as well as closely related concepts. In particular, we investigated the amenability and residual finiteness of groups and their meaning in the context of this subject. In both cases, we ended our analysis with a proof of their implying soficity. 
+
+
+Secondly, we have drawn the connection between sofic groups and Kaplansky’s conjecture via the notion of surjunctivity. Specifically, we have provided proof of both the implication $amenable \Rightarrow surjunctive$ as well as $sofic \Rightarrow surjunctive$ for any countable group using independent approaches respectively. More importantly, however, the core of the report closes with proof that surjunctive groups adhere to Kaplansky’s conjecture in the case of finite fields. 
+
+
+Finally, we can now conclude this report with the issue of open problems which remain in this area of mathematical research. In discussing this subject, we have quite naturally come across Gottschalk’s conjecture, as it tightly links the question of general surjunctivity with Kaplansky’s conjecture. Namely, if every countable group could be shown to be surjunctive, this would immediately resolve Kaplansky’s conjecture for finite fields. Even more striking, however, is the idea that every group might be sofic as well, as there exist no known counterexamples – though Weiss does not seem particularly enthusiastic about this possibility \cite[introduction]{weiss_2000} -  . Soficity for all countable groups would settle the question of direct finiteness of their group rings over any field.
 
 	\newpage
 	\appendix
