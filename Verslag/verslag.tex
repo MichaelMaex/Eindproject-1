@@ -237,7 +237,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
 
 
     \subsection{Examples of Sofic Groups}
-    The Sofic groups are a very large class of groups. 
+    The sofic groups are a very large class of groups. 
     In fact there are no known examples of non-sofic groups \cite[Introduction]{weiss_2000}. 
     Here we will list some groups which are known to be sofic.
     
@@ -362,30 +362,30 @@ By the following lemma, we can not only exploit this\todo[color=green]{make prec
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
 	For those not familiar with the free group, a brief introduction is given in \cref{sec:intro_free_group}.
 	To prove this, we will have to show that there does not exist a Følner sequence.
-	We will prove that for every non-empty finite subset $H \subset F_n$ it holds that \[
-		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
+	We will prove that for every non-empty finite subset $B \subset F_n$ it holds that \[
+		\card{\bigcup_{i = 1}^{n} x_iB \cup x_i^{-1}B} \ge (2n-1) \card{B}
 	.\] 
-	We can prove this using induction on the size of $H$. 
+	We can prove this using induction on the size of $B$. 
 	\begin{description}
-		\item[$\card{H} = 1$:] Then $H = \{g\}$. 
+		\item[$\card{B} = 1$:] Then $B = \{g\}$. 
 			Hence the left hand side set is $\{x_1g, x_1^{-1}g, x_2g, x_2^{-1}g, \ldots, x_ng, x_n^{-1}g\} $, which has cardinality $2n$. 
 		\item[$\card{H} > 1$:] 
-			Let $ h \in H$ be an element that has maximum number of letters in reduced form.
-			Consider the set $H' = H\setminus \{h\} $. 
+			Let $ h \in B$ be an element that has maximum number of letters in reduced form.
+			Consider the set $B' = B\setminus \{h\} $. 
 			By the induction hypothesis it holds that 
 			\[	
-				\card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} \ge (2n-1) \card{H'}
+				\card{\bigcup_{i = 1}^{n} x_i B' \cup x_i^{-1} B'} \ge (2n-1) \card{B'}
 			.\] 
 			For at least $2n-1$ elements of $\{x_1,x_1^{-1},x_2,x_2^{-1},\ldots, x_n, x_n^{-1}\} $ the words $x_ih$ or  $x_i^{-1}h$ have more letters in reduced form than $h$. Let $\Delta = \{ h_1, h_2, \ldots, h_n\} $ be that set.  
-			As multiplying by one generator changes the number of letters by $\pm 1$, we see that elements of $\Delta$ are not of the form $x_ih'$ or $x_i^{-1}h'$ for some generator $x_i$ and $h' \in H$. 
+			As multiplying by one generator changes the number of letters by $\pm 1$, we see that elements of $\Delta$ are not of the form $x_ih'$ or $x_i^{-1}h'$ for some generator $x_i$ and $h' \in B$. 
 			Hence \[
-				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H}  \ge \card{\bigcup_{i = 1}^{n} x_iH' \cup x_i^{-1}H'} + 2n-1
+				\card{\bigcup_{i = 1}^{n} x_i B \cup x_i^{-1}B}  \ge \card{\bigcup_{i = 1}^{n} x_i B' \cup x_i^{-1} B'} + 2n-1
  			.\]
 			So \[
-				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1)\card{H'} + (2n-1) = (2n-1 ) \card{H}
+				\card{\bigcup_{i = 1}^{n} x_i B \cup x_i^{-1}B} \ge (2n-1)\card{B'} + (2n-1) = (2n-1 ) \card{B}
 			.\]
 			Thus \[
-				\card{\{x_1,x-1^{-1}, \ldots, x_n, x_n^{-1}\}H \setminus H} \ge (2n - 2) \card{H}.
+				\card{\{x_1,x_1^{-1}, \ldots, x_n, x_n^{-1}\}B \setminus B} \ge (2n - 2) \card{B}.
 			\] This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
 	\end{description}
 	We conclude that the free group is not amenable.
