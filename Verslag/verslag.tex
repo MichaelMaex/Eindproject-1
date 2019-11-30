@@ -85,20 +85,25 @@
 \subsection*{The Lay of the Land}
 
 This report discusses a conjecture of Kaplansky which states that any group ring $\mathbb{K}[G]$ with $\mathbb{K}$ a field is directly finite. That is, the left-invertibility of elements implies their right-invertibility. For general groups and fields, this conjecture sofar has remaing open. It has been resolved, however, for specific cases, in particular the case in which the group $G$ is sofic, which means that in some sense $G$ can be approximated well with finite groups. Some cases require the assumption of another conjecture. For example, when we talk about finite fields $\mathbb{K}$ we have a positive result for Kaplansky’s conjecture for surjunctive groups (definition in section \ref{sec:surjunctivity}). The class of surjunctive groups is very large and possibly contains all countable groups. Therefore, if we were to have that all countable groups are surjunctive, this positively resolves Kaplansky's conjecture for finite fields and countable groups.
+This report discusses a conjecture of Kaplansky which states that any group ring $\mathbb{K}[G]$ (defined in \cref{sec:group_rings}) with $\mathbb{K}$ a field is directly finite. That is, the left-invertibility of elements implies their right-invertibility. For general groups and fields, this conjecture so far has remain open. However, it has been resolved for specific cases, in particular the case in which the group $G$ is sofic (defined in \cref{sec:sofic_group}), which means that in some sense $G$ can be approximated well by finite groups. Some cases require the assumption of another conjecture. For example, when we talk about finite fields $\mathbb{K}$ we have a positive result for Kaplansky’s conjecture for surjunctive groups (definition in section \ref{sec:surjunctivity}). The class of surjunctive groups is very large and possibly contains all countable groups. Therefore, if we were to have that all countable groups are surjunctive, this positively resolves Kaplansky's conjecture for finite fields and countable groups.
 The assumption that all countable groups are surjunctive is known as the conjecture of Gottschalk and will be discussed in detail.
 
 \subsection*{Historical Context}
 
-We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
+We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups (which we will define in \cref{sec:amenable}) in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
 \\
-These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups.
-Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet implies surjectivity of that automaton are the afore mentioned surjunctive groups. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are known to be surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
+These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem 
+\todo[color=green]{add reference}
+states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups, .
+Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet $A$ implies surjectivity of that automaton are the afore mentioned surjunctive groups. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are known to be surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
 \todo{Hoe werkt de garden of eden theorem $\implies$ surjunctive?}
 
 \subsection*{Goal of this Report}
 
 We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite[introduction]{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties such as amenability. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
 Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely we will give the details of a proof that the group ring a surjunctive group and finite field is directly finite. \Cref{fig:dependency_graph} shows how how the different concepts in this report relate to each other.
+We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite[introduction]{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties, namely amenability and residually finiteness. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
+Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely, we will give the details of a proof that the group ring of a surjunctive group and a finite field is directly finite. \Cref{fig:dependency_graph} shows how the different concepts in this report relate to each other.
 
 
 \begin{figure}[h]
@@ -139,16 +144,16 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
 The proof of this theorem is no more than checking the group axioms one by one. For completeness you can find it in \cref{sec:proof_groupring}.
 
 \begin{remark}
-	A group ring in general is not commutative. In fact $\mathbb{K}[G]$ is commutative if and only if $G$ is a abelian group. So we will have to be careful when dealing with these rings. 
+	A group ring is in general not commutative. In fact, $\mathbb{K}[G]$ is commutative if and only if $G$ is a abelian group. So we will have to be careful when dealing with these rings. 
 \end{remark}
 
 We can now state Kaplansky's conjecture by the example of the introduction in \cite{elek_szabo_2003}.
 
 \begin{conjecture}[Kaplansky]
-	Let $\mathbb K$ be a finite field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
+	Let $\mathbb K$ be a finite field and $G$ a group. Then $\mathbb K[G]$ is directly finite, i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
-To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If we work over a finite field $\F$ and $G$ is a finite group, it can quite easily be proven that $\F[G]$ is directly finite.
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertibility implies right-invertibility. If we work over a finite field $\F$ and $G$ is a finite group, it can quite easily be proven that $\F[G]$ is directly finite.
 
 \begin{theorem}
     Let $\F$ be a finite field and $G$ be a finite group. Then $\F[G]$ is directly finite. 
@@ -159,7 +164,7 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
         \phi: \mathbb F[G] \to \mathbb F[G]: x \mapsto x a
     \]
     This map is injective. To see this, let $x, y \in \mathbb F[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
-    But since $\mathbb F[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in \mathbb F[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
+    Since $\mathbb F[G]$ is a finite set, it follows that $\phi$ must also be surjective. Therefore there exists an $x \in \mathbb F[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
 \end{proof}
 
 Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb F$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
@@ -168,10 +173,12 @@ Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be
 
 \subsection{Definition and Motivation}
 
-In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a finite permutation group. Recall that every finite group is isomorphic to the subgroup of a permutation group.
+In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a subgroup of a finite symmetric group. Recall that every finite group is isomorphic to a subgroup of a symmetric group
+$\sym(n)$, which consists of the permutations of $\{1, \dots, n\}$.
+
 % Szabo: definitely no. What do you mean by finite permutation groups?
 
-To define this, we will need a way to measure a distance between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ \cite[subsection 2.1]{capraro_lupini_2015}.
+To define this, we will need a way to measure distances between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ \cite[subsection 2.1]{capraro_lupini_2015}.
 
 \begin{definition}
     The \textbf{Hamming distance} on $\sym(n)$ is defined by
@@ -184,7 +191,7 @@ To define this, we will need a way to measure a distance between permutations. I
 It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
 $(\Phi_i: G \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
-For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might wonder why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$ (\cite{capraro_lupini_2015}, definition 2.2.2) }
+For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore, we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$. A way to do this is outlined in \cite[subsection 2.1, excercise 2.1.8]{capraro_lupini_2015}}
 \[
 \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = 1_G \\
                                         1 & \text{otherwise,}
@@ -209,7 +216,8 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
     We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ 
     a \emph{sofic approximation sequence} for $G$. It is unkown if every group is sofic.
 
-    We can also reformulate the two conditions in a form more suitable for calculations.
+    These two conditions can be easily reformulated in a form more suitable for calculations.
+
      \begin{lemma}
         Let $G$ be a countable group. Then $G$ is sofic if and only if there exists a sequence of natural numbers $(d_i)_{i \in \N}$ with associated maps $\Phi_i : G \to \sym(d_i)$ such that for all $g, h \in G$:
         \begin{enumerate}[(i)]
@@ -225,7 +233,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
     \subsection{Examples of Sofic Groups}
     The Sofic groups are a very large class of groups. 
     In fact there are no known examples of non-sofic groups \cite[Introduction]{weiss_2000}. 
-    Here we will list some groups that we know are sofic.
+    Here we will list some groups which are known to be sofic.
     
     
     \begin{example}\label{ex:finite_group_sofic}
@@ -246,7 +254,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     % Example: Direct product of sofic groups is sofic. 
 
     \begin{example}\label{ex:direct_product_sofic}
-        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(n_i))_{i \in \N}$ and $(\psi_i: G \to \sym(m_i))_{i \in \N}$ be sofic approximation sequences for $G$ resp. $H$. Consider in this example $n_i = \{0, \dots, n_i-1\}$ and $m_i=\{0, \dots, m_i-1\}$. For every $i\in \mathbb N$ we can define $\Psi_i: G \times H \to \sym(n_i \times m_i)$ by $\Psi_i(g,h)(k, l) = (\psi_i(g)(k), \phi_i(h)(l)) \in \sym(n_i \times m_i)$.
+        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(n_i))_{i \in \N}$ and $(\psi_i: G \to \sym(m_i))_{i \in \N}$ be sofic approximation sequences for $G$ respectively $H$. Consider in this example $n_i = \{0, \dots, n_i-1\}$ and $m_i=\{0, \dots, m_i-1\}$. For every $i\in \mathbb N$ we can define $\Psi_i: G \times H \to \sym(n_i \times m_i)$ by $\Psi_i(g,h)(k, l) = (\psi_i(g)(k), \phi_i(h)(l)) \in \sym(n_i \times m_i)$.
         Then we have
         \begin{multline*}
         	\frac{1}{n_i m_i} \card{\big\{(k,l) \in n_i \times m_i \mid (\Phi_i(g,h) \circ \Phi_i(x,y))(k,l) = \Phi_i(gx,hy)(k,l) \big\}} \\
@@ -311,22 +319,23 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \label{fig:folner}
 \end{figure}
 
-By the following lemma, we can not only exploit this for individual elements, but also for finite subsets.
-\todo[color=green]{Moet dit lemma naar achter?}
+By the following lemma, we can not only exploit this\todo[color=green]{make precise} for individual elements, but also for finite subsets.
+
 \begin{lemma}\label{lem:folner_finite_subset}
     Let $F_i$ be a Følner sequence. Then for every finite subset $B \subset G$ it holds that  \[
     \lim_{i \to \infty} \frac{\card{BF_i \triangle F_i}}{\card{F_i}} = 0    
     .\] 
 \end{lemma}
 \begin{proof}
-    Suppose that $B = \{b_1, b_2, \ldots, b_r\} $. 
+    Suppose that $B = \{b_1, b_2, \ldots, b_r\} $ and let $(F_n)_n$ be a Følner sequence for $G$.
     Have a look at the following calculation:
     \begin{align*}
 	    \lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} &= \lim_{n \to \infty} \frac{\card{BF_n \setminus F_n} + \card{F_n \setminus BF_n}}{\card{F_n}}  \\
 									 &= \lim_{n \to \infty}  \frac{\card{\bigcup_{i = 1}^{k} (b_i F_n \setminus F_n)}+ \card{F_n \setminus BF_n}}{\card{F_n}} \\
-									 &\le \lim_{n \to \infty} \frac{\sum_{i-1}^{k} \card{b_i F_n \setminus F_n} +  \card{F_n \setminus b_1 F_n}}{\card{F_n}} \\
-                                         &\le \lim_{n \to \infty} \sum_{i = 1}^{k} \frac{\card{b_iF_n \triangle F_n}}{\card{F_n}} = 0.  \\
-    .\end{align*}
+									 &\le \lim_{n \to \infty} \frac{\sum_{i = 1}^{k} \card{b_i F_n \setminus F_n} +  \card{F_n \setminus b_1 F_n}}{\card{F_n}} \\
+                                         &\le \lim_{n \to \infty} \sum_{i = 1}^{k} \frac{\card{b_iF_n \triangle F_n}}{\card{F_n}} = 0,
+    \end{align*}
+    where we have used the fact that $F_n$ is a Følner sequence.
 \end{proof}
 
 \begin{example}\label{ex:finite_group_folner}
@@ -347,14 +356,14 @@ By the following lemma, we can not only exploit this for individual elements, bu
 	Counterexamples are at least as insightful as examples. 
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
 	For those not familiar with the free group, a brief introduction is given in \cref{sec:intro_free_group}.
-	To prove this we will have to show that there does not exist a Følner sequence.
-	We will prove that for every non-empty finite subset $H \subset \bar{n}$ it holds that \[
+	To prove this, we will have to show that there does not exist a Følner sequence.
+	We will prove that for every non-empty finite subset $H \subset F_n$ it holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
 	.\] 
 	We can prove this using induction on the size of $H$. 
 	\begin{description}
 		\item[$\card{H} = 1$:] Then $H = \{g\}$. 
-			Hence the left hand side set is $\{x_1g, x_1^{-1}, x_2g, x_2^{-1}g, \ldots, x_ng, x_n^{-1}g\} $, which has cardinality $2n$. 
+			Hence the left hand side set is $\{x_1g, x_1^{-1}g, x_2g, x_2^{-1}g, \ldots, x_ng, x_n^{-1}g\} $, which has cardinality $2n$. 
 		\item[$\card{H} > 1$:] 
 			Let $ h \in H$ be an element that has maximum number of letters in reduced form.
 			Consider the set $H' = H\setminus \{h\} $. 
