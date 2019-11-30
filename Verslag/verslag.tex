@@ -124,16 +124,16 @@ The assumption that all countable groups are surjunctive is known as the conject
 
 \subsection*{Historical Context}
 
-We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups (which we will define in \cref{sec:amenable}) in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
+We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups (which we shall define in \cref{sec:amenable}) in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
 \\
-These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem \cite[preface]{capraro_lupini_2015}
-states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups.
+These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a cofiguration on a finite subset of the cells which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem \cite[preface]{capraro_lupini_2015}
+states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. Injectivity in this context meaning that no two different configuration ever produce the same one. However, the validity of this theorem has only been proven for amenable groups.
 Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet $A$ implies surjectivity of that automaton are the afore mentioned surjunctive groups. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are known to be surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
 
 \subsection*{Goal of this Report}
 
 We shall mainly focus on the following two concepts: soficity and surjunctivity. First we shall discuss what it means for a group to be sofic. It is a very large class of groups. In fact, there exist no known examples of non-sofic groups \cite[introduction]{weiss_2000}. This will be illustrated by proving soficity for a few large classes of groups. Furthermore, we shall discuss its connections to other important concepts and group properties, namely amenability and residually finiteness. Secondly, this report will cover surjunctivity which is related to soficity but will be used to discuss the connection between the conjectures of Kaplansky and Gottschalk. Specifically, it is known that all sofic groups are surjunctive as well.
-Finally, we will discuss Kaplansky's conjecture in the context of finite fields. More precisely, we will give the details of a proof that the group ring of a surjunctive group and a finite field is directly finite. \Cref{fig:dependency_graph} shows how the different concepts in this report relate to each other.
+Finally, we shall discuss Kaplansky's conjecture in the context of finite fields. More precisely, we shall give the details of a proof that the group ring of a surjunctive group and a finite field is directly finite. \Cref{fig:dependency_graph} shows how the different concepts in this report relate to each other.
 
 
 \begin{figure}[h]
@@ -197,18 +197,18 @@ To put it shortly, Kaplansky's conjecture states that for all elements in the gr
     Since $\mathbb F[G]$ is a finite set, it follows that $\phi$ must also be surjective. Therefore there exists an $x \in \mathbb F[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
 \end{proof}
 
-Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb F$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
+Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb F$ and $G$. In what follows we shall define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
 
 \section{Sofic Groups}\label{sec:sofic_group}
 
 \subsection{Definition and Motivation}
 
-In this section we will introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a subgroup of a finite symmetric group. Recall that every finite group is isomorphic to a subgroup of a symmetric group
-$\sym(n)$, which consists of the permutations of $\{1, \dots, n\}$. We will also denote the group of permutations of $G$ by $\sym(G)$. This group will often be identified with $\sym(\card G)$.
+In this section we shall introduce the concept of a \emph{sofic group}. A sofic group is a group that is ``well approximated'' by a subgroup of a finite symmetric group. Recall that every finite group is isomorphic to a subgroup of a symmetric group
+$\sym(n)$, which consists of the permutations of $\{1, \dots, n\}$. We shall also denote the group of permutations of $G$ by $\sym(G)$. This group will often be identified with $\sym(\card G)$.
 
 % Szabo: definitely no. What do you mean by finite permutation groups?
 
-To define this, we will need a way to measure distances between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ \cite[subsection 2.1]{capraro_lupini_2015}.
+To define this, we shall need a way to measure distances between permutations. It is quite natural to define the distance between two permutation as the fraction of elements on which they differ \cite[subsection 2.1]{capraro_lupini_2015}.
 
 \begin{definition}
     The \textbf{Hamming distance} on $\sym(n)$ is defined by
@@ -221,7 +221,7 @@ To define this, we will need a way to measure distances between permutations. It
 It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
 $(\Phi_i: G \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ increasingly well in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
-For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore, we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$. A way to do this is outlined in \cite[subsection 2.1, excercise 2.1.8]{capraro_lupini_2015}}
+For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore, we shall require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$. A way to do this is outlined in \cite[subsection 2.1, excercise 2.1.8]{capraro_lupini_2015}}
 \[
 \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = 1_G \\
                                         1 & \text{otherwise,}
@@ -243,7 +243,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
         %where $\delta_{e,g}$ is $1$ if $g = e$ and $0$ otherwise. (this is unnecessary as we don't use delta in the definition; that is why szabo wrote '?', not because of the 'sofic approximation'. Yours sincerely, Tomas
     \end{definition}
 
-    We will call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ 
+    We shall call such a family of maps $\left(\Phi_i : G \to \sym(d_i) \right)_{i \in \N}$ 
     a \emph{sofic approximation sequence} for $G$. It is unkown if every group is sofic.
 
     These two conditions can be easily reformulated in a form more suitable for calculations.
@@ -263,7 +263,7 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
     \subsection{Examples of Sofic Groups}
     The sofic groups are a very large class of groups. 
     In fact there are no known examples of non-sofic groups \cite[Introduction]{weiss_2000}. 
-    Here we will list some groups which are known to be sofic.
+    Here we shall list some groups which are known to be sofic.
     
     
     \begin{example}\label{ex:finite_group_sofic}
@@ -311,7 +311,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 	% Hence finite direct products conserve the soficity property. \todo{Write out proof}
     \end{example}
 
-    In the next sections we will introduce two classes of groups that are sofic, \emph{amenable groups} and \emph{residually finite groups}. Since it is often easier to check these properties than to work with the definition of soficity, this will allow us to give some more examples. 
+    In the next sections we shall introduce two classes of groups that are sofic, \emph{amenable groups} and \emph{residually finite groups}. Since it is often easier to check these properties than to work with the definition of soficity, this will allow us to give some more examples. 
     Some notable examples are 
     \begin{itemize}
 	    \item countable abelian groups (\cref{thm:countable_abelian_folner})
@@ -328,7 +328,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     Many equivalent definitions exist. 
     An extensive study of amenable groups goes beyond the scope of this project. Hence we shall not give multiple definitions and prove equivalence nor shall we provide proofs for every property of amenable groups.
 
-    For our purposes we will only define amenability for countable groups and take the Følner criterion as definition. In \cite[subsection 4.1]{kerr_li_ergodic_theory} an alternative definition is given, and it is proven that this is equivalent to the Følner criterion, as formulated below.
+    For our purposes we shall only define amenability for countable groups and take the Følner criterion as definition. In \cite[subsection 4.1]{kerr_li_ergodic_theory} an alternative definition is given, and it is proven that this is equivalent to the Følner criterion, as formulated below.
 	
     % Lucas: Ik heb geprobeerd alle sporen van `conditie 1' uit te wissen maar misschien moeten jullie ook nog eens kijken of ik niks vergeten ben
     \begin{definition}\label{def:folner} 
@@ -340,7 +340,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
-    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.}\todo{reference for the footnote} 
+    If a countable group statisfies the Følner condition, we shall call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.}\todo{reference for the footnote} 
 
 \begin{figure}[ht]
     \centering
@@ -386,8 +386,8 @@ By the following lemma, we can not only exploit this for all the elements $g \in
 	Counterexamples are at least as insightful as examples. 
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
 	For those not familiar with the free group, a brief introduction is given in appendix \hyperlink{sec:intro_free_group}{B}.
-	To prove this we will have to show that there does not exist a Følner sequence.
-	We will prove that for every non-empty finite subset $B \subset F_n$ it holds that \[
+	To prove this we shall have to show that there does not exist a Følner sequence.
+	We shall prove that for every non-empty finite subset $B \subset F_n$ it holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iB \cup x_i^{-1}H} \ge (2n-1) \card{H}
 	.\] 
 	We can prove this using induction on the size of $B$. 
@@ -450,7 +450,7 @@ We now state the proof.
     	Every countable abelian group is sofic.	
     \end{corollary}
  
-	The following lemma is a known fact about about amenable groups, that we will use without proof. 
+	The following lemma is a known fact about about amenable groups, that we shall use without proof. 
 	The statement is a slight reformulation of {\cite[prop. 4.2.(ii)-(iii)]{kerr_li_ergodic_theory}}, where a proof can be found as well. 
 	\begin{lemma}
         \label{lem:amenable_short_exact_sequence}
@@ -485,7 +485,7 @@ We now state the proof.
     \end{theorem}
     \begin{proof}
     	Let $G = \{g_1, g_2, g_3, \ldots\} $. 
-	For every $G_i$ we choose a Følner sequence $(F_{i, n})_n$. We will use these Følner sequences to construct a Følner sequence for $G$, $\mathcal{F}_n$.
+	For every $G_i$ we choose a Følner sequence $(F_{i, n})_n$. We shall use these Følner sequences to construct a Følner sequence for $G$, $\mathcal{F}_n$.
 	Let us fix an $n$, and consider the set $H = G_n \cap \{g_1, \ldots, g_n\}$. 
 	As $H$ is a finite subset of $G_n$ we can find a Følner set $F_{n, N}$ such that for all $h \in H:$ 
 	\begin{enumerate}
@@ -521,7 +521,7 @@ We now state the proof.
     \end{remark}
 
 
-Finally we will list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
+Finally we shall list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
 \begin{lemma}\label{lem:right_folner_sequence}
 	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself, 
 	i.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
@@ -541,7 +541,7 @@ Finally we will list some more properties obout the Følner criterion and Følne
 	Let $F_n$, $E_n$ be two (right) Følner sequences for $G$. Then $F_n \cup E_n$ is a (right) Følner sequence for $G$.
 \end{lemma}
 \begin{proof}
-	We will prove it for ordinary (left) Følner sequences as the proof is completely analogous for right Følner sequences.
+	We shall prove it for ordinary (left) Følner sequences as the proof is completely analogous for right Følner sequences.
 	The first property is obivously satisfied. 
 	Let us have a look at the limit.
 	\begin{align*}
@@ -588,19 +588,19 @@ a = x_{i_r}^{\epsilon_r n_r}x_{i_{r-1}}^{\epsilon_{r-1}n_{r-1}}x_{i_{r-2}}^{\eps
 where for every $i$ it holds that $n_i \in \Z_{>0}$ and $\epsilon_i \in \left\{ -1,1 \right\} $, be any non-trivial word in reduced form. 
 Our goal is to find a morphism to a finite group that does not map $a$ to 1. 
 Define the sequence $(N_i)_{1 \leq i \leq r}$ by $N_i = \sum_{j = 1}^{i} n_j$. 
-We will construct a map from $F_k$ to $\sym(N_r + 1)$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  
+We shall construct a map from $F_k$ to $\sym(N_r + 1)$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  
 By the universal property of free groups, if we want to define a map from $F_k$ to $S_{N_r +1}$ it is sufficient to choose for every $m$ the image of $x_m$.
-We will define it as follows
+We shall define it as follows
 \[
 	x_m \mapsto \ext_{\substack{j \in \{1,\ldots, r\} \\ m = i_j} } \begin{pmatrix} N_{j-1} & N_{j-1} +  1& \ldots & N_{j} -1 & N_{j} \end{pmatrix}^{\epsilon_j}
 ,\] 
 where the brackets denote cycle notation and $\bigcirc$ is the composition of functions indexed in the same way as  $\sum$ or $\prod$.
 
 Using this morphism we can let $F_k$ act on the set $\{0,1,\ldots, N_r\} $. 
-We will determine the position of $0$ after the action of $a$ by keeping track of the position of $0$ after every subsequent  action of  $x_{i_m}^{\epsilon_m n_m}$.
+We shall determine the position of $0$ after the action of $a$ by keeping track of the position of $0$ after every subsequent  action of  $x_{i_m}^{\epsilon_m n_m}$.
 
 We claim that after acting with $x_{i_{m}}^{\epsilon_{m}n_{m}}x_{i_{m}}^{\epsilon_{m}n_{m}} \ldots x_{i_1}^{\epsilon_1n_1}$ the location of  $0$ is at $N_m$.
-We will prove this claim by induction.
+We shall prove this claim by induction.
 If  $m=0$ we essentially act with the trivial element. So $0$ is at position $0$.
  Suppose that $m \ne 0$ to zero and that the action of $x_{i_{m}}^{\epsilon_{m}n_{m}}x_{i_{m}}^{\epsilon_{m}n_{m}} \ldots x_{i_1}^{\epsilon_1n_1}$ maps $0$ to $N_m$. 
  We can act with  $x_{i_{m+1}}^{\epsilon_{m+1}n_{m+1}}$. 
@@ -672,7 +672,7 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
         \end{enumerate}
     \end{definition}
 
-    In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology. We will use ``sequence''-style notation and denote the elements of $A^G$ by $(x_g)_{g \in G}$ or $(x_g)_g$. In what follows, we will further use the fact that $A^G$ is a compact Hausdorff space.
+    In this section we shall encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We shall consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology. We shall use ``sequence''-style notation and denote the elements of $A^G$ by $(x_g)_{g \in G}$ or $(x_g)_g$. In what follows, we shall further use the fact that $A^G$ is a compact Hausdorff space.
 
     \begin{definition}
 	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift} $\sigma$ of $G$ on $A^G$ is defined by
@@ -696,7 +696,7 @@ Since there are no known examples of countable groups which are not surjunctive,
         Every countable group is surjunctive  .
     \end{conjecture}
 
-    It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
+    It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we shall prove it first for the special case of residually finite groups. We shall need the following definition
 \begin{definition}
     Let $G$ be a countable group and $A$ a finite set. Let $H$ be a normal subgroup of finite index. Then the set of \textbf{$H$-periodic points} is the following subset of $A^G$.
         \[
@@ -717,7 +717,7 @@ We can make this very explicit for the group $\Z$. The (normal) subgroups of fin
 $(x_k)_{k \in \Z}$ is a periodic sequence with period $n$. This motivates the name ``periodic point''.
 \end{remark}
 
-A key lemma we will further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following:
+A key lemma we shall further need in our proof of theorem \ref{thm:res_fin_surjunctive} is the following:
 
 \begin{lemma} \label{lem:h-periodic_points}
     % The $H$-periodic points are dense in $A^G$, where $A$ is a finite set and $G$ is a residually finite countable group.
@@ -752,7 +752,7 @@ Alas, we were unable to generalise these techniques to show that sofic groups ar
 
 \subsection{Amenable Groups are Surjunctive} \label{ssec:amenable_surjunctive}
 Throughout the following section $G$ will be a fixed countable, amenable group, $A$ a fixed finite set and $\phi: A^{G} \to A^{G}$ a fixed continuous, injective function that commutes with the right shift. 
-We will also often denote a fixed element of $A$ with $0$.
+We shall also often denote a fixed element of $A$ with $0$.
 To keep the final proof clean, we first present several intermediate results of which the following one is the most important.
 \begin{lemma}
 	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_{g \in G})(1_G)$ is only dependent on the values of $x_\gamma$ where  $\gamma \in \Gamma$, 
@@ -825,7 +825,7 @@ Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implici
 \end{proof}
 
 At this point we are almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
-In order to show this, we will show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find an $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
+In order to show this, we shall show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find an $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
 
 
 \bigskip
@@ -842,7 +842,7 @@ For now, we shall fix the set $B \subset G$ and the map $f:B \to A$ and introduc
 In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ disjoint copies of $B$.
 
 \begin{proof}
-	 We will prove this using strong induction on $\card{F}$. The case where $F = \emptyset$ is trivial. 
+	 We shall prove this using strong induction on $\card{F}$. The case where $F = \emptyset$ is trivial. 
 	\begin{description}
 		\item{Case $1 \le \card F \le \card{B}^2$:} 
 		Let  $f \in F$ be an arbitrary element of $F$. 
@@ -868,7 +868,7 @@ In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ di
 
 We are finally set up to prove that all amenable groups are surjunctive.
 \begin{theorem}
-	Let $G$ be a countable, amenable group and  $A$ be finite set, where we will choose one element and denote it with $0$. Let  $\phi: A^{G} \to A^{G}$ be a injective, continuous map that commutes with the right shift. Then $\phi$ is surjective.
+	Let $G$ be a countable, amenable group and  $A$ be finite set, where we shall choose one element and denote it with $0$. Let  $\phi: A^{G} \to A^{G}$ be a injective, continuous map that commutes with the right shift. Then $\phi$ is surjective.
 \end{theorem}
 
 \begin{proof}
@@ -1000,13 +1000,13 @@ Any sofic group G is surjunctive.
 	In the case where $\mathbb K$ is a finite field, Weiss did this by first proving the the surjunctivity of sofic groups.
 	He finished the argument by proving that the group rings of finite fields and surjunctive groups are directly finite.  
 
-	In this section we will give the details of a proof of that last step. 
-	i.e we will prove the following theorem. 
+	In this section we shall give the details of a proof of that last step. 
+	i.e we shall prove the following theorem. 
 	\begin{theorem}\label{thm:gottschalk_kaplansky}
 		Let $\F$ be a finite field and $G$ be a surjunctive group. Then $\F[G]$ is directly finite. 
 	\end{theorem}
 	%It looks like we will need to use the surjuctivity on $\F^{G}$. Hence we need some statement that relates $\F^{G}$ to $\F[G]$.
-	To exploit the surjunctivity property of $G$, we will need to relate $\mathbb F^G$ to the group ring $\mathbb F[G]$. There is in fact a very nice connection that can be made for any field $\mathbb K$.
+	To exploit the surjunctivity property of $G$, we shall need to relate $\mathbb F^G$ to the group ring $\mathbb F[G]$. There is in fact a very nice connection that can be made for any field $\mathbb K$.
 	For finite groups, one can very naturally identify $\mathbb K^G$ with the group ring $\mathbb K[G]$. Indeed, with every element $(x_g)_{g \in G}$ in $\mathbb K^G$, there corresponds an element $\sum_{g \in G} x_g g$ in $\mathbb K[G]$, where $G$ being finite guarantees that this is a finite linear combination. For infinite groups, we cannot identify these two sets, but we can consider $\mathbb{K}[G]$ as a subset of $\mathbb K^G$. In this case, $\mathbb K^G$ is not a ring but we can make it into a module over $\mathbb K[G]$. We can do this in very natural way, extending the multiplication as defined in \cref{def:group_ring}. Here, one can think of the elements of $\mathbb K^G$ as (possibly infinite) formal sums $\sum_{g \in G} x_g g$ in $\mathbb K[G]$.
 
 	\begin{lemma}
