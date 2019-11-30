@@ -16,6 +16,7 @@
 \addbibresource{references.bib}
 \usepackage[parfill]{parskip}
 \usepackage{appendix}
+\usepackage[nottoc,numbib]{tocbibind}
 
 \makeatletter
 \def\input@path{{../Bewijzen/}}
@@ -477,9 +478,7 @@ We now state the proof.
     \end{remark}
 
 
-    \subsection{About Følner Sequences} \todo[color=green]{merge this section with the previous one} 
-
-In this section we list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
+Finally we will list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
 \begin{lemma}\label{lem:right_folner_sequence}
 	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself. 
 	I.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
@@ -1166,6 +1165,7 @@ In some sense, the free group, $F_S$ is the largest group that can be generated 
         \end{description}
 
 	\pagebreak
+	\addcontentsline{toc}{section}{References}
 	\printbibliography
 
 \end{document}
