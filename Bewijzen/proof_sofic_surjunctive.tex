@@ -8,21 +8,21 @@ Suppose that we have a map $\phi: A^G \to A^G$ which is continuous, injective an
 		
 The inverse $\phi^{-1}: X \to A^G$ is well defined, continuous (since $A^G$ and therefore also $X$ is Hausdorff) and commutes with the shifts. Therefore,  $\phi^{-1}$ is determined by a finite restriction $\phi^{-1}_0: X_{\Gamma} \to A^{\Gamma}$ with $\Gamma$ a finite subset of $G$. Indeed, since $\phi^{-1}$ is continuous, the value of any component, say $(\phi^{-1}((x_g)_{g \in G}))_e \in A$ is determined by the values $(x_g)_{g \in \Gamma}$ of a finite subset $\Gamma \subset G$, meaning 
 		\[
-		(\phi^{-1}((x_g)_{g \in G}))_e = (\phi^{-1}_0((x_g)_{g \in \Gamma}))_e
+		(\phi^{-1}((x_g)_{g \in G}))_{1_G} = (\phi^{-1}_0((x_g)_{g \in \Gamma}))_{1_G}
 		\]
 
 Now, take a sequence $(x_g)_{g \in G} \in X$ and its restriction $(x_g)_{g \in \Gamma} \in X_{\Gamma}$. Now for any $h \in G$ it is the case that 
 		\[
-		(\phi^{-1}((x_g)_{g \in G}))_h = (\sigma_h \circ \phi^{-1}((x_g)_{g \in G}))_e  = (\phi^{-1} \circ \sigma_h((x_g)_{g \in G}))_e
+		(\phi^{-1}((x_g)_{g \in G}))_h = (\sigma_h \circ \phi^{-1}((x_g)_{g \in G}))_{1_G}  = (\phi^{-1} \circ \sigma_h((x_g)_{g \in G}))_{1_G}
 		\]
 
 This knowledge allows us to write
 		\begin{align*}
 		(\phi^{-1}((x_g)_{g \in G}))_h
-		&= (\sigma_h \circ \phi^{-1}((x_g)_{g \in G}))_e \\
-		&= (\phi^{-1}((x_{gh})_{g \in G}))_e \\
-		&= (\phi^{-1}_0((x_{gh})_{g \in \Gamma}))_e \\
-		&= (\phi^{-1}_0((x_g)_{g \in \Gamma h}))_e
+		&= (\sigma_h \circ \phi^{-1}((x_g)_{g \in G}))_{1_G} \\
+		&= (\phi^{-1}((x_{gh})_{g \in G}))_{1_G} \\
+		&= (\phi^{-1}_0((x_{gh})_{g \in \Gamma}))_{1_G} \\
+		&= (\phi^{-1}_0((x_g)_{g \in \Gamma h}))_{1_G}
 		\end{align*}
 Now fix any $\delta > 0$. Consider $H_n(\delta)$ for any $n \in \N$. Look at any sequence $(a_i)_i \in A^n$. As $\Gamma$ is only finite, there exists a $N \in \N$ such that $g_N \in \Gamma$ and for any $g_i \in \Gamma: i \leq N$. Now take $n \geq N$. There exists a sequence $(x_i)_i \in X_n$ for which it is true that $x_i = a_i$ for any $i(0 \leq i \leq n)$ such that $g_i \in \Gamma$. It is quite clear now that $d((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g_i g})_i)) < \delta$ for every $g \in \Gamma$ as long as we choose $n \in \N$ large enough. This is equivalent to saying that for $n \in \N$ large enough $(a_i)_i \in H_n(\delta)$ for every $(a_i)_i \in A^n$ . Therefore, $\limsup_{n \to \infty} |H_n(\delta)| = |A|^{n}$ for any $\delta >0$ and $h_\Sigma(X) = \log |A|$, which, by the previous lemma, means that $X = A^G$. Thus, $\phi$ is surjective.
 
