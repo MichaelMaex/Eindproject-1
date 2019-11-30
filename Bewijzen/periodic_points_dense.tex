@@ -1,0 +1,18 @@
+Let $(x_g)_g \in A^G$ be arbitrary. Consider a basis open
+\[
+			U= \prod_{g \in G} \begin{cases}
+				\{x_f\} & f \in F\\
+				A & \text{ otherwise,}
+			\end{cases}
+			\] 
+where $F$ is a finite subset of $G$. Now let $F^{-1}F\setminus\{e\} = \{g_1, \dots, g_n\}$. For $i=1, \dots, n$, we can find a finite group $H_i$ and a homomorphism $\alpha_i:G \to H_i$ such that $\alpha(g_i) \neq 1$. Now consider
+\[
+	\alpha: G \to \prod_{i=1}^n  H_i: g \mapsto (\alpha_1(g), \alpha_2(g), \dots, \alpha_n(g)).
+\]
+
+Since $\im \alpha$ is finite, $\ker \alpha$ is a normal subgroup of finite index. Moreover, for any $f_1 \neq f_2 \in F$, we have $\alpha(f_1^{-1}f_2) \neq 1$ and consequently $f_1 \ker \alpha \neq f_2 \ker \alpha$. Now we can write $G$ as a disjoint union
+\[
+ 	G = \bigcup_{d \in D} d \ker \alpha,
+ \] 
+ where $D \supset F$ is a finite subset of $G$.
+ Now we can define the $\ker \alpha$-periodic point $(y_g)_g$ uniquely by $y_d = x_d$ for every $d \in D$. Clearly, $(y_g)_g \in U$. Thus the set of periodic points with respect to all normal subgroups of finite index is dense in $G$.

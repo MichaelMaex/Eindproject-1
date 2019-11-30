@@ -1,0 +1,20 @@
+	Let $f:G \to A \in A^G$. We will prove that there exists a sequence of periodic points that converges to $f$. As $G$ is countable we can list its elements $G = \{1, g_1, g_2, g_3,\dots\}$. 
+	Let $F_n = \{1, g_1, g_2, \dots, g_n\}$ and fix $n$. 
+	As $G$ is residually finite, for every $g \in F_n^{-1} \cdot F_n,\ g \ne 1$, we can find a map $\pi_g: G \to H_g$, where $H_g$ is a finite group and $\pi_g(g) \ne 1$.  Consider the map \[\pi = \prod_{ \substack{g\in  F_n^{-1} \cdot F_n\\ g\ne 0}} \pi_g
+ .\]
+	Observe that $\im \pi$ is finite, thus $\ker\pi$ is a normal subgroup of finite index of $G$. 
+	For $g_i, g_j \in F_n, i \ne j$ it is clear that $\pi(g_i) \ne \pi(g_j)$ as $\pi(g_j^{-1} g_i) \ne 1$.
+	This means that $\pi|_{F_n}: F_n \to \pi(F_n)$ is a bijection. 
+	Define $\beta_n: \pi(F_n) \to A: h \mapsto \left(f \circ \left( \pi|_{F_n} \right)^{-1}\right)(h) $.
+	Notice that for all $g_i \in F_n: (\beta \circ \pi)(g_i) = f(g_i)$.
+	Take any extension  $\alpha_n: \im(\pi) \to A$ of  $\beta_n$.
+        Notice that $\alpha_n \circ \pi \in A^G$. 
+        Let $h \in \ker\pi$ and consider the right $h$ shift, $\sigma_h$. 
+        Take any $g \in G$. 
+        Then 
+        \[\sigma_h(\alpha_n\circ\pi)(g) = (\alpha_n \circ \pi)(hg) = \alpha_n(\pi(h)\pi(g)) = \alpha_n(\pi(g)) = (\alpha_n\circ\pi)(g).\] Thus $\sigma_g(\alpha_n \circ \pi) = (\alpha_n\circ\pi)$.
+        So $\alpha_n\circ\pi$ is a $\ker\pi$-periodic point. 
+
+	For every $F_n =  \{1, g_1, g_2, \dots, g_n\}$ we can construct such a function $\alpha_n \circ \pi_n$ which is an $\ker \pi_n$ periodic point and that agrees with $f$ on $F_n$. 
+	It is clear that $(\alpha_n \circ \pi_n)_{n\in\N}$ converges to $f$ pointwise as a function. 
+	This is sufficient to say that $(\pi_n)_n$ converges to $f$ in the product topology.
