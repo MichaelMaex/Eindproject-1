@@ -23,6 +23,8 @@
 
 \makeatother
 
+
+
 \author{Lucas Levrouw \and Michaël Maex \and Tomas Reunbrouck \and Supervisor: Gabor Szabo}
 
 \title{Kaplansky's Direct Finiteness Conjecture and Sofic Groups}
@@ -48,11 +50,12 @@
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{property}[theorem]{Property}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
@@ -145,21 +148,21 @@ We can now state Kaplansky's conjecture by the example of the introduction in \c
 	Let $\mathbb K$ be a finite field and $G$ a group. Then $\mathbb K[G]$ is directly finite i.e. for all $a, b \in \mathbb K[G]$, the equation $ab=1$ implies $ba=1$.
 \end{conjecture}
 
-To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If $\mathbb K$ is a finite field and $G$ is a finite group, it can quite easily be proven that $\mathbb K[G]$ is directly finite.
+To put it shortly, Kaplansky's conjecture states that for all elements in the group ring, left-invertible implies right-invertible. If we work over a finite field $\F$ and $G$ is a finite group, it can quite easily be proven that $\F[G]$ is directly finite.
 
 \begin{theorem}
-    Let $\mathbb K$ be a field and $G$ be a finite group. Then $\mathbb K[G]$ is directly finite. % hier \mathbb F gebruiken omdat het veld eindig is?
+    Let $\F$ be a finite field and $G$ be a finite group. Then $\F[G]$ is directly finite. 
 \end{theorem}
 \begin{proof}
-    Let $a, b \in \mathbb K[G]$ and suppose $ab=1$. Now consider the map
+    Let $a, b \in \mathbb F[G]$ and suppose $ab=1$. Now consider the map
     \[
-        \phi: \mathbb K[G] \to \mathbb K[G]: x \mapsto x a
+        \phi: \mathbb F[G] \to \mathbb F[G]: x \mapsto x a
     \]
-    This map is injective. To see this, let $x, y \in \mathbb K[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
-    But since $\mathbb K[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in \mathbb K[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
+    This map is injective. To see this, let $x, y \in \mathbb F[G]$ such that $xa=ya$. Multiply on the right with $b$ and use the associativity to conclude $x=y$.
+    But since $\mathbb F[G]$ is a finite set, the map must also be surjective. Therefore there exists an $x \in \mathbb F[G]$ such that $x a = 1$. Furthermore, $x = xab = b$. So we have $x = b$.
 \end{proof}
 
-Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb K$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
+Note how the argument hinges on the fact that the map $\phi$ is guaranteed to be surjective by the finiteness of $\mathbb F$ and $G$. In what follows we will define several ``finiteness'' properties of groups and try to generalise the proof above under weaker assumptions.
 
 \section{Sofic Groups}\label{sec:sofic_group}
 
@@ -226,17 +229,16 @@ We can now state the definiton of a sofic group based on \cite[section 1]{kerr_l
     
     
     \begin{example}\label{ex:finite_group_sofic}
-    Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto \sigma_g$, where $\sigma_g$ is defined by $\sigma_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\Phi_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $\sigma_g(h) = gh = h$ if and only if $g$ is the identity.
+    Consider a finite group $G$. Look at the map $\phi: G \to \sym(G): g \mapsto s_g$, where $s_g$ is defined by $s_g(h) = gh$. Clearly, $\phi$ is a homomorphism. Now we can choose $d_i = \card G$ and $\Phi_i = \phi$ for all $i \in \N$. Here we have identified $\sym(G)$ with $\sym(d_i)$. The first condition is satisfied since $\phi$ is a morphism. The second condition follows from the fact that $s_g(h) = gh = h$ if and only if $g$ is the identity.
      Hence every finite group is sofic.
     \end{example}
 
     % Example: Z
 
 	\begin{example}\label{ex:Z}
-	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to \sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,\dots,i\}$ : $ \Phi_{i}(g)(k) = (k+g) \mod i$. The first condition of soficity is satisfied as for any $i \in \N, g,h \in \Z, k \in \{1,\dots, i\}$ it can be said that 
+	Consider the group $\Z$. Take the sequence of maps $\Phi_{i}: G \to \sym(i): g \mapsto \Phi_{i}(g)$ where $\Phi_{i}(g)$ is defined as the map such that for any $k \in \{1,\dots,i\}$ : $ \Phi_{i}(g)(k) = (g+k) \mod i$. The first condition of soficity is satisfied as for any $i \in \N, g,h \in \Z, k \in \{1,\dots, i\}$ it can be said that 
 	\begin{align*}
-	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= (k+h+g)\mod i \\
-	&= (k+g+h)\mod i \\
+	(\Phi_{i}(g) \circ \Phi_{i}(h))(k) &= (g+h+k)\mod i \\
 	&= \Phi_{i}(g+h)(k)
 \end{align*}		
 Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dots, i\}$ : $\Phi_{i}(0)(k) = k$. Now take any $g \neq 0$ and consider $\Phi_{i}(g)$. For any $k \in \{1,\dots,i\}$ it is perfectly possible that $\Phi_{i}(g)(k) = k$. However this is not the case as soon as $i > |g|$. In that case, we have that $|(k+g)-k| < i$, from which it follows that $(k+g) \neq k \mod i$. Thus we have that $(k+g) \neq k \mod i$. Therefore, $\Phi_{i}(g)(k) \neq k$, proving the second condition. 
@@ -483,8 +485,8 @@ We now state the proof.
 
 Finally we will list some more properties obout the Følner criterion and Følner sequences. These will be used in subsection \ref{ssec:amenable_surjunctive}.
 \begin{lemma}\label{lem:right_folner_sequence}
-	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself. 
-	I.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
+	If a group $G$ satisfies the Følner criterion, then there also exists a Følner sequence for the right action of $G$ on itself, 
+	i.e. there exists a sequence $F_n$ of finite subsets of $G$ such that 
 		for every $g \in G$ the folowing is true: \[
 				\lim_{n \to \infty} \frac{\card{F_ng \triangle F_n}}{\card{F_n}} = 0
 		.\] 
@@ -526,11 +528,11 @@ We find the following corollary.
 Another property that implies soficity is the following.
 
 \begin{definition}[{\cite[ch. 1 p. 16]{hall_groups}}] \label{def:res_fin}
-	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\setminus\{e\}$ there exists a finite group $H$ and a homomorphism $f:G \to H$ such that $f(g) \ne e$.
+	We say that a group $G$ is \textbf{residually finite} if for every $g \in G\setminus\{1_G\}$ there exists a finite group $H$ and a homomorphism $f:G \to H$ such that $f(g) \ne 1_G$.
 \end{definition}
 
 \begin{example}
-	Finite groups $G$ are residually finite. Let $g \in G \setminus \{e\}$ and consider $\id: G \to G: g \mapsto g$. Obviously $\id(g) \neq e$.
+	Finite groups $G$ are residually finite. Let $g \in G \setminus \{1_G\}$ and consider $\id: G \to G: g \mapsto g$. Obviously $\id(g) \neq 1_G$.
 \end{example}
 
 % example: Z
@@ -612,10 +614,10 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
     First we define a basic concept in group theory.
 
     \begin{definition} % van wikipedia gehaald
-	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an \textbf{action} of $G$ on $X$ if
+	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an \textbf{right (group)action} of $G$ on $X$ if
         \begin{enumerate}[(i)]
             \item $\forall x \in X: \alpha_e(x) = x$
-            \item $\forall g,h \in G, x\in X: \alpha_{gh}(x) = \alpha_g(\alpha_h(x))$.
+            \item $\forall g,h \in G, x\in X: \alpha_{hg}(x) = \alpha_g(\alpha_h(x))$.
         \end{enumerate}
     \end{definition}
 
@@ -630,7 +632,7 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
         % Misschien is de ``rij-notatie'' hier niet aangewezen
     \end{definition}
 
-    One can see that the right shift $\sigma$ is an action of $G$ on $A^G$. We say that a map $\phi: A^G \to A^G$ \emph{commutes with the right shift} if $\sigma_g \circ \phi = \phi \circ \sigma_g$ for every $g \in G$.
+    One can see that the right shift $\sigma$ is a right action of $G$ on $A^G$. We say that a map $\phi: A^G \to A^G$ \emph{commutes with the right shift} if $\sigma_g \circ \phi = \phi \circ \sigma_g$ for every $g \in G$.
     
     \begin{definition}
 	    Let $G$ be a countable group. The group $G$ is called \textbf{surjunctive} if for any finite set $A$ and every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with the right shift $\sigma$ of $G$ on $A^G$ is also surjective.
@@ -870,7 +872,7 @@ To prove that sofic groups are always surjunctive we define sofic entropy. The d
 
 \begin{definition}
 
-A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = e, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
+A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = 1_G, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
 \\
 Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the set 
 		\[
@@ -883,7 +885,7 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		% 				\exists (x_0, x_1, \dots, x_{n-1}) \in X_n : 
 		% 				\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i})_i) < \delta \}
 		% \]
-		where by $X_n \subset A^n$ we mean the sequences in $X$ restricted to $\{e, g_1, g_2, ..., g_{n-1}\}$ (and we identify $x_{g_i}$ with $x_i$ for all $0 \leq i \leq n-1$). By the distance $d((x_i)_i, (y_i)_i)$ between two sequences $(x_i)_{0 \leq i \leq n-1}$ and $(y_i)_{0 \leq i \leq n-1}$ is meant the number of different components relative to their length:
+		where by $X_n \subset A^n$ we mean the sequences in $X$ restricted to $\{1_G, g_1, g_2, ..., g_{n-1}\}$ (and we identify $x_{g_i}$ with $x_i$ for all $0 \leq i \leq n-1$). By the distance $d((x_i)_i, (y_i)_i)$ between two sequences $(x_i)_{0 \leq i \leq n-1}$ and $(y_i)_{0 \leq i \leq n-1}$ is meant the number of different components relative to their length:
 		\[
 		d((x_i)_i, (y_i)_i) = \frac{1}{n} |\{i \in \{0, ..., n-1\}|x_i \neq y_i\}|
 		\]
@@ -1018,12 +1020,9 @@ We shall now briefly discuss the contents and results of this report and how the
 \\
 Firstly, we extensively explored the definition and properties of sofic  groups as well as closely related concepts. In particular, we investigated the amenability and residual finiteness of groups and their meaning in the context of this subject. In both cases, we ended our analysis with a proof of their implying soficity. \\
 \\
-Secondly, we drew the connection between sofic groups and Kaplansky’s conjecture via the notion of surjunctivity. Specifically, we have provided proof of both the implication “amenable => surjunctive” as well as “sofic => surjunctive” using independent, respective approaches. More importantly, however, the core of the report closes with proof that surjunctive groups adhere to Kaplansky’s conjecture in the case of finite fields. \\
+Secondly, we drew the connection between sofic groups and Kaplansky’s conjecture via the notion of surjunctivity. Specifically, we have provided proof of both the implication $amenable \Rightarrow surjunctive$ as well as $sofic \Rightarrow surjunctive$ for any countable group using independent, respective approaches. More importantly, however, the core of the report closes with proof that surjunctive groups adhere to Kaplansky’s conjecture in the case of finite fields. \\
 \\
 Finally, we can now conclude this report with the issue of open problems which remain in this area of mathematical research. In discussing this subject, we have quite naturally come across Gottschalk’s conjecture, as it tightly links the question of general surjunctivity with Kaplansky’s conjecture. Namely, if every countable group could be shown to be surjunctive, this would immediately resolve Kaplansky’s conjecture for finite fields. Even more striking, however, is the idea that every group might be sofic as well, as there exist no known counterexamples – though Weiss does not seem particularly enthusiastic about this possibility \cite[introduction]{weiss_2000} -  . Soficity for all countable groups would settle the question of direct finiteness of their grouprings over any field, without further ado, rendering everything discussed in this report mostly superfluous.
-
-
-	\todo[color=green]{To be written}
 
 	\newpage
 	\appendix
@@ -1099,9 +1098,9 @@ Finally, we can now conclude this report with the issue of open problems which r
 	
 		\item[existence of 1]
 		\begin{align*}
-		\sum_{g \in G} \delta_{g,e} g \cdot \sum_{g \in G} \lambda_g g
-		&= \sum_{g \in G} \left(\sum_{h \in H} \delta_{h,e} \lambda_{h^{-1}g} \right) \\
-		&= \sum_{g \in G} \lambda_{e^{-1}g} g = \sum_{g \in G} \lambda_g g.
+		\sum_{g \in G} \delta_{g,1_G} g \cdot \sum_{g \in G} \lambda_g g
+		&= \sum_{g \in G} \left(\sum_{h \in H} \delta_{h,1_G} \lambda_{h^{-1}g} \right) \\
+		&= \sum_{g \in G} \lambda_{1_G^{-1}g} g = \sum_{g \in G} \lambda_g g.
 		\end{align*}
 		
 		\end{description}
@@ -1160,7 +1159,7 @@ In some sense, the free group, $F_S$ is the largest group that can be generated 
         
             \item[associativity]
                  \begin{align*}
-                     (rs)\cdot x &= \left( \sum_{g_1 \in G} \sum_{g_2 \in G} r_{g_1} s_{g_2} g_1 g_2 \right) \cdot (x_{g})_{g \in G} \\
+                     (rs)\cdot x %&= \left( \sum_{g_1 \in G} \sum_{g_2 \in G} r_{g_1} s_{g_2} g_1 g_2 \right) \cdot (x_{g})_{g \in G} \\
                              &= \left( \sum_{h \in G} \sum_{k \in G} r_{k}s_{k^{-1}h} h\right) \cdot  \left( x_{g} \right)_{g \in G} \\
                              &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{h^{-1}g} \right)_{g \in G}  \\
                              &= \left( \sum_{h \in G} \sum_{k \in G} r_k s_{k^{-1}h} x_{(k^{-1} h)^{-1}(k^{-1}g)} \right)_{g \in G}  \\
