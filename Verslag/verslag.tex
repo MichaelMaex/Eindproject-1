@@ -68,6 +68,27 @@
   { }% space after theorem head; " " = normal interword space
   {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
+\newtheoremstyle{definitiondd}% name of the style to be used
+  {7pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {7pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\rmfamily}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+  \newtheoremstyle{remarkdd}% name of the style to be used
+  {7pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {7pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\rmfamily}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\itshape}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
+
+
 \theoremstyle{theoremdd}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -75,9 +96,9 @@
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{property}[theorem]{Property}
-\theoremstyle{definition}
+\theoremstyle{definitiondd}
 \newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
+\theoremstyle{remarkdd}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -336,11 +357,9 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
         \]
-        where $\triangle$ denotes the symmetric difference. We say that $G$ satisfies the \textbf{Følner criterion} if $G$ has a Følner sequence.
+        where $\triangle$ denotes the symmetric difference. We say that $G$ satisfies the \textbf{Følner criterion} if $G$ has a Følner sequence. We also call such a group \textbf{amenable}.
     \end{definition}
-    %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
-    \Cref{fig:folner} gives a visual intuition for this notion. 
-    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.
+
 
 \begin{figure}[ht]
     \centering
@@ -349,6 +368,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \label{fig:folner}
 \end{figure}
 
+\Cref{fig:folner} gives a visual intuition for this notion. 
 By the following lemma, we can not only exploit this for all the elements $g \in G$ individually, but also for finite subsets $B \subset G$.
 
 \begin{lemma}\label{lem:folner_finite_subset}
