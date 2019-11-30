@@ -55,6 +55,8 @@
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\red}{red}
 
+\def\ext{\qopname\relax m{\bigcirc}}
+
 
 \newtheoremstyle{theoremdd}% name of the style to be used
   {7pt}% measure of space to leave above the theorem. E.g.: 3pt
@@ -592,9 +594,9 @@ We will construct a map from $F_k$ to $S_{N_r + 1}$, which is the symmetric grou
 By the universal property of free groups, if we want to define a map from $F_k$ to $S_{N_r +1}$ it is sufficient to choose for every $m$ the image of $x_m$.
 We will define it as follows
 \[
-x_m \mapsto \prod_{\substack{j \in \{1,\ldots, r\} \\ m = i_j} } (N_{j-1} N_{j-1}+1 \ldots N_{j})^{\epsilon_i} % In this instance, this notation is really confusing. Better write it out.
+	x_m \mapsto \ext_{\substack{j \in \{1,\ldots, r\} \\ m = i_j} } \begin{pmatrix} N_{j-1} & N_{j-1} +  1& \ldots & N_{j} -1 & N_{j} \end{pmatrix}^{\epsilon_j}% In this instance, this notation is really confusing. Better write it out.
 ,\] 
-where the brackets denote cycle notation.
+where the brackets denote cycle notation and $\bigcirc$ is the composition of functions indexed in the same way as  $\sum$ or $\prod$.
 
 Using this morphism we can let $F_k$ act on the set $\{0,1,\ldots, N_r\} $. 
 We will deterimne the position of $0$ after the action of $a$ by keeping track of the position of $0$ after every subsequent  action of  $x_{i_m}^{\epsilon_m n_m}$.
