@@ -174,7 +174,7 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
 The proof of this theorem is no more than checking the group axioms one by one. For completeness you can find it in appendix \hyperlink{sec:proof_groupring}{A}.
 
 \begin{remark}
-	A group ring is in general not commutative. In fact, $\mathbb{K}[G]$ is commutative if and only if $G$ is a abelian group. So we will have to be careful when dealing with these rings. 
+	A group ring is in general not commutative. In fact, $\mathbb{K}[G]$ is commutative if and only if $G$ is an abelian group. So we shall have to be careful when dealing with these rings. 
 \end{remark}
 
 We can now state Kaplansky's conjecture by the example of the introduction in \cite{elek_szabo_2003}.
@@ -220,7 +220,7 @@ To define this, we will need a way to measure distances between permutations. It
 
 It is easy to show that $d_{\sym(n)}$ is a metric.
 We might call a group well-approximated by finite permutation groups if there exists a sequence of ``approximate morphisms''
-$(\Phi_i: G \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ better and better in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
+$(\Phi_i: G \to \sym(d_i))_{i \in \N}$ which mimic the group structure of $G$ increasingly well in $\sym(d_i)$ as $i$ tends to infinity. %akward phrasing?
 For that, we first of all want that $d_{\sym(d_i)}(\Phi_i(g) \circ \Phi_i(h), \Phi_i(gh))$ converges to zero, for every $g$ and $h$ in $G$. Additionaly, we want that in the limit these maps have a sort of injectivity property. Therefore, we will require all elements of $G$ except the identity element to converge out of the kernel of these maps. We add the following condition \footnote{One might ask why we do not require that every $g \neq 0$ converges to some fixed strictly positive number $r(g)$ instead. In fact one can show that if that is the case, one can construct another sequence of maps $\Phi_i' : G \to \sym{d_i'}$ such that $d_{\sym(d_i')}(\id, \Phi_i'(g))$ converges to $1$ for every $g$. A way to do this is outlined in \cite[subsection 2.1, excercise 2.1.8]{capraro_lupini_2015}}
 \[
 \lim_{i \to \infty} d_{\sym(d_i)}(\id,\Phi(g)) = \begin{cases}  0 & \text{if } g = 1_G \\
@@ -326,7 +326,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 
     Amenable groups are a large class of groups. 
     Many equivalent definitions exist. 
-    An extensive study of amenable groups goes beyond the scope of this project. Hence we will not give multiple definitions and prove equivalence nor will we provide proofs for every property of amenable groups.
+    An extensive study of amenable groups goes beyond the scope of this project. Hence we shall not give multiple definitions and prove equivalence nor shall we provide proofs for every property of amenable groups.
 
     For our purposes we will only define amenability for countable groups and take the Følner criterion as definition. In \cite[subsection 4.1]{kerr_li_ergodic_theory} an alternative definition is given, and it is proven that this is equivalent to the Følner criterion, as formulated below.
 	
@@ -618,6 +618,19 @@ We conclude that $F_k$ is residually finite.
 	\label{fig:}
 \end{figure}
 
+\end{example}
+
+\begin{example}
+	Not every countable group is residually finite. One example we found is $\Q, +$.
+	We can see this as the image of every morphism from $\Q, +$ to a finite group must be trivial. 
+	\begin{proof}
+		Suppose that $f:\Q \to H$ is a group morphism, where $H$ is a finite group. 
+		As $H$ is finite it has finite oder, $n$.
+		Take any $q \in \Q$. 
+		We know that  \[
+			f(q) = f\left(n\cdot \frac{q}{n}\right) = f\left(\frac{q}{n}\right)^{n} = 1_H
+		.\] 
+	\end{proof}
 \end{example}
 
 % example: finitely generated groups
@@ -1067,13 +1080,13 @@ Any sofic group G is surjunctive.
 	
 	\section{Conclusion}
 
-We shall now briefly discuss the contents and results of this report and how they contribute to our attempt to thoroughly examine Kaplansky’s direct finiteness conjecture and understand how it relates to the notion sofic groups.\\
+We shall now briefly discuss the content and results of this report and how they contribute to our attempt to thoroughly examine Kaplansky’s direct finiteness conjecture and gain insight in how it relates to the notion sofic groups.\\
 \\
-Firstly, we extensively explored the definition and properties of sofic  groups as well as closely related concepts. In particular, we investigated the amenability and residual finiteness of groups and their meaning in the context of this subject. In both cases, we ended our analysis with a proof of their implying soficity. \\
+Firstly, we extensively explored the definition and properties of sofic groups as well as closely related concepts. In particular, we investigated the amenability and residual finiteness of groups and their meaning in the context of this subject. In both cases, we ended our analysis with a proof of their implying soficity. \\
 \\
-Secondly, we drew the connection between sofic groups and Kaplansky’s conjecture via the notion of surjunctivity. Specifically, we have provided proof of both the implication $amenable \Rightarrow surjunctive$ as well as $sofic \Rightarrow surjunctive$ for any countable group using independent, respective approaches. More importantly, however, the core of the report closes with proof that surjunctive groups adhere to Kaplansky’s conjecture in the case of finite fields. \\
+Secondly, we have drawn the connection between sofic groups and Kaplansky’s conjecture via the notion of surjunctivity. Specifically, we have provided proof of both the implication $amenable \Rightarrow surjunctive$ as well as $sofic \Rightarrow surjunctive$ for any countable group using independent approaches respectively. More importantly, however, the core of the report closes with proof that surjunctive groups adhere to Kaplansky’s conjecture in the case of finite fields. \\
 \\
-Finally, we can now conclude this report with the issue of open problems which remain in this area of mathematical research. In discussing this subject, we have quite naturally come across Gottschalk’s conjecture, as it tightly links the question of general surjunctivity with Kaplansky’s conjecture. Namely, if every countable group could be shown to be surjunctive, this would immediately resolve Kaplansky’s conjecture for finite fields. Even more striking, however, is the idea that every group might be sofic as well, as there exist no known counterexamples – though Weiss does not seem particularly enthusiastic about this possibility \cite[introduction]{weiss_2000} -  . Soficity for all countable groups would settle the question of direct finiteness of their grouprings over any field, without further ado, rendering everything discussed in this report mostly superfluous.
+Finally, we can now conclude this report with the issue of open problems which remain in this area of mathematical research. In discussing this subject, we have quite naturally come across Gottschalk’s conjecture, as it tightly links the question of general surjunctivity with Kaplansky’s conjecture. Namely, if every countable group could be shown to be surjunctive, this would immediately resolve Kaplansky’s conjecture for finite fields. Even more striking, however, is the idea that every group might be sofic as well, as there exist no known counterexamples – though Weiss does not seem particularly enthusiastic about this possibility \cite[introduction]{weiss_2000} -  . Soficity for all countable groups would settle the question of direct finiteness of their grouprings over any field, without any further ado, rendering everything discussed in this report mostly superfluous.
 
 	\newpage
 	\appendix
