@@ -943,7 +943,7 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		\[
 		H_n (\delta) := \{(a_i)_{0 \leq i \leq n-1} \in A^n | 
 						\exists (x_i)_{0 \leq i \leq n-1} \in X_n : 
-						\forall g \in F: d((a_{\Phi^{-1}_n(g)(i)})_i,(x_{ g_i g})_i) < \delta \}
+						\forall g \in F: d((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i })_i) < \delta \}
 		\]
 		% \[
 		% H_n (\delta) := \{(a_0, a_1, \dots, a_{n-1}) \in A^n \mid
@@ -973,7 +973,7 @@ For $X \subset A^G$ a subshift we have that
 		\]
 \end{lemma}
 \begin{proof}
-For the implication $X = A^G \Rightarrow h_\Sigma(X) = \log |A|$: assume that $X = A^G$. Now it is quite clear that for any $n \in \N$ and $\delta > 0$: $|H_n(\delta)| = |A|^n$. Indeed, for any $(a_i)_i \in A^n$ we can find a sequence $(x_i)_i \in X^n$ such that $\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g_i g})_i) < \delta$. Namely  $(a_i)_i$ itself. Therefore $h_\Sigma(X) = \log |A|$.\\
+For the implication $X = A^G \Rightarrow h_\Sigma(X) = \log |A|$: assume that $X = A^G$. Now it is quite clear that for any $n \in \N$ and $\delta > 0$: $|H_n(\delta)| = |A|^n$. Indeed, for any $(a_i)_i \in A^n$ we can find a sequence $(x_i)_i \in X^n$ such that $\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g g_i })_i) < \delta$. Namely  $(a_i)_i$ itself. Therefore $h_\Sigma(X) = \log |A|$.\\
 \\
 For the implication $h_\Sigma(X) = \log |A| \Rightarrow X = A^G$: assume that $X \varsubsetneq A^G$. It is possible that a certain element of $A$ is never a component in one of the elements of $X$. However, then it is immediately clear that $h_\Sigma(X) \leq \log (|A|-1) $ and thus $h_\Sigma(X) < \log |A|$. Assume, therefore, that every element of $A$ is a component in at least one of the elements of $X$. Now there must exist some finite $F \subset G$ such that $X_F \varsubsetneq A^G$. It can then be shown that, using this $F$, we have that
 		\[
