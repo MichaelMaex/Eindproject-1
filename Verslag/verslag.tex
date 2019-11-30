@@ -284,7 +284,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     % Example: Direct product of sofic groups is sofic. 
 
     \begin{example}\label{ex:direct_product_sofic}
-        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(n_i))_{i \in \N}$ and $(\psi_i: G \to \sym(m_i))_{i \in \N}$ be sofic approximation sequences for $G$ respectively $H$. Consider in this example $n_i = \{0, \dots, n_i-1\}$ and $m_i=\{0, \dots, m_i-1\}$. For every $i\in \mathbb N$ we can define $\Psi_i: G \times H \to \sym(n_i \times m_i)$ by $\Psi_i(g,h)(k, l) = (\psi_i(g)(k), \phi_i(h)(l)) \in \sym(n_i \times m_i)$.
+        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(n_i))_{i \in \N}$ and $(\psi_i: G \to \sym(m_i))_{i \in \N}$ be sofic approximation sequences for $G$ and $H$ respectively. Consider in this example $n_i = \{0, \dots, n_i-1\}$ and $m_i=\{0, \dots, m_i-1\}$. For every $i\in \mathbb N$ we can define $\Psi_i: G \times H \to \sym(n_i \times m_i)$ by $\Psi_i(g,h)(k, l) = (\psi_i(g)(k), \phi_i(h)(l)) \in \sym(n_i \times m_i)$.
         Then we have
         \begin{multline*}
         	\frac{1}{n_i m_i} \card{\big\{(k,l) \in n_i \times m_i \mid (\Phi_i(g,h) \circ \Phi_i(x,y))(k,l) = \Phi_i(gx,hy)(k,l) \big\}} \\
@@ -659,7 +659,7 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
         \end{enumerate}
     \end{definition}
 
-    In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology. We will use ``sequence''-style notation and denote the elements of $A^G$ by $(x_g)_{g \in G}$ or $(x_g)_g$.
+    In this section we will encounter the set of all maps from $G$ to a finite set $A$. This set will be denoted by $A^G$. We will consider this set as a topological space, the topology on $A^G$ being the product topology, where $A$ carries the discrete topology. We will use ``sequence''-style notation and denote the elements of $A^G$ by $(x_g)_{g \in G}$ or $(x_g)_g$. In what follows, we will further use the fact that $A^G$ is a compact Hausdorff space.
 
     \begin{definition}
 	    Let $G$ be a countable group and $A$ a finite set. Then the \textbf{right shift} $\sigma$ of $G$ on $A^G$ is defined by
@@ -738,8 +738,8 @@ Throughout the following section $G$ will be a fixed countable, amenable group, 
 We will also often denote a fixed element of $A$ with $0$.
 To keep the final proof clean, we first present several intermediate results of which the following one is the most important.
 \begin{lemma}
-	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_{g \in G})(1_G)$ is only dependent on the values of $x_h$ where  $h \in \Gamma$, 
-	i.e. if for some  $(x_g)_{g \in G}, (y_g)_{g \in G} \in A^{G}$ it holds that $x_h = y_h$ for all $h \in \Gamma$, then $\phi((x_g)_{g \in G})(1_G) = \phi((y_g)_g)(1_G)$.
+	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_{g \in G})(1_G)$ is only dependent on the values of $x_\gamma$ where  $\gamma \in \Gamma$, 
+	i.e. if for some  $(x_g)_{g \in G}, (y_g)_{g \in G} \in A^{G}$ it holds that $x_\gamma = y_\gamma$ for all $\gamma \in \Gamma$, then $\phi((x_g)_{g \in G})(1_G) = \phi((y_g)_g)(1_G)$.
 \end{lemma}
 \begin{proof}
 	Choose any $a \in A$. As $\phi$ is continuous we know that \[
@@ -778,7 +778,7 @@ To keep the final proof clean, we first present several intermediate results of 
 From this point on we shall also fix $\Gamma$. 
 
 \begin{corollary}
-	For any $k \in G$ the value of $\phi((x_g)_{g \in G})(k)$ is only dependent on the values of $x_{kh}$ where $h \in \Gamma$.
+	For any $k \in G$ the value of $\phi((x_g)_{g \in G})(k)$ is only dependent on the values of $x_{k\gamma}$ where $\gamma \in \Gamma$.
 \end{corollary}	
 \begin{proof}
 	As $\phi$ commutes with the right shift  $\sigma_k$, we know that $\sigma_k \circ \phi = \phi \circ \sigma_k$. Applying the previous lemma immediately gives the required result.
@@ -789,7 +789,7 @@ From this point on we shall also fix $\Gamma$.
 	then  $\phi((x_g)_{g \in G})$ and $\phi((y_g)_{g \in G})$ will only differ on $H\Gamma^{-1}$.
 \end{corollary}
 \begin{proof}
-	Take $g \not\in H\Gamma^{-1}$. Then $\phi((x_h)_{h \in G})(g)$ and $\phi((x_h)_{h\in G})(g)$ will only depend on  $\{x_{g\gamma}\mid \gamma \in \Gamma\}$ and $\{y_{g\gamma}\mid \gamma \in \Gamma\} $. But  $g\Gamma \cap H = \emptyset$. Hence $x_{g\gamma} = y_{g\gamma}$ for all $\gamma \in \Gamma$. By the previous corollary we see that $\phi((x_h)_{h \in G})(g) = \phi((y_h)_{h \in G})(g)$.
+	Take $g \not\in H\Gamma^{-1}$. Then $\phi((x_h)_{h \in G})(g)$ and $\phi((x_h)_{h\in G})(g)$ will only depend on  $\{x_{g\gamma}\mid \gamma \in \Gamma\}$ and $\{y_{g\gamma}\mid \gamma \in \Gamma\}$ respectively. But  $g\Gamma \cap H = \emptyset$. Hence $x_{g\gamma} = y_{g\gamma}$ for all $\gamma \in \Gamma$. By the previous corollary we see that $\phi((x_h)_{h \in G})(g) = \phi((y_h)_{h \in G})(g)$.
 \end{proof}
 
 \begin{definition}
@@ -808,24 +808,24 @@ Let $A_H$ be the set of all element of  $A^{G}$ with support $H$. We can implici
 \end{proof}
 
 At this point we are almost ready to prove that $G$ is surjunctive, i.e.\ $\phi$ is surjective. 
-In order to show this will show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find a $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
+In order to show this, we will show that for any finite subset $B\subset G$ and a map $f:B \to A$ we can find an $x \in A^{G}$ such that $\phi\left(x \right) |_B  = f$. Then we can finish the proof by showing that they image of $\phi$ is dense and using compactness.
 
 
 \bigskip
 
-For now, we shall fix the set $B \subset G$ and the map $f:B \to A$ and introduce the notion of a copy of $B$. \footnote{This is not standard notation. It is just a term we made up to simplify this specific proof.}
- \begin{definition}
+For now, we shall fix the set $B \subset G$ and the map $f:B \to A$ and introduce the notion of a copy of $B$. \footnote{This term is not standard. However, it will simplify the discussion in our following proofs.}
+\begin{definition}
 	A set  $A \subset  G$ is a copy of $B$ if and only if there exists an $s \in G$ such that $A = B\cdot s$.
 \end{definition}
 
 
 \begin{lemma}\label{lem:copies_of_B}
-	Let $F$ be any finite subset of $G$. There exists a subset $F' \subset F$ such that for any two  $s,t \in F', s\ne t$ it holds that $B\cdot s$ and  $B\cdot t$ are disjoint and $\card{F'} \ge \frac{\card{F}}{\card{B}^2} $
+	Let $F$ be any finite subset of $G$. There exists a subset $F' \subset F$ such that for any two  $s, t \in F'$ where $s\ne t$, it holds that $B\cdot s$ and  $B\cdot t$ are disjoint and $\card{F'} \ge \frac{\card{F}}{\card{B}^2} $
 \end{lemma}
 In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ disjoint copies of $B$.
 
 \begin{proof}
-	 We will prove this using strong induction. The case where $F = \emptyset$ is trivial. 
+	 We will prove this using strong induction on $\card{F}$. The case where $F = \emptyset$ is trivial. 
 	\begin{description}
 		\item{Case $1 \le \card F \le \card{B}^2$:} 
 		Let  $f \in F$ be an arbitrary element of $F$. 
@@ -849,13 +849,13 @@ In other words, the set  $BF$ contains at least $\frac{\card{F}}{\card{B^2}}$ di
 \end{proof}
 
 
-We are finally set up to proof that all amenable groups are surjunctive.
+We are finally set up to prove that all amenable groups are surjunctive.
 \begin{theorem}
 	Let $G$ be a countable, amenable group and  $A$ be finite set, where we will choose one element and denote it with $0$. Let  $\phi: A^{G} \to A^{G}$ be a injective, continuous map that commutes with the right shift. Then $\phi$ is surjective.
 \end{theorem}
 
 \begin{proof}
-	Lets fix a finite subset $B \subset G$ and a map $f:B\to A$. 
+	Let us fix a finite subset $B \subset G$ and a map $f:B\to A$. 
 	Suppose that there does not exists an $x \in A^{G}$ such that $\phi(x)|_B = f$.
 	Notice that this means that for any copy of $B$, say  $B\cdot s$, the image of $\phi$ does not contain a function  $\phi(x): G \to A$ such that when restrited to  $B\cdot s$ it becomes $f': B\cdot s \to A: x \mapsto f\left( x s^{-1} \right) $, since applying the right shift $\sigma_{s^{-1}}$ then gives $\phi(\sigma_{s^{-1}} x) |_{B} = f$.
 
@@ -915,11 +915,11 @@ We conclude that $\phi$ is surjective!
 
 \subsection{Sofic Groups, Entropy and Surjunctive Groups}\label{ssec:sofic_surjunctive}
 
-To prove that sofic groups are always surjunctive we define sofic entropy. The definition we present is a particular case of the more general definition formulated in paragraph 2.13.6 in \cite{capraro_lupini_2015} and is equivalent to the one given in definition 4.2 of \cite{kerr_li_2010}. 
+In order to prove that sofic groups are always surjunctive we define sofic entropy. The definition we present is a particular case of the more general definition formulated in \cite[paragraph 2.13.6]{capraro_lupini_2015} and is equivalent to the one given in \cite[definition 4.2]{kerr_li_2010}. 
 
 \begin{definition}
 
-A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = 1_G, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift.\\
+A subshift $X \subset A^G$ with $A$ a finite set and $G := \{g_0 = 1_G, g_1, g_2, ...\}$ any countable group is a closed subset which is invariant under the shift $\sigma$.\\
 \\
 Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N}$ is a sofic approximation sequence. Take a subshift $X$ and a finite subset $F \subset G$. For any $\delta > 0$ and $n \in \N$ we define the set 
 		\[
@@ -957,7 +957,7 @@ For $X \subset A^G$ a subshift we have that
 \begin{proof}
 For the implication $X = A^G \Rightarrow h_\Sigma(X) = \log |A|$: assume that $X = A^G$. Now it is quite clear that for any $n \in \N$ and $\delta > 0$: $|H_n(\delta)| = |A|^n$. Indeed, for any $(a_i)_i \in A^n$ we can find a sequence $(x_i)_i \in X^n$ such that $\forall g \in F: d_{S_n}((a_{\Phi^{-1}_n(g)(i)})_i,(x_{g_i g})_i) < \delta$. Namely  $(a_i)_i$ itself. Therefore $h_\Sigma(X) = \log |A|$.\\
 \\
-For the implication $h_\Sigma(X) = \log |A| \Rightarrow X = A^G$: assume that $X \varsubsetneq A^G$. It is possible that a certain element of $A$ is never a component in one of the elements of $X$. However, then it is immediately clear that $h_\Sigma(X) \leq \log (|A|-1) $ and thus $h_\Sigma(X) < \log |A|$. Assume, therefore, that every element of $A$ is a component in at least one of the elements of $X$. Now there must exist some finite $F \subset G$ such that $Y_F \varsubsetneq A^G$. It can then be shown that, using this $F$, we have that
+For the implication $h_\Sigma(X) = \log |A| \Rightarrow X = A^G$: assume that $X \varsubsetneq A^G$. It is possible that a certain element of $A$ is never a component in one of the elements of $X$. However, then it is immediately clear that $h_\Sigma(X) \leq \log (|A|-1) $ and thus $h_\Sigma(X) < \log |A|$. Assume, therefore, that every element of $A$ is a component in at least one of the elements of $X$. Now there must exist some finite $F \subset G$ such that $X_F \varsubsetneq A^G$. It can then be shown that, using this $F$, we have that
 		\[
 		h_\Sigma(X) \leq \log |A| - \frac{1}{|F|^2} \log \left(\frac{|A|^{|F|}}{|A|^{|F|} - 1}\right) < \log |A|
 		\]
