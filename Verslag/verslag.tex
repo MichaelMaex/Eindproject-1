@@ -557,7 +557,7 @@ Finally we will list some more properties obout the Følner criterion and Følne
 \end{proof}
 We find the following corollary. 
 \begin{corollary}\label{cor:product_folner_sequence}
-	Let $B \subset G$ be a finite subset and $F_n$ be a (left or right) Følner sequence of $G$. Then are $BF_n$ and $F_nB$ again Følner sequences.
+	Let $B \subset G$ be a finite subset and $F_n$ be a (left or right) Følner sequence of $G$. Then $BF_n$ and $F_nB$ are again Følner sequences.
 \end{corollary}
 
 
@@ -578,7 +578,7 @@ Another property that implies soficity is the following.
 % example: Z
 
 \begin{example}
-	The group of integers $\mathbb Z$ is residually finite. Let $k \in \mathbb =z$. Consider the map $f_k: \mathbb Z \to \mathbb Z/(k+1)\mathbb Z: m \mapsto [m]_{k+1}$. Clearly, $f_k$ is a homomorphism and $f_k(k) = [k]_{k+1} \neq 0$.
+	The group of integers $\mathbb Z$ is residually finite. Let $k \in \mathbb Z$. Consider the map $f_k: \mathbb Z \to \mathbb Z/(k+1)\mathbb Z: m \mapsto [m]_{k+1}$. Clearly, $f_k$ is a homomorphism and $f_k(k) = [k]_{k+1} \neq 0$.
 \end{example}
 
 \begin{example}\label{ex:free_group_residually_finite}
@@ -589,8 +589,8 @@ a = x_{i_r}^{\epsilon_r n_r}x_{i_{r-1}}^{\epsilon_{r-1}n_{r-1}}x_{i_{r-2}}^{\eps
 ,\]
 where for every $i$ it holds that $n_i \in \Z_{>0}$ and $\epsilon_i \in \left\{ -1,1 \right\} $, be any non-trivial word in reduced form. 
 Our goal is to find a morphism to a finite group that does not map $a$ to 1. 
-Define the sequence $(N_i)_i$ as $N_i = \sum_{j = 1}^{i} n_j$. 
-We will construct a map from $F_k$ to $S_{N_r + 1}$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  \todo{Szabo heeft hier problemen met de notatie, ik heb geen flauw idee waarom} % waarom hier andere notatie?
+Define the sequence $(N_i)_{1 \leq i \leq r}$ by $N_i = \sum_{j = 1}^{i} n_j$. 
+We will construct a map from $F_k$ to $\sym(N_r + 1)$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  \todo{Szabo heeft hier problemen met de notatie, ik heb geen flauw idee waarom} % waarom hier andere notatie?
 By the universal property of free groups, if we want to define a map from $F_k$ to $S_{N_r +1}$ it is sufficient to choose for every $m$ the image of $x_m$.
 We will define it as follows
 \[
@@ -599,7 +599,7 @@ We will define it as follows
 where the brackets denote cycle notation and $\bigcirc$ is the composition of functions indexed in the same way as  $\sum$ or $\prod$.
 
 Using this morphism we can let $F_k$ act on the set $\{0,1,\ldots, N_r\} $. 
-We will deterimne the position of $0$ after the action of $a$ by keeping track of the position of $0$ after every subsequent  action of  $x_{i_m}^{\epsilon_m n_m}$.
+We will determine the position of $0$ after the action of $a$ by keeping track of the position of $0$ after every subsequent  action of  $x_{i_m}^{\epsilon_m n_m}$.
 
 We claim that after acting with $x_{i_{m}}^{\epsilon_{m}n_{m}}x_{i_{m}}^{\epsilon_{m}n_{m}} \ldots x_{i_1}^{\epsilon_1n_1}$ the location of  $0$ is at $N_m$.
 We will prove this claim by induction.
