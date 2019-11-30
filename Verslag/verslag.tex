@@ -56,7 +56,17 @@
 \DeclareMathOperator{\red}{red}
 
 
+\newtheoremstyle{theoremdd}% name of the style to be used
+  {7pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {7pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\itshape}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
+\theoremstyle{theoremdd}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
