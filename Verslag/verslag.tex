@@ -23,6 +23,15 @@
 
 \makeatother
 
+\DeclarePairedDelimiter\card{\lvert}{\rvert}
+% Swap the definition of \card*, so that \card
+%  resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldcard\card
+\def\card{\@ifstar{\oldcard}{\oldcard*}}
+
+\makeatother
 
 
 \author{Lucas Levrouw \and Michaël Maex \and Tomas Reunbrouck \and Supervisor: Gabor Szabo}
@@ -38,7 +47,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 
-\newcommand{\card}[1]{\left| #1 \right|}
+
 \newcommand{\inclusion}[1]{\xhookrightarrow{#1}}
 \newcommand{\surjection}[1]{\xtwoheadrightarrow{#1}}
 \newcommand{\id}{\mathrm{id}}
@@ -82,9 +91,17 @@
 \begin{document}
 \pagenumbering{Alph}
     \maketitle
+%\clearpage % end title page
+\begingroup
+  \pagestyle{empty}
+  \null
+  \newpage
+\endgroup
 \pagenumbering{arabic}
 \tableofcontents
 \pagebreak
+
+
 
 \section{Introduction}\label{sec:intro}
 
@@ -97,9 +114,8 @@ The assumption that all countable groups are surjunctive is known as the conject
 
 We can trace the origins of the concepts we shall discuss back to the research by John von Neumann throughout the 20th century. First, he introduced the notion of amenable groups (which we will define in \cref{sec:amenable}) in the context of the Banach-Tarski Paradox. It was meant as a generalisation of commutative groups on the one hand and various versions of finite groups on the other. Secondly, he lay the foundations of the study of so-called ‘cellular automata’. What a cellular automaton is, can be explained the following way. Take a set $A$ (finite or infinite), of which we call the elements ‘states’, and a ‘universe’ of ‘cells’, being a countable group $G$. Now $A^G$ (the set of maps $G \to A$) is the set of configurations. The automaton, then, is a map from $A^G$ to itself, satisfying the property that the state of a specific cell in the image is determined by the initial states of the cells in a bounded neighbourhood of this cell \cite{vonNeumann_1966} .\\
 \\
-These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem 
-\todo[color=green]{add reference}
-states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups, .
+These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem \cite[preface]{capraro_lupini_2015}
+states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups.
 Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet $A$ implies surjectivity of that automaton are the afore mentioned surjunctive groups. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are known to be surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
 
 \subsection*{Goal of this Report}
@@ -304,15 +320,15 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 	
     % Lucas: Ik heb geprobeerd alle sporen van `conditie 1' uit te wissen maar misschien moeten jullie ook nog eens kijken of ik niks vergeten ben
     \begin{definition}\label{def:folner} 
-	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
+	    Let $G$ be a countable group.  A \textbf{Følner sequence} of $G$ is a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
         \]
-        where $\triangle$ denotes the symmetric difference.
+        where $\triangle$ denotes the symmetric difference. We say that $G$ satisfies the \textbf{Følner criterion} if $G$ has a Følner sequence.
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
-    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.}\todo{reference for the footnote} 
+    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.
 
 \begin{figure}[ht]
     \centering
@@ -321,7 +337,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \label{fig:folner}
 \end{figure}
 
-By the following lemma, we can not only exploit this\todo[color=green]{make precise} for individual elements, but also for finite subsets.
+By the following lemma, we can not only exploit this\todo[color=green]{make precise} for all the elements $g \in G$ individually, but also for finite subsets $B \subset G$.
 
 \begin{lemma}\label{lem:folner_finite_subset}
     Let $F_i$ be a Følner sequence. Then for every finite subset $B \subset G$ it holds that  \[
@@ -469,7 +485,7 @@ We now state the proof.
 	We define $\mathcal{F}_m = F_{n,N}$.
 	As we can do this for every $n$ we can construct $\mathcal{F}_n$ in this way.
 
-	Now I claim that $\mathcal{F}_n$ is a Følner sequence of $G$. 
+	Now we claim that $\mathcal{F}_n$ is a Følner sequence of $G$. 
 	To verify this, take $N$ such that $N > i$ and $g_i \in G_N$. For all $m >N$ we see that \[
 		\frac{\card{g_i \mathcal{F}_m \triangle \mathcal{F}_m }}{\card{\mathcal{F}_m}} \le \frac{1}{m}
 	.\] 
@@ -486,7 +502,7 @@ We now state the proof.
 	     Let $G = \left<a_1, a_2,\ldots, a_k \right>$ be a finitely generated group. Then \[
 		     \phi: \Z^{k} \to G : (n_1, \ldots, n_k) \mapsto a_1^{n_1} a_2^{n_2} \ldots a_k^{n_k} 
 	     \]
-	     is a surjective groups morphism. Hence $G = \frac{Z^{k}}{\ker{\phi}}$. 
+	     is a surjective groups morphism. Hence $G = \frac{\Z^{k}}{\ker{\phi}}$. 
 	     By \cref{cor:quotient_amenable} we see that $G$ is amenable.
 	
     \end{proof}
