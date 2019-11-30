@@ -322,10 +322,10 @@ By the following lemma, we can not only exploit this for individual elements, bu
     Suppose that $B = \{b_1, b_2, \ldots, b_r\} $. 
     Have a look at the following calculation:
     \begin{align*}
-        \lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} &= \lim_{n \to \infty} 2 \frac{\card{BF_n \setminus F_n}}{\card{F_n}} \\
-                                         &= \lim_{n \to \infty} 2 \frac{\card{\bigcup_{i = 1}^{k} (b_i F_n \setminus F_n)}}{\card{F_n}} \\
-                                         &\le \lim_{n \to \infty} 2\frac{\sum_{i-1}^{k} \card{b_i F_n \setminus F_n}}{\card{F_n}} \\
-                                         &= \lim_{n \to \infty} \sum_{i = 1}^{k} \frac{\card{b_iF_n \triangle F_n}}{\card{F_n}} = 0.  \\
+	    \lim_{n \to \infty} \frac{\card{BF_n \triangle F_n}}{\card{F_n}} &= \lim_{n \to \infty} \frac{\card{BF_n \setminus F_n} + \card{F_n \setminus BF_n}}{\card{F_n}}  \\
+									 &= \lim_{n \to \infty}  \frac{\card{\bigcup_{i = 1}^{k} (b_i F_n \setminus F_n)}+ \card{F_n \setminus BF_n}}{\card{F_n}} \\
+									 &\le \lim_{n \to \infty} \frac{\sum_{i-1}^{k} \card{b_i F_n \setminus F_n} +  \card{F_n \setminus b_1 F_n}}{\card{F_n}} \\
+                                         &\le \lim_{n \to \infty} \sum_{i = 1}^{k} \frac{\card{b_iF_n \triangle F_n}}{\card{F_n}} = 0.  \\
     .\end{align*}
 \end{proof}
 
@@ -370,8 +370,10 @@ By the following lemma, we can not only exploit this for individual elements, bu
 			So \[
 				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1)\card{H'} + (2n-1) = (2n-1 ) \card{H}
 			.\]
+			Thus \[
+				\card{\{x_1,x-1^{-1}, \ldots, x_n, x_n^{-1}\}H \setminus H} \ge (2n - 2) \card{H}.
+			\] This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
 	\end{description}
-	This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
 	We conclude that the free group is not amenable.
 \end{example}
 
@@ -616,7 +618,7 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
     \begin{definition} % van wikipedia gehaald
 	    Let $G$ be a group and $X$ be a set. Then $\alpha: G \times X \to X: (g,x) \mapsto \alpha_g(x)$ is called an \textbf{right (group)action} of $G$ on $X$ if
         \begin{enumerate}[(i)]
-            \item $\forall x \in X: \alpha_e(x) = x$
+		\item $\forall x \in X: \alpha_{1_G}(x) = x$
             \item $\forall g,h \in G, x\in X: \alpha_{hg}(x) = \alpha_g(\alpha_h(x))$.
         \end{enumerate}
     \end{definition}
