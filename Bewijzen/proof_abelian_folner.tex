@@ -1,5 +1,5 @@
 Let $G,+$ be a countable abelian group.
-Since $G$ is countable, we can write $G = \{e, g_1, g_2, g_3, \dots\}$.
+Since $G$ is countable, we can write $G = \{0, g_1, g_2, g_3, \dots\}$.
 Consider the sequence of sets $$F_n = \left\{\sum_{i = 1}^n a_i g_i \mid -n \le a_i \le n\right\}.$$ 
 Fix $g \in G$. Take any $n > j$.
 Let $$H_n = \left\{\sum_{\substack{i = 1 \\ g_i \ne g}}^n a_i g_i \mid -n \le a_i \le n\right\}.$$
@@ -9,7 +9,7 @@ $B_m^{(n)} = (mg+H_n) \setminus \bigcup_{k=-n}^{m-1}(kg+H_n)$.
 It should be clear that the elements of $(B_m^{(n)})_m$ are pairwise disjoint and that  \[
     \bigcup_{k = -n}^n B_k^{(n)} = F_n 
 .\] 
-It follows that $\sum_{k=-n}^{n} \card{B_k^{(n)}} = \card{F_n}$. We know that 
+It follows that $\sum_{k=-n}^{n} \card*{B_k^{(n)}} = \card{F_n}$. We know that 
 \begin{align*}
     \card{(g+F_n) \triangle F_n} &= 2 \card{(g + F_n) \setminus F_n} \\
     &= 2 \card{\bigcup_{k = -n}^n ((k+1)g+H) \setminus \bigcup_{k = -n}^n (kg+H_n)}\\
@@ -18,12 +18,12 @@ It follows that $\sum_{k=-n}^{n} \card{B_k^{(n)}} = \card{F_n}$. We know that
 \end{align*}
 So to show that the $F_n$ adheres to the Følner criterion, it is sufficient to show that $\frac{\card{B_{n+1}^{(n)}}}{\card{F_n}} \to 0$ as $n \to \infty$.
 
-We claim that $\left(\card{B_m^{(n)}}\right)_m$ is a non-increasing sequence. The following calculation shows this.
+We claim that $(\card*{B_m^{(n)}})_m$ is a non-increasing sequence. The following calculation shows this.
 \begin{align*}
-    \card{B_m^{(n)}} &= \card{(mg+H_n) \setminus \bigcup_{k=-n}^{m-1} kg+H_n}\\
+    \card*{B_m^{(n)}} &= \card{(mg+H_n) \setminus \bigcup_{k=-n}^{m-1} kg+H_n}\\
     &= \card{((m-1)g+H_n) \setminus \bigcup_{k=-n}^{m-1}(k-1)g+H_n}\\
     %&= \card{((m-1)g+H_n) \setminus \bigcup_{k=-n-1}^{m-2} kg+H_n}\\
-    &\le \card{((m-1)g+H_n) \setminus \bigcup_{k=-n}^{m-2} (k-1)g+H_n} = \card{B_{m-1}^{(n)}}
+    &\le \card{((m-1)g+H_n) \setminus \bigcup_{k=-n}^{m-2} (k-1)g+H_n} = \card*{B_{m-1}^{(n)}}
 \end{align*}
-So $\card{F_n} = \sum_{i=-n}^{n} \card{B_i^{(n)}} \le (2n+1) \card{B_{n+1}^{(n)}}$, which means that $$\frac{\card{B_{n+1}^{(n)}}}{\card{F_n}} \le \frac{1}{2n+1}.$$
-So we find that $\lim_{n \to \infty}\frac{\card{B_{n+1}^{(n)}}}{\card{F_n}} = 0$ which concludes the proof. 
+So $\card{F_n} = \sum_{i=-n}^{n} \card{B_i^{(n)}} \le (2n+1) \card*{B_{n+1}^{(n)}}$, which means that $$\frac{\card{B_{n+1}^{(n)}}}{\card{F_n}} \le \frac{1}{2n+1}.$$
+So we find that $\lim_{n \to \infty}\frac{\card*{B_{n+1}^{(n)}}}{\card{F_n}} = 0$ which concludes the proof. 
