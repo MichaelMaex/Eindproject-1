@@ -67,6 +67,9 @@
     \import{../Figuren/}{#1.pdf_tex}
 }
 
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
 \begin{document}
 \pagenumbering{Alph}
     \maketitle
@@ -1025,9 +1028,11 @@ Finally, we can now conclude this report with the issue of open problems which r
 	\newpage
 	\appendix
 	\appendixpage
+	\addappheadtotoc
 	%\addappheadtotoc
 	
-	\section{Group Rings are Rings}\label{sec:proof_groupring}
+	\tocless\section{Group Rings are Rings}\label{sec:proof_groupring}	
+	\addcontentsline{toc}{subsection}{\numberline{A} Group Rings are Rings}
 	
 	\begin{proof}
 		We need to prove associativity of $+$, commutativity of $+$, existence of zero element, existence of additive inverses, associativity for $\cdot$, left distributivity, right distributivity and existence of a unit element.
@@ -1102,7 +1107,8 @@ Finally, we can now conclude this report with the issue of open problems which r
 		\end{description}
         \end{proof}
 
-	\section{A Brief Introduction to Free Groups} \label{sec:intro_free_group}
+	\tocless\section{A Brief Introduction to Free Groups} \label{sec:intro_free_group}
+	\addcontentsline{toc}{subsection}{\numberline{B} A Brief Introduction to Free Groups}
 This section is a brief introduction to the free groups, as many of our readers may not be familiar with this family of groups. 
 This is in no way meant to be a rigorous construction of the group and its properties, rather it is an informal overview of its construction and its most important property.
 The details can be found in many algebra text books such as \cite[section 7.9]{artin_algebra_1991} or \cite[section 5.5]{rotman_advanced_2015}.
@@ -1134,7 +1140,8 @@ In some sense, the free group, $F_S$ is the largest group that can be generated 
 \end{property}
 
 
-\section{$\mathbb K^G$ is a $\mathbb K[G]$-module}
+\tocless\section{$\mathbb K^G$ is a $\mathbb K[G]$-module}
+\addcontentsline{toc}{subsection}{\numberline{C} $\mathbb{K}^{G}$ is a $\mathbb{K}[G]$-module}
 	We check the module axioms one by one.
         In the following calculations $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are arbitrary elements of $\mathbb{K}[G]$ and $x = (x_g)_{g \in G}, y = (y_g)_{g \in G}$ are arbitrary elements of $\mathbb{K}^{G}$.
         \begin{description}
