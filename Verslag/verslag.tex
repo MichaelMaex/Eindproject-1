@@ -240,14 +240,31 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     % Example: Direct product of sofic groups is sofic. 
 
     \begin{example}\label{ex:direct_product_sofic}
-        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(d_i))_{i \in \N}$ and $(\psi_i: G \to \sym(e_i))_{i \in \N}$ be sofic approximation sequences for $G$ resp. $H$. Now consider $\Phi_i : G \times H \to \sym(d_i+e_i)$ for every $i \in \N$, where $\Phi_i(g, h) \in \sym(d_i+e_i)$ is defined by
-        \[
-            \Phi_i(g,h)(k) = \begin{cases} \phi_i(g)(k) & \text{if } 1 \leq k \leq d_i \\
-            \psi_i(h)(k)+d_i & \text{if } d_i + 1 \leq k \leq e_i
-            \end{cases}.
-        \]
-        It is not hard to show that $(\Phi_i)_{i \in \N}$ is a sofic approximation sequence for $G \times H$. % Write out proof
-	Hence finite direct products conserve the soficity property. \todo{Write out proof}
+        The direct product of two sofic groups is again sofic. Consider two sofic groups $G$ and $H$. Let $(\phi_i: G \to \sym(n_i))_{i \in \N}$ and $(\psi_i: G \to \sym(m_i))_{i \in \N}$ be sofic approximation sequences for $G$ resp. $H$. Consider in this example $n_i = \{0, \dots, n_i-1\}$ and $m_i=\{0, \dots, m_i-1\}$. For every $i\in \mathbb N$ we can define $\Psi_i: G \times H \to \sym(n_i \times m_i)$ by $\Psi_i(g,h)(k, l) = (\psi_i(g)(k), \phi_i(h)(l)) \in \sym(n_i \times m_i)$.
+        Then we have
+        \begin{multline*}
+        	\frac{1}{n_i m_i} \card{\big\{(k,l) \in n_i \times m_i \mid (\Phi_i(g,h) \circ \Phi_i(x,y))(k,l) = \Phi_i(gx,hy)(k,l) \big\}} \\
+        	= \frac{1}{n_i m_i} \card{\big\{(k,l) \in n_i \times m_i \mid (\phi_i(g) \circ \phi_i(x))(k) = \phi_i(gx)(k) \text{ and } (\psi_i(h) \circ \psi_i(y))(l) = \psi_i(hy)(l)\big\}} \\
+        	= \frac{1}{n_i m_i} \card{\big\{ k \in n_i \mid (\phi_i(g) \circ \phi_i(x))(k) = \phi_i(gx)(k)\big\}} \cdot \card{\big\{l \in  m_i \mid (\psi_i(h) \circ \psi_i(y))(l) = \psi_i(hy)(l)\big\}},
+        \end{multline*}
+        and this converges to $1$ because $(\phi_i)_{i \in \N}$ and $(\psi_i)_{i \in \N}$ are sofic approximation sequences. Similarly,
+        \begin{multline*}
+        	\frac{1}{n_i m_i} \card{\big\{(k,l) \in n_i \times m_i \mid (\Phi_i(g,h)(k,l) = (k,l) \big\}} \\
+        	= \frac{1}{n_i m_i} \card{\big\{(k,l) \in n_i \times m_i \mid \phi_i(g)(k) = k \text{ and } \psi_i(h)(l) = l\big\}} \\
+        	= \frac{1}{n_i m_i} \card{\big\{ k \in n_i \mid \phi_i(g)(k) = k \big\}} \cdot \card{\big\{l \in  m_i \mid \psi_i(h)(l) = l\big\}},
+        \end{multline*}
+
+        and this converges to $1$ if $(g,h)=(1_G, 1_H)$ and to $0$ otherwise. We thus have constructed a sofic approximation sequence $(\Phi_i: G \times H \to \sym(n_i m_i))_{i \in \mathbb N}$, where we now have identified $\sym(n_i \times m_i)$ with $\sym(n_i m_i)$.
+
+
+ %        Now consider $\Phi_i : G \times H \to \sym(d_i+e_i)$ for every $i \in \N$, where $\Phi_i(g, h) \in \sym(d_i+e_i)$ is defined by
+ %        \[
+ %            \Phi_i(g,h)(k) = \begin{cases} \phi_i(g)(k) & \text{if } 1 \leq k \leq d_i \\
+ %            \psi_i(h)(k)+d_i & \text{if } d_i + 1 \leq k \leq e_i
+ %            \end{cases}.
+ %        \]
+ %        It is not hard to show that $(\Phi_i)_{i \in \N}$ is a sofic approximation sequence for $G \times H$. % Write out proof
+	% Hence finite direct products conserve the soficity property. \todo{Write out proof}
     \end{example}
 
     In the next sections we will introduce two classes of groups that are sofic, \emph{amenable groups} and \emph{residually finite groups}. Since it is often easier to check these properties than to work with the definition of soficity, this will allow us to give some more examples. 
