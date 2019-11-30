@@ -55,6 +55,8 @@
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\red}{red}
 
+\def\ext{\qopname\relax m{\bigcirc}}
+
 
 \newtheoremstyle{theoremdd}% name of the style to be used
   {7pt}% measure of space to leave above the theorem. E.g.: 3pt
@@ -347,7 +349,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \label{fig:folner}
 \end{figure}
 
-By the following lemma, we can not only exploit this\todo[color=green]{make precise} for all the elements $g \in G$ individually, but also for finite subsets $B \subset G$.
+By the following lemma, we can not only exploit this for all the elements $g \in G$ individually, but also for finite subsets $B \subset G$.
 
 \begin{lemma}\label{lem:folner_finite_subset}
     Let $F_i$ be a Følner sequence. Then for every finite subset $B \subset G$ it holds that  \[
@@ -415,8 +417,7 @@ By the following lemma, we can not only exploit this\todo[color=green]{make prec
 \end{example}
 
 \subsection{Properties of Amenable Groups}
-
-To prove that each group that satisfies the Følner criterion is sofic, we first need the following set-theoretic lemma.
+We introduced the concept of Amenable groups because they are sofic \cite[prop. 2.3.1]{capraro_lupini_2015}, which will be the first property we proof in the this section. But we first need the following set-theoretic lemma.
 
 \begin{lemma}\label{lem:finite_bijections} 
         Let $A$ and $B$ be finite sets such that $|A| = |B|$. Given $A' \subset A, B' \subset B$ and a bijection $f': A' \to B'$ there exists a bijection $f: A \to B$ such that $f|_{A'} = f'$. 
@@ -430,8 +431,7 @@ To prove that each group that satisfies the Følner criterion is sofic, we first
     \end{proof}
 
 We now state the proof.
-\todo{Szabo: Is this your theorem? If you present something like this which is well-known, either provide a reference or at least point out that it is known.}
- 	\begin{theorem}\label{thm:folner_sofic}
+\begin{theorem}[{\cite[prop. 2.3.1]{capraro_lupini_2015}}]\label{thm:folner_sofic}
         Every countable amenable group $G$ is sofic.
     \end{theorem}
     \begin{proof}
@@ -592,9 +592,9 @@ We will construct a map from $F_k$ to $\sym(N_r + 1)$, which is the symmetric gr
 By the universal property of free groups, if we want to define a map from $F_k$ to $S_{N_r +1}$ it is sufficient to choose for every $m$ the image of $x_m$.
 We will define it as follows
 \[
-x_m \mapsto \prod_{\substack{j \in \{1,\ldots, r\} \\ m = i_j} } (N_{j-1} N_{j-1}+1 \ldots N_{j})^{\epsilon_i} % In this instance, this notation is really confusing. Better write it out.
+	x_m \mapsto \ext_{\substack{j \in \{1,\ldots, r\} \\ m = i_j} } \begin{pmatrix} N_{j-1} & N_{j-1} +  1& \ldots & N_{j} -1 & N_{j} \end{pmatrix}^{\epsilon_j}% In this instance, this notation is really confusing. Better write it out.
 ,\] 
-where the brackets denote cycle notation.
+where the brackets denote cycle notation and $\bigcirc$ is the composition of functions indexed in the same way as  $\sum$ or $\prod$.
 
 Using this morphism we can let $F_k$ act on the set $\{0,1,\ldots, N_r\} $. 
 We will determine the position of $0$ after the action of $a$ by keeping track of the position of $0$ after every subsequent  action of  $x_{i_m}^{\epsilon_m n_m}$.
