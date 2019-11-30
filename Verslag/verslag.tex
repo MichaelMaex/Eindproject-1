@@ -348,7 +348,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
 	For those not familiar with the free group, a brief introduction is given in \cref{sec:intro_free_group}.
 	To prove this we will have to show that there does not exist a Følner sequence.
-	We will prove that for every non-empty finite subset $H \subset \bar{n}$ it holds that \[
+	We will prove that for every non-empty finite subset $H \subset F_n$ it holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
 	.\] 
 	We can prove this using induction on the size of $H$. 
@@ -371,7 +371,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1)\card{H'} + (2n-1) = (2n-1 ) \card{H}
 			.\]
 			Thus \[
-				\card{\{x_1,x-1^{-1}, \ldots, x_n, x_n^{-1}\}H \setminus H} \ge (2n - 2) \card{H}.
+				\card{\{x_1,x_1^{-1}, \ldots, x_n, x_n^{-1}\}H \setminus H} \ge (2n - 2) \card{H}.
 			\] This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
 	\end{description}
 	We conclude that the free group is not amenable.
