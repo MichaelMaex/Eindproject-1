@@ -588,7 +588,7 @@ a = x_{i_r}^{\epsilon_r n_r}x_{i_{r-1}}^{\epsilon_{r-1}n_{r-1}}x_{i_{r-2}}^{\eps
 where for every $i$ it holds that $n_i \in \Z_{>0}$ and $\epsilon_i \in \left\{ -1,1 \right\} $, be any non-trivial word in reduced form. 
 Our goal is to find a morphism to a finite group that does not map $a$ to 1. 
 Define the sequence $(N_i)_{1 \leq i \leq r}$ by $N_i = \sum_{j = 1}^{i} n_j$. 
-We will construct a map from $F_k$ to $\sym(N_r + 1)$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  \todo{Szabo heeft hier problemen met de notatie, ik heb geen flauw idee waarom} % waarom hier andere notatie?
+We will construct a map from $F_k$ to $\sym(N_r + 1)$, which is the symmetric group on $\{0,1, 2, \ldots, N_{r}\} $.  % waarom hier andere notatie?
 By the universal property of free groups, if we want to define a map from $F_k$ to $S_{N_r +1}$ it is sufficient to choose for every $m$ the image of $x_m$.
 We will define it as follows
 \[
@@ -894,7 +894,19 @@ So our initial assumption is false.
 
 \bigskip
 
-This means that there exists a $x \in A^{G}$ such that $\phi(x)|_B = f$. As this is true for every  $B$ and $f:B\to A$ we see that the image of  $\phi$ must be dense in $A^{G}$. As a map on compact spaces maps closed sets to closed sets we see that the image of $\phi$ must be $A^{G}$. 
+This means that there exists a $x \in A^{G}$ such that $\phi(x)|_B = f$.
+Remember that this is true for every finite subset $B$. 
+
+We claim that this is enough to show that the image of $\phi$ is dense in $A^{G}$. 
+Take any $(x_g)_g \in A^{G}$ and a basis open $U$ around $(x_g)_g$. Then $U$ must be of the form  \[
+U = \prod_{g \in G} \begin{cases}
+	\{x_g\} & \text{if } g \in B\\
+	A & \text{if } g \not\in B
+\end{cases}
+.\] 
+Then we can define can take  $f:B\to A: g \to (x_{g})_g$. 
+As we have just proven, we can find some $y \in G$ such that  $\phi(y)|_B = f$. Hence $\phi(y) \in U$. So the image of $\phi$ is dense. 
+As a map on compact spaces maps closed sets to closed sets we see that the image of $\phi$ must be $A^{G}$. 
 We conclude that $\phi$ is surjective!
 
 
