@@ -322,11 +322,11 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
 	
     % Lucas: Ik heb geprobeerd alle sporen van `conditie 1' uit te wissen maar misschien moeten jullie ook nog eens kijken of ik niks vergeten ben
     \begin{definition}\label{def:folner} 
-	    Let $G$ be a countable group. We say that $G$ satisfies the \textbf{Følner criterion} if there exists a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
+	    Let $G$ be a countable group.  A \textbf{Følner sequence} of $G$ is a sequence of finite subsets (not necessarily subgroups) $F_1, F_2, \dots \subset G$ such that for all $g \in G$ 
         \[
         \lim_{i\to \infty} \frac{\card{gF_i \triangle F_i}}{\card{F_i}} = 0,
         \]
-        where $\triangle$ denotes the symmetric difference.
+        where $\triangle$ denotes the symmetric difference. We say that $G$ satisfies the \textbf{Følner criterion} if $G$ has a Følner sequence.
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
@@ -487,7 +487,7 @@ We now state the proof.
 	We define $\mathcal{F}_m = F_{n,N}$.
 	As we can do this for every $n$ we can construct $\mathcal{F}_n$ in this way.
 
-	Now I claim that $\mathcal{F}_n$ is a Følner sequence of $G$. 
+	Now we claim that $\mathcal{F}_n$ is a Følner sequence of $G$. 
 	To verify this, take $N$ such that $N > i$ and $g_i \in G_N$. For all $m >N$ we see that \[
 		\frac{\card{g_i \mathcal{F}_m \triangle \mathcal{F}_m }}{\card{\mathcal{F}_m}} \le \frac{1}{m}
 	.\] 
@@ -504,7 +504,7 @@ We now state the proof.
 	     Let $G = \left<a_1, a_2,\ldots, a_k \right>$ be a finitely generated group. Then \[
 		     \phi: \Z^{k} \to G : (n_1, \ldots, n_k) \mapsto a_1^{n_1} a_2^{n_2} \ldots a_k^{n_k} 
 	     \]
-	     is a surjective groups morphism. Hence $G = \frac{Z^{k}}{\ker{\phi}}$. 
+	     is a surjective groups morphism. Hence $G = \frac{\Z^{k}}{\ker{\phi}}$. 
 	     By \cref{cor:quotient_amenable} we see that $G$ is amenable.
 	
     \end{proof}
