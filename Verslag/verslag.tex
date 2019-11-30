@@ -82,6 +82,12 @@
 \newcommand{\nocontentsline}[3]{}
 \newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
 
+\makeatletter
+\newcommand{\customlabel}[2]{% \protected@write @auxout {}{\string \newlabel {#1}{{#2}{\thepage}{#2}{#1}{}} }% 
+\hypertarget{#1}{}}
+
+\makeatother
+
 \begin{document}
 \pagenumbering{Alph}
     \maketitle
@@ -155,7 +161,7 @@ The setting of Kaplansky's direct finiteness conjecture is about so-called group
 \begin{proposition}
     Let $\mathbb K$ be a field and $G$ a group. Then $\mathbb K[G]$ is a unital ring.
 \end{proposition}
-The proof of this theorem is no more than checking the group axioms one by one. For completeness you can find it in \cref{sec:proof_groupring}.
+The proof of this theorem is no more than checking the group axioms one by one. For completeness you can find it in appendix \hyperlink{sec:proof_groupring}{A}.
 
 \begin{remark}
 	A group ring is in general not commutative. In fact, $\mathbb{K}[G]$ is commutative if and only if $G$ is a abelian group. So we will have to be careful when dealing with these rings. 
@@ -369,10 +375,10 @@ By the following lemma, we can not only exploit this\todo[color=green]{make prec
 \begin{example}
 	Counterexamples are at least as insightful as examples. 
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
-	For those not familiar with the free group, a brief introduction is given in \cref{sec:intro_free_group}.
-	To prove this, we will have to show that there does not exist a Følner sequence.
+	For those not familiar with the free group, a brief introduction is given in appendix \hyperlink{sec:intro_free_group}{B}.
+	To prove this we will have to show that there does not exist a Følner sequence.
 	We will prove that for every non-empty finite subset $B \subset F_n$ it holds that \[
-		\card{\bigcup_{i = 1}^{n} x_iB \cup x_i^{-1}B} \ge (2n-1) \card{B}
+		\card{\bigcup_{i = 1}^{n} x_iB \cup x_i^{-1}H} \ge (2n-1) \card{H}
 	.\] 
 	We can prove this using induction on the size of $B$. 
 	\begin{description}
@@ -429,7 +435,6 @@ We now state the proof.
     \end{proposition}
     \begin{proof}
         \input{proof_abelian_folner}
-	\todo{check Szabo's remarks!}
         % check Szabo's remarks!
     \end{proof}
     As an immediate corollary we get the following well-known result.
@@ -715,7 +720,7 @@ Now we can quite easily prove the following result. We follow the proof of Weiss
 	
 \section{Surjunctivity of Amenable and Sofic Groups}
 
-In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). We will however, follow an alternative approach and prove this well-known result directly from our definitions. We were unable to find a proof in the literature that follows the same approach, but it is important to point out that our proof and the aforementioned proofs have many conceptual similarities. 
+In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). However, we came up with an alternative approach, independent of the literature, and will prove this well-known result directly from our definitions. We were unable to find a proof in the literature that follows the same approach, but it is important to point out that our proof and the aforementioned proofs have many conceptual similarities. 
 
 Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we show how one can obtain the surjunctivity result for sofic groups using the concept of entropy loosely following \cite[paragraph 2.13.6 - 2.13.7]{capraro_lupini_2015}.
 
@@ -965,7 +970,7 @@ Any sofic group G is surjunctive.
 	\end{theorem}
 	%It looks like we will need to use the surjuctivity on $\F^{G}$. Hence we need some statement that relates $\F^{G}$ to $\F[G]$.
 	To exploit the surjunctivity property of $G$, we will need to relate $\mathbb F^G$ to the group ring $\mathbb F[G]$. There is in fact a very nice connection that can be made for any field $\mathbb K$.
-	For finite groups, one can very naturally identify $\mathbb K^G$ with the group ring $\mathbb K[G]$. Indeed, with every element $(x_g)_{g \in G}$ in $\mathbb K^G$, there corresponds an element $\sum_{g \in G} x_g g$ in $\mathbb K[G]$, where $G$ being finite guarantees that this is a finite linear combination. For infinite groups, we cannot identify these two sets, but we can consider $K[G]$ as a subset of $\mathbb K^G$. In this case, $\mathbb K^G$ is not a ring but we can make it into a module over $\mathbb K[G]$. We can do this in very natural way, extending the multiplication as defined in \cref{def:group_ring}. Here, one can think of the elements of $\mathbb K^G$ as (possibly infinite) formal sums $\sum_{g \in G} x_g g$ in $\mathbb K[G]$.
+	For finite groups, one can very naturally identify $\mathbb K^G$ with the group ring $\mathbb K[G]$. Indeed, with every element $(x_g)_{g \in G}$ in $\mathbb K^G$, there corresponds an element $\sum_{g \in G} x_g g$ in $\mathbb K[G]$, where $G$ being finite guarantees that this is a finite linear combination. For infinite groups, we cannot identify these two sets, but we can consider $\mathbb{K}[G]$ as a subset of $\mathbb K^G$. In this case, $\mathbb K^G$ is not a ring but we can make it into a module over $\mathbb K[G]$. We can do this in very natural way, extending the multiplication as defined in \cref{def:group_ring}. Here, one can think of the elements of $\mathbb K^G$ as (possibly infinite) formal sums $\sum_{g \in G} x_g g$ in $\mathbb K[G]$.
 
 	\begin{lemma}
 		For a group $G$ and field $\mathbb K$ we can consider $\mathbb{K}^{G}$ as a left $\mathbb{K}[G]$-module, with pointwise addition and multiplication defined as
@@ -975,7 +980,7 @@ Any sofic group G is surjunctive.
 	.\end{align*} 
 	\end{lemma}
 	\begin{proof}
-		The proof is given in the appendix.
+		The proof is given in appendix \hyperlink{sec:module}{C}.
 	\end{proof}
     %     \begin{remark}
     %     The way $\F^{G}$ is defined as a $\F[G]$-module is not completely abitrary. It should be easy to see that  $\F^{G}$ can be represented as formal sums $\sum_{g \in G} x_g g$, just like $\F[G]$, but where we now allow infinite sums. 
@@ -1052,7 +1057,7 @@ Finally, we can now conclude this report with the issue of open problems which r
 	\addappheadtotoc
 	%\addappheadtotoc
 	
-	\tocless\section{Group Rings are Rings}\label{sec:proof_groupring}	
+	\tocless\section{\hypertarget{sec:proof_groupring}{Group Rings are Rings}}	
 	\addcontentsline{toc}{subsection}{\numberline{A} Group Rings are Rings}
 	
 	\begin{proof}
@@ -1128,8 +1133,9 @@ Finally, we can now conclude this report with the issue of open problems which r
 		\end{description}
         \end{proof}
 
-	\tocless\section{A Brief Introduction to Free Groups} \label{sec:intro_free_group}
-	\addcontentsline{toc}{subsection}{\numberline{B} A Brief Introduction to Free Groups}
+	\tocless\section{\hypertarget{sec:intro_free_group}{A Brief Introduction to Free Groups}} 
+	\addcontentsline{toc}{subsection}{\numberline{B} A Brief Introduction to Free Groups} 
+
 This section is a brief introduction to the free groups, as many of our readers may not be familiar with this family of groups. 
 This is in no way meant to be a rigorous construction of the group and its properties, rather it is an informal overview of its construction and its most important property.
 The details can be found in many algebra text books such as \cite[section 7.9]{artin_algebra_1991} or \cite[section 5.5]{rotman_advanced_2015}.
@@ -1161,7 +1167,7 @@ In some sense, the free group, $F_S$ is the largest group that can be generated 
 \end{property}
 
 
-\tocless\section{$\mathbb K^G$ is a $\mathbb K[G]$-module}
+\tocless\section{\hypertarget{sec:module}{$\mathbb K^G$ is a $\mathbb K[G]$-module}}
 \addcontentsline{toc}{subsection}{\numberline{C} $\mathbb{K}^{G}$ is a $\mathbb{K}[G]$-module}
 	We check the module axioms one by one.
         In the following calculations $r = \sum_{g \in G}^{} r_g g,\ s = \sum_{g \in G}^{} s_g g$ are arbitrary elements of $\mathbb{K}[G]$ and $x = (x_g)_{g \in G}, y = (y_g)_{g \in G}$ are arbitrary elements of $\mathbb{K}^{G}$.
