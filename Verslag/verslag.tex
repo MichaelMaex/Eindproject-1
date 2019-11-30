@@ -348,7 +348,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 	The free group $F_n = \left<x_1, x_2, \ldots, x_n \right>, n \ge 2$ is not amenable. % You should first of all properly define what the free group is
 	For those not familiar with the free group, a brief introduction is given in \cref{sec:intro_free_group}.
 	To prove this we will have to show that there does not exist a Følner sequence.
-	We will prove that for every non-empty finite subset $H \subset F_n$ it holds that \[
+	We will prove that for every non-empty finite subset $H \subset \bar{n}$ it holds that \[
 		\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1) \card{H}
 	.\] 
 	We can prove this using induction on the size of $H$. 
@@ -371,7 +371,7 @@ By the following lemma, we can not only exploit this for individual elements, bu
 				\card{\bigcup_{i = 1}^{n} x_iH \cup x_i^{-1}H} \ge (2n-1)\card{H'} + (2n-1) = (2n-1 ) \card{H}
 			.\]
 			Thus \[
-				\card{\{x_1,x_1^{-1}, \ldots, x_n, x_n^{-1}\}H \setminus H} \ge (2n - 2) \card{H}.
+				\card{\{x_1,x-1^{-1}, \ldots, x_n, x_n^{-1}\}H \setminus H} \ge (2n - 2) \card{H}.
 			\] This clearly contradicts the condition in \cref{lem:folner_finite_subset}. 
 	\end{description}
 	We conclude that the free group is not amenable.
@@ -637,14 +637,14 @@ It is a well-known result that residually finite groups are sofic. \todo{referen
     One can see that the right shift $\sigma$ is a right action of $G$ on $A^G$. We say that a map $\phi: A^G \to A^G$ \emph{commutes with the right shift} if $\sigma_g \circ \phi = \phi \circ \sigma_g$ for every $g \in G$.
     
     \begin{definition}
-	    Let $G$ be a countable group. The group $G$ is called \textbf{surjunctive} if for any finite set $A$ and every injective and continuous $\phi: A^{G}\to A^{G}$ that commutes with the right shift $\sigma$ of $G$ on $A^G$ is also surjective.
-	    \footnote{There is an alternative way to define this in terms of the \emph{left shift} $\tau$ defined by $\tau_g(h)= g^{-1}h$. This approach is completely equivalent and is followed by \cite{capraro_lupini_2015}.}
-    \end{definition}\todo{reference} 
+	    Let $G$ be a countable group. The group $G$ is called \textbf{surjunctive} if for any finite set $A$ and every injective and continuous map $\phi: A^{G}\to A^{G}$ that commutes with the right shift $\sigma$ of $G$ on $A^G$ is also surjective \cite[section 1]{weiss_2000} .
+	    \footnote{There is an alternative way to define this in terms of the \emph{left shift} $\tau$ defined by $\tau_g(h)= g^{-1}h$. This approach is completely equivalent and is followed by \cite[paragraph 2.13.5 - 2.13.7]{capraro_lupini_2015}.}
+    \end{definition}
 
-    % Szabo: reference
+Since there are no known examples of countable groups which are not surjunctive, the following conjecture seems quite natural \cite[introduction]{weiss_2000}.
 
     \begin{conjecture}[Gottschalk] \label{conj:gottschalk}
-        Every countable group is surjunctive.
+        Every countable group is surjunctive  .
     \end{conjecture}
 
     It can be proven that every sofic group is surjunctive. However, the proof is not easy. For that reason we will prove it first for the special case of residually finite groups. We will need the following definition
@@ -692,17 +692,15 @@ Now we can quite easily prove the following result. We follow the proof of Weiss
 	
 \section{Surjunctivity of Amenable and Sofic Groups}
 
-\todo{Szabo:The phrasing here suggests that what you are about to do has something novel to it. Is that really the case? If so, point out explicitly what it is.}
-
 In subsection \ref{ssec:amenable_surjunctive} we present a proof of the fact that amenable groups are surjunctive. In the literature, it is usual to do this using the concept of entropy (as in \cite[section 4]{kerr_li_2010} or \cite[subsection 2.13]{capraro_lupini_2015}), or using graph theory (as in \cite[section 3]{weiss_2000}). We will however, follow an alternative approach and prove this well-known result directly from our definitions. We were unable to find a proof in the literature that follows the same approach, but it is important to point out that our proof and the aforementioned proofs have many conceptual similarities. 
 
-Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we show how one can obtain the surjunctivity result for sofic groups using the concept of entropy.
+Alas, we were unable to generalise these techniques to show that sofic groups are surjunctive. In subsection \ref{ssec:sofic_surjunctive}, we show how one can obtain the surjunctivity result for sofic groups using the concept of entropy loosely following \cite[paragraph 2.13.6 - 2.13.7]{capraro_lupini_2015}.
 
 
 \subsection{Amenable Groups are Surjunctive} \label{ssec:amenable_surjunctive}
-In the following section $G$ will be a fixed countable amenable group, $A$ a fixed finite set and $\phi: A^{G} \to A^{G}$ a fixed continuous injective function that commutes with the right shift. 
-We will also denote a fixed element of $A$ with $0$.
-
+Throughout the following section $G$ will be a fixed countable, amenable group, $A$ a fixed finite set and $\phi: A^{G} \to A^{G}$ a fixed continuous, injective function that commutes with the right shift. 
+We will also often denote a fixed element of $A$ with $0$.
+To keep the final proof clean, we first present several intermediate results of which the following one is the most important.
 \begin{lemma}
 	There exists a finite subset $\Gamma \subset G$ such that the value of $\phi((x_g)_{g \in G})(1_G)$ is only dependent on the values of $x_h$ where  $h \in \Gamma$, 
 	i.e. if for some  $(x_g)_{g \in G}, (y_g)_{g \in G} \in A^{G}$ it holds that $x_h = y_h$ for all $h \in \Gamma$, then $\phi((x_g)_{g \in G})(1_G) = \phi((y_g)_g)(1_G)$.
@@ -714,12 +712,12 @@ We will also denote a fixed element of $A$ with $0$.
 			A & g \ne 1_G
 	\end{cases} \right)
 \]
-	is open. Hence we can choose some basis opens $U_{i, a}$ for some index $i \in I$ such that  \[
+	is open. Hence we can choose basis opens $U_{i, a}$ for some set of indices $i \in I$ such that  \[
 		U_a= \bigcup_{i \in I} U_{i,a}
 	.\] 
 	Notice that $\bigcup_{a \in A} U_a = A^{G}$ is a disjoint union. 
 	Hence $\bigcup_{a \in A, i \in I} U_{i, a} = A^{G}$. 
-	As $A^{G}$ is compact, we see that there must be a finite subset of indices $K$ such that \[
+	As $A^{G}$ is compact, we see that there must exist a finite subset of indices $K$ such that \[
 		A^{G} = \bigcup_{(i, a) \in K} U_{i, a}
 	.\] 
 	Every one of these basis opens is of the form \[
@@ -730,16 +728,16 @@ We will also denote a fixed element of $A$ with $0$.
 	,\]
 	for some open sets $V_{i,a,g} \subset A$ and finite subsets $\Gamma_{i,a} \subset G$. 
 
-	We now claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is set we are looking for. 
-	Obviously $\Gamma$ is finite. 
-	Further, suppose that $(x_g)_{g\in G} \in A^{G}$ and $(y_g)_{g \in G} \in A^{G}$ agree on $\Gamma$,
+	We now claim that $\Gamma = \bigcup_{(i,a) \in K} \Gamma_{i,a}$ is, in fact, the set we are looking for. 
+	Obviously, $\Gamma$ is finite. 
+	Furthermore, suppose that $(x_g)_{g\in G} \in A^{G}$ and $(y_g)_{g \in G} \in A^{G}$ agree on $\Gamma$,
 	meaning that for every $\gamma \in \Gamma$ it holds that  $x_\gamma = y_\gamma$.
-	We know that for some  $(i, a) \in K$ the point $(x_g)_g \in U_{i,a}$. 
-	In particular we see that $x_\gamma = y_\gamma$ for every $\gamma \in \Gamma_{i,a}$. 
-	So $(y_g)_{g \in G} \in U_{i, a}$. 
+	Then, we know that for some  $(i, a) \in K$ the point $(x_g)_g \in U_{i,a}$. 
+	In particular, we see that $x_\gamma = y_\gamma$ for every $\gamma \in \Gamma_{i,a}$. 
+	Thus $(y_g)_{g \in G} \in U_{i, a}$. 
 	Hence  $(x_g)_{g \in G} , (y_g)_{g \in G}$ are elements of $U_a$. 
-	So  $\phi((x_g)_{g \in G})(1_G) = a = \phi((y_g)_{g \in G})(1_G) $.
-	We conclude that $\Gamma$ is indeed the set we're looking for.
+	Therefore  $\phi((x_g)_{g \in G})(1_G) = a = \phi((y_g)_{g \in G})(1_G) $.
+	We conclude that $\Gamma$ is indeed the desired set.
 \end{proof}
 From this point on we will also fix $\Gamma$. 
 
@@ -747,7 +745,7 @@ From this point on we will also fix $\Gamma$.
 	For any $k \in G$ the value of $\phi((x_g)_{g \in G})(k)$ is only dependent on the values of $x_{kh}$ where $h \in \Gamma$.
 \end{corollary}	
 \begin{proof}
-	As $\phi$ commutes with the right shift  $\sigma_k$ we know that $\sigma_k\phi = \phi\sigma_k$. Applying the previous lemma immediately gives the result.
+	As $\phi$ commutes with the right shift  $\sigma_k$ we know that $\sigma_k \circ \phi = \phi \circ \sigma_k$. Applying the previous lemma immediately gives the result.
 \end{proof}
 
 \begin{corollary}\label{cor:differ_in_image}
