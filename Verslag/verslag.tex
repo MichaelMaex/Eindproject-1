@@ -56,7 +56,17 @@
 \DeclareMathOperator{\red}{red}
 
 
+\newtheoremstyle{theoremdd}% name of the style to be used
+  {7pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {7pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\itshape}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  { }% space after theorem head; " " = normal interword space
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}
 
+\theoremstyle{theoremdd}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -117,7 +127,6 @@ We can trace the origins of the concepts we shall discuss back to the research b
 These two concepts may, at first glance, seem completely unrelated. The connection becomes clear, however, when considering the question of surjectivity of these maps on the configuration space. Surjectivity in this context is, intuitively, the property that any configuration can be reached as a result from some other configuration. A configuration that can not be produced because it is not in the image of the (non-surjective) automaton is called a ‘Garden of Eden’. Importantly, such a Garden of Eden always contains a so-called ‘orphan’ which is a finite subset which cannot be produced (a finite Garden of Eden, as it were). The Garden of Eden Theorem \cite[preface]{capraro_lupini_2015}
 states that a configuration is a Garden of Eden if and only if it contains such an orphan. From this theorem it follows that the injectivity of the automaton implies its surjectivity. However, the validity of this theorem has only been proven for amenable groups.
 Now, groups $G$ for which it is the case that injectivity of an automaton using any finite alphabet $A$ implies surjectivity of that automaton are the afore mentioned surjunctive groups. This, then, brought research eventually to sofic groups, as this is the largest known class of groups of which all members are known to be surjunctive \cite{ceccherini-silberstein_coornaert_2010}.  
-
 
 \subsection*{Goal of this Report}
 
@@ -329,7 +338,7 @@ Now for the second condition. It is clear that for any $i \in \N, k \in \{1,\dot
     \end{definition}
     %\item for every $g \in G$ there exists an $N \in \N$ such that for all $n > N: x \in F_n$
     \Cref{fig:folner} gives a visual intuition for this notion. 
-    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.
+    If a countable group statisfies the Følner condition, we will call the group \emph{amenable}.\footnote{One can also define amenability also for uncountable groups. In that case however, it is defined differently and the Følner criterion is not equivalent to the amenability.}\todo{reference for the footnote} 
 
 \begin{figure}[ht]
     \centering
@@ -383,7 +392,7 @@ By the following lemma, we can not only exploit this\todo[color=green]{make prec
 	\begin{description}
 		\item[$\card{B} = 1$:] Then $B = \{g\}$. 
 			Hence the left hand side set is $\{x_1g, x_1^{-1}g, x_2g, x_2^{-1}g, \ldots, x_ng, x_n^{-1}g\} $, which has cardinality $2n$. 
-		\item[$\card{H} > 1$:] 
+		\item[$\card{B} > 1$:] 
 			Let $ h \in B$ be an element that has maximum number of letters in reduced form.
 			Consider the set $B' = B\setminus \{h\} $. 
 			By the induction hypothesis it holds that 
@@ -923,7 +932,7 @@ Suppose now that $G$ is sofic and $\Sigma := (\Phi_i: G \to \sym(d_i))_{i \in \N
 		\]
 \end{definition}
 
-It should be noted that in the definition of $H_n(\delta)$ provided above the right shift $\sigma_g$ is used on the sequence $(x_i)_i$, whereas the definition in \cite[paragraph 2.13.6]{capraro_lupini_2015}.\\
+It should be noted that in the definition of $H_n(\delta)$ provided above the right shift $\sigma_g$ is used on the sequence $(x_i)_i$, whereas the definition in \cite[paragraph 2.13.6]{capraro_lupini_2015} uses the left shift.\\
 
 We shall use the following intermediate result, for which a sketch of the proof is provided. For the complete proof, we refer to either \cite[paragraph 2.13.7]{capraro_lupini_2015} or \cite[theorem 4.12]{kerr_li_2010}.
 
