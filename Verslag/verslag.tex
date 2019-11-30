@@ -23,6 +23,15 @@
 
 \makeatother
 
+\DeclarePairedDelimiter\card{\lvert}{\rvert}
+% Swap the definition of \card*, so that \card
+%  resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldcard\card
+\def\card{\@ifstar{\oldcard}{\oldcard*}}
+
+\makeatother
 
 
 \author{Lucas Levrouw \and Michaël Maex \and Tomas Reunbrouck \and Supervisor: Gabor Szabo}
@@ -38,7 +47,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\F}{\mathbb{F}}
 
-\newcommand{\card}[1]{\left| #1 \right|}
+
 \newcommand{\inclusion}[1]{\xhookrightarrow{#1}}
 \newcommand{\surjection}[1]{\xtwoheadrightarrow{#1}}
 \newcommand{\id}{\mathrm{id}}
@@ -76,9 +85,17 @@
 \begin{document}
 \pagenumbering{Alph}
     \maketitle
+%\clearpage % end title page
+\begingroup
+  \pagestyle{empty}
+  \null
+  \newpage
+\endgroup
 \pagenumbering{arabic}
 \tableofcontents
 \pagebreak
+
+
 
 \section{Introduction}\label{sec:intro}
 
